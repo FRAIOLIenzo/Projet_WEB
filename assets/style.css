@@ -1,31 +1,30 @@
 
 *{
-    margin : 0;
+    margin : 20;
     padding :10;
+    font-family: 'Inter', sans-serif;
 
 }
 
 footer {
     color: rgb(255, 255, 255);
     background-color: #DAD4DE;
-    font-family: 'Inter', sans-serif;
+    padding : 0px;
     width: 100%;
     position: relative;
     bottom: 0;
     left: 0;
     right: 0;
-    height: 200px;
+    height: 260px;
 }
 
 
-.footer_contenu{
-    width: 1200px;
-    margin : 0 auto;
-    display : flex;
+.grille_footer{
+    position : relative;
+    display : grid;
+    grid-template-columns: 340px 340px 470px;
+    grid-template-rows: 30px 180px ;
 
-    align-items: flex-start;
-    font-size : 20 px;
-    padding:50px 0 100px;
 }
 
 
@@ -33,17 +32,38 @@ footer {
 .bloc_footer_nous_contacter ,
 .bloc_footer_reseaux_sociaux  {
 
-    width : 75%;
+    
     margin: 0 30px;
     /*justify-content: space-between;*/
 
+}
+
+.bloc_footer_a_propos{
+    grid-row-start: 2;
+    grid-row-end : 2;
+    grid-column-start: 1;
+    grid-column-end: 1;
+}
+
+.bloc_footer_nous_contacter{
+    grid-row-start: 2;
+    grid-row-end : 2;
+    grid-column-start: 2;
+    grid-column-end: 2;
+}
+
+.bloc_footer_reseaux_sociaux{
+    grid-row-start: 2;
+    grid-row-end : 2;
+    grid-column-start: 3;
+    grid-column-end: 3;
 }
 
 
 .bloc_footer_a_propos h3,
 .bloc_footer_nous_contacter h3,
 .bloc_footer_reseaux_sociaux h3 {
-
+    
     font-size : 17px;
     padding-bottom : 20 px;
     justify-content: space-between;
@@ -57,14 +77,19 @@ footer {
 .liste_nous_contacter,
 .liste_reseaux_sociaux{
     list-style-type : none;
+    margin-right: 60px;
 }
 
 
 .liste_a_propos li ,
 .liste_nous_contacter li {
 
-    padding : 3px 0;
+    padding : 4px ;
+    float : left;
 }
+
+
+
 
 .liste_a_propos a {
     text-decoration: none;
@@ -77,9 +102,72 @@ footer {
 
 footer img{
     width: 50px;
+    padding-right: 10px;
 }
 
 
 .noStage{
     text-align: center;
+
 }
+
+
+
+header{
+
+    background-color: blue;
+}
+
+
+.acceuil_slogan {
+
+    background-color: #DAD4DE;
+    list-style-type : none;
+    height : 650px;
+    
+    
+
+}
+
+
+.bloc_slogan{
+    font-size:80px;
+    font-weight: bold;
+    
+    padding-top: 50px;
+    margin-left : 80px;
+    
+    
+
+}
+
+.phrase_acceuil {
+    font-size: small;
+   
+
+}
+
+.homme_loupe {
+    position: absolute;
+    top: 80px; 
+    left: 850px; 
+    width: 500px;
+    height : 580px;
+}   
+
+
+.bouton_commencer{
+    
+    margin-top: 20px;
+    margin-left : 80px;
+    height: 80px;
+    width: 350px;
+    border-radius: 25px;
+    background:#7B9DD2;
+    box-shadow:  18px 18px 50px #acacac,-18px -18px 50px #ffffff;
+    border : none;
+    font-weight: bold;
+    color : white;
+    font-size : 16px;
+}
+
