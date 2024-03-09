@@ -5,100 +5,9 @@
     font-family: 'Inter', sans-serif;
 }
 
-/*FOOTER*/
-
-footer {
-    color: rgb(255, 255, 255);
-    background-color: #DAD4DE;
-    padding : 0px;
-    width: 100%;
-    margin-top : 50px;
-}
 
 
 
-.contenu_footer{
-    
-    margin : 0 auto;
-    display : flex;
-    align-items : flex-start;
-    padding : 50px 0 ;
-    margin-left : 30px;
-}
-
-.bloc_footer_a_propos ,
-.bloc_footer_nous_contacter ,
-.bloc_footer_reseaux_sociaux  {
-
-    margin-top : -30px;
-}
-
-
-.bloc_footer_a_propos h3,
-.bloc_footer_nous_contacter h3,
-.bloc_footer_reseaux_sociaux h3 {
-    
-    font-size : 17px;
-    padding-bottom : 20 px;
-    justify-content: space-between;
-    margin-bottom : 20px;
-}
-
-.bloc_footer_a_propos{
-    margin-left : 20px;
-    margin-right : 80px;
-}
-
-.bloc_footer_nous_contacter{
-    margin-right: 510px;
-}
-
-
-
-
-
-.liste_a_propos,
-.liste_nous_contacter,
-.liste_reseaux_sociaux{
-
-    list-style-type : none;
-    margin-right: 60px;
-    
-}
-
-
-
-.liste_a_propos a,
-.liste_nous_contacter a {
-    text-decoration: none;
-    color: white;
-    margin-top: 150px;
-  
-    flex-direction: column;
-    
-}
-
-.liste_a_propos a:hover {
-    color : #7B9DD2;
-}
-
-footer img{
-    width: 50px;
-    padding-right: 10px;
-}
-
-
-.noStage{
-    text-align: center;
-
-}
-
-
-
-header{
-
-    background-color: rgb(59, 59, 221);
-}
 
 
 
@@ -218,3 +127,5 @@ main section img {
 .alignement p {
     margin-top: 400px;
 }
+
+
