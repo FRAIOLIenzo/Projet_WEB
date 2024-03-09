@@ -1,0 +1,207 @@
+
+*{
+    margin : 0;
+    padding : 0;
+    font-family: 'Inter', sans-serif;
+}
+
+/*FOOTER*/
+
+footer {
+    color: rgb(255, 255, 255);
+    background-color: #DAD4DE;
+    padding : 0px;
+    width: 100%;
+    margin-top : 50px;
+}
+
+
+
+.contenu_footer{
+    
+    margin : 0 auto;
+    display : flex;
+    align-items : flex-start;
+    padding : 50px 0 ;
+    margin-left : 30px;
+}
+
+.bloc_footer_a_propos ,
+.bloc_footer_nous_contacter ,
+.bloc_footer_reseaux_sociaux  {
+
+    margin-top : -30px;
+}
+
+
+.bloc_footer_a_propos h3,
+.bloc_footer_nous_contacter h3,
+.bloc_footer_reseaux_sociaux h3 {
+    
+    font-size : 17px;
+    padding-bottom : 20 px;
+    justify-content: space-between;
+    margin-bottom : 20px;
+}
+
+.bloc_footer_a_propos{
+    margin-left : 20px;
+    margin-right : 80px;
+}
+
+.bloc_footer_nous_contacter{
+    margin-right: 510px;
+}
+
+
+
+
+
+.liste_a_propos,
+.liste_nous_contacter,
+.liste_reseaux_sociaux{
+
+    list-style-type : none;
+    margin-right: 60px;
+    
+}
+
+
+
+.liste_a_propos a,
+.liste_nous_contacter a {
+    text-decoration: none;
+    color: white;
+    margin-top: 150px;
+  
+    flex-direction: column;
+    
+}
+
+.liste_a_propos a:hover {
+    color : #7B9DD2;
+}
+
+footer img{
+    width: 50px;
+    padding-right: 10px;
+}
+
+
+.noStage{
+    text-align: center;
+
+}
+
+
+
+header{
+
+    background-color: rgb(59, 59, 221);
+}
+
+
+
+
+/* PAGE ACCEUIL*/
+
+.acceuil_slogan {
+
+    background-color: #DAD4DE;
+    list-style-type : none;
+    height : 650px;
+    
+    
+
+}
+
+
+.bloc_slogan{
+    font-size:80px;
+    font-weight: bold;
+    
+    padding-top: 50px;
+    margin-left : 80px;
+    
+    
+
+}
+
+.phrase_acceuil {
+    margin-top: 50px;
+    margin-bottom: 50px;
+    font-size: 17px;
+   
+
+}
+
+.homme_loupe {
+    position: absolute;
+    top: 80px; 
+    left: 850px; 
+    width: 500px;
+    height : 580px;
+}   
+
+
+.bouton_commencer{
+    
+    margin-top: 20px;
+    margin-left : 80px;
+    height: 80px;
+    width: 350px;
+    border-radius: 25px;
+    background:#7B9DD2;
+    box-shadow:  18px 18px 50px #acacac,-18px -18px 50px #ffffff;
+    border : none;
+    font-weight: bold;
+    color : white;
+    font-size : 16px;
+}
+
+
+
+
+/*Milieu de page*/
+
+
+main {
+    margin-top: 50px;
+    
+}
+
+main h1 {
+
+    text-align: center;
+    
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
+
+.texte_center  {
+    margin : 20px auto;
+    width: 75%;
+    padding : 15px;
+    text-align : center;
+    line-height: 2;
+    
+}
+
+main section img {
+    width: 250px;
+    height: 250px;
+    border-radius: 100px;
+}
+
+.partenaires{
+    margin-top: 20px;
+    width: 90%;
+    height: 205px;
+    margin :auto;
+}
+
+.alignement{
+    display : flex;
+    
+}
