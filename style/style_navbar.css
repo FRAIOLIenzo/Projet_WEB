@@ -1,0 +1,135 @@
+* {
+    margin: 0px;
+    padding: 0;
+    text-decoration: none;
+    list-style: none;
+  }
+  
+  header {
+    background-color: #7b9dd2;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .logo {
+    padding: 10px;
+    width: 135px;
+    height: 60px;
+    margin-left: 30px;
+  }
+  
+  .navbar {
+    display: flex;
+    align-items: center;
+    margin-right: 30px;
+  }
+  
+  .navbar .container {
+    display: flex;
+    align-items: center;
+  }
+  
+  header nav a,
+  .dropdown_1 > button,
+  .dropdown_2 > button,
+  .dropdown_3 > button {
+    color: white;
+    margin: 0 10px;
+    font-weight: bold;
+    font-family: "Inter", sans-serif;
+    font-size: 16px;
+    padding: 10px;
+  }
+  
+  header nav a:hover {
+    background-color: white;
+    border-radius: 15px;
+    color: #7b9dd2;
+  }
+  header button {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+  }
+  
+  header .dropdown_1 .content,
+  .dropdown_2 .content_gerer,
+  .dropdown_3 .content_stat {
+    display: none;
+  }
+  
+  header .dropdown_1,
+  .dropdown_2,
+  .dropdown_3 {
+    position: relative;
+  }
+  
+  header .dropdown_1:hover button,
+  .dropdown_2:hover button,
+  .dropdown_3:hover button {
+    border-radius: 15px 15px 0 0;
+    padding-left: 0px;
+    color: #7b9dd2;
+    background-color: white;
+  }
+  
+  header .dropdown_1:hover button,
+  .content {
+    width: 120px;
+  }
+  
+  header .dropdown_2:hover button {
+    width: 130px;
+    text-align: left;
+    padding-left: 20px;
+  }
+  
+  header .dropdown_3:hover button,
+  .content_stat {
+    width: 140px;
+  }
+  
+  header .dropdown_1:hover .content,
+  .dropdown_2:hover .content_gerer,
+  .dropdown_3:hover .content_stat {
+    display: block;
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    background-color: white;
+    top: 39.5px;
+    left: 10px;
+    border-radius: 0 0 15px 15px;
+    z-index: 1;
+    box-shadow: 0px 3px 4px 0px rgba(0, 0, 0, 0.25);
+  }
+  
+  header .dropdown_2:hover .content_gerer {
+    width: 130px;
+  }
+  
+  header .content a,
+  .content_gerer a,
+  .content_stat a {
+    color: #7b9dd2;
+    font-weight: normal;
+  }
+  
+  .profil {
+    margin-left: 20px;
+    border-radius: 100%;
+    width: 60px;
+    height: 60px;
+  }
+  
+  .menu_profil {
+    width: 24px;
+    height: 24px;
+  }
+  
+  .profil-container {
+    display: flex;
+    align-items: center;
+  }
+  
