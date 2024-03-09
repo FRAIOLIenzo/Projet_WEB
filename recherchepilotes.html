@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Navbar NoStage</title>
+    <meta name="description" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="style/style_navbar.css" />
+    <link rel="stylesheet" href="style/affchenseignant.css" />
+
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap"
+    />
+  </head>
+  <body>
+    <header>
+      <img
+        class="logo"
+        src="image/logo entreprise.png"
+        alt="logo de l'entreprise"
+      />
+      <nav class="navbar">
+        <div class="container">
+          <a href="#">Acceuil</a>
+          <div class="dropdown_1">
+            <button>Chercher</button>
+            <div class="content">
+              <a href="#">Entreprises</a>
+              <a href="#">Stages</a>
+            </div>
+          </div>
+          <div class="dropdown_2">
+            <button>Gérer</button>
+            <div class="content_gerer">
+              <a href="#">Enseignants</a>
+              <a href="#">Entreprises</a>
+              <a href="#">Etudiants</a>
+              <a href="#">Offres</a>
+            </div>
+          </div>
+          <div class="dropdown_3">
+            <button>Statistiques</button>
+            <div class="content_stat">
+              <a href="#">Entreprises</a>
+              <a href="#">Etudiants</a>
+              <a href="#">Offres</a>
+            </div>
+          </div>
+        </div>
+        <div class="profile-container">
+          <img class="profil" src="image/profil.png" alt="profil utilisateur" />
+          <img
+            class="menu_profil"
+            src="image/menu profil.png"
+            alt="menu profil utilisateur"
+          />
+        </div>
+      </nav>
+    </header>
+
+    <main>
+      <div class="container2">
+        <div class="menu">
+          <ul>
+            <div class="square">
+              <li class="active"><a href="#">Pilotes</a></li>
+            </div>
+            <li><a href="#">Offres</a></li>
+            <li><a href="#">Étudiants</a></li>
+            <li><a href="#">Entreprise</a></li>
+          </ul>
+        </div>
+        <div class="squaredg">
+          <div class="headertab">
+            <input
+              type="search"
+              class="searchbar"
+              placeholder="Rechercher..."
+            />
+            <div class="btncountainer">
+              <button class="btnajouter">
+                <img class="imgplus" src="image/plus.png" />Ajouter des pilotes
+                via un fichier CSV
+              </button>
+              <button onclick="openPopup1()" class="btnajouter">
+                <img class="imgplus" src="image/plus.png" />un pilote
+              </button>
+            </div>
+          </div>
+          <table>
+            <tr>
+              <th>#</th>
+              <th>Nom</th>
+              <th>Prénom</th>
+              <th>Centre</th>
+              <th>Mail</th>
+              <th>Promo</th>
+              <th></th>
+            </tr>
+
+            <tbody id="myTable"></tbody>
+          </table>
+        </div>
+      </div>
+
+      <div id="popupajout1">
+        <div class="popupcontent">
+          <div id="creertxt">Créer un compte pilote</div>
+
+          <form action="/votre-page-de-traitement" method="post">
+            <input
+              type="text"
+              id="prenom"
+              name="prenom"
+              placeholder="Prénom"
+              required
+            />
+            <input type="text" id="nom" name="nom" placeholder="Nom" required />
+            <select id="centre" name="centre">
+              <option value="" disabled selected>Centre</option>
+
+              <option value="centre1">Centre 1</option>
+              <option value="centre2">Centre 2</option>
+              <option value="centre3">Centre 3</option>
+            </select>
+            <select id="promotion" name="promotion">
+              <option value="" disabled selected>Promotion</option>
+              <option value="promotion1">Promotion 1</option>
+              <option value="promotion2">Promotion 2</option>
+              <option value="promotion3">Promotion 3</option>
+            </select>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              placeholder="Adresse e-mail"
+              required
+            />
+            <input
+              type="password"
+              id="motdepasse"
+              name="motdepasse"
+              placeholder="Mot de passe"
+              required
+            />
+            <input type="submit" value="Valider" />
+          </form>
+
+          <button onclick="openPopup1()">Annuler</button>
+        </div>
+      </div>
+    </main>
+
+    <script>
+      var myArray = [
+        {
+          numero: "Michael",
+          nom: "30",
+          prenom: "11/10/1989",
+          centre: "coucou",
+          mail: "salut",
+          promo: "wesh",
+          plus: "wesh",
+        },
+        {
+          numero: "Mila",
+          nom: "32",
+          prenom: "10/1/1989",
+          centre: "coucou",
+          mail: "salut",
+          promo: "wesh",
+          plus: "wesh",
+        },
+        {
+          numero: "Paul",
+          nom: "29",
+          prenom: "10/14/1990",
+          centre: "coucou",
+          mail: "salut",
+          promo: "wesh",
+          plus: "wesh",
+        },
+        {
+          numero: "Dennis",
+          nom: "25",
+          prenom: "11/29/1993",
+          centre: "coucou",
+          mail: "salut",
+          promo: "wesh",
+          plus: "wesh",
+        },
+        {
+          numero: "Tim",
+          nom: "27",
+          prenom: "3/12/1991",
+          centre: "coucou",
+          mail: "salut",
+          promo: "wesh",
+          plus: "wesh",
+        },
+        {
+          numero: "Erik",
+          nom: "24",
+          prenom: "10/31/1995",
+          centre: "coucou",
+          mail: "salut",
+          promo: "wesh",
+          plus: "wesh",
+        },
+      ];
+
+      buildTable(myArray);
+      function buildTable(data) {
+        var table = document.getElementById("myTable");
+
+        for (var i = 0; i < data.length; i++) {
+          var row = `<tr>
+                        <td>${data[i].numero}</td>
+                        <td>${data[i].nom}</td>
+                        <td>${data[i].prenom}</td>
+                        <td>${data[i].centre}</td>
+                        <td>${data[i].mail}</td>
+                        <td>${data[i].promo}</td>
+                        <td> <img class="imgautre" src="image/autre.png"></td>
+
+
+                  </tr>`;
+          table.innerHTML += row;
+        }
+      }
+
+      function openPopup1() {
+        let popup = document.getElementById("popupajout1");
+        popup.classList.toggle("open");
+      }
+    </script>
+  </body>
+</html>
