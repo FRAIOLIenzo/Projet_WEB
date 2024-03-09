@@ -192,6 +192,10 @@ main section img {
     width: 250px;
     height: 250px;
     border-radius: 100px;
+    margin : 50px;
+    margin-top: 50px;
+   
+
 }
 
 .partenaires{
@@ -199,9 +203,18 @@ main section img {
     width: 90%;
     height: 205px;
     margin :auto;
+    margin-top: 20px;
+    
 }
 
 .alignement{
     display : flex;
+
+    justify-content: center;
     
+    
+}
+
+.alignement p {
+    margin-top: 400px;
 }
