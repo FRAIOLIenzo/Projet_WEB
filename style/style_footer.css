@@ -64,11 +64,15 @@ footer {
 .liste_a_propos a,
 .liste_nous_contacter a {
     text-decoration: none;
-    color: white;
-    margin-top: 150px;
+    color: rgb(249, 249, 249);
+   
   
     flex-direction: column;
     
+}
+
+.interligne {
+    line-height: 28px;
 }
 
 .liste_a_propos a:hover {
