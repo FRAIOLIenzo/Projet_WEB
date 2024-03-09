@@ -4,17 +4,58 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Page d'accueil</title>
-  <link rel="stylesheet" href="assets/style.css">
+  <link rel="stylesheet" href="assets/style_page_acceuil.css">
+  <link rel="stylesheet" href="assets/style_navbar.css" />
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap">
 </head>
 
 
 
 <body>
-<header>
-
-  <p>test de l'header</p>
-</header>
+  <header>
+    <img
+      class="logo"
+      src="image/logo entreprise.png"
+      alt="logo de l'entreprise"
+    />
+    <nav class="navbar">
+      <a href="#">Accueil</a>
+      <div class="dropdown_1">
+        <button>Chercher</button>
+        <div class="content">
+          <a href="#">Entreprises</a>
+          <a href="#">Stages</a>
+        </div>
+      </div>
+      <div class="dropdown_2">
+        <button>Gérer</button>
+        <div class="content_gerer">
+          <a href="#">Enseignants</a>
+          <a href="#">Entreprises</a>
+          <a href="#">Etudiants</a>
+          <a href="#">Offres</a>
+        </div>
+      </div>
+      <div class="dropdown_3">
+        <button>Statistiques</button>
+        <div class="content_stat">
+          <a href="#">Entreprises</a>
+          <a href="#">Etudiants</a>
+          <a href="#">Offres</a>
+        </div>
+      </div>
+      <div class="profil-container">
+        <img class="profil" src="image/profil.png" alt="profil utilisateur" />
+        <button>
+          <img
+            class="menu_profil"
+            src="image/menu profil.png"
+            alt="menu profil utilisateur"
+          />
+        </button>
+      </div>
+    </nav>
+  </header>
 
 
 
@@ -39,34 +80,47 @@
 
 
 
-
-    <div>Pourquoi utiliser noStage ?</div>
-    <p>noStage est un site de recherche de stage facile et pratique d’utilisation. Nous savons, en tant qu’étudiants, que la recherche de stage n’est pas forcément évidente. C’est pourquoi noStage est un site Web qui regroupe différentes offres de stage et qui permet de stocker les données des entreprises ayant déjà pris un stagiaire ou qui en recherchent un.</p>
-    <div>
-      <img/>
+    <main>
  
-      <div>
-        <img/>
-        <img/>
-      </div>
+    <h1>Pourquoi utiliser noStage ?</h1>
+    <div class="texte_center">
+      <p>noStage est un site de recherche de stage facile et pratique d’utilisation. Nous savons, en tant qu’étudiants, que la recherche de stage n’est pas forcément évidente. C’est pourquoi noStage est un site Web qui regroupe différentes offres de stage et qui permet de stocker les données des entreprises ayant déjà pris un stagiaire ou qui en recherchent un.</p>
     </div>
-    <div>
-      <img/>
-      <p>Nos collaborateurs</p>
-      <div>
-        <img/>
-        <img/>
-        <img/>
-      </div>
-      <div>
-        <p>Maxime Auchet</p>
-        <p>Alexis Peiffer</p>
-        <p>Enzo Fraïoli</p>
-      </div>
+     
+    
+    <h1>Nos partenaires</h1>
+    
+    <div class="texte_center">
+
+      <p>noStage a la chance d’avoir élaboré de nombreux partenariats avec diverses entreprises</p>
+      <img class ="partenaires" src ="image/partenaires.png"/>
     </div>
-    <p>Nos partenaires</p>
-    <p>noStage a la chance d’avoir élaboré de nombreux partenariats avec diverses entreprises</p>
-  </div>
+
+  
+    <h1>Nos collaborateurs</h1>
+   
+    
+      <section class = "alignement">
+      <img src="image/maxime.png"/>
+      
+      
+      <img src="image/alexis.png"/>
+      
+      
+      <img src="image/enzo.png"/>
+      
+        
+      </section>
+
+
+      <div class="nom">
+      <p>Maxime Auchet</p>
+      <p>Alexis Peiffer</p>
+      <p>Enzo Fraïoli</p>
+      </div>
+ 
+
+  </main>
 
   <footer>
 
