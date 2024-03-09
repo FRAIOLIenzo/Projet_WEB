@@ -1,0 +1,173 @@
+/*CSS POUR LE MAIN */
+main {
+  margin-top: 0px; /* Ajustez la valeur selon vos besoins */
+}
+.container2 {
+  padding: 60px;
+  margin: 0;
+  display: inline-block;
+  justify-content: center;
+  height: 100vh; /* Centrer verticalement */
+}
+.menu {
+  padding: 42px;
+  margin: 0;
+}
+
+.menu ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.menu ul li {
+  font-family: "Inter", sans-serif;
+  margin: 0 10px; /* Espacement entre les éléments */
+}
+
+.square {
+  background-color: #7b9dd2;
+  width: 114px;
+  height: 54px;
+  border-radius: 25px;
+  display: flex; /* Utilisation de flexbox */
+  align-items: center; /* Centrage vertical */
+  justify-content: center; /* Centrage horizontal */
+}
+
+.active a {
+  color: #ffffff;
+  text-decoration: none; /* Supprimer le soulignement du lien */
+}
+.menu a:visited {
+  color: #ffffff; /* Utilise la couleur par défaut du texte */
+  text-decoration: none; /* Supprime le soulignement */
+}
+
+.squaredg {
+  background-color: #ffffff;
+  width: 1328px;
+  height: 685px;
+  border-radius: 25px;
+  display: flex; /* Utilisation de flexbox */
+  justify-content: center; /* Centrage horizontal */
+  display: inline-block;
+}
+/* CSS POUR LE TABLEAU */
+table {
+  border-collapse: collapse;
+  width: 100%;
+  overflow: hidden;
+}
+
+th,
+td {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+  font-size: 13px; /* Taille de police réduite */
+}
+
+th {
+  background-color: #f2f2f2;
+}
+
+tbody tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+tbody tr:hover {
+  background-color: #ddd;
+}
+
+.searchbar {
+  border-radius: 6px;
+  border: 1px solid #ccc; /* Bordure grise de 1 pixel */
+  margin-left: 76px;
+  width: 320px;
+  height: 32px;
+  position: relative; /* Position relative pour le conteneur */
+}
+.searchbar::placeholder {
+  padding-left: 30px; /* Ajoutez le padding souhaité */
+}
+
+.headertab {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.btncountainer {
+  display: flex;
+}
+.btnajouter {
+  margin: 10px;
+  padding: 5px;
+  background-color: #7b9dd2;
+  color: #ffffff;
+  border-radius: 6px;
+  border: none; /* Supprime les bordures */
+  display: flex; /* Utilisation de flexbox */
+  align-items: center; /* Aligner les éléments verticalement */
+}
+
+.imgplus {
+  width: 12px;
+  height: 12px;
+  margin: 4px;
+}
+.imgautre {
+  float: right;
+
+  width: 40px;
+  height: 40px;
+  margin: 4px;
+}
+
+/*Popup ajout 1 */
+#popupajout1 {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.7);
+  z-index: 98;
+  display: none;
+}
+#popupajout1.open {
+  display: block !important;
+}
+.popupcontent {
+  position: absolute;
+  background-color: #ffffff;
+  width: 450px;
+  height: 488px;
+  border-radius: 25px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+form {
+  display: flex; /* Utilisation de flexbox */
+  justify-content: center; /* Centrage horizontal */
+  align-items: center;
+  display: inline-block;
+}
+form input {
+  border-radius: 3px;
+  border: 1px solid #ccc; /* Bordure grise de 1 pixel */
+}
+form select {
+  border-radius: 3px;
+  border: 1px solid #ccc; /* Bordure grise de 1 pixel */
+}
+#creertxt {
+  font-size: 36px;
+  color: black;
+  font-weight: bold;
+}
