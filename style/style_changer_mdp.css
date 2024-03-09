@@ -1,0 +1,101 @@
+* {
+    margin: 0px;
+    padding: 0;
+    text-decoration: none;
+    list-style: none;
+}
+
+body{
+    background-color: #DAD4DE;
+    font-family: 'Inter', sans-serif;
+}
+
+.box_mdp{
+    background-color: white;
+    width: 450px;
+    height: 400px;
+    border-radius: 30px;
+    align-items: center;
+    position: fixed; 
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    box-shadow: 0px 3px 4px 0px rgba(0,0,0,0.25);
+}
+
+.box_mdp_contenu{
+    margin: 50px;
+    display: flex;
+    flex-direction: column;
+}
+
+.text_mdp{
+    font-size: 36px;
+    font-weight: bold;
+}
+
+input{
+    width: 340px;
+    height: 50px;
+    border: 1px solid #D9E1EC;
+    border-radius: 4px;
+    padding-left: 10px;
+    font-size: 16px;
+}
+
+input::placeholder {
+    color: #D9E1EC;
+}
+
+.box_conf_password, .box_password{
+    height: 52px;
+    position: relative;
+    display: inline-block;
+}
+
+.box_conf_password{
+    margin-top: 15px;
+}
+
+.box_password{
+    margin-top: 36px;
+}
+
+.btn_conf_password, .btn_password{
+    background-color: transparent;
+    position: absolute;
+    border: none;
+    cursor: pointer;
+    right: 10px;
+    top: 50%;
+    transform: translate(0%, -50%);
+    color: #7B9DD2;
+    font-size: 16px;
+}
+
+.btn_valider{
+    margin-top: 25px;
+    height: 55px;
+    width: 100%;
+    background-color:  #7B9DD2;
+    color: white;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    font-size: 18px;
+}
+
+.btn_valider:hover{
+    background-color: #487aca;
+    transition: 1s;
+}
+
+
+.btn_conf_password:hover, .btn_password:hover{
+    color: #487aca;
+}
+
+
+
+
+

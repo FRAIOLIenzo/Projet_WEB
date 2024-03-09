@@ -1,0 +1,100 @@
+* {
+  margin: 0px;
+  padding: 0;
+  text-decoration: none;
+  list-style: none;
+}
+
+body {
+  background-color: #dad4de;
+  font-family: "Inter", sans-serif;
+}
+
+.box_connexion {
+  background-color: white;
+  width: 450px;
+  height: 400px;
+  border-radius: 30px;
+  align-items: center;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  box-shadow: 0px 3px 4px 0px rgba(0, 0, 0, 0.25);
+}
+
+.box_connexion_contenu {
+  margin: 50px;
+  display: flex;
+  flex-direction: column;
+}
+
+.text_connexion {
+  font-size: 36px;
+  font-weight: bold;
+}
+
+input {
+  width: 340px;
+  height: 50px;
+  border: 1px solid #d9e1ec;
+  border-radius: 4px;
+  padding-left: 10px;
+  font-size: 16px;
+}
+
+input::placeholder {
+  color: #d9e1ec;
+}
+
+.email {
+  margin-top: 36px;
+}
+
+.box_password {
+  margin-top: 15px;
+  height: 52px;
+  position: relative;
+  display: inline-block;
+}
+
+.box_connexion a {
+  margin-top: 15px;
+  color: #7b9dd2;
+}
+
+.box_connexion a:hover {
+  color: #487aca;
+}
+
+.btn_password {
+  background-color: transparent;
+  position: absolute;
+  border: none;
+  cursor: pointer;
+  right: 10px;
+  top: 50%;
+  transform: translate(0%, -50%);
+  color: #7b9dd2;
+  font-size: 16px;
+}
+
+.btn_connexion {
+  margin-top: 25px;
+  height: 55px;
+  background-color: #7b9dd2;
+  color: white;
+  border: none;
+  border-radius: 25px;
+  cursor: pointer;
+  font-size: 18px;
+}
+
+.btn_connexion:hover {
+  background-color: #487aca;
+  transition: 0.5s;
+}
+
+.btn_password:hover {
+  color: #487aca;
+}
