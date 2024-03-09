@@ -124,8 +124,17 @@ main section img {
     
 }
 
-.alignement p {
-    margin-top: 400px;
+.nom {
+    display : flex;
+
+    justify-content: center;
 }
 
+.nom p {
+    text-align: center;
+    width: 250px;
+    margin :50px;
+    margin-top:-25px;
+
+}
 
