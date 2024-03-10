@@ -74,11 +74,7 @@
         </div>
         <div class="squaredg">
           <div class="headertab">
-            <input
-              type="search"
-              class="searchbar"
-              placeholder="Rechercher..."
-            />
+            <input type="search" id="searchbar" placeholder="Rechercher..." />
             <div class="btncountainer">
               <button class="btnajouter">
                 <img class="imgplus" src="image/plus.png" />Ajouter des pilotes
@@ -169,64 +165,65 @@
     <script>
       var myArray = [
         {
-          numero: "Michael",
-          nom: "30",
-          prenom: "11/10/1989",
-          centre: "coucou",
-          mail: "salut",
-          promo: "wesh",
-          plus: "wesh",
+          numero: "1",
+          nom: "Dupont",
+          prenom: "Jean",
+          centre: "Centre 1",
+          mail: "jean.dupont@example.com",
+          promo: "Promotion 2022",
+          plus: "Wesh",
         },
         {
-          numero: "Mila",
-          nom: "32",
-          prenom: "10/1/1989",
-          centre: "coucou",
-          mail: "salut",
-          promo: "wesh",
-          plus: "wesh",
+          numero: "2",
+          nom: "Martin",
+          prenom: "Marie",
+          centre: "Centre 2",
+          mail: "marie.martin@example.com",
+          promo: "Promotion 2023",
+          plus: "Wesh",
         },
         {
-          numero: "Paul",
-          nom: "29",
-          prenom: "10/14/1990",
-          centre: "coucou",
-          mail: "salut",
-          promo: "wesh",
-          plus: "wesh",
+          numero: "3",
+          nom: "Dubois",
+          prenom: "Pierre",
+          centre: "Centre 3",
+          mail: "pierre.dubois@example.com",
+          promo: "Promotion 2021",
+          plus: "Wesh",
         },
         {
-          numero: "Dennis",
-          nom: "25",
-          prenom: "11/29/1993",
-          centre: "coucou",
-          mail: "salut",
-          promo: "wesh",
-          plus: "wesh",
+          numero: "4",
+          nom: "Bernard",
+          prenom: "Sophie",
+          centre: "Centre 1",
+          mail: "sophie.bernard@example.com",
+          promo: "Promotion 2022",
+          plus: "Wesh",
         },
         {
-          numero: "Tim",
-          nom: "27",
-          prenom: "3/12/1991",
-          centre: "coucou",
-          mail: "salut",
-          promo: "wesh",
-          plus: "wesh",
+          numero: "5",
+          nom: "Thomas",
+          prenom: "Luc",
+          centre: "Centre 2",
+          mail: "luc.thomas@example.com",
+          promo: "Promotion 2023",
+          plus: "Wesh",
         },
         {
-          numero: "Erik",
-          nom: "24",
-          prenom: "10/31/1995",
-          centre: "coucou",
-          mail: "salut",
-          promo: "wesh",
-          plus: "wesh",
+          numero: "6",
+          nom: "Petit",
+          prenom: "Alice",
+          centre: "Centre 3",
+          mail: "alice.petit@example.com",
+          promo: "Promotion 2021",
+          plus: "Wesh",
         },
       ];
 
       buildTable(myArray);
       function buildTable(data) {
         var table = document.getElementById("myTable");
+        table.innerHTML = "";
 
         for (var i = 0; i < data.length; i++) {
           var row = `<tr>
@@ -247,6 +244,27 @@
       function openPopup1() {
         let popup = document.getElementById("popupajout1");
         popup.classList.toggle("open");
+      }
+
+      document
+        .querySelector("#searchbar")
+        .addEventListener("keyup", function (event) {
+          var value = event.target.value;
+          console.log("Value : ", value);
+          var data = searchTable(value, myArray);
+          buildTable(data);
+        });
+      function searchTable(value, data) {
+        var filteredData = [];
+
+        for (var i = 0; i < data.length; i++) {
+          value = value.toLowerCase();
+          var prenom = data[i].prenom.toLowerCase();
+          if (prenom.includes(value)) {
+            filteredData.push(data[i]);
+          }
+        }
+        return filteredData;
       }
     </script>
   </body>

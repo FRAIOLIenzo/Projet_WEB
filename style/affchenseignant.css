@@ -83,7 +83,7 @@ tbody tr:hover {
   background-color: #ddd;
 }
 
-.searchbar {
+#searchbar {
   border-radius: 6px;
   border: 1px solid #ccc; /* Bordure grise de 1 pixel */
   margin-left: 76px;
