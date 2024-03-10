@@ -3,11 +3,11 @@ main {
   margin-top: 0px; /* Ajustez la valeur selon vos besoins */
 }
 .container2 {
-  padding: 60px;
-  margin: 0;
-  display: inline-block;
-  justify-content: center;
-  height: 100vh; /* Centrer verticalement */
+  margin: 0 auto; /* Centrer horizontalement */
+  display: flex; /* Utilisation de flexbox */
+  justify-content: center; /* Centrer horizontalement */
+  align-items: center; /* Centrer verticalement */
+  flex-direction: column; /* Aligner les éléments verticalement */
 }
 .menu {
   padding: 42px;
@@ -148,9 +148,10 @@ tbody tr:hover {
   width: 450px;
   height: 488px;
   border-radius: 25px;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  margin: 0 auto; /* Centrer horizontalement */
+  display: flex; /* Utilisation de flexbox */
+  justify-content: center; /* Centrer horizontalement */
+  align-items: center; /* Centrer verticalement */
 }
 form {
   display: flex; /* Utilisation de flexbox */
