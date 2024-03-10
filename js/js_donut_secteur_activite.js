@@ -4,7 +4,7 @@ google.charts.setOnLoadCallback(drawChart);
 function drawChart() {
   var data = google.visualization.arrayToDataTable([
     ['Secteur', 'Activite'],
-    ['Informatiqe',     20],
+    ['Informatique',     20],
     ['BTP',      25],
     ['Industrie',  12],
     ['IA', 50],
