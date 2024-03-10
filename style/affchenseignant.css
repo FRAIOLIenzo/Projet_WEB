@@ -90,8 +90,6 @@ tbody tr:hover {
   width: 320px;
   height: 32px;
   position: relative; /* Position relative pour le conteneur */
-}
-.searchbar::placeholder {
   padding-left: 30px; /* Ajoutez le padding souhaité */
 }
 
@@ -148,27 +146,85 @@ tbody tr:hover {
   width: 450px;
   height: 488px;
   border-radius: 25px;
-  margin: 0 auto; /* Centrer horizontalement */
-  display: flex; /* Utilisation de flexbox */
-  justify-content: center; /* Centrer horizontalement */
-  align-items: center; /* Centrer verticalement */
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  flex-direction: column;
 }
-form {
+#close {
+  position: absolute; /* Position absolue pour positionner l'image */
+  top: 20px; /* Distance du haut */
+  right: 20px; /* Distance de la droite */
+  cursor: pointer; /* Curseur de la souris change au survol */
+  width: 20px;
+  height: 18.75px;
+}
+#closecircle {
+  position: absolute; /* Position absolue pour positionner le cercle */
+  top: 15px; /* Ajustez la position verticale */
+  right: 15px; /* Ajustez la position horizontale */
+  width: 30px; /* Largeur du cercle */
+  height: 30px; /* Hauteur du cercle */
+  border-radius: 50%; /* Pour créer un cercle */
+  background-color: rgba(123, 157, 210, 0.5);
+}
+.formcreer1 {
+  margin: 44px;
+  margin-top: 1px;
   display: flex; /* Utilisation de flexbox */
   justify-content: center; /* Centrage horizontal */
   align-items: center;
-  display: inline-block;
+  flex-direction: column;
+  align-items: stretch;
 }
-form input {
+#nomprenom {
+  display: flex;
+  justify-content: space-between;
+}
+#nom,
+#prenom {
+  width: calc(
+    50% - 20px
+  ); /* Divise l'espace disponible en deux avec un petit espacement */
+}
+
+.formcreer1 input {
+  padding-left: 10px; /* Ajoutez le padding souhaité */
+
+  height: 2.75em; /* Deux fois la taille de la police */
+  margin-bottom: 15px;
+  font-size: 16px; /* Ajuste la taille de la police */
+  width: 100%;
   border-radius: 3px;
   border: 1px solid #ccc; /* Bordure grise de 1 pixel */
+  width: 100%; /* Assure que les champs de saisie occupent toute la largeur */
 }
-form select {
+
+.formcreer1 input[type="submit"] {
+  border-radius: 25px;
+  color: #ffffff;
+  background-color: #7b9dd2;
+}
+
+.formcreer1 select {
+  padding-left: 10px; /* Ajoutez le padding souhaité */
+
+  margin-bottom: 15px;
+
+  height: 2.75em; /* Deux fois la taille de la police */
+  font-size: 16px; /* Ajuste la taille de la police */
   border-radius: 3px;
   border: 1px solid #ccc; /* Bordure grise de 1 pixel */
+  width: 100%; /* Assure que les champs de saisie occupent toute la largeur */
 }
+
 #creertxt {
+  margin-top: 14px;
+  margin-left: 44px;
+  margin-right: 44px;
   font-size: 36px;
   color: black;
   font-weight: bold;
+  flex-wrap: wrap;
 }

@@ -109,15 +109,27 @@
         <div class="popupcontent">
           <div id="creertxt">Créer un compte pilote</div>
 
-          <form action="/votre-page-de-traitement" method="post">
-            <input
-              type="text"
-              id="prenom"
-              name="prenom"
-              placeholder="Prénom"
-              required
-            />
-            <input type="text" id="nom" name="nom" placeholder="Nom" required />
+          <form
+            action="/votre-page-de-traitement"
+            method="post"
+            class="formcreer1"
+          >
+            <div id="nomprenom">
+              <input
+                type="text"
+                id="prenom"
+                name="prenom"
+                placeholder="Prénom"
+                required
+              />
+              <input
+                type="text"
+                id="nom"
+                name="nom"
+                placeholder="Nom"
+                required
+              />
+            </div>
             <select id="centre" name="centre">
               <option value="" disabled selected>Centre</option>
 
@@ -147,8 +159,9 @@
             />
             <input type="submit" value="Valider" />
           </form>
+          <div id="closecircle"></div>
 
-          <button onclick="openPopup1()">Annuler</button>
+          <img id="close" src="image/close.png" onclick="openPopup1()" />
         </div>
       </div>
     </main>
