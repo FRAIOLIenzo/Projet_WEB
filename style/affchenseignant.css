@@ -135,6 +135,7 @@ tbody tr:hover {
   border: none; /* Supprime les bordures */
   display: flex; /* Utilisation de flexbox */
   align-items: center; /* Aligner les éléments verticalement */
+  cursor: pointer;
 }
 
 .imgplus {
@@ -148,6 +149,7 @@ tbody tr:hover {
   width: 40px;
   height: 40px;
   margin: 4px;
+  cursor: pointer;
 }
 /*Popup Autre  */
 #popupautre {
@@ -159,7 +161,9 @@ tbody tr:hover {
   padding: 10px;
   border-radius: 5px;
 }
-
+#popupautre div {
+  cursor: pointer;
+}
 #popupautre div img {
   width: 20px;
   height: 20px;
@@ -245,6 +249,7 @@ tbody tr:hover {
   border-radius: 25px;
   color: #ffffff;
   background-color: #7b9dd2;
+  cursor: pointer;
 }
 
 .formcreer1 select {
@@ -306,30 +311,32 @@ tbody tr:hover {
   left: 50%;
   transform: translate(-50%, -50%);
   display: flex;
-  flex-direction: column;
-  justify-content: space-between; /* Espacement des éléments */
-  align-items: center; /* Centrage horizontal */
+  justify-content: center;
+  flex-direction: column; /* Changement de direction en colonne */
+  text-align: center; /* Centrer le texte */
 }
 #Supprimer,
 #Annuler {
   color: #ffffff;
   border-radius: 25px;
-  width: 48%; /* Ajustez la largeur des boutons selon vos besoins */
-  height: 30%; /* Ajustez la hauteur des boutons selon vos besoins */
+  width: 150px; /* Ajustez la largeur des boutons selon vos besoins */
+  height: 50px; /* Ajustez la hauteur des boutons selon vos besoins */
   border: none;
+  padding: 30px;
+  margin-top: 40px;
+  font-size: 16px;
+  text-align: center; /* Centrer le texte */
+  line-height: 0px; /* Alignement vertical */
+  cursor: pointer;
 }
-
+#txtpopupsuppr {
+  margin-top: 10px;
+  font-size: 18px;
+}
 #Supprimer {
   background-color: #ff8686dc;
-  order: 1; /* Pour placer ce bouton à gauche */
 }
 
 #Annuler {
   background-color: #7b9dd2;
-  order: 2; /* Pour placer ce bouton à droite */
-}
-.popupsuppr-content .buttons-container {
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
 }

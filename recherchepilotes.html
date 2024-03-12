@@ -112,7 +112,7 @@
           <img src="image/edit.png" />
           Modifier
         </div>
-        <div>
+        <div onclick="openPopup3()">
           <img src="image/delete.png" />
           Supprimer
         </div>
@@ -240,11 +240,12 @@
 
       <div id="popupsuppr">
         <div class="popupsuppr-content">
-          <div id="closecircle"></div>
-          <img id="close" src="image/close.png" onclick="openPopup3()" />
-          <div class=".buttons-container">
+          <div id="txtpopupsuppr">
+            Voulez-vous supprimer ce pilote de manière définitives ?
+          </div>
+          <div>
             <button id="Supprimer">Supprimer</button>
-            <button id="Annuler">Annuler</button>
+            <button id="Annuler" onclick="openPopup3()">Annuler</button>
           </div>
         </div>
       </div>

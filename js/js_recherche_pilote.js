@@ -181,6 +181,10 @@ function openPopup2() {
   let popup = document.getElementById("popupmodifier");
   popup.classList.toggle("open");
 }
+function openPopup3() {
+  let popup = document.getElementById("popupsuppr");
+  popup.classList.toggle("open");
+}
 
 document
   .querySelector("#searchbar")
