@@ -48,7 +48,7 @@ main {
 }
 
 .squaredg {
-  background-color: #ffffff;
+  background-color: #f4f7fc;
   width: 1328px;
   height: 685px;
   border-radius: 25px;
@@ -62,37 +62,57 @@ table {
   width: 100%;
   overflow: hidden;
 }
+th:first-child,
+td:first-child,
+th:last-child,
+td:last-child {
+  padding: 16px 16px; /* Ajoute du padding aux premières et dernières colonnes */
+}
 
+.bordure {
+  border-bottom: 1px solid #e9edf5; /* Ajout du type de bordure (solid) */
+}
 th,
 td {
-  border: 1px solid #dddddd;
+  border: 0px solid #f4f7fc;
   text-align: left;
   padding: 8px;
   font-size: 13px; /* Taille de police réduite */
 }
 
 th {
-  background-color: #f2f2f2;
+  background-color: #f4f7fc;
 }
 
 tbody tr:nth-child(even) {
-  background-color: #f2f2f2;
+  background-color: #f5f5f5;
+}
+tbody tr:nth-child(odd) {
+  background-color: #ffffff;
 }
 
 tbody tr:hover {
   background-color: #ddd;
 }
-
+.search-container {
+  position: relative; /* Position relative pour le conteneur */
+}
 #searchbar {
   border-radius: 6px;
   border: 1px solid #ccc; /* Bordure grise de 1 pixel */
-  margin-left: 76px;
+  margin-left: 30px;
   width: 320px;
   height: 32px;
   position: relative; /* Position relative pour le conteneur */
   padding-left: 30px; /* Ajoutez le padding souhaité */
 }
-
+#imgsearch {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  top: 6px;
+  left: 37px;
+}
 .headertab {
   display: flex;
   align-items: center;
