@@ -57,6 +57,10 @@ main {
   display: inline-block;
 }
 /* CSS POUR LE TABLEAU */
+.table-container {
+  max-height: 600px;
+  overflow-y: auto; /* Ajoute une barre de défilement verticale si nécessaire */
+}
 table {
   border-collapse: collapse;
   width: 100%;
@@ -145,7 +149,21 @@ tbody tr:hover {
   height: 40px;
   margin: 4px;
 }
+/*Popup Autre  */
+#popupautre {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  color: #7b9dd2;
+  background-color: #ffffff;
+  padding: 10px;
+  border-radius: 5px;
+}
 
+#popupautre div img {
+  width: 20px;
+  height: 20px;
+}
 /*Popup ajout 1 */
 #popupajout1 {
   position: fixed;
@@ -157,9 +175,11 @@ tbody tr:hover {
   z-index: 98;
   display: none;
 }
+
 #popupajout1.open {
   display: block !important;
 }
+
 .popupcontent {
   position: absolute;
   background-color: #ffffff;
@@ -247,4 +267,69 @@ tbody tr:hover {
   color: black;
   font-weight: bold;
   flex-wrap: wrap;
+}
+
+#popupmodifier {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.7);
+  z-index: 98;
+  display: none;
+}
+#popupmodifier.open {
+  display: block !important;
+}
+#popupsuppr {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.7);
+  z-index: 98;
+  display: none;
+}
+#popupsuppr.open {
+  display: block !important;
+}
+
+.popupsuppr-content {
+  position: absolute;
+  background-color: #ffffff;
+  width: 400px;
+  height: 200px;
+  border-radius: 25px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; /* Espacement des éléments */
+  align-items: center; /* Centrage horizontal */
+}
+#Supprimer,
+#Annuler {
+  color: #ffffff;
+  border-radius: 25px;
+  width: 48%; /* Ajustez la largeur des boutons selon vos besoins */
+  height: 30%; /* Ajustez la hauteur des boutons selon vos besoins */
+  border: none;
+}
+
+#Supprimer {
+  background-color: #ff8686dc;
+  order: 1; /* Pour placer ce bouton à gauche */
+}
+
+#Annuler {
+  background-color: #7b9dd2;
+  order: 2; /* Pour placer ce bouton à droite */
+}
+.popupsuppr-content .buttons-container {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
 }

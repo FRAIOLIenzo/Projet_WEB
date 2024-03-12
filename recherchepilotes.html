@@ -85,29 +85,102 @@
                 via un fichier CSV
               </button>
               <button onclick="openPopup1()" class="btnajouter">
-                <img class="imgplus" src="image/plus.png" />un pilote
+                <img class="imgplus" src="image/plus.png" />Ajouter un pilote
               </button>
             </div>
           </div>
-          <table>
-            <tr>
-              <th class="bordure">#</th>
-              <th class="bordure">Nom</th>
-              <th class="bordure">Prénom</th>
-              <th class="bordure">Centre</th>
-              <th class="bordure">Mail</th>
-              <th class="bordure">Promo</th>
-              <th class="bordure"></th>
-            </tr>
+          <div class="table-container">
+            <table>
+              <tr>
+                <th class="bordure">#</th>
+                <th class="bordure">Nom</th>
+                <th class="bordure">Prénom</th>
+                <th class="bordure">Centre</th>
+                <th class="bordure">Mail</th>
+                <th class="bordure">Promo</th>
+                <th class="bordure"></th>
+              </tr>
 
-            <tbody id="myTable"></tbody>
-          </table>
+              <tbody id="myTable"></tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <div id="popupautre">
+        <div onclick="openPopup2()">
+          <img src="image/edit.png" />
+          Modifier
+        </div>
+        <div>
+          <img src="image/delete.png" />
+          Supprimer
+        </div>
+      </div>
+
+      <div id="popupmodifier">
+        <div class="popupcontent">
+          <div id="creertxt">Modifier le compte pilote</div>
+
+          <form
+            action="/votre-page-de-traitement"
+            method="post"
+            class="formcreer1"
+          >
+            <div id="nomprenom">
+              <input
+                type="text"
+                id="prenom"
+                name="prenom"
+                placeholder="Prénom"
+                required
+              />
+              <input
+                type="text"
+                id="nom"
+                name="nom"
+                placeholder="Nom"
+                required
+              />
+            </div>
+            <select id="centre" name="centre">
+              <option value="" disabled selected>Centre</option>
+
+              <option value="centre1">Centre 1</option>
+              <option value="centre2">Centre 2</option>
+              <option value="centre3">Centre 3</option>
+            </select>
+            <select id="promotion" name="promotion">
+              <option value="" disabled selected>Promotion</option>
+              <option value="promotion1">Promotion 1</option>
+              <option value="promotion2">Promotion 2</option>
+              <option value="promotion3">Promotion 3</option>
+            </select>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              placeholder="Adresse e-mail"
+              required
+            />
+            <input
+              type="password"
+              id="motdepasse"
+              name="motdepasse"
+              placeholder="Mot de passe"
+              required
+            />
+            <input type="submit" value="Valider" />
+          </form>
+          <div id="closecircle"></div>
+
+          <img id="close" src="image/close.png" onclick="openPopup2()" />
         </div>
       </div>
 
       <div id="popupajout1">
         <div class="popupcontent">
-          <div id="creertxt">Créer un compte pilote</div>
+          <div id="creertxt">Créer le compte pilote</div>
 
           <form
             action="/votre-page-de-traitement"
@@ -162,6 +235,17 @@
           <div id="closecircle"></div>
 
           <img id="close" src="image/close.png" onclick="openPopup1()" />
+        </div>
+      </div>
+
+      <div id="popupsuppr">
+        <div class="popupsuppr-content">
+          <div id="closecircle"></div>
+          <img id="close" src="image/close.png" onclick="openPopup3()" />
+          <div class=".buttons-container">
+            <button id="Supprimer">Supprimer</button>
+            <button id="Annuler">Annuler</button>
+          </div>
         </div>
       </div>
     </main>
