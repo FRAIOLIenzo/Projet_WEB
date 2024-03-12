@@ -14,6 +14,8 @@
    
   }
 
+
+
   main{
     margin-top: 100px;
   }
@@ -84,14 +86,15 @@
 
   .box {
     width: 100%;
-    height: 600px;
+    height: 750px;
     position: relative;
+    margin-bottom: 120px;
   }
   
   .box_connexion {
     background-color: white;
-    width: 350px;
-    height: 350px;
+    
+    
     border-radius: 30px;
     align-items: center;
     position: absolute;
@@ -101,19 +104,37 @@
     box-shadow: 0px 3px 4px 0px rgba(0, 0, 0, 0.25);
   }
 
-
+  .emplacement_box_droite,.emplacement_box_milieu,.emplacement_box_gauche{
+    width: 400px;
+    height: 350px;
+  }
   .emplacement_box_gauche{
     left: 20%;
-  }
 
+  }
 
   .emplacement_box_milieu{
     left: 50%;
+
   }
 
   .emplacement_box_droite{
 
     left : 80%;
+
+  }
+
+
+
+  .emplacement_tableau{
+    
+    top : 85%;
+    left : 50%;
+    width: 82%;
+    height : 400px;
+    
+  
+    
   }
 
   
@@ -161,8 +182,54 @@ rect {
 }
 
 
+table {
+  table-layout: fixed;
+  width: 100%;
+  border-collapse: collapse;
+
+}
+
+thead th:nth-child(1) {
+  width: 30%;
+}
+
+thead th:nth-child(2) {
+  width: 20%;
+}
+
+thead th:nth-child(3) {
+  width: 15%;
+}
+
+thead th:nth-child(4) {
+  width: 35%;
+}
+
+
+td {
+  padding: 20px;
+  text-align: center;
+}
+
+
+
+.emplacement_box_droite {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 
 
 
 
+ol li {
 
+  margin-bottom: 0.5rem;
+  list-style: decimal;
+}
+
+
+.emplacement_box_droite ol {
+  width : 200px;
+  padding: 0;
+}
