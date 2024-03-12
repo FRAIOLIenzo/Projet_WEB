@@ -139,7 +139,7 @@ header .content a,
 .content_profil a {
   color: #7b9dd2;
   font-weight: normal;
-  width: auto;
+  width: 200px;   /*Mettre auto ici pour dynamique*/
 }
 
 .content_profil {
