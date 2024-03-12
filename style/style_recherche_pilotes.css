@@ -165,7 +165,7 @@ tbody tr:hover {
 /*Popup Autre  */
 #popupautre {
   position: absolute;
-  display: flex;
+  display: none;
   flex-direction: column;
   color: #7b9dd2;
   background-color: #ffffff;
