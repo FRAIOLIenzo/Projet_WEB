@@ -1,171 +1,240 @@
 * {
-    margin: 0px;
-    padding: 0;
-    text-decoration: none;
-    list-style: none;
-    font-family: 'Inter', sans-serif;
-  
-  }
+  margin: 0px;
+  padding: 0;
+  text-decoration: none;
+  list-style: none;
+  font-family: 'Inter', sans-serif;
+
+}
 
 
-  body,footer {
-    background-color: #BBB4DA;
-    font-family: "Inter", sans-serif;
-   
-  }
+body,footer {
+  background-color: #BBB4DA;
+  font-family: "Inter", sans-serif;
+ 
+}
 
-  
 
-  main{
-    margin-top: 100px;
-  }
+
+main{
+  margin-top: 100px;
+}
 
 
 /*Tableau de bord et menu*/
 
 .tableau_de_bord {
-  color : #7B9DD2;
-  margin-left: 50px;
+color : #7B9DD2;
+margin-left: 50px;
 
 
 }
 
 
 .emplacement_titre{
-  display: flex;
+display: flex;
 }
 
 .tableau_de_bord{
-  margin-left: 10%
+margin-left: 10%
 }
 
 
 
 .menu {
-  width: 100%;
-  height: 100px;
-  position: relative;
+width: 100%;
+height: 100px;
+position: relative;
 
 }
 
 .menu ul {
-  list-style-type: none;
-  display: flex;
-  align-items: center;
-  justify-content: flex-end; 
-  position: absolute;
-  right: 10%; 
-  width: 350px;
+list-style-type: none;
+display: flex;
+align-items: center;
+justify-content: flex-end; 
+position: absolute;
+right: 10%; 
+width: 350px;
 }
 
 .menu ul li {
-  font-weight: bold;
-  margin: 0 10px; 
+font-weight: bold;
+margin: 0 10px; 
 }
 
 
 .square {
-  background-color: white ;
-  width: 114px;
-  height: 54px;
-  border-radius: 25px;
-  display: flex; 
-  align-items: center; 
-  justify-content: center; 
+background-color: white ;
+width: 114px;
+height: 54px;
+border-radius: 25px;
+display: flex; 
+align-items: center; 
+justify-content: center; 
 }
 
 
 .menu a{
-  color: #7b9dd2;
-  text-decoration: none; 
+color: #7b9dd2;
+text-decoration: none; 
 }
 
 
 
 /* BOX*/
 
-  .box {
-    width: 100%;
-    height: 600px;
-    position: relative;
-  }
+.box {
+  width: 100%;
+  height: 750px;
+  position: relative;
+  margin-bottom: 120px;
+}
+
+.box_connexion {
+  background-color: white;
   
-  .box_connexion {
-    background-color: white;
-    width: 350px;
-    height: 350px;
-    border-radius: 30px;
-    align-items: center;
-    position: absolute;
-    top: 25%;
   
-    transform: translate(-50%, -50%);
-    box-shadow: 0px 3px 4px 0px rgba(0, 0, 0, 0.25);
-  }
+  border-radius: 30px;
+  align-items: center;
+  position: absolute;
+  top: 25%;
+
+  transform: translate(-50%, -50%);
+  box-shadow: 0px 3px 4px 0px rgba(0, 0, 0, 0.25);
+}
+
+.emplacement_box_droite,.emplacement_box_milieu,.emplacement_box_gauche{
+  width: 400px;
+  height: 350px;
+}
+.emplacement_box_gauche{
+  left: 20%;
+
+}
+
+.emplacement_box_milieu{
+  left: 50%;
+
+}
+
+.emplacement_box_droite{
+
+  left : 80%;
+
+}
 
 
-  .emplacement_box_gauche{
-    left: 20%;
-  }
 
-
-  .emplacement_box_milieu{
-    left: 50%;
-  }
-
-  .emplacement_box_droite{
-
-    left : 80%;
-  }
+.emplacement_tableau{
+  
+  top : 85%;
+  left : 50%;
+  width: 82%;
+  height : 400px;
+  
 
   
-  .box_connexion_contenu {
-    margin: 20px;
-    display: flex;
-    flex-direction: column;
-  }
+}
 
-  .box text {
 
-  font-size: 14px;
+.box_connexion_contenu {
+  margin: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+.box text {
+
+font-size: 14px;
 
 }
 
 
 rect {
-  margin : 0;
-  padding: 0;
+margin : 0;
+padding: 0;
 }
 
 
 
 
 .box h1 {
-  height : 60px;
-  padding-top: 20px;
+height : 60px;
+padding-top: 20px;
 
-  text-align: center;
-  font-size: 20px;
-  left: 20%;
- 
- 
+text-align: center;
+font-size: 20px;
+left: 20%;
 
-  
+
+
 
 }
 
 
 .donut svg{
-  width: 310px; 
-  height: 200px;
-  padding: 0;
-  justify-content: space-between;
+width: 310px; 
+height: 200px;
+padding: 0;
+justify-content: space-between;
 
 }
 
 
 
+table {
+table-layout: fixed;
+width: 100%;
+border-collapse: collapse;
+
+}
+
+thead th:nth-child(1) {
+width: 30%;
+}
+
+thead th:nth-child(2) {
+width: 20%;
+}
+
+thead th:nth-child(3) {
+width: 15%;
+}
+
+thead th:nth-child(4) {
+width: 35%;
+}
+
+
+td {
+padding: 20px;
+text-align: center;
+}
+
+
+
+.emplacement_box_droite {
+display: flex;
+flex-direction: column;
+align-items: center;
+}
 
 
 
 
+ol li {
+
+margin-bottom: 0.5rem;
+list-style: decimal;
+}
+
+
+.emplacement_box_droite ol {
+width : 200px;
+padding: 0;
+}
+
+.emplacement_box_droite h1 {
+  margin-bottom: 20px;
+}

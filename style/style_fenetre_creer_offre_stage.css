@@ -1,0 +1,97 @@
+* {
+    margin: 0px;
+    padding: 0;
+    text-decoration: none;
+    list-style: none;
+  }
+  
+  body {
+    background-color: #000000;
+    font-family: "Inter", sans-serif;
+  }
+
+.box{
+    width: 100%;
+    height: 600px;
+    position: relative;
+  }
+  
+  .box_connexion {
+    background-color: white;
+    width: 830px;
+    height: 600px;
+    border-radius: 30px;
+    align-items: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    box-shadow: 0px 3px 4px 0px rgba(0, 0, 0, 0.25);
+  }
+  
+  .box_connexion_contenu {
+    margin: 50px;
+
+
+  }
+
+
+  
+  .titre-pop-up {
+    font-size: 36px;
+    font-weight: bold;
+    margin-bottom: 100px;
+  }
+  
+  input {
+
+    border: 1px solid #d9e1ec;
+    border-radius: 4px;
+    padding-left: 10px;
+    font-size: 16px;
+  }
+  
+  input::placeholder {
+    color: #d9e1ec;
+  }
+
+
+.colonne-gauche{
+    width: 267px;
+    height : 48px;
+
+}
+
+
+.colonne-milieu{
+    margin-left: 10px;
+    margin-right: 10px;
+    width: 196px;
+    height : 48px;
+}
+
+.colonne-droite{
+    width: 196px;
+    height : 48px;
+
+}
+
+.description {
+    width: 727px;
+    height : 155px;
+}
+
+
+.ligne {
+    margin-top: 20px;
+}
+
+
+  .btn_creer_offre {
+    margin-top : 20px;
+    color : white;
+    background-color: #7B9DD2;
+    border-radius: 25px;
+    width: 725px;
+    height : 54px;
+  }
