@@ -69,8 +69,6 @@ body {
   font-size: 20px;
   font-weight: bold;
   cursor: pointer;
-  position: relative;
-  right: 0;
   margin: 0px 10px;
 }
 
@@ -87,7 +85,7 @@ body {
   width: 450px;
   height: auto;
   border-radius: 15px;
-  border: solid #7b9dd2;
+  border:  1px solid #7b9dd2;
   background-color: white;
   margin: 40px 15px;
   position: relative;

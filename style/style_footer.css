@@ -14,12 +14,19 @@ footer {
   align-items: flex-start;
   padding: 50px 0;
   margin-left: 30px;
+  position: relative;
 }
 
 .bloc_footer_a_propos,
 .bloc_footer_nous_contacter,
 .bloc_footer_reseaux_sociaux {
   margin-top: -30px;
+}
+
+.bloc_footer_reseaux_sociaux{
+  position: absolute;
+  top: 50px;
+  right: 10px;
 }
 
 .bloc_footer_a_propos h3,
@@ -29,7 +36,7 @@ footer {
   padding-bottom: 20 px;
   justify-content: space-between;
   margin-bottom: 20px;
-}
+} 
 
 .bloc_footer_a_propos {
   margin-left: 20px;
