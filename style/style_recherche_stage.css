@@ -80,6 +80,7 @@ body {
   width: 100%;
   height: auto;
   display: flex;
+  flex-wrap: wrap;
 }
 .offre_stage {
   width: 450px;
@@ -89,6 +90,8 @@ body {
   background-color: white;
   margin: 40px 15px;
   position: relative;
+  flex: 1 1 400px; 
+  max-width: 450px;
 }
 
 .box_domaine_stage {
