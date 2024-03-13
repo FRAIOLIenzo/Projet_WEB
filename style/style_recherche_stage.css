@@ -42,7 +42,7 @@ body {
 
 .input_recherche {
   height: 70px;
-  width: 77%;
+  width: 100%;
   font-size: 22px;
   font-weight: lighter;
   border: none;
@@ -81,9 +81,10 @@ body {
   height: auto;
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
 }
 .offre_stage {
-  width: 450px;
+  width: 400px;
   height: auto;
   border-radius: 15px;
   border:  1px solid #7b9dd2;
@@ -91,7 +92,7 @@ body {
   margin: 40px 15px;
   position: relative;
   flex: 1 1 400px; 
-  max-width: 450px;
+  max-width: 400px;
 }
 
 .box_domaine_stage {
