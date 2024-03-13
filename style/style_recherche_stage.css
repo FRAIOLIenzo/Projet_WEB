@@ -11,60 +11,179 @@ body {
 
 .container_recherche {
   width: 100%;
-  height: 300px;
+  height: 250px;
   background-color: #dad4de;
   display: flex;
   justify-content: center;
+  align-items: center;
 }
 
 .box_recherche {
-  width: 1100px;
+  width: 70%;
   display: flex;
   flex-direction: column;
-  margin-top: 70px;
+}
+
+.input_box_recherche {
+  width: 100%;
+  margin-top: 16px;
+  background-color: white;
+  box-shadow: 0px 6px 6px 0px rgba(0, 0, 0, 0.2);
+  border-radius: 15px;
+  display: flex;
+  align-items: center;
   position: relative;
 }
 
 .text_box_recherche {
-  font-size: 32px;
+  font-size: 26px;
   font-weight: bold;
 }
 
 .input_recherche {
-  margin-top: 16px;
-  height: 85px;
-  font-size: 25px;
+  height: 70px;
+  width: 77%;
+  font-size: 22px;
   font-weight: lighter;
   border: none;
-  border-radius: 15px;
-  padding-left: 75px;
-  padding-right: 85px;
-  box-shadow: 0px 6px 6px 0px rgba(0, 0, 0, 0.2);
+  margin-left: 10px;
+}
+
+.input_recherche:focus {
+  outline: none;
 }
 
 .img_loupe {
-  height: 50px;
-  width: 50px;
-  position: absolute;
-  top: 70px;
-  left: 15px;
+  height: 40px;
+  width: 40px;
+  margin-left: 10px;
 }
 
 .btn_recherche {
-  height: 55px;
+  height: 50px;
   width: 155px;
   border: none;
-  border-radius: 20px;
+  border-radius: 10px;
   background-color: #7b9dd2;
   color: white;
   font-size: 20px;
   font-weight: bold;
   cursor: pointer;
-  position: absolute;
-  top: 70px;
-  left: 925px;
+  position: relative;
+  right: 0;
+  margin: 0px 10px;
 }
 
 .btn_recherche:hover {
   background-color: #487aca;
+}
+
+.container_offre_stage {
+  width: 100%;
+  height: auto;
+  display: flex;
+}
+.offre_stage {
+  width: 450px;
+  height: auto;
+  border-radius: 15px;
+  border: solid #7b9dd2;
+  background-color: white;
+  margin: 40px 15px;
+  position: relative;
+}
+
+.box_domaine_stage {
+  display: flex;
+  flex-direction: column;
+  margin-left: 15px;
+  position: relative;
+}
+
+.text_domaine_stage {
+  font-size: 18px;
+  font-weight: bold;
+  margin-top: 20px;
+}
+
+.nom_entreprise,
+.lieu_stage {
+  font-size: 16px;
+  font-weight: lighter;
+  margin-top: 10px;
+}
+
+.remuneration_stage {
+  font-size: 17px;
+  font-weight: 600;
+  margin-top: 10px;
+}
+
+.trait {
+  border: 0.5px solid;
+  width: 93%;
+  margin: 0 auto;
+  margin-top: 10px;
+  border-color: #7b9dd2;
+}
+
+.description_stage {
+  margin-top: 10px;
+  width: 100%;
+  height: 150px;
+}
+
+.text_description_stage {
+  margin-left: 15px;
+  font-size: 16px;
+  font-weight: normal;
+}
+
+.bas_offre_stage {
+  height: 30px;
+}
+
+.nb_vue,
+.date_publi {
+  margin-left: 15px;
+  font-size: 12px;
+}
+
+.fond_wishlist,
+.fond_plus {
+  height: 30px;
+  width: 30px;
+  background-color: rgb(123, 157, 210, 0.25);
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+}
+
+.fond_wishlist {
+  top: 10px;
+  right: 10px;
+}
+
+.fond_plus {
+  bottom: 10px;
+  right: 10px;
+}
+
+.fond_wishlist:hover,
+.fond_plus:hover {
+  background-color: rgb(123, 157, 210, 0.75);
+  cursor: pointer;
+  transition: 0.5s;
+}
+
+.img_wishlist,
+.img_plus {
+  height: 25px;
+  width: 25px;
+}
+
+footer {
+  margin-top: 0;
 }
