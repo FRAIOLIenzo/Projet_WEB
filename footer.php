@@ -12,10 +12,6 @@
   </head>
 
   <body>
-    <header>
-      <p>test de l'header</p> 
-    </header>
-
     <footer>
       <div class="contenu_footer">
         <div class="bloc_footer_a_propos">
