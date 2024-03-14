@@ -7,7 +7,7 @@
 
 footer {
   color: rgb(255, 255, 255);
-  background-color: #dad4de;
+
   padding: 0px;
   width: 100%;
   margin-top: 50px;
@@ -18,7 +18,7 @@ footer {
   display: flex;
   align-items: flex-start;
   padding: 50px 0;
-  margin-left: 30px;
+
   position: relative;
 }
 
@@ -91,19 +91,21 @@ footer img {
     flex-direction: column;
     align-items: center;
     width: 100%;
-    padding: 50px 0;
+ 
+    
   }
 
   .bloc_footer_a_propos,
   .bloc_footer_nous_contacter,
   .bloc_footer_reseaux_sociaux {
     text-align: center;
-    margin: 0 auto 30px;
+    margin: 0 auto;
+
   }
 
   .bloc_footer_reseaux_sociaux {
     position: static;
-    margin-top: 20px;
+
   }
 
   .liste_a_propos,
@@ -111,6 +113,22 @@ footer img {
   .liste_reseaux_sociaux {
     margin-right: 0;
   }
+
+  footer img {
+
+    padding-right: 0px;
+  }
+
+  .noStage {
+    text-align: center;
+  }
+
+  
+
+.bloc_footer_nous_contacter h3,
+.bloc_footer_reseaux_sociaux h3 {
+  margin-top: 20px;
+}
 
 
 }

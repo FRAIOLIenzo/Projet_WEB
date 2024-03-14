@@ -6,11 +6,15 @@
 }
 
 
-.acceuil_slogan {
+.acceuil_slogan{
 
     background-color: #DAD4DE;
     list-style-type : none;
     height : 650px;
+}
+
+footer{
+    background-color: #DAD4DE;
 }
 
 
