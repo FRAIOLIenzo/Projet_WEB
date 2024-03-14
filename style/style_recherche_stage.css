@@ -42,7 +42,7 @@ body {
 
 .input_recherche {
   height: 70px;
-  width: 77%;
+  width: 100%;
   font-size: 22px;
   font-weight: lighter;
   border: none;
@@ -69,8 +69,6 @@ body {
   font-size: 20px;
   font-weight: bold;
   cursor: pointer;
-  position: relative;
-  right: 0;
   margin: 0px 10px;
 }
 
@@ -82,15 +80,19 @@ body {
   width: 100%;
   height: auto;
   display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 .offre_stage {
-  width: 450px;
+  width: 400px;
   height: auto;
   border-radius: 15px;
-  border: solid #7b9dd2;
+  border:  1px solid #7b9dd2;
   background-color: white;
   margin: 40px 15px;
   position: relative;
+  flex: 1 1 400px; 
+  max-width: 400px;
 }
 
 .box_domaine_stage {
