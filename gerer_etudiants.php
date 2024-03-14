@@ -23,14 +23,14 @@
       <div class="container2">
         <div class="menu">
           <ul>
-            <li><a href="#">Pilotes</a></li>
+            <li><a href="gerer_pilotes.php">Pilotes</a></li>
 
             <li><a href="#">Offres</a></li>
             <div class="square">
               <li><a class="active" href="#">Étudiants</a></li>
             </div>
 
-            <li><a href="#">Entreprise</a></li>
+            <li><a href="gerer_entreprises.php">Entreprise</a></li>
           </ul>
         </div>
         <div class="squaredg">

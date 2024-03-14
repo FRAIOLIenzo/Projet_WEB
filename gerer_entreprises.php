@@ -7,7 +7,7 @@
     <meta name="description" content="" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="stylesheet" href="style/style_navbar.css" />
-    <link rel="stylesheet" href="style/style_gerer_etudiants.css" />
+    <link rel="stylesheet" href="style/style_gerer_entreprises.css" />
     <script src="js/js_recherche_pilote.js" defer></script>
 
     <link
@@ -23,10 +23,10 @@
       <div class="container2">
         <div class="menu">
           <ul>
-            <li><a href="#">Pilotes</a></li>
+            <li><a href="gerer_pilotes.php">Pilotes</a></li>
 
             <li><a href="#">Offres</a></li>
-            <li><a href="#">Étudiants</a></li>
+            <li><a href="gerer_etudiants.php">Étudiants</a></li>
             <div class="square">
               <li><a class="active" href="#">Entreprise</a></li>
             </div>
