@@ -16,50 +16,8 @@
     />
   </head>
   <body>
-    <header>
-      <img
-        class="logo"
-        src="image/logo entreprise.png"
-        alt="logo de l'entreprise"
-      />
-      <nav class="navbar">
-        <div class="container">
-          <a href="#">Acceuil</a>
-          <div class="dropdown_1">
-            <button>Chercher</button>
-            <div class="content">
-              <a href="#">Entreprises</a>
-              <a href="#">Stages</a>
-            </div>
-          </div>
-          <div class="dropdown_2">
-            <button>Gérer</button>
-            <div class="content_gerer">
-              <a href="#">Enseignants</a>
-              <a href="#">Entreprises</a>
-              <a href="#">Etudiants</a>
-              <a href="#">Offres</a>
-            </div>
-          </div>
-          <div class="dropdown_3">
-            <button>Statistiques</button>
-            <div class="content_stat">
-              <a href="#">Entreprises</a>
-              <a href="#">Etudiants</a>
-              <a href="#">Offres</a>
-            </div>
-          </div>
-        </div>
-        <div class="profile-container">
-          <img class="profil" src="image/profil.png" alt="profil utilisateur" />
-          <img
-            class="menu_profil"
-            src="image/menu profil.png"
-            alt="menu profil utilisateur"
-          />
-        </div>
-      </nav>
-    </header>
+  <?php include 'Navbar.php'; ?>
+
 
     <main>
       <div class="container2">

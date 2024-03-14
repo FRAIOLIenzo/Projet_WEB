@@ -7,8 +7,9 @@
     <meta name="description" content="" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="stylesheet" href="style/style_navbar.css" />
-    <link rel="stylesheet" href="style/style_statistique_offres_stage.css" />
     <link rel="stylesheet" href="style/style_footer.css" />
+    <link rel="stylesheet" href="style/style_statistique_entreprise.css" />
+    
     <link
       rel="stylesheet"
       href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap"
@@ -21,50 +22,8 @@
 
   </head>
   <body>
-    <header>
-      <img
-        class="logo"
-        src="image/logo entreprise.png"
-        alt="logo de l'entreprise"
-      />
-      <nav class="navbar">
-        <a href="#">Accueil</a>
-        <div class="dropdown_1">
-          <button>Chercher</button>
-          <div class="content">
-            <a href="#">Entreprises</a>
-            <a href="#">Stages</a>
-          </div>
-        </div>
-        <div class="dropdown_2">
-          <button>Gérer</button>
-          <div class="content_gerer">
-            <a href="#">Enseignants</a>
-            <a href="#">Entreprises</a>
-            <a href="#">Etudiants</a>
-            <a href="#">Offres</a>
-          </div>
-        </div>
-        <div class="dropdown_3">
-          <button>Statistiques</button>
-          <div class="content_stat">
-            <a href="#">Entreprises</a>
-            <a href="#">Etudiants</a>
-            <a href="#">Offres</a>
-          </div>
-        </div>
-        <div class="profil-container">
-          <img class="profil" src="image/profil.png" alt="profil utilisateur" />
-          <button>
-            <img
-              class="menu_profil"
-              src="image/menu profil.png"
-              alt="menu profil utilisateur"
-            />
-          </button>
-        </div>
-      </nav>
-    </header>
+  <?php include 'Navbar.php'; ?>
+
 
     <main>
      
@@ -76,12 +35,14 @@
 
     <div class="menu">
         <ul>
-          <div class="square">
-            <li class="active"><a href="statistique_offres_stage.html">Offres</a></li>
-          </div>
           
-          <li><a href="statistique_etudiant.html">Étudiants</a></li>
-          <li><a href="statistique_entreprises.html">Entreprise</a></li>
+            <li class="active"><a href="statistique_offres_stage.html">Offres</a></li>
+          
+          
+          <li><a href = "statistique_etudiant.html">Étudiants</a></li>
+          <div class="square">
+          <li><a href="#">Entreprise</a></li>
+          </div>
         </ul>
     </div>
 
@@ -117,9 +78,9 @@
         <div class="box_connexion emplacement_box_droite">
           <div class="box_connexion_contenu">
             
-            <div class = "note_offre">
+            <div class = "entreprise_note">
           
-              <h1>Offres les mieux notées</h1>
+              <h1>Entreprises les mieux notées</h1>
 
               <div class="emplacement_box_droite">
                 <ol>
@@ -132,14 +93,11 @@
 
                 </ol>
               </div>
-              
-         
            
     
             </div>
           </div>
         </div>
-        
 
 
         <div class="box_connexion emplacement_tableau">
@@ -208,6 +166,12 @@
             </div>
           </div>
         </div>
+        
+
+
+      
+
+
 
       </div>
 

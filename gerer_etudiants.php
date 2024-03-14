@@ -7,7 +7,7 @@
     <meta name="description" content="" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="stylesheet" href="style/style_navbar.css" />
-    <link rel="stylesheet" href="style/style_gerer_pilotes.css" />
+    <link rel="stylesheet" href="style/style_gerer_etudiants.css" />
     <script src="js/js_recherche_pilote.js" defer></script>
 
     <link
@@ -16,60 +16,20 @@
     />
   </head>
   <body>
-    <header>
-      <img
-        class="logo"
-        src="image/logo entreprise.png"
-        alt="logo de l'entreprise"
-      />
-      <nav class="navbar">
-        <div class="container">
-          <a href="#">Acceuil</a>
-          <div class="dropdown_1">
-            <button>Chercher</button>
-            <div class="content">
-              <a href="#">Entreprises</a>
-              <a href="#">Stages</a>
-            </div>
-          </div>
-          <div class="dropdown_2">
-            <button>Gérer</button>
-            <div class="content_gerer">
-              <a href="#">Enseignants</a>
-              <a href="#">Entreprises</a>
-              <a href="#">Etudiants</a>
-              <a href="#">Offres</a>
-            </div>
-          </div>
-          <div class="dropdown_3">
-            <button>Statistiques</button>
-            <div class="content_stat">
-              <a href="#">Entreprises</a>
-              <a href="#">Etudiants</a>
-              <a href="#">Offres</a>
-            </div>
-          </div>
-        </div>
-        <div class="profile-container">
-          <img class="profil" src="image/profil.png" alt="profil utilisateur" />
-          <img
-            class="menu_profil"
-            src="image/menu profil.png"
-            alt="menu profil utilisateur"
-          />
-        </div>
-      </nav>
-    </header>
+  <?php include 'Navbar.php'; ?>
+
 
     <main>
       <div class="container2">
         <div class="menu">
           <ul>
-            <div class="square">
-              <li class="active"><a href="#">Pilotes</a></li>
-            </div>
+            <li><a href="#">Pilotes</a></li>
+
             <li><a href="#">Offres</a></li>
-            <li><a href="#">Étudiants</a></li>
+            <div class="square">
+              <li><a class="active" href="#">Étudiants</a></li>
+            </div>
+
             <li><a href="#">Entreprise</a></li>
           </ul>
         </div>
@@ -81,11 +41,11 @@
             </div>
             <div class="btncountainer">
               <button class="btnajouter">
-                <img class="imgplus" src="image/plus.png" />Ajouter des pilotes
-                via un fichier CSV
+                <img class="imgplus" src="image/plus.png" />Ajouter des
+                étudiants via un fichier CSV
               </button>
               <button onclick="openPopup1()" class="btnajouter">
-                <img class="imgplus" src="image/plus.png" />Ajouter un pilote
+                <img class="imgplus" src="image/plus.png" />Ajouter un étudiant
               </button>
             </div>
           </div>
@@ -120,7 +80,7 @@
 
       <div id="popupmodifier">
         <div class="popupcontent">
-          <div id="creertxt">Modifier le compte pilote</div>
+          <div id="creertxt">Modifier le compte étudiant</div>
 
           <form
             action="/votre-page-de-traitement"
@@ -180,7 +140,7 @@
 
       <div id="popupajout1">
         <div class="popupcontent">
-          <div id="creertxt">Créer le compte pilote</div>
+          <div id="creertxt">Créer le compte étudiant</div>
 
           <form
             action="/votre-page-de-traitement"
