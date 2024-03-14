@@ -144,6 +144,7 @@ header .content a,
 
 .content_profil {
   display: none;
+  white-space: nowrap;
 }
 
 .profil-container:hover .content_profil {
