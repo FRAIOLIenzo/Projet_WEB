@@ -18,7 +18,8 @@
 
 
   <body>
-   
+  <?php include 'Navbar.php'; ?>
+
     <div class="box">
         <div class="box_connexion">
           <div class="box_connexion_contenu">
