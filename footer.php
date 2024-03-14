@@ -14,6 +14,8 @@
   <body>
     <footer>
       <div class="contenu_footer">
+
+      
         <div class="bloc_footer_a_propos">
           <h3>A propos</h3>
           <div class="liste_a_propos">
@@ -34,6 +36,7 @@
           </div>
         </div>
 
+
         <div class="bloc_footer_reseaux_sociaux">
           <h3>Nos réseaux sociaux</h3>
           <div class="liste_reseaux_sociaux">
@@ -50,6 +53,8 @@
           </div>
         </div>
       </div>
+
+      
       <p class="noStage">© noStage 2024</p>
     </footer>
   </body>
