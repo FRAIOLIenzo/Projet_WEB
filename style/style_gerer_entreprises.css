@@ -1,7 +1,7 @@
 /*CSS POUR LE MAIN */
 
 body {
-  background-color: #70c7c6;
+  background-color: #f4f0e3;
   font-family: "Inter", sans-serif;
 }
 main {
@@ -31,12 +31,14 @@ main {
 }
 
 .menu ul li {
+  font-weight: bold;
+
   font-family: "Inter", sans-serif;
   margin: 0 10px; /* Espacement entre les éléments */
 }
 
 .square {
-  background-color: #7b9dd2;
+  background-color: #fff;
   width: 114px;
   height: 54px;
   border-radius: 25px;
@@ -46,11 +48,11 @@ main {
 }
 
 .active a {
-  color: #ffffff;
+  color: #7b9dd2;
   text-decoration: none; /* Supprimer le soulignement du lien */
 }
 .menu a:visited {
-  color: #ffffff; /* Utilise la couleur par défaut du texte */
+  color: #7b9dd2; /* Utilise la couleur par défaut du texte */
   text-decoration: none; /* Supprime le soulignement */
 }
 /*CSS POUR LA RECHERCHE DES PILOTES*/

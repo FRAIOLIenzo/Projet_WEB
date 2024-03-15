@@ -90,10 +90,7 @@
 
                 </ol>
               </div>
-              
-         
-           
-    
+            
             </div>
           </div>
         </div>
@@ -155,9 +152,6 @@
                       CPI A2
                     </td>
                   </tr>
-                  
-
-
                 </tbody>
               
               </table>
@@ -168,17 +162,8 @@
         </div>
 
       </div>
-
-
-
-
     </main>
 
-
-
-
     <?php include 'footer.php'; ?>
-
-
   </body>
 </html>

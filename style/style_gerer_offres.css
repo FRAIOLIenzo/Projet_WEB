@@ -1,7 +1,7 @@
 /*CSS POUR LE MAIN */
 
 body {
-  background-color: #70c7c6;
+  background-color: #dad4de;
   font-family: "Inter", sans-serif;
 }
 main {
@@ -22,8 +22,6 @@ main {
 }
 
 .menu ul {
-  font-weight: bold;
-
   list-style-type: none;
   padding: 0;
   margin: 0;
@@ -33,6 +31,7 @@ main {
 }
 
 .menu ul li {
+  font-weight: bold;
   font-family: "Inter", sans-serif;
   margin: 0 10px; /* Espacement entre les éléments */
 }
@@ -53,7 +52,6 @@ main {
 }
 .menu a:visited {
   color: #ffffff; /* Utilise la couleur par défaut du texte */
-  text-decoration: none; /* Supprime le soulignement */
 }
 /*CSS POUR LA RECHERCHE DES PILOTES*/
 

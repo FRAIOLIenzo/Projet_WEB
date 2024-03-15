@@ -7,7 +7,7 @@
     <meta name="description" content="" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="stylesheet" href="style/style_navbar.css" />
-    <link rel="stylesheet" href="style/style_gerer_entreprises.css" />
+    <link rel="stylesheet" href="style/style_gerer_offres.css" />
     <script src="js/js_recherche_pilote.js" defer></script>
 
     <link
@@ -16,20 +16,17 @@
     />
   </head>
   <body>
-  <?php include 'Navbar.php'; ?>
-
-
+    <?php include 'Navbar.php'; ?>
     <main>
       <div class="container2">
         <div class="menu">
           <ul>
-            <li><a href="gerer_pilotes.php">Pilotes</a></li>
-
-            <li><a href="gerer_offres.php">Offres</a></li>
-            <li><a href="gerer_etudiants.php">Étudiants</a></li>
+              <li><a href="gerer_pilotes.php">Pilotes</a></li>
             <div class="square">
-              <li><a class="active" href="gerer_entreprises.php">Entreprise</a></li>
+            <li class="active"><a href="#">Offres</a></li>
             </div>
+            <li><a href="gerer_etudiants.php">Étudiants</a></li>
+            <li><a href="gerer_entreprises.php">Entreprise</a></li>
           </ul>
         </div>
         <div class="squaredg">
@@ -40,11 +37,11 @@
             </div>
             <div class="btncountainer">
               <button class="btnajouter">
-                <img class="imgplus" src="image/plus.png" />Ajouter des
-                entreprises via un fichier CSV
+                <img class="imgplus" src="image/plus.png" />Ajouter des offres
+                via un fichier CSV
               </button>
               <button onclick="openPopup1()" class="btnajouter">
-                <img class="imgplus" src="image/plus.png" />Ajouter une entreprise
+                <img class="imgplus" src="image/plus.png" />Ajouter une offre
               </button>
             </div>
           </div>
@@ -52,11 +49,11 @@
             <table>
               <tr>
                 <th class="bordure">#</th>
-                <th class="bordure">Nom</th>
-                <th class="bordure">Secteur d'activitée</th>
-                <th class="bordure">Ville</th>
-                <th class="bordure">Mail</th>
-                <th class="bordure">Telephone</th>
+                <th class="bordure">Secteur d'activité</th>
+                <th class="bordure">Entreprises</th>
+                <th class="bordure">Date de début</th>
+                <th class="bordure">Date de fin</th>
+                <th class="bordure">Rémunération</th>
                 <th class="bordure"></th>
               </tr>
 
@@ -79,7 +76,7 @@
 
       <div id="popupmodifier">
         <div class="popupcontent">
-          <div id="creertxt">Modifier le profil de l'entreprise</div>
+          <div id="creertxt">Modifier l'offre</div>
 
           <form
             action="/votre-page-de-traitement"
@@ -139,7 +136,7 @@
 
       <div id="popupajout1">
         <div class="popupcontent">
-          <div id="creertxt">Créer le profil d'entreprise</div>
+          <div id="creertxt">Créer une offre</div>
 
           <form
             action="/votre-page-de-traitement"
@@ -200,7 +197,7 @@
       <div id="popupsuppr">
         <div class="popupsuppr-content">
           <div id="txtpopupsuppr">
-            Voulez-vous supprimer cette entreprise de manière définitive ?
+            Voulez-vous supprimer ce pilote de manière définitive ?
           </div>
           <div>
             <button id="Supprimer">Supprimer</button>

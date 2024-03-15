@@ -22,11 +22,11 @@
         <div class="menu">
           <ul>
             <div class="square">
-              <li class="active"><a href="#">Pilotes</a></li>
+              <li class="active"><a href="gerer_pilotes.php">Pilotes</a></li>
             </div>
-            <li><a href="#">Offres</a></li>
-            <li><a href="#">Étudiants</a></li>
-            <li><a href="#">Entreprise</a></li>
+            <li><a href="gerer_offres.php">Offres</a></li>
+            <li><a href="gerer_etudiants.php">Étudiants</a></li>
+            <li><a href="gerer_entreprises.php">Entreprise</a></li>
           </ul>
         </div>
         <div class="squaredg">
