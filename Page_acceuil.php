@@ -19,20 +19,32 @@
 
 
     <div class="acceuil_slogan">
-      <div class="bloc_slogan">
-        <li><a>Pas de stage ?</a></li>
-        <li><a>Pas de stagiaire ?</a></li>
-        <li><a>Pas de problème !</a></li>
-        <div>
-          <img class="homme_loupe" src="image/homme_loupe.png" />
+      
+      <div class="container_haut_de_page">
+
+        <div class="bloc_slogan">
+          <li><a>Pas de stage ?</a></li>
+          <li><a>Pas de stagiaire ?</a></li>
+          <li><a>Pas de problème !</a></li>
+
+
+          <p class="phrase_acceuil">
+          Votre futur commence ici : découvrez nos offres de stages pour vous lancer dans votre carrière !
+          </p>
+      
+          <button class="bouton_commencer">Commencer à rechercher</button>
         </div>
 
-        <p class="phrase_acceuil">
-          Votre futur commence ici : découvrez nos offres de stages pour vous
-          lancer dans votre carrière !
-        </p>
+        <div class="bloc_homme_loupe">
+          <img class="homme_loupe" src="image/homme_loupe.png" />
+
+        </div>
+
+
       </div>
-      <button class="bouton_commencer">Commencer à rechercher</button>
+   
+
+        
     </div>
 
     <main>
