@@ -1,0 +1,231 @@
+* {
+  margin: 0px;
+  padding: 0;
+  text-decoration: none;
+  list-style: none;
+}
+
+body {
+  font-family: "Inter", sans-serif;
+}
+
+footer {
+  background-color: #f4f0e3;
+}
+
+.container_recherche {
+  width: 100%;
+  height: 250px;
+  background-color: #f4f0e3;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.box_recherche {
+  width: 70%;
+  display: flex;
+  flex-direction: column;
+}
+
+.input_box_recherche {
+  width: 100%;
+  margin-top: 16px;
+  background-color: white;
+  box-shadow: 0px 6px 6px 0px rgba(0, 0, 0, 0.2);
+  border-radius: 15px;
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.text_box_recherche {
+  font-size: 26px;
+  font-weight: bold;
+}
+
+.input_recherche {
+  height: 70px;
+  width: 100%;
+  font-size: 22px;
+  font-weight: lighter;
+  border: none;
+  margin-left: 10px;
+}
+
+.input_recherche:focus {
+  outline: none;
+}
+
+.img_loupe {
+  height: 40px;
+  width: 40px;
+  margin-left: 10px;
+}
+
+.btn_recherche {
+  height: 50px;
+  width: 155px;
+  border: none;
+  border-radius: 10px;
+  background-color: #7b9dd2;
+  color: white;
+  font-size: 20px;
+  font-weight: bold;
+  cursor: pointer;
+  margin: 0px 10px;
+}
+
+.btn_recherche:hover {
+  background-color: #487aca;
+  transition: 0.5s;
+}
+
+.container_aff_entreprise {
+  width: 100%;
+  height: auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.aff_entreprise {
+  width: 450px;
+  height: auto;
+  border-radius: 15px;
+  border: 1px solid #7b9dd2;
+  background-color: white;
+  margin: 40px 15px;
+  position: relative;
+  flex: 1 1 450px;
+  max-width: 450px;
+}
+
+.box_info_entreprise {
+  display: flex;
+  width: 100%;
+  margin-left: 15px;
+}
+
+.box_entreprise {
+  display: flex;
+  flex-direction: column;
+  margin-left: 15px;
+  position: relative;
+}
+
+.nom_entreprise {
+  font-size: 18px;
+  font-weight: bold;
+  margin-top: 20px;
+}
+
+.localisation_entreprise,
+.avis_entreprise {
+  font-size: 16px;
+  font-weight: lighter;
+}
+
+.localisation_entreprise {
+  margin-top: 10px;
+}
+
+.avis_entreprise {
+  margin-right: 10px;
+}
+
+.remuneration_stage {
+  font-size: 17px;
+  font-weight: 600;
+  margin-top: 10px;
+}
+
+.trait {
+  border: 0.5px solid;
+  width: 93%;
+  margin: 0 auto;
+  margin-top: 10px;
+  border-color: #7b9dd2;
+}
+
+.description_entreprise {
+  margin-top: 10px;
+  width: 100%;
+  height: 200px;
+  max-height: 200px;
+}
+
+.text_description_entreprise {
+  margin-left: 15px;
+  font-size: 16px;
+  font-weight: normal;
+}
+
+.bas_aff_entreprise {
+  height: 30px;
+}
+
+.nb_vue,
+.date_publi {
+  margin-left: 15px;
+  font-size: 12px;
+}
+
+.fond_star,
+.fond_plus {
+  height: 30px;
+  width: 30px;
+  background-color: rgb(123, 157, 210, 0.25);
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+}
+
+.fond_star {
+  top: 10px;
+  right: 10px;
+}
+
+.fond_plus {
+  bottom: 10px;
+  right: 10px;
+}
+
+.fond_star:hover,
+.fond_plus:hover {
+  background-color: rgb(123, 157, 210, 0.75);
+  cursor: pointer;
+  transition: 0.5s;
+}
+
+.img_star {
+  height: 25px;
+  width: 25px;
+}
+
+.img_avis {
+  height: 25px;
+  width: 25px;
+  margin-left: -7px;
+}
+
+.box_avis {
+  display: flex;
+  align-items: center;
+  margin-top: 10px;
+}
+
+.img_entreprise {
+  height: 50px;
+  width: 50px;
+  margin-top: 20px;
+}
+
+.box_img_entreprise {
+  align-self: center;
+}
+
+footer {
+  margin-top: 0;
+}

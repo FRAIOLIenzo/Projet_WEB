@@ -19,7 +19,7 @@
       <div class="dropdown_1">
         <button>Chercher</button>
         <div class="content">
-          <a href="#">Entreprises</a>
+          <a href="Recherche_entreprise.php">Entreprises</a>
           <a href="Recherche_stage.php">Stages</a>
         </div>
       </div>
