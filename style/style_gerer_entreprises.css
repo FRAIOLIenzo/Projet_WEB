@@ -38,7 +38,7 @@ main {
 }
 
 .square {
-  background-color: #fff;
+  background-color: #7b9dd2;
   width: 114px;
   height: 54px;
   border-radius: 25px;
@@ -52,7 +52,7 @@ main {
   text-decoration: none; /* Supprimer le soulignement du lien */
 }
 .menu a:visited {
-  color: #7b9dd2; /* Utilise la couleur par défaut du texte */
+  color: #ffffff; /* Utilise la couleur par défaut du texte */
   text-decoration: none; /* Supprime le soulignement */
 }
 /*CSS POUR LA RECHERCHE DES PILOTES*/

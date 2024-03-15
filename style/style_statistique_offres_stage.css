@@ -33,7 +33,7 @@ main{
 
 
 .tableau_de_bord {
-color : #7B9DD2;
+color : #ffffff;
 
 }
 
@@ -65,7 +65,7 @@ margin: 0 10px;
 
 
 .square {
-background-color: white ;
+background-color: #7b9dd2 ;
 width: 114px;
 height: 54px;
 border-radius: 25px;
@@ -76,7 +76,7 @@ justify-content: center;
 
 
 .menu a{
-color: #7b9dd2;
+color: #ffffff;
 text-decoration: none; 
 }
 
