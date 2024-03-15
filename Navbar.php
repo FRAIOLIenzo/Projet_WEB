@@ -53,7 +53,7 @@
       </div>
     </nav>
   </header>
-  <script src="" async defer></script>
+  <script src="image/porte.png" async defer></script>
 </body>
 
 </html>

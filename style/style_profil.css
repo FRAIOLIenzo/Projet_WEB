@@ -1,0 +1,88 @@
+body {
+  background-color: #bbb4da;
+  font-family: "Inter", sans-serif;
+}
+#square-main {
+  background-color: white;
+  width: 823px;
+  height: 834px;
+  margin: 0 auto; /* Centre le carré horizontalement */
+  margin-top: 50px;
+  border-radius: 25px;
+  display: flex; /* Utilisation de Flexbox */
+  flex-direction: column; /* Les éléments seront alignés verticalement */
+  align-items: center; /* Centre les éléments horizontalement */
+  padding-top: 5px;
+  color: #7b9dd2;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3); /* Ajoute une ombre de couleur noire avec une opacité de 30% */
+}
+#profil {
+  border-radius: 100px;
+  width: 176px;
+  height: 179px;
+}
+#pp-pilote {
+  border-radius: 100px;
+  width: 136px;
+  height: 139px;
+  margin-right: 20px; /* Ajoute une marge autour du texte */
+}
+#Nom {
+  font-size: 48px;
+  margin-bottom: 0px;
+  padding-bottom: 0px;
+}
+#info-perso {
+  margin: 0px;
+  padding-top: 0px;
+
+  font-weight: bold;
+  padding-top: 33px;
+  padding-right: 459px;
+  font-size: 16px;
+}
+#container-info-perso {
+  margin-bottom: 0px;
+  padding-bottom: 0px;
+}
+.item {
+  font-size: 16px;
+  text-align: center;
+  border: 1px solid #7b9dd2; /* Ajoute un contour noir de 1 pixel */
+  margin: 10px; /* Ajoute un peu de marge intérieure pour un meilleur aspect */
+  width: 350px;
+  height: 48px;
+  text-align: center; /* Centre le texte horizontalement */
+  display: flex; /* Utilisation de Flexbox */
+  justify-content: center; /* Centre le contenu horizontalement */
+  align-items: center; /* Centre le contenu verticalement */
+  border-radius: 8px;
+}
+#pilote {
+}
+#container-pilote > div {
+  margin-left: 20px; /* Ajoute une marge autour du texte */
+}
+#container-pilote {
+  border-radius: 8px;
+
+  border: 1px solid #7b9dd2; /* Ajoute un contour noir de 1 pixel */
+  width: 327px;
+  height: 150px;
+  display: flex; /* Utilisation de Flexbox */
+  align-items: center; /* Centre le contenu verticalement */
+  justify-content: center;
+}
+#deco {
+  margin-top: 30px;
+  display: flex; /* Utilisation de Flexbox */
+  justify-content: center; /* Centre le contenu horizontalement */
+  align-items: center; /* Centre le contenu verticalement */
+}
+#deco p {
+  font-size: 25px;
+}
+#deco img {
+  width: 37px;
+  height: 37px;
+}
