@@ -24,11 +24,7 @@
             <div class="square">
               <li class="active"><a href="gerer_pilotes.php">Pilotes</a></li>
             </div>
-<<<<<<< HEAD
             <li><a href="gerer_offres.php">Offres</a></li>
-=======
-            <li><a href="">Offres</a></li>
->>>>>>> 877d3bcd8ce6109493d250b1998ca4a8934939c1
             <li><a href="gerer_etudiants.php">Étudiants</a></li>
             <li><a href="gerer_entreprises.php">Entreprise</a></li>
           </ul>
