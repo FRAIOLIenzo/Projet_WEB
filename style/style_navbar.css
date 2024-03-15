@@ -139,11 +139,12 @@ header .content a,
 .content_profil a {
   color: #7b9dd2;
   font-weight: normal;
-  width: 200px;   /*Mettre auto ici pour dynamique*/
+  width: auto;   /*Mettre auto ici pour dynamique*/
 }
 
 .content_profil {
   display: none;
+  white-space: nowrap;
 }
 
 .profil-container:hover .content_profil {

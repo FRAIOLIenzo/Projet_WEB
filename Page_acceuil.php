@@ -6,7 +6,7 @@
     <title>noStage</title>
     <link rel="stylesheet" href="style/style_navbar.css" />
     <link rel="stylesheet" href="style/style_page_acceuil.css" />
-    <link rel="stylesheet" href="style/style_footer.css" />
+
 
     <link
       rel="stylesheet"
