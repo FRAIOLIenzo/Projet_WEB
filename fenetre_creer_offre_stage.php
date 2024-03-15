@@ -16,7 +16,7 @@
 
 
 <body>
-  
+
 
   <div class="box">
     <div class="box_connexion">
@@ -29,9 +29,9 @@
 
           <input id="nom_offre" class="colonne-gauche" placeholder="Nom de l'offre" />
 
-          <input id="date_stage" class="colonne-milieu" placeholder="Dates de stage" />
+          <input id="date_stage" class="colonne-milieu calendrier" type="text" placeholder="Dates de début" />
 
-          <input id="remuneration" class="colonne-droite" placeholder="Rémunération" />
+          <input id="remuneration" class="colonne-droite" type="text" placeholder="Date de fin" />
 
         </div>
 
@@ -40,7 +40,7 @@
         <div class="ligne">
 
 
-          <input id="competences" class="colonne-gauche" placeholder="Compétences" />
+          <input id="competences" class="colonne-gauche" placeholder="Rémunération" />
 
           <input id="promo" class="colonne-milieu" placeholder="Promotion concernée" />
 
@@ -52,7 +52,7 @@
 
         <div class="ligne">
 
-          <input id="adresse_mail" class="colonne-gauche" placeholder="Adresse mail" />
+          <input id="adresse_mail" class="colonne-gauche" type="email" placeholder="Adresse mail" />
 
 
           <input id="nombre_place" class="colonne-milieu" placeholder="Nombre de places" />
@@ -67,7 +67,7 @@
         <div class="ligne">
 
 
-          <select class="select-colonne-gauche" id="Ville_affichage" placeholder="Ville"> </select>
+          <select class="select-colonne-gauche" id="ville" placeholder="Ville"> </select>
 
           <input id="num_rue" class="colonne-milieu" placeholder="Numéro de rue" />
 
@@ -78,7 +78,7 @@
 
 
         <div class="ligne">
-          <input id="description_annonce" class="description" placeholder="Description de l'annonce" />
+          <input id="description_annonce" class="description" placeholder="Description de l'annonce, compétences" />
         </div>
 
 
@@ -90,7 +90,7 @@
   </div>
   </div>
 
-  
+
 
 
 
