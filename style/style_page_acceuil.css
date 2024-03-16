@@ -74,12 +74,19 @@ footer{
     width: 22vw;
     border-radius: 25px;
     background:#7B9DD2;
-    box-shadow:  18px 18px 50px #acacac,-18px -18px 50px #ffffff;
+    box-shadow: 6px 6px 20px #acacac, -6px -6px 20px #ffffff;
+
     border : none;
     font-weight: bold;
     color : white;
     font-size : 1.2vw;
 }
+
+
+.bouton_commencer:hover {
+    background-color: #487aca;
+    transition: 0.5s;
+  }
   
 /*Milieu de page*/
 
@@ -177,10 +184,27 @@ main h1 {
 
     }
 
-
-
-
+    .container_collaborateur img {
+        width: 175px;
+        height: 175px;
+        border-radius: 70px;
     
+    
+    }
+
+
+}
+
+
+@media only screen and (max-width: 800px) {
+
+    .container_collaborateur img {
+        width: 120px;
+        height: 120px;
+        border-radius: 50px;
+    
+    
+    }
 
 
 }
