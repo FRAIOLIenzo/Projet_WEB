@@ -226,6 +226,10 @@ footer {
   align-self: center;
 }
 
+.nb_avis_entreprise {
+  font-size: 10px;
+}
+
 footer {
   margin-top: 0;
 }
