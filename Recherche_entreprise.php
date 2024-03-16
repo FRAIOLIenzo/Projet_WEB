@@ -54,16 +54,45 @@
             <div class="bas_aff_entreprise">
                 <label class="date_publi">Date de publication</label>
             </div>
-            <div class="fond_star">
+            <div class="fond_star" id="popup_trigger">
                 <img class="img_star" src="image/star.png" alt="menu avis" />
             </div>
         </div>
-
     </div>
+
+    <div class="overlay" id="overlay"></div>
+
+    <div class="popup_avis_entreprise" id="popup_avis_entreprise">
+        <div class="content_poppup_avis_entreprise">
+            <div class="box_info_personne">
+                <img class="img_personne" src="image/profil.png" alt="image profil de la personne">
+                <div class="nom_personne">Nom personne</div>
+            </div>
+            <div class="box_etoiles_avis">
+                <img class="etoiles_avis" src="image/avis.png" alt="étoiles avis" />
+                <img class="etoiles_avis" src="image/avis.png" alt="étoiles avis" />
+                <img class="etoiles_avis" src="image/avis.png" alt="étoiles avis" />
+                <img class="etoiles_avis" src="image/avis.png" alt="étoiles avis" />
+                <img class="etoiles_avis" src="image/avis.png" alt="étoiles avis" />
+            </div>
+            <div class="box_commentaire_avis">
+
+                <textarea class="commentaire_avis" id="commentaire_avis" name="comment" rows="8" cols="50" placeholder="Partagez votre expérience concernant cette entreprise"></textarea>
+
+            </div>
+            <div class="box_btn">
+                <button class="btn_annuler"  id="btn_annuler">Annuler</button>
+                <button class="btn_publier">Publier</button>
+            </div>
+        </div>
+    </div>
+
+
+
 
     <?php include 'footer.php'; ?>
 
-    <script src="" async defer></script>
+    <script src="js/js_rechercher_entreprise.js" defer></script>
 </body>
 
 </html>
