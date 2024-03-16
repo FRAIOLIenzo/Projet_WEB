@@ -5,12 +5,18 @@
     font-family: 'Inter', sans-serif;
 }
 
+footer{
+    background-color: #DAD4DE;
+}
+
 
 .container_haut_de_page{
     display:flex;
     flex-direction: row;
     align-items: center;
     width: 100%;
+    height: 55%;
+    background-color: #DAD4DE;
 
 }
 
@@ -19,76 +25,60 @@
   
 }
 
-.bloc_slogan {
-
-    font-size:80px;
-    font-weight: bold;
-    padding-top: 50px;
-    padding-left: 50px;
-  
-}
-
 
 .bloc_homme_loupe {
     padding-top: 20px;
     text-align: center;
 
-
-  
-}
-.acceuil_slogan{
-
-    background-color: #DAD4DE;
-    list-style-type : none;
-    height : 650px;
 }
 
-footer{
-    background-color: #DAD4DE;
-}
+
 
 
 .bloc_slogan{
-    font-size:80px;
-    font-weight: bold;
-    
 
-    
-    
-    
+
+    padding-top: 4vw;
+    padding-left: 4vw;
 
 }
 
+.bloc_slogan a{
+    font-size: 5vw;
+    font-weight: bold;
+}
+
+
+
 .phrase_acceuil {
-    margin-top: 50px;
-    margin-bottom: 50px;
-    font-size: 16px;
+    margin-top: 2vw;
+    margin-bottom: 2vw;
+    font-size: 1.2vw;
    
 
 }
 
 .homme_loupe {
-  
- 
-  
-    width: 500px;
-    height : 580px;
+
+    width: 60%;
+    height : 75%;
 }   
 
 
 .bouton_commencer{
     
-    margin-top: 20px;
-    margin-left : 80px;
-    height: 80px;
-    width: 350px;
+    margin-top: 1vw;
+    margin-bottom: 20px;
+    margin-left : 1vw;
+    height: 4vw;
+    width: 22vw;
     border-radius: 25px;
     background:#7B9DD2;
     box-shadow:  18px 18px 50px #acacac,-18px -18px 50px #ffffff;
     border : none;
     font-weight: bold;
     color : white;
-    font-size : 16px;
+    font-size : 1.2vw;
 }
   
 /*Milieu de page*/
@@ -104,7 +94,8 @@ main h1 {
     text-align: center;
     
     margin-top: 50px;
-    margin-bottom: 50px;
+    margin-bottom: 2vw;
+    font-size: 2.4vw;
 }
 
 
@@ -114,23 +105,16 @@ main h1 {
     padding : 15px;
     text-align : center;
     line-height: 2;
+    font-size: 1.15vw;
     
 }
 
-main section img {
-    width: 250px;
-    height: 250px;
-    border-radius: 100px;
-    margin : 50px;
-    margin-top: 50px;
-   
 
-}
 
 .partenaires{
     margin-top: 20px;
-    width: 1000px;;
-    height: 205px;
+    width: 85%;;
+    height: 20%;
     margin :auto;
     margin-top: 20px;
     
@@ -144,55 +128,60 @@ main section img {
     
 }
 
-.nom {
-    display : flex;
-
+.container_collaborateur{
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-wrap: wrap;
     justify-content: center;
+    align-items: center;
 }
 
-.nom p {
-    text-align: center;
+.container_collaborateur img {
     width: 250px;
-    margin :50px;
-    margin-top:-25px;
+    height: 250px;
+    border-radius: 100px;
 
+
+}
+
+.container_collaborateur_items {
+    margin : 50px;
+}
+
+
+.container_collaborateur_items p{
+    margin-top: 20px;
+    text-align: center;
+    font-size: 1.15vw;
 }
 
 
 
-
-@media only screen and (max-width: 1450px) {
-    .container_haut_de_page {
-      flex-direction: row;
-      height: auto;
-    }
-  
-    .bloc_slogan,
-    .bloc_homme_loupe {
-      width: 100%;
- 
-    }
-  
-    .homme_loupe {
-      width: 80%;
-      height: auto;
-    }
-  
-    .bloc_slogan {
-      font-size: 50px;
-      padding-left: 0;
-      margin-bottom: 20px;
-    }
-  
-    .bouton_commencer {
-      margin: 20px auto;
-    }
+@media only screen and (min-width: 1450px) {
 
     .homme_loupe{
-
-        width: 200px;
-        height : 280px;
+        width: 515px;
+        height :605px
 
     }
-  }
-  
+
+}
+
+
+@media only screen and (max-width: 1050px) {
+
+    .homme_loupe{
+        width: 297px;
+        height :350px
+
+    }
+
+
+
+
+    
+
+
+}
+
