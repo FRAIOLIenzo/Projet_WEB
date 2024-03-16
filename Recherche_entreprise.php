@@ -38,11 +38,11 @@
                     <label class="localisation_entreprise">Localisation de l'entreprise</label>
                     <div class="box_avis">
                         <label class="avis_entreprise">Avis</label>
-                        <img class="img_avis" src="image/avis.png" alt="étoiles avis" />
-                        <img class="img_avis" src="image/avis.png" alt="étoiles avis" />
-                        <img class="img_avis" src="image/avis.png" alt="étoiles avis" />
-                        <img class="img_avis" src="image/avis.png" alt="étoiles avis" />
-                        <img class="img_avis" src="image/avis.png" alt="étoiles avis" />
+                        <img class="img_avis" src="image/etoile_avis.png" alt="étoiles avis" />
+                        <img class="img_avis" src="image/etoile_avis.png" alt="étoiles avis" />
+                        <img class="img_avis" src="image/etoile_avis.png" alt="étoiles avis" />
+                        <img class="img_avis" src="image/etoile_avis.png" alt="étoiles avis" />
+                        <img class="img_avis" src="image/etoile_avis.png" alt="étoiles avis" />
                         <label class="nb_avis_entreprise">(Nombre d'avis)</label>
                     </div>
                 </div>
@@ -60,7 +60,7 @@
         </div>
     </div>
 
-    <div class="overlay" id="overlay"></div>
+
 
     <div class="popup_avis_entreprise" id="popup_avis_entreprise">
         <div class="content_poppup_avis_entreprise">
@@ -69,11 +69,11 @@
                 <div class="nom_personne">Nom personne</div>
             </div>
             <div class="box_etoiles_avis">
-                <img class="etoiles_avis" src="image/avis.png" alt="étoiles avis" />
-                <img class="etoiles_avis" src="image/avis.png" alt="étoiles avis" />
-                <img class="etoiles_avis" src="image/avis.png" alt="étoiles avis" />
-                <img class="etoiles_avis" src="image/avis.png" alt="étoiles avis" />
-                <img class="etoiles_avis" src="image/avis.png" alt="étoiles avis" />
+                <img class="etoiles_avis" src="image/etoile_avis_vide.png" alt="étoiles avis" />
+                <img class="etoiles_avis" src="image/etoile_avis_vide.png" alt="étoiles avis" />
+                <img class="etoiles_avis" src="image/etoile_avis_vide.png" alt="étoiles avis" />
+                <img class="etoiles_avis" src="image/etoile_avis_vide.png" alt="étoiles avis" />
+                <img class="etoiles_avis" src="image/etoile_avis_vide.png" alt="étoiles avis" />
             </div>
             <div class="box_commentaire_avis">
 
@@ -88,7 +88,7 @@
     </div>
 
 
-
+    <div class="overlay" id="overlay"></div>
 
     <?php include 'footer.php'; ?>
 

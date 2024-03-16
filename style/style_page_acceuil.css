@@ -1,211 +1,160 @@
-
-*{
-    margin : 0;
-    padding : 0;
-    font-family: 'Inter', sans-serif;
+* {
+  margin: 0;
+  padding: 0;
+  font-family: "Inter", sans-serif;
 }
 
-footer{
-    background-color: #DAD4DE;
+footer {
+  background-color: #dad4de;
 }
 
-
-.container_haut_de_page{
-    display:flex;
-    flex-direction: row;
-    align-items: center;
-    width: 100%;
-    height: 55%;
-    background-color: #DAD4DE;
-
+.container_haut_de_page {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 100%;
+  height: 55%;
+  background-color: #dad4de;
 }
 
-.bloc_slogan, .bloc_homme_loupe {
-    flex: 1; 
-  
+.bloc_slogan,
+.bloc_homme_loupe {
+  flex: 1;
 }
-
 
 .bloc_homme_loupe {
-    padding-top: 20px;
-    text-align: center;
-
+  padding-top: 20px;
+  text-align: center;
 }
 
-
-
-
-.bloc_slogan{
-
-
-    padding-top: 4vw;
-    padding-left: 4vw;
-
+.bloc_slogan {
+  padding-top: 4vw;
+  padding-left: 4vw;
 }
 
-.bloc_slogan a{
-    font-size: 5vw;
-    font-weight: bold;
+.bloc_slogan a {
+  font-size: 5vw;
+  font-weight: bold;
 }
-
-
 
 .phrase_acceuil {
-    margin-top: 2vw;
-    margin-bottom: 2vw;
-    font-size: 1.2vw;
-   
-
+  margin-top: 2vw;
+  margin-bottom: 2vw;
+  font-size: 1.2vw;
 }
 
 .homme_loupe {
-
-    width: 60%;
-    height : 75%;
-}   
-
-
-.bouton_commencer{
-    
-    margin-top: 1vw;
-    margin-bottom: 20px;
-    margin-left : 1vw;
-    height: 4vw;
-    width: 22vw;
-    border-radius: 25px;
-    background:#7B9DD2;
-    box-shadow: 6px 6px 20px #acacac, -6px -6px 20px #ffffff;
-
-    border : none;
-    font-weight: bold;
-    color : white;
-    font-size : 1.2vw;
+  width: 60%;
+  height: 75%;
 }
 
+.bouton_commencer {
+  margin-top: 1vw;
+  margin-bottom: 20px;
+  margin-left: 1vw;
+  height: 4vw;
+  width: 22vw;
+  border-radius: 25px;
+  background: #7b9dd2;
+  box-shadow: 3px 3px 4px #acacac;
+
+  border: none;
+  font-weight: bold;
+  color: white;
+  font-size: 1.2vw;
+}
 
 .bouton_commencer:hover {
-    background-color: #487aca;
-    transition: 0.5s;
-  }
-  
+  background-color: #487aca;
+  transition: 0.5s;
+}
+
 /*Milieu de page*/
 
-
 main {
-    margin-top: 50px;
-    
+  margin-top: 50px;
 }
 
 main h1 {
+  text-align: center;
 
-    text-align: center;
-    
-    margin-top: 50px;
-    margin-bottom: 2vw;
-    font-size: 2.4vw;
+  margin-top: 50px;
+  margin-bottom: 2vw;
+  font-size: 2.4vw;
 }
 
-
-.texte_center  {
-    margin : 20px auto;
-    width: 75%;
-    padding : 15px;
-    text-align : center;
-    line-height: 2;
-    font-size: 1.15vw;
-    
+.texte_center {
+  margin: 20px auto;
+  width: 75%;
+  padding: 15px;
+  text-align: center;
+  line-height: 2;
+  font-size: 1.15vw;
 }
 
-
-
-.partenaires{
-    margin-top: 20px;
-    width: 85%;;
-    height: 20%;
-    margin :auto;
-    margin-top: 20px;
-    
+.partenaires {
+  margin-top: 20px;
+  width: 85%;
+  height: 20%;
+  margin: auto;
+  margin-top: 20px;
 }
 
-.alignement{
-    display : flex;
+.alignement {
+  display: flex;
 
-    justify-content: center;
-    
-    
+  justify-content: center;
 }
 
-.container_collaborateur{
-    width: 100%;
-    height: auto;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
+.container_collaborateur {
+  width: 100%;
+  height: auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
 }
 
 .container_collaborateur img {
-    width: 250px;
-    height: 250px;
-    border-radius: 100px;
-
-
+  width: 250px;
+  height: 250px;
+  border-radius: 100px;
 }
 
 .container_collaborateur_items {
-    margin : 50px;
+  margin: 50px;
 }
 
-
-.container_collaborateur_items p{
-    margin-top: 20px;
-    text-align: center;
-    font-size: 1.15vw;
+.container_collaborateur_items p {
+  margin-top: 20px;
+  text-align: center;
+  font-size: 1.15vw;
 }
-
-
 
 @media only screen and (min-width: 1450px) {
-
-    .homme_loupe{
-        width: 515px;
-        height :605px
-
-    }
-
+  .homme_loupe {
+    width: 515px;
+    height: 605px;
+  }
 }
-
 
 @media only screen and (max-width: 1050px) {
+  .homme_loupe {
+    width: 297px;
+    height: 350px;
+  }
 
-    .homme_loupe{
-        width: 297px;
-        height :350px
-
-    }
-
-    .container_collaborateur img {
-        width: 175px;
-        height: 175px;
-        border-radius: 70px;
-    
-    
-    }
-
-
+  .container_collaborateur img {
+    width: 175px;
+    height: 175px;
+    border-radius: 70px;
+  }
 }
-
 
 @media only screen and (max-width: 800px) {
-
-    .container_collaborateur img {
-        width: 120px;
-        height: 120px;
-        border-radius: 50px;
-    
-    
-    }
-
-
+  .container_collaborateur img {
+    width: 120px;
+    height: 120px;
+    border-radius: 50px;
+  }
 }
-

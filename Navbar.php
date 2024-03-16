@@ -20,7 +20,7 @@
         <button>Chercher</button>
         <div class="content">
           <a href="Recherche_entreprise.php">Entreprises</a>
-          <a href="Recherche_stage.php">Stages</a>
+          <a href="Recherche_stage.php">Offres</a>
         </div>
       </div>
       <div class="dropdown_2">
