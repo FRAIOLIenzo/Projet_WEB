@@ -242,6 +242,8 @@ footer {
   display: flex;
   justify-content: center;
   margin-top: 15px;
+  /*border: solid 1px #d9e1ec;
+  border-radius: 4px;*/
 }
 
 .box_btn {
@@ -257,7 +259,7 @@ footer {
   color: #7b9dd2;
 }
 
-.btn_publier {
+.btn_postuler {
   background-color: #7b9dd2;
   border-radius: 25px;
   border: none;
@@ -265,7 +267,7 @@ footer {
   margin-left: 25px;
 }
 
-.btn_publier:hover {
+.btn_postuler:hover {
   background-color: #487aca;
   transition: 1s;
 }
@@ -278,7 +280,7 @@ footer {
 }
 
 .btn_annuler,
-.btn_publier {
+.btn_postuler {
   width: 210px;
   height: 55px;
   cursor: pointer;
