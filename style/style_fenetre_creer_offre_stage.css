@@ -112,14 +112,13 @@
    color : white;
    background-color: #7B9DD2;
    border-radius: 25px;
-   width: 624px;
+   width: 640px;
    height : 43px;
-    border : none;
+   border : none;
   }
 
 
-.calendrier {
- 
-  background-image: url('image/.calendrier.png');
-
-}
+  .btn_creer_offre:hover {
+    background-color: #487aca;
+    transition: 0.5s;
+  }
