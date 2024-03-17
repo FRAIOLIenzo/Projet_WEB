@@ -54,10 +54,76 @@
             <div class="bas_aff_entreprise">
                 <label class="date_publi">Date de publication</label>
             </div>
-            <div class="fond_star" id="popup_trigger">
+            <div class="fond_star popup_trigger">
                 <img class="img_star" src="image/star.png" alt="menu avis" />
             </div>
         </div>
+
+        <div class="aff_entreprise">
+            <div class="box_info_entreprise">
+                <div class="box_img_entreprise">
+                    <img class="img_entreprise" src="image/entreprise.png" alt="menu avis" />
+                </div>
+                <div class="box_entreprise">
+                    <label class="nom_entreprise">Nom de l'entreprise</label>
+                    <label class="localisation_entreprise">Localisation de l'entreprise</label>
+                    <div class="box_avis">
+                        <label class="avis_entreprise">Avis</label>
+                        <img class="img_avis" src="image/etoile_avis.png" alt="étoiles avis" />
+                        <img class="img_avis" src="image/etoile_avis.png" alt="étoiles avis" />
+                        <img class="img_avis" src="image/etoile_avis.png" alt="étoiles avis" />
+                        <img class="img_avis" src="image/etoile_avis.png" alt="étoiles avis" />
+                        <img class="img_avis" src="image/etoile_avis.png" alt="étoiles avis" />
+                        <label class="nb_avis_entreprise">(Nombre d'avis)</label>
+                    </div>
+                </div>
+            </div>
+            <div class="trait"></div>
+            <div class="description_entreprise">
+                <label class="text_description_entreprise">Description de l'entreprise...</label>
+            </div>
+            <div class="bas_aff_entreprise">
+                <label class="date_publi">Date de publication</label>
+            </div>
+            <div class="fond_star popup_trigger">
+                <img class="img_star" src="image/star.png" alt="menu avis" />
+            </div>
+        </div>
+
+        <div class="aff_entreprise">
+            <div class="box_info_entreprise">
+                <div class="box_img_entreprise">
+                    <img class="img_entreprise" src="image/entreprise.png" alt="menu avis" />
+                </div>
+                <div class="box_entreprise">
+                    <label class="nom_entreprise">Nom de l'entreprise</label>
+                    <label class="localisation_entreprise">Localisation de l'entreprise</label>
+                    <div class="box_avis">
+                        <label class="avis_entreprise">Avis</label>
+                        <img class="img_avis" src="image/etoile_avis.png" alt="étoiles avis" />
+                        <img class="img_avis" src="image/etoile_avis.png" alt="étoiles avis" />
+                        <img class="img_avis" src="image/etoile_avis.png" alt="étoiles avis" />
+                        <img class="img_avis" src="image/etoile_avis.png" alt="étoiles avis" />
+                        <img class="img_avis" src="image/etoile_avis.png" alt="étoiles avis" />
+                        <label class="nb_avis_entreprise">(Nombre d'avis)</label>
+                    </div>
+                </div>
+            </div>
+            <div class="trait"></div>
+            <div class="description_entreprise">
+                <label class="text_description_entreprise">Description de l'entreprise...</label>
+            </div>
+            <div class="bas_aff_entreprise">
+                <label class="date_publi">Date de publication</label>
+            </div>
+            <div class="fond_star popup_trigger">
+                <img class="img_star" src="image/star.png" alt="menu avis" />
+            </div>
+        </div>
+
+        
+    </div>
+
     </div>
 
 
@@ -81,7 +147,7 @@
 
             </div>
             <div class="box_btn">
-                <button class="btn_annuler"  id="btn_annuler">Annuler</button>
+                <button class="btn_annuler" id="btn_annuler">Annuler</button>
                 <button class="btn_publier">Publier</button>
             </div>
         </div>

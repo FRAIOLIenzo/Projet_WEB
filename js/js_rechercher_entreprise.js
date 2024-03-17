@@ -1,5 +1,9 @@
 // Récupère l'élément image d'étoile par son ID
-const popupTrigger = document.getElementById("popup_trigger");
+// Sélectionne tous les éléments avec la classe "popup_trigger"
+const popupTriggers = document.querySelectorAll(".popup_trigger");
+
+
+
 const btnTrigger = document.getElementById("btn_annuler");
 
 // Récupère l'élément de superposition et la boîte modale par leur ID
@@ -19,7 +23,10 @@ function closePopup() {
 }
 
 // Ajoute un gestionnaire d'événements pour le clic sur l'image d'étoile
-popupTrigger.addEventListener("click", openPopup);
+// Parcourt chaque élément et ajoute un gestionnaire d'événements pour le clic
+popupTriggers.forEach((trigger) => {
+  trigger.addEventListener("click", openPopup);
+});
 btnTrigger.addEventListener("click", closePopup);
 
 // Ferme la boîte modale lorsque l'utilisateur clique en dehors de celle-ci
@@ -28,6 +35,9 @@ window.addEventListener("click", function (event) {
     closePopup();
   }
 });
+
+
+
 
 // Récupère toutes les images avec la classe "etoiles_avis"
 const etoilesImages = document.querySelectorAll(".etoiles_avis");

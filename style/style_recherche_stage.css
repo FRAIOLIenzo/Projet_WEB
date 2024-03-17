@@ -9,10 +9,9 @@ body {
   font-family: "Inter", sans-serif;
 }
 
-footer{
-  background-color: #DAD4DE;
+footer {
+  background-color: #dad4de;
 }
-
 
 .container_recherche {
   width: 100%;
@@ -67,6 +66,7 @@ footer{
 .btn_recherche {
   height: 50px;
   width: 155px;
+  min-width: 145px;
   border: none;
   border-radius: 10px;
   background-color: #7b9dd2;
@@ -92,11 +92,11 @@ footer{
   width: 400px;
   height: auto;
   border-radius: 15px;
-  border:  1px solid #7b9dd2;
+  border: 1px solid #7b9dd2;
   background-color: white;
   margin: 40px 15px;
   position: relative;
-  flex: 1 1 400px; 
+  flex: 1 1 400px;
   max-width: 400px;
 }
 

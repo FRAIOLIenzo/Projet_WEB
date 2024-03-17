@@ -66,11 +66,12 @@ footer {
 .btn_recherche {
   height: 50px;
   width: 155px;
+  min-width: 145px;
   border: none;
   border-radius: 10px;
   background-color: #7b9dd2;
   color: white;
-  font-size: 20px;
+  font-size: 18px;
   font-weight: bold;
   cursor: pointer;
   margin: 0px 10px;
@@ -298,6 +299,7 @@ footer {
   border: 1px solid #d9e1ec;
   border-radius: 4px;
   resize: none;
+  font-family: "Inter", sans-serif;
 }
 
 .commentaire_avis::placeholder {
