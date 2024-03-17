@@ -24,14 +24,14 @@
         <label class="titre-pop-up">Créer une offre</label>
 
 
-
+        <form method="post" id="formulaire_creer_offre_de_stage">
         <div class="ligne">
 
-          <input id="nom_offre" class="colonne-gauche" placeholder="Nom de l'offre" />
+          <input id="nom_offre" class="colonne-gauche" placeholder="Nom de l'offre" required />
 
-          <input id="date_stage" class="colonne-milieu calendrier" type="text" placeholder="Dates de début" />
+          <input id="date_stage" class="colonne-milieu calendrier" type="text" placeholder="Dates de début" required />
 
-          <input id="remuneration" class="colonne-droite" type="text" placeholder="Date de fin" />
+          <input id="remuneration" class="colonne-droite" type="text" placeholder="Date de fin" required/>
 
         </div>
 
@@ -40,11 +40,11 @@
         <div class="ligne">
 
 
-          <input id="competences" class="colonne-gauche" placeholder="Rémunération" />
+          <input id="competences" class="colonne-gauche" placeholder="Rémunération" required/>
 
-          <input id="promo" class="colonne-milieu" placeholder="Promotion concernée" />
+          <input id="promo" class="colonne-milieu" placeholder="Promotion concernée" required/>
 
-          <input id="secteur_activite" class="colonne-droite" placeholder="Secteurs d'activité" />
+          <input id="secteur_activite" class="colonne-droite" placeholder="Secteurs d'activité" required />
 
         </div>
 
@@ -52,12 +52,12 @@
 
         <div class="ligne">
 
-          <input id="adresse_mail" class="colonne-gauche" type="email" placeholder="Adresse mail" />
+          <input id="adresse_mail" class="colonne-gauche" type="email" placeholder="Adresse mail" required />
 
 
-          <input id="nombre_place" class="colonne-milieu" placeholder="Nombre de places" />
+          <input id="nombre_place" class="colonne-milieu" placeholder="Nombre de places" required/>
 
-          <input id="code_postal" class="colonne-droite" placeholder="Code postal" />
+          <input id="code_postal" class="colonne-droite" placeholder="Code postal" required />
 
 
 
@@ -69,22 +69,24 @@
 
           <select class="select-colonne-gauche" id="ville" placeholder="Ville"> </select>
 
-          <input id="num_rue" class="colonne-milieu" placeholder="Numéro de rue" />
+          <input id="num_rue" class="colonne-milieu" placeholder="Numéro de rue" required/>
 
-          <input id="nom_rue" class="colonne-droite" placeholder="Nom rue" />
+          <input id="nom_rue" class="colonne-droite" placeholder="Nom rue" required/>
 
         </div>
 
 
 
         <div class="ligne">
-          <input id="description_annonce" class="description" placeholder="Description de l'annonce, compétences" />
+          <input id="description_annonce" class="description" placeholder="Description de l'annonce, compétences" required/>
         </div>
 
 
 
 
-        <button class="btn_creer_offre">Créer une offre</button>
+        
+        <input type="submit" class="btn_creer_offre" value="Valider" />
+        <form>
       </div>
     </div>
   </div>

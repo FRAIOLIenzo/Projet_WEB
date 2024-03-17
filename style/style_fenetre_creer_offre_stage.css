@@ -114,7 +114,11 @@
    border-radius: 25px;
    width: 640px;
    height : 43px;
-  border : none;
+   border : none;
   }
 
 
+  .btn_creer_offre:hover {
+    background-color: #487aca;
+    transition: 0.5s;
+  }
