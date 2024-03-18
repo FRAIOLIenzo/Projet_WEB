@@ -15,8 +15,10 @@
   <main>
     <div >
         <div id="square-main">
+          <div id="container-profil">
             <img id="profil" src="image/profil.png" alt="profil utilisateur" />
             <div id="Nom">Maxime Auchet</div>
+            </div>
             <div id="info-perso"> Information personnels : </div>
             <div id="container-info-perso">
                 <div class="item">Centre : </div>
@@ -24,9 +26,7 @@
                 <div class="item">Addresse mail : </div>
                 <div class="item">Mot de passe : </div>
             </div>
-            <div id="info-perso"> Pilote : 
-
-            </div>
+            <div id="info-pilote"> Pilote :  </div>
             <div id="container-pilote">
 
                 <img id="pp-pilote" src="image/profil.png" alt="profil utilisateur" />
@@ -34,10 +34,7 @@
 
                 </div> 
             </div>
-            <div id="deco">
-            <img src="image/porte.png" />
-            <p>Se déconnecter</p>   
-            </div> 
+
         </div>
     </div>
 

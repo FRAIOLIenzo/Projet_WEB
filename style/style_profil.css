@@ -4,7 +4,7 @@ body {
 }
 #square-main {
   background-color: white;
-  width: 823px;
+  width: 644px;
   height: 834px;
   margin: 0 auto; /* Centre le carré horizontalement */
   margin-top: 50px;
@@ -28,6 +28,7 @@ body {
   margin-right: 20px; /* Ajoute une marge autour du texte */
 }
 #Nom {
+  margin-left: 34px;
   font-size: 48px;
   margin-bottom: 0px;
   padding-bottom: 0px;
@@ -38,7 +39,17 @@ body {
 
   font-weight: bold;
   padding-top: 33px;
-  padding-right: 459px;
+  padding-right: 330px;
+  font-size: 16px;
+}
+#info-pilote {
+  margin: 0px;
+  margin-top: 20px;
+  margin-bottom: 10px;
+
+  font-weight: bold;
+  padding-top: 33px;
+  padding-right: 460px;
   font-size: 16px;
 }
 #container-info-perso {
@@ -50,15 +61,13 @@ body {
   text-align: center;
   border: 1px solid #7b9dd2; /* Ajoute un contour noir de 1 pixel */
   margin: 10px; /* Ajoute un peu de marge intérieure pour un meilleur aspect */
-  width: 350px;
+  width: 526px;
   height: 48px;
   text-align: center; /* Centre le texte horizontalement */
   display: flex; /* Utilisation de Flexbox */
   justify-content: center; /* Centre le contenu horizontalement */
   align-items: center; /* Centre le contenu verticalement */
   border-radius: 8px;
-}
-#pilote {
 }
 #container-pilote > div {
   margin-left: 20px; /* Ajoute une marge autour du texte */
@@ -67,22 +76,15 @@ body {
   border-radius: 8px;
 
   border: 1px solid #7b9dd2; /* Ajoute un contour noir de 1 pixel */
-  width: 327px;
+  width: 526px;
   height: 150px;
   display: flex; /* Utilisation de Flexbox */
   align-items: center; /* Centre le contenu verticalement */
   justify-content: center;
 }
-#deco {
-  margin-top: 30px;
+#container-profil {
+  margin-top: 50px;
   display: flex; /* Utilisation de Flexbox */
-  justify-content: center; /* Centre le contenu horizontalement */
   align-items: center; /* Centre le contenu verticalement */
-}
-#deco p {
-  font-size: 25px;
-}
-#deco img {
-  width: 37px;
-  height: 37px;
+  justify-content: center;
 }
