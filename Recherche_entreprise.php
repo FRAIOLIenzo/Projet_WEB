@@ -27,6 +27,7 @@
     </div>
 
     <div class="container_aff_entreprise">
+
         <div class="aff_entreprise">
             <div class="box_info_entreprise">
                 <div class="box_img_entreprise">
@@ -36,12 +37,13 @@
                     <label class="nom_entreprise">Nom de l'entreprise</label>
                     <label class="localisation_entreprise">Localisation de l'entreprise</label>
                     <div class="box_avis">
-                    <label class="avis_entreprise">Avis</label>
-                    <img class="img_avis" src="image/avis.png" alt="étoiles avis" />
-                    <img class="img_avis" src="image/avis.png" alt="étoiles avis" />
-                    <img class="img_avis" src="image/avis.png" alt="étoiles avis" />
-                    <img class="img_avis" src="image/avis.png" alt="étoiles avis" />
-                    <img class="img_avis" src="image/avis.png" alt="étoiles avis" />
+                        <label class="avis_entreprise">Avis</label>
+                        <img class="img_avis" src="image/etoile_avis.png" alt="étoiles avis" />
+                        <img class="img_avis" src="image/etoile_avis.png" alt="étoiles avis" />
+                        <img class="img_avis" src="image/etoile_avis.png" alt="étoiles avis" />
+                        <img class="img_avis" src="image/etoile_avis.png" alt="étoiles avis" />
+                        <img class="img_avis" src="image/etoile_avis.png" alt="étoiles avis" />
+                        <label class="nb_avis_entreprise">(Nombre d'avis)</label>
                     </div>
                 </div>
             </div>
@@ -52,10 +54,11 @@
             <div class="bas_aff_entreprise">
                 <label class="date_publi">Date de publication</label>
             </div>
-            <div class="fond_star">
+            <div class="fond_star popup_trigger">
                 <img class="img_star" src="image/star.png" alt="menu avis" />
             </div>
         </div>
+
         <div class="aff_entreprise">
             <div class="box_info_entreprise">
                 <div class="box_img_entreprise">
@@ -65,12 +68,13 @@
                     <label class="nom_entreprise">Nom de l'entreprise</label>
                     <label class="localisation_entreprise">Localisation de l'entreprise</label>
                     <div class="box_avis">
-                    <label class="avis_entreprise">Avis</label>
-                    <img class="img_avis" src="image/avis.png" alt="étoiles avis" />
-                    <img class="img_avis" src="image/avis.png" alt="étoiles avis" />
-                    <img class="img_avis" src="image/avis.png" alt="étoiles avis" />
-                    <img class="img_avis" src="image/avis.png" alt="étoiles avis" />
-                    <img class="img_avis" src="image/avis.png" alt="étoiles avis" />
+                        <label class="avis_entreprise">Avis</label>
+                        <img class="img_avis" src="image/etoile_avis.png" alt="étoiles avis" />
+                        <img class="img_avis" src="image/etoile_avis.png" alt="étoiles avis" />
+                        <img class="img_avis" src="image/etoile_avis.png" alt="étoiles avis" />
+                        <img class="img_avis" src="image/etoile_avis.png" alt="étoiles avis" />
+                        <img class="img_avis" src="image/etoile_avis.png" alt="étoiles avis" />
+                        <label class="nb_avis_entreprise">(Nombre d'avis)</label>
                     </div>
                 </div>
             </div>
@@ -81,10 +85,11 @@
             <div class="bas_aff_entreprise">
                 <label class="date_publi">Date de publication</label>
             </div>
-            <div class="fond_star">
+            <div class="fond_star popup_trigger">
                 <img class="img_star" src="image/star.png" alt="menu avis" />
             </div>
         </div>
+
         <div class="aff_entreprise">
             <div class="box_info_entreprise">
                 <div class="box_img_entreprise">
@@ -94,12 +99,13 @@
                     <label class="nom_entreprise">Nom de l'entreprise</label>
                     <label class="localisation_entreprise">Localisation de l'entreprise</label>
                     <div class="box_avis">
-                    <label class="avis_entreprise">Avis</label>
-                    <img class="img_avis" src="image/avis.png" alt="étoiles avis" />
-                    <img class="img_avis" src="image/avis.png" alt="étoiles avis" />
-                    <img class="img_avis" src="image/avis.png" alt="étoiles avis" />
-                    <img class="img_avis" src="image/avis.png" alt="étoiles avis" />
-                    <img class="img_avis" src="image/avis.png" alt="étoiles avis" />
+                        <label class="avis_entreprise">Avis</label>
+                        <img class="img_avis" src="image/etoile_avis.png" alt="étoiles avis" />
+                        <img class="img_avis" src="image/etoile_avis.png" alt="étoiles avis" />
+                        <img class="img_avis" src="image/etoile_avis.png" alt="étoiles avis" />
+                        <img class="img_avis" src="image/etoile_avis.png" alt="étoiles avis" />
+                        <img class="img_avis" src="image/etoile_avis.png" alt="étoiles avis" />
+                        <label class="nb_avis_entreprise">(Nombre d'avis)</label>
                     </div>
                 </div>
             </div>
@@ -110,132 +116,49 @@
             <div class="bas_aff_entreprise">
                 <label class="date_publi">Date de publication</label>
             </div>
-            <div class="fond_star">
+            <div class="fond_star popup_trigger">
                 <img class="img_star" src="image/star.png" alt="menu avis" />
             </div>
         </div>
-        <div class="aff_entreprise">
-            <div class="box_info_entreprise">
-                <div class="box_img_entreprise">
-                    <img class="img_entreprise" src="image/entreprise.png" alt="menu avis" />
-                </div>
-                <div class="box_entreprise">
-                    <label class="nom_entreprise">Nom de l'entreprise</label>
-                    <label class="localisation_entreprise">Localisation de l'entreprise</label>
-                    <div class="box_avis">
-                    <label class="avis_entreprise">Avis</label>
-                    <img class="img_avis" src="image/avis.png" alt="étoiles avis" />
-                    <img class="img_avis" src="image/avis.png" alt="étoiles avis" />
-                    <img class="img_avis" src="image/avis.png" alt="étoiles avis" />
-                    <img class="img_avis" src="image/avis.png" alt="étoiles avis" />
-                    <img class="img_avis" src="image/avis.png" alt="étoiles avis" />
-                    </div>
-                </div>
-            </div>
-            <div class="trait"></div>
-            <div class="description_entreprise">
-                <label class="text_description_entreprise">Description de l'entreprise...</label>
-            </div>
-            <div class="bas_aff_entreprise">
-                <label class="date_publi">Date de publication</label>
-            </div>
-            <div class="fond_star">
-                <img class="img_star" src="image/star.png" alt="menu avis" />
-            </div>
-        </div>
-        <div class="aff_entreprise">
-            <div class="box_info_entreprise">
-                <div class="box_img_entreprise">
-                    <img class="img_entreprise" src="image/entreprise.png" alt="menu avis" />
-                </div>
-                <div class="box_entreprise">
-                    <label class="nom_entreprise">Nom de l'entreprise</label>
-                    <label class="localisation_entreprise">Localisation de l'entreprise</label>
-                    <div class="box_avis">
-                    <label class="avis_entreprise">Avis</label>
-                    <img class="img_avis" src="image/avis.png" alt="étoiles avis" />
-                    <img class="img_avis" src="image/avis.png" alt="étoiles avis" />
-                    <img class="img_avis" src="image/avis.png" alt="étoiles avis" />
-                    <img class="img_avis" src="image/avis.png" alt="étoiles avis" />
-                    <img class="img_avis" src="image/avis.png" alt="étoiles avis" />
-                    </div>
-                </div>
-            </div>
-            <div class="trait"></div>
-            <div class="description_entreprise">
-                <label class="text_description_entreprise">Description de l'entreprise...</label>
-            </div>
-            <div class="bas_aff_entreprise">
-                <label class="date_publi">Date de publication</label>
-            </div>
-            <div class="fond_star">
-                <img class="img_star" src="image/star.png" alt="menu avis" />
-            </div>
-        </div>
-        <div class="aff_entreprise">
-            <div class="box_info_entreprise">
-                <div class="box_img_entreprise">
-                    <img class="img_entreprise" src="image/entreprise.png" alt="menu avis" />
-                </div>
-                <div class="box_entreprise">
-                    <label class="nom_entreprise">Nom de l'entreprise</label>
-                    <label class="localisation_entreprise">Localisation de l'entreprise</label>
-                    <div class="box_avis">
-                    <label class="avis_entreprise">Avis</label>
-                    <img class="img_avis" src="image/avis.png" alt="étoiles avis" />
-                    <img class="img_avis" src="image/avis.png" alt="étoiles avis" />
-                    <img class="img_avis" src="image/avis.png" alt="étoiles avis" />
-                    <img class="img_avis" src="image/avis.png" alt="étoiles avis" />
-                    <img class="img_avis" src="image/avis.png" alt="étoiles avis" />
-                    </div>
-                </div>
-            </div>
-            <div class="trait"></div>
-            <div class="description_entreprise">
-                <label class="text_description_entreprise">Description de l'entreprise...</label>
-            </div>
-            <div class="bas_aff_entreprise">
-                <label class="date_publi">Date de publication</label>
-            </div>
-            <div class="fond_star">
-                <img class="img_star" src="image/star.png" alt="menu avis" />
-            </div>
-        </div>
-        <div class="aff_entreprise">
-            <div class="box_info_entreprise">
-                <div class="box_img_entreprise">
-                    <img class="img_entreprise" src="image/entreprise.png" alt="menu avis" />
-                </div>
-                <div class="box_entreprise">
-                    <label class="nom_entreprise">Nom de l'entreprise</label>
-                    <label class="localisation_entreprise">Localisation de l'entreprise</label>
-                    <div class="box_avis">
-                    <label class="avis_entreprise">Avis</label>
-                    <img class="img_avis" src="image/avis.png" alt="étoiles avis" />
-                    <img class="img_avis" src="image/avis.png" alt="étoiles avis" />
-                    <img class="img_avis" src="image/avis.png" alt="étoiles avis" />
-                    <img class="img_avis" src="image/avis.png" alt="étoiles avis" />
-                    <img class="img_avis" src="image/avis.png" alt="étoiles avis" />
-                    </div>
-                </div>
-            </div>
-            <div class="trait"></div>
-            <div class="description_entreprise">
-                <label class="text_description_entreprise">Description de l'entreprise...</label>
-            </div>
-            <div class="bas_aff_entreprise">
-                <label class="date_publi">Date de publication</label>
-            </div>
-            <div class="fond_star">
-                <img class="img_star" src="image/star.png" alt="menu avis" />
-            </div>
-        </div>
+
         
     </div>
 
+    </div>
+
+
+
+    <div class="popup_avis_entreprise" id="popup_avis_entreprise">
+        <div class="content_poppup_avis_entreprise">
+            <div class="box_info_personne">
+                <img class="img_personne" src="image/profil.png" alt="image profil de la personne">
+                <div class="nom_personne">Nom personne</div>
+            </div>
+            <div class="box_etoiles_avis">
+                <img class="etoiles_avis" src="image/etoile_avis_vide.png" alt="étoiles avis" />
+                <img class="etoiles_avis" src="image/etoile_avis_vide.png" alt="étoiles avis" />
+                <img class="etoiles_avis" src="image/etoile_avis_vide.png" alt="étoiles avis" />
+                <img class="etoiles_avis" src="image/etoile_avis_vide.png" alt="étoiles avis" />
+                <img class="etoiles_avis" src="image/etoile_avis_vide.png" alt="étoiles avis" />
+            </div>
+            <div class="box_commentaire_avis">
+
+                <textarea class="commentaire_avis" id="commentaire_avis" name="comment" rows="8" cols="50" placeholder="Partagez votre expérience concernant cette entreprise"></textarea>
+
+            </div>
+            <div class="box_btn">
+                <button class="btn_annuler" id="btn_annuler">Annuler</button>
+                <button class="btn_publier">Publier</button>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="overlay" id="overlay"></div>
+
     <?php include 'footer.php'; ?>
 
-    <script src="" async defer></script>
+    <script src="js/js_rechercher_entreprise.js" defer></script>
 </body>
 
 </html>

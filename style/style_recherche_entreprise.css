@@ -66,11 +66,12 @@ footer {
 .btn_recherche {
   height: 50px;
   width: 155px;
+  min-width: 145px;
   border: none;
   border-radius: 10px;
   background-color: #7b9dd2;
   color: white;
-  font-size: 20px;
+  font-size: 18px;
   font-weight: bold;
   cursor: pointer;
   margin: 0px 10px;
@@ -205,9 +206,9 @@ footer {
 }
 
 .img_avis {
-  height: 25px;
-  width: 25px;
-  margin-left: -7px;
+  height: 13px;
+  width: 13px;
+  margin: 0px 2px;
 }
 
 .box_avis {
@@ -226,6 +227,133 @@ footer {
   align-self: center;
 }
 
+.nb_avis_entreprise {
+  font-size: 10px;
+}
+
 footer {
   margin-top: 0;
+}
+
+/* POPUP */
+
+#popup_avis_entreprise {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  display: none;
+}
+
+.content_poppup_avis_entreprise {
+  background-color: white;
+  width: 60%;
+  display: flex;
+  flex-direction: column;
+  border-radius: 30px;
+  box-shadow: 0px 6px 6px 0px rgba(0, 0, 0, 0.2);
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1000;
+}
+
+.box_info_personne {
+  display: flex;
+  align-items: center;
+  margin: 25px;
+}
+
+.img_personne {
+  width: 50px;
+  height: 50px;
+  border-radius: 100px;
+}
+
+.nom_personne {
+  margin-left: 15px;
+}
+
+.box_etoiles_avis {
+  display: flex;
+  justify-content: center;
+}
+
+.etoiles_avis {
+  width: 50px;
+  height: 50px;
+  margin: 0px 5px;
+  cursor: pointer;
+}
+
+.box_commentaire_avis {
+  display: flex;
+  justify-content: center;
+  margin-top: 15px;
+}
+
+.commentaire_avis {
+  width: 100%;
+  margin: 0px 25px;
+  padding: 10px;
+  border: 1px solid #d9e1ec;
+  border-radius: 4px;
+  resize: none;
+  font-family: "Inter", sans-serif;
+}
+
+.commentaire_avis::placeholder {
+  color: #d9e1ec;
+  font-family: "Inter", sans-serif;
+}
+
+.box_btn {
+  margin: 36px 25px 25px 10px;
+  display: flex;
+  justify-content: right;
+}
+
+.btn_annuler {
+  background-color: transparent;
+  border: 1px solid #7b9dd2;
+  border-radius: 25px;
+  color: #7b9dd2;
+}
+
+.btn_publier {
+  background-color: #7b9dd2;
+  border-radius: 25px;
+  border: none;
+  color: white;
+  margin-left: 25px;
+}
+
+.btn_publier:hover {
+  background-color: #487aca;
+  transition: 1s;
+}
+
+.btn_annuler:hover {
+  background-color: red;
+  transition: background-color 1s;
+  color: white;
+  border: none;
+}
+
+.btn_annuler,
+.btn_publier {
+  width: 210px;
+  height: 55px;
+  cursor: pointer;
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 999;
+  display: none;
 }
