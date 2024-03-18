@@ -53,110 +53,12 @@
       <div class="box_stats">
         <div class="box_stats_contenu">
 
-<<<<<<< HEAD
-        <div class="box_connexion emplacement_box_milieu">
-          <div class="box_connexion_contenu">
-            
-            <div class = "localisation">
-          
-              <h1>Répartition par localisation</h1>
-              <div class = "donut" id="donut_campus"></div>
-    
-            </div>
-          </div>
-        </div>
-
-
-        <div class="box_connexion emplacement_box_droite">
-          <div class="box_connexion_contenu">
-            
-            <div class = "note_offre">
-          
-              <h1>Offres les mieux notées</h1>
-
-              <div class="emplacement_box_droite">
-                <ol>
-                  <li>Maxime</li>
-                  <li>Alexis</li>
-                  <li>Enzo</li>
-                  <li>Maxime</li>
-                  <li>Alexis</li>
-                  <li>Enzo</li>
-
-                </ol>
-              </div>
-            
-            </div>
-          </div>
-        </div>
-=======
->>>>>>> 877d3bcd8ce6109493d250b1998ca4a8934939c1
         
 
             <h1>Répartition par secteur d'activité</h1>
             <div class="donut" id="donut_secteur_activite"></div>
 
           
-<<<<<<< HEAD
-              <h1>Annonces les plus solicitées</h1>
-
-              <table>
-               
-                <thead>
-                  <tr>
-                    <th>Nom</th>
-                    <th >Secteurs d'activité</th>
-                    <th>Localisation</th>
-                    <th>Promotions concernées</th>
-                  </tr>
-                </thead>
-
-                <tbody>
-                  <tr>
-                    <td>Programmeur</td>
-                    <td>informatique</td>
-                    <td>Nancy</td>
-                    <td>
-                      CPI A2
-                    </td>
-                  </tr>
-
-                  <tr>
-                    <td>Programmeur</td>
-                    <td>informatique</td>
-                    <td>Nancy</td>
-                    <td>
-                      CPI A2
-                    </td>
-                  </tr>
-
-                  <tr>
-                    <td>Programmeur</td>
-                    <td>informatique</td>
-                    <td>Nancy</td>
-                    <td>
-                      CPI A2
-                    </td>
-                  </tr>
-
-
-                  <tr>
-                    <td>Programmeur</td>
-                    <td>informatique</td>
-                    <td>Nancy</td>
-                    <td>
-                      CPI A2
-                    </td>
-                  </tr>
-                </tbody>
-              
-              </table>
-           
-    
-            </div>
-          </div>
-=======
->>>>>>> 877d3bcd8ce6109493d250b1998ca4a8934939c1
         </div>
       </div>
 
@@ -171,13 +73,6 @@
         
         </div>
       </div>
-<<<<<<< HEAD
-    </main>
-
-    <?php include 'footer.php'; ?>
-  </body>
-</html>
-=======
 
 
       <div class="box_stats">
@@ -292,4 +187,3 @@
 </body>
 
 </html>
->>>>>>> 877d3bcd8ce6109493d250b1998ca4a8934939c1

@@ -60,7 +60,7 @@
         </div>
         <div class="bas_offre_stage">
           <label class="date_publi">Date de publication</label>
-          <label class="nb_vue">Nombre de vues</label>
+
         </div>
         <div class="fond_plus">
           <img
@@ -91,7 +91,191 @@
         </div>
         <div class="bas_offre_stage">
           <label class="date_publi">Date de publication</label>
-          <label class="nb_vue">Nombre de vues</label>
+
+        </div>
+        <div class="fond_plus">
+          <img
+            class="img_plus"
+            src="image/plus_noir.png"
+            alt="bouton pour voir plus d'offre de stage"
+          />
+        </div>
+      </div>
+
+      <div class="offre_stage">
+        <div class="box_domaine_stage">
+          <label class="text_domaine_stage">Domaine du stage</label>
+          <label class="nom_entreprise">Nom de l'entreprise</label>
+          <label class="lieu_stage">Lieu du stage</label>
+          <label class="remuneration_stage">Rémunération</label>
+          <div class="fond_wishlist">
+            <img
+              class="img_wishlist"
+              src="image/wishlist.png"
+              alt="banniére de wishlist"
+            />
+          </div>
+        </div>
+        <div class="trait"></div>
+        <div class="description_stage">
+          <label class="text_description_stage">Description du stage...</label>
+        </div>
+        <div class="bas_offre_stage">
+          <label class="date_publi">Date de publication</label>
+
+        </div>
+        <div class="fond_plus">
+          <img
+            class="img_plus"
+            src="image/plus_noir.png"
+            alt="bouton pour voir plus d'offre de stage"
+          />
+        </div>
+      </div>
+
+      <div class="offre_stage">
+        <div class="box_domaine_stage">
+          <label class="text_domaine_stage">Domaine du stage</label>
+          <label class="nom_entreprise">Nom de l'entreprise</label>
+          <label class="lieu_stage">Lieu du stage</label>
+          <label class="remuneration_stage">Rémunération</label>
+          <div class="fond_wishlist">
+            <img
+              class="img_wishlist"
+              src="image/wishlist.png"
+              alt="banniére de wishlist"
+            />
+          </div>
+        </div>
+        <div class="trait"></div>
+        <div class="description_stage">
+          <label class="text_description_stage">Description du stage...</label>
+        </div>
+        <div class="bas_offre_stage">
+          <label class="date_publi">Date de publication</label>
+
+        </div>
+        <div class="fond_plus">
+          <img
+            class="img_plus"
+            src="image/plus_noir.png"
+            alt="bouton pour voir plus d'offre de stage"
+          />
+        </div>
+      </div>
+      <div class="offre_stage">
+        <div class="box_domaine_stage">
+          <label class="text_domaine_stage">Domaine du stage</label>
+          <label class="nom_entreprise">Nom de l'entreprise</label>
+          <label class="lieu_stage">Lieu du stage</label>
+          <label class="remuneration_stage">Rémunération</label>
+          <div class="fond_wishlist">
+            <img
+              class="img_wishlist"
+              src="image/wishlist.png"
+              alt="banniére de wishlist"
+            />
+          </div>
+        </div>
+        <div class="trait"></div>
+        <div class="description_stage">
+          <label class="text_description_stage">Description du stage...</label>
+        </div>
+        <div class="bas_offre_stage">
+          <label class="date_publi">Date de publication</label>
+
+        </div>
+        <div class="fond_plus">
+          <img
+            class="img_plus"
+            src="image/plus_noir.png"
+            alt="bouton pour voir plus d'offre de stage"
+          />
+        </div>
+      </div>
+
+      <div class="offre_stage">
+        <div class="box_domaine_stage">
+          <label class="text_domaine_stage">Domaine du stage</label>
+          <label class="nom_entreprise">Nom de l'entreprise</label>
+          <label class="lieu_stage">Lieu du stage</label>
+          <label class="remuneration_stage">Rémunération</label>
+          <div class="fond_wishlist">
+            <img
+              class="img_wishlist"
+              src="image/wishlist.png"
+              alt="banniére de wishlist"
+            />
+          </div>
+        </div>
+        <div class="trait"></div>
+        <div class="description_stage">
+          <label class="text_description_stage">Description du stage...</label>
+        </div>
+        <div class="bas_offre_stage">
+          <label class="date_publi">Date de publication</label>
+
+        </div>
+        <div class="fond_plus">
+          <img
+            class="img_plus"
+            src="image/plus_noir.png"
+            alt="bouton pour voir plus d'offre de stage"
+          />
+        </div>
+      </div>
+      <div class="offre_stage">
+        <div class="box_domaine_stage">
+          <label class="text_domaine_stage">Domaine du stage</label>
+          <label class="nom_entreprise">Nom de l'entreprise</label>
+          <label class="lieu_stage">Lieu du stage</label>
+          <label class="remuneration_stage">Rémunération</label>
+          <div class="fond_wishlist">
+            <img
+              class="img_wishlist"
+              src="image/wishlist.png"
+              alt="banniére de wishlist"
+            />
+          </div>
+        </div>
+        <div class="trait"></div>
+        <div class="description_stage">
+          <label class="text_description_stage">Description du stage...</label>
+        </div>
+        <div class="bas_offre_stage">
+          <label class="date_publi">Date de publication</label>
+
+        </div>
+        <div class="fond_plus">
+          <img
+            class="img_plus"
+            src="image/plus_noir.png"
+            alt="bouton pour voir plus d'offre de stage"
+          />
+        </div>
+      </div>
+
+      <div class="offre_stage">
+        <div class="box_domaine_stage">
+          <label class="text_domaine_stage">Domaine du stage</label>
+          <label class="nom_entreprise">Nom de l'entreprise</label>
+          <label class="lieu_stage">Lieu du stage</label>
+          <label class="remuneration_stage">Rémunération</label>
+          <div class="fond_wishlist">
+            <img
+              class="img_wishlist"
+              src="image/wishlist.png"
+              alt="banniére de wishlist"
+            />
+          </div>
+        </div>
+        <div class="trait"></div>
+        <div class="description_stage">
+          <label class="text_description_stage">Description du stage...</label>
+        </div>
+        <div class="bas_offre_stage">
+          <label class="date_publi">Date de publication</label>
+
         </div>
         <div class="fond_plus">
           <img
