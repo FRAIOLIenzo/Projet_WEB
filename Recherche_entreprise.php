@@ -28,28 +28,48 @@
 
     <div class="container_aff_entreprise">
 
-        <div class="aff_entreprise">
+    <?php
+
+// Fonction pour remplacer une donnée dans une balise HTML avec une classe spécifique
+function remplacerDonneeParClasse($html, $classe, $nouvelleDonnee) {
+    // Créer un objet DOMDocument
+    $dom = new DOMDocument();
+    // Charger le code HTML fourni
+    $dom->loadHTML($html);
+    // Créer un objet DOMXPath
+    $xpath = new DOMXPath($dom);
+    // Sélectionner toutes les balises avec la classe spécifiée
+    $elements = $xpath->query("//*[@class='$classe']");
+    // Parcourir toutes les balises trouvées
+    foreach ($elements as $element) {
+        // Remplacer le contenu de la balise par la nouvelle donnée
+        $element->nodeValue = $nouvelleDonnee;
+    }
+    // Récupérer le code HTML modifié
+    $nouveauHtml = $dom->saveHTML();
+    // Retourner le HTML modifié
+    return $nouveauHtml;
+}
+
+// Votre code HTML initial
+$html = '<div class="aff_entreprise">
             <div class="box_info_entreprise">
                 <div class="box_img_entreprise">
                     <img class="img_entreprise" src="image/entreprise.png" alt="menu avis" />
                 </div>
                 <div class="box_entreprise">
-                    <label class="nom_entreprise">Nom de l'entreprise</label>
-                    <label class="localisation_entreprise">Localisation de l'entreprise</label>
+                    <label class="nom_entreprise">Nom de l\'entreprise</label>
+                    <label class="localisation_entreprise">Localisation de l\'entreprise</label>
                     <div class="box_avis">
                         <label class="avis_entreprise">Avis</label>
-                        <img class="img_avis" src="image/etoile_avis.png" alt="étoiles avis" />
-                        <img class="img_avis" src="image/etoile_avis.png" alt="étoiles avis" />
-                        <img class="img_avis" src="image/etoile_avis.png" alt="étoiles avis" />
-                        <img class="img_avis" src="image/etoile_avis.png" alt="étoiles avis" />
-                        <img class="img_avis" src="image/etoile_avis.png" alt="étoiles avis" />
-                        <label class="nb_avis_entreprise">(Nombre d'avis)</label>
+
+                        <label class="nb_avis_entreprise">(Nombre d\'avis)</label>
                     </div>
                 </div>
             </div>
             <div class="trait"></div>
             <div class="description_entreprise">
-                <label class="text_description_entreprise">Description de l'entreprise...</label>
+                <label class="text_description_entreprise">Description de l\'entreprise...</label>
             </div>
             <div class="bas_aff_entreprise">
                 <label class="date_publi">Date de publication</label>
@@ -57,76 +77,28 @@
             <div class="fond_star popup_trigger">
                 <img class="img_star" src="image/star.png" alt="menu avis" />
             </div>
-        </div>
+        </div>';
 
-        <div class="aff_entreprise">
-            <div class="box_info_entreprise">
-                <div class="box_img_entreprise">
-                    <img class="img_entreprise" src="image/entreprise.png" alt="menu avis" />
-                </div>
-                <div class="box_entreprise">
-                    <label class="nom_entreprise">Nom de l'entreprise</label>
-                    <label class="localisation_entreprise">Localisation de l'entreprise</label>
-                    <div class="box_avis">
-                        <label class="avis_entreprise">Avis</label>
-                        <img class="img_avis" src="image/etoile_avis.png" alt="étoiles avis" />
-                        <img class="img_avis" src="image/etoile_avis.png" alt="étoiles avis" />
-                        <img class="img_avis" src="image/etoile_avis.png" alt="étoiles avis" />
-                        <img class="img_avis" src="image/etoile_avis.png" alt="étoiles avis" />
-                        <img class="img_avis" src="image/etoile_avis.png" alt="étoiles avis" />
-                        <label class="nb_avis_entreprise">(Nombre d'avis)</label>
-                    </div>
-                </div>
-            </div>
-            <div class="trait"></div>
-            <div class="description_entreprise">
-                <label class="text_description_entreprise">Description de l'entreprise...</label>
-            </div>
-            <div class="bas_aff_entreprise">
-                <label class="date_publi">Date de publication</label>
-            </div>
-            <div class="fond_star popup_trigger">
-                <img class="img_star" src="image/star.png" alt="menu avis" />
-            </div>
-        </div>
+// Répéter la modification quatre fois
+for ($i = 0; $i < 10; $i++) {
+    $nombreAleatoire = rand(1, 1000);
+    $nombreAleatoire2 = mt_rand(1, 50) / 10;
 
-        <div class="aff_entreprise">
-            <div class="box_info_entreprise">
-                <div class="box_img_entreprise">
-                    <img class="img_entreprise" src="image/entreprise.png" alt="menu avis" />
-                </div>
-                <div class="box_entreprise">
-                    <label class="nom_entreprise">Nom de l'entreprise</label>
-                    <label class="localisation_entreprise">Localisation de l'entreprise</label>
-                    <div class="box_avis">
-                        <label class="avis_entreprise">Avis</label>
-                        <img class="img_avis" src="image/etoile_avis.png" alt="étoiles avis" />
-                        <img class="img_avis" src="image/etoile_avis.png" alt="étoiles avis" />
-                        <img class="img_avis" src="image/etoile_avis.png" alt="étoiles avis" />
-                        <img class="img_avis" src="image/etoile_avis.png" alt="étoiles avis" />
-                        <img class="img_avis" src="image/etoile_avis.png" alt="étoiles avis" />
-                        <label class="nb_avis_entreprise">(Nombre d'avis)</label>
-                    </div>
-                </div>
-            </div>
-            <div class="trait"></div>
-            <div class="description_entreprise">
-                <label class="text_description_entreprise">Description de l'entreprise...</label>
-            </div>
-            <div class="bas_aff_entreprise">
-                <label class="date_publi">Date de publication</label>
-            </div>
-            <div class="fond_star popup_trigger">
-                <img class="img_star" src="image/star.png" alt="menu avis" />
-            </div>
-        </div>
+    $html = remplacerDonneeParClasse($html, 'nom_entreprise', 'Google' . $i);
+    $html = remplacerDonneeParClasse($html, 'localisation_entreprise', 'Paris');
+    $html = remplacerDonneeParClasse($html, 'avis_entreprise', 'Note : ' .$nombreAleatoire2 .'/5');
+    $html = remplacerDonneeParClasse($html, 'nb_avis_entreprise', '(' . $nombreAleatoire . ' avis)' );
+    $html = remplacerDonneeParClasse($html, 'text_description_entreprise', "Google est une super entreprise.");
+    $html = remplacerDonneeParClasse($html, 'date_publi', '19/03/2024');
 
-        
-    </div>
+    echo $html;
+}
+
+?>
+
 
     </div>
-
-
+    </div>
 
     <div class="popup_avis_entreprise" id="popup_avis_entreprise">
         <div class="content_poppup_avis_entreprise">

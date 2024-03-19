@@ -2,8 +2,6 @@
 // Sélectionne tous les éléments avec la classe "popup_trigger"
 const popupTriggers = document.querySelectorAll(".popup_trigger");
 
-
-
 const btnTrigger = document.getElementById("btn_annuler");
 
 // Récupère l'élément de superposition et la boîte modale par leur ID
@@ -39,27 +37,26 @@ window.addEventListener("click", function (event) {
 
 
 
-// Récupère toutes les images avec la classe "etoiles_avis"
-const etoilesImages = document.querySelectorAll(".etoiles_avis");
 
-// Parcourt chaque image et ajoute un gestionnaire d'événements pour le clic
-etoilesImages.forEach((image, index) => {
-  let imageModifiee = false; // Variable pour suivre si l'image a été modifiée
+// Récupération de toutes les étoiles
+var etoiles = document.querySelectorAll('.etoiles_avis');
 
-  image.addEventListener("click", function () {
-    if (imageModifiee) {
-      // Parcourt toutes les étoiles et change le chemin de l'image vers l'image d'origine
-      etoilesImages.forEach((etoile) => {
-        etoile.src = "image/etoile_avis_vide.png";
-      });
-      imageModifiee = false; // Définit la variable à false car les étoiles sont maintenant d'origine
-    } else {
-      // Parcourt toutes les étoiles précédentes jusqu'à celle sur laquelle vous avez cliqué
-      for (let i = 0; i <= index; i++) {
-        // Change le chemin de l'image vers l'image modifiée
-        etoilesImages[i].src = "image/etoile_avis.png";
-      }
-      imageModifiee = true; // Définit la variable à true car les étoiles sont maintenant modifiées
-    }
-  });
+// Parcourir chaque étoile
+etoiles.forEach(function(etoile, index) {
+    // Ajouter un gestionnaire d'événements de clic
+    etoile.addEventListener('click', function() {
+        // Vérifier si l'étoile est vide ou pleine
+        var etoileVide = etoile.src.includes('etoile_avis_vide.png');
+        
+        // Parcourir toutes les étoiles
+        etoiles.forEach(function(etoile, i) {
+            // Si l'étoile est vide, la remplir jusqu'à l'index actuel
+            if (etoileVide && i <= index) {
+                etoile.src = 'image/etoile_avis.png';
+            } else { // Sinon, vider toutes les étoiles
+                etoile.src = 'image/etoile_avis_vide.png';
+            }
+        });
+    });
 });
+

@@ -12,6 +12,9 @@
   <link rel="stylesheet" href="style/style_fenetre_creer_offre_stage.css" />
   <script src="API/code_postal_ville.js" defer></script>
 
+
+  <script src='js_verification_formulaire.js'></script>
+
   <script src="js/js_recherche_pilote.js" defer></script>
 
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" />
@@ -82,8 +85,6 @@
           <div class="box_connexion_contenu">
             <label class="titre-pop-up">Modifier une offre</label>
 
-
-
             <div class="ligne">
 
               <input id="nom_offre" class="colonne-gauche" placeholder="Nom de l'offre" />
@@ -93,7 +94,6 @@
               <input id="remuneration" class="colonne-droite" type="text" placeholder="Date de fin" />
 
             </div>
-
 
 
             <div class="ligne">
@@ -116,7 +116,7 @@
 
               <input id="nombre_place" class="colonne-milieu" placeholder="Nombre de places" />
 
-              <input id="code_postal" class="colonne-droite" placeholder="Code postal" />
+              <input id="code_postal" name="code_postal" class="colonne-droite" placeholder="Code postal" />
 
 
 
@@ -137,6 +137,11 @@
 
 
             <div class="ligne">
+<<<<<<< HEAD
+=======
+     
+
+>>>>>>> 7da99e1956640e0e26ec29962234dc7b41d43e4c
               <textarea id="description_annonce" class="description" placeholder="Description de l'annonce, compétences"></textarea>
             </div>
 
@@ -151,25 +156,63 @@
           </div>
         </div>
       </div>
+
     </div>
 
     <div id="popupajout1">
       <div class="box">
         <div class="box_connexion">
           <div class="box_connexion_contenu">
-            <label class="titre-pop-up">Créer une offre</label>
+            <label class="titre-pop-up">Ajouter une offre</label>
+
+            <div class="ligne">
+
+              <input id="nom_offre" class="colonne-gauche" placeholder="Nom de l'offre" />
+
+              <input id="date_stage" class="colonne-milieu calendrier" type="text" placeholder="Dates de début" />
+
+              <input id="remuneration" class="colonne-droite" type="text" placeholder="Date de fin" />
+
+            </div>
 
 
-            <form method="post" id="formulaire_creer_offre_de_stage">
-              <div class="ligne">
+            <div class="ligne">
 
-                <input id="nom_offre" class="colonne-gauche" placeholder="Nom de l'offre" required />
 
-                <input id="date_stage" class="colonne-milieu calendrier" type="text" placeholder="Dates de début" required />
+              <input id="competences" class="colonne-gauche" placeholder="Rémunération" />
 
-                <input id="remuneration" class="colonne-droite" type="text" placeholder="Date de fin" required />
+              <input id="promo" class="colonne-milieu" placeholder="Promotion concernée" />
 
-              </div>
+              <input id="secteur_activite" class="colonne-droite" placeholder="Secteurs d'activité" />
+
+            </div>
+
+
+
+            <div class="ligne">
+
+              <input id="adresse_mail" class="colonne-gauche" type="email" placeholder="Adresse mail" />
+
+
+              <input id="nombre_place" class="colonne-milieu" placeholder="Nombre de places" />
+
+              <input id="code" name="code" class="colonne-droite" placeholder="Code postal" />
+
+
+
+            </div>
+
+
+            <div class="ligne">
+
+
+              <select class="select-colonne-gauche" id="ville_sortie" placeholder="Ville"> </select>
+
+              <input id="num_rue" class="colonne-milieu" placeholder="Numéro de rue" />
+
+              <input id="nom_rue" class="colonne-droite" placeholder="Nom rue" />
+
+            </div>
 
 
 
@@ -218,6 +261,10 @@
               </div>
 
 
+            <div id="closecircle"></div>
+
+            <img id="close" src="image/close.png" onclick="openPopup1()" />
+
 
 
 
@@ -248,6 +295,7 @@
 
 
   </main>
+
   <?php include 'footer.php'; ?>
 
 </body>
