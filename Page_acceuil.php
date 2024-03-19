@@ -5,6 +5,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>noStage</title>
+  <link rel="icon" href="image/logo_onglet.png" type="image/png">
   <link rel="stylesheet" href="style/style_navbar.css" />
   <link rel="stylesheet" href="style/style_page_acceuil.css" />
 

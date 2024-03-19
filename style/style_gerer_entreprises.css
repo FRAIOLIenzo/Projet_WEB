@@ -10,11 +10,11 @@ main {
 /*CSS POUR LE MENU*/
 
 .container2 {
-  margin: 0 auto; /* Centrer horizontalement */
-  display: flex; /* Utilisation de flexbox */
-  justify-content: center; /* Centrer horizontalement */
-  align-items: center; /* Centrer verticalement */
-  flex-direction: column; /* Aligner les éléments verticalement */
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 }
 .menu {
   padding: 42px;
@@ -34,7 +34,7 @@ main {
   font-weight: bold;
 
   font-family: "Inter", sans-serif;
-  margin: 0 10px; /* Espacement entre les éléments */
+  margin: 0 10px;
 }
 
 .square {
@@ -42,18 +42,18 @@ main {
   width: 114px;
   height: 54px;
   border-radius: 25px;
-  display: flex; /* Utilisation de flexbox */
-  align-items: center; /* Centrage vertical */
-  justify-content: center; /* Centrage horizontal */
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .active a {
   color: #7b9dd2;
-  text-decoration: none; /* Supprimer le soulignement du lien */
+  text-decoration: none;
 }
 .menu a:visited {
-  color: #ffffff; /* Utilise la couleur par défaut du texte */
-  text-decoration: none; /* Supprime le soulignement */
+  color: #ffffff;
+  text-decoration: none;
 }
 /*CSS POUR LA RECHERCHE DES PILOTES*/
 
@@ -62,14 +62,14 @@ main {
   width: 1328px;
   height: 685px;
   border-radius: 25px;
-  display: flex; /* Utilisation de flexbox */
-  justify-content: center; /* Centrage horizontal */
+  display: flex;
+  justify-content: center;
   display: inline-block;
 }
 /* CSS POUR LE TABLEAU */
 .table-container {
   max-height: 600px;
-  overflow-y: auto; /* Ajoute une barre de défilement verticale si nécessaire */
+  overflow-y: auto;
 }
 table {
   border-collapse: collapse;
@@ -80,18 +80,18 @@ th:first-child,
 td:first-child,
 th:last-child,
 td:last-child {
-  padding: 16px 16px; /* Ajoute du padding aux premières et dernières colonnes */
+  padding: 16px 16px;
 }
 
 .bordure {
-  border-bottom: 1px solid #e9edf5; /* Ajout du type de bordure (solid) */
+  border-bottom: 1px solid #e9edf5;
 }
 th,
 td {
   border: 0px solid #f4f7fc;
   text-align: left;
   padding: 8px;
-  font-size: 13px; /* Taille de police réduite */
+  font-size: 13px;
 }
 
 th {
@@ -111,16 +111,16 @@ tbody tr:hover {
 /*CSS POUR LA HEADER DU TABLEAU */
 
 .search-container {
-  position: relative; /* Position relative pour le conteneur */
+  position: relative;
 }
 #searchbar {
   border-radius: 6px;
-  border: 1px solid #ccc; /* Bordure grise de 1 pixel */
+  border: 1px solid #ccc;
   margin-left: 30px;
   width: 320px;
   height: 32px;
-  position: relative; /* Position relative pour le conteneur */
-  padding-left: 30px; /* Ajoutez le padding souhaité */
+  position: relative;
+  padding-left: 30px;
 }
 #imgsearch {
   position: absolute;
@@ -145,9 +145,9 @@ tbody tr:hover {
   background-color: #7b9dd2;
   color: #ffffff;
   border-radius: 6px;
-  border: none; /* Supprime les bordures */
-  display: flex; /* Utilisation de flexbox */
-  align-items: center; /* Aligner les éléments verticalement */
+  border: none;
+  display: flex;
+  align-items: center;
   cursor: pointer;
 }
 
@@ -210,27 +210,27 @@ tbody tr:hover {
   flex-direction: column;
 }
 #close {
-  position: absolute; /* Position absolue pour positionner l'image */
-  top: 20px; /* Distance du haut */
-  right: 20px; /* Distance de la droite */
-  cursor: pointer; /* Curseur de la souris change au survol */
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  cursor: pointer;
   width: 20px;
   height: 18.75px;
 }
 #closecircle {
-  position: absolute; /* Position absolue pour positionner le cercle */
-  top: 15px; /* Ajustez la position verticale */
-  right: 15px; /* Ajustez la position horizontale */
-  width: 30px; /* Largeur du cercle */
-  height: 30px; /* Hauteur du cercle */
-  border-radius: 50%; /* Pour créer un cercle */
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
   background-color: rgba(123, 157, 210, 0.5);
 }
 .formcreer1 {
   margin: 44px;
   margin-top: 1px;
-  display: flex; /* Utilisation de flexbox */
-  justify-content: center; /* Centrage horizontal */
+  display: flex;
+  justify-content: center;
   align-items: center;
   flex-direction: column;
   align-items: stretch;
@@ -241,21 +241,19 @@ tbody tr:hover {
 }
 #nom,
 #prenom {
-  width: calc(
-    50% - 20px
-  ); /* Divise l'espace disponible en deux avec un petit espacement */
+  width: calc(50% - 20px);
 }
 
 .formcreer1 input {
-  padding-left: 10px; /* Ajoutez le padding souhaité */
+  padding-left: 10px;
 
-  height: 2.75em; /* Deux fois la taille de la police */
+  height: 2.75em;
   margin-bottom: 15px;
-  font-size: 16px; /* Ajuste la taille de la police */
+  font-size: 16px;
   width: 100%;
   border-radius: 3px;
-  border: 1px solid #ccc; /* Bordure grise de 1 pixel */
-  width: 100%; /* Assure que les champs de saisie occupent toute la largeur */
+  border: 1px solid #ccc;
+  width: 100%;
 }
 
 .formcreer1 input[type="submit"] {
