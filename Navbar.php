@@ -46,8 +46,8 @@
           <img class="menu_profil" src="image/menu profil.png" alt="menu profil utilisateur" />
         </button>
         <div class="content_profil">
-          <a href="#">Maxime AUCHET</a>
-          <a href="#">Voir le compte</a>
+          <a href="profile.php">Maxime AUCHET</a>
+          <a href="profile.php">Voir le compte</a>
           <a href="#">Se déconnecter</a>
         </div>
       </div>
