@@ -137,11 +137,6 @@
 
 
             <div class="ligne">
-<<<<<<< HEAD
-=======
-     
-
->>>>>>> 7da99e1956640e0e26ec29962234dc7b41d43e4c
               <textarea id="description_annonce" class="description" placeholder="Description de l'annonce, compétences"></textarea>
             </div>
 
@@ -213,46 +208,6 @@
               <input id="nom_rue" class="colonne-droite" placeholder="Nom rue" />
 
             </div>
-
-
-
-              <div class="ligne">
-
-
-                <input id="competences" class="colonne-gauche" placeholder="Rémunération" required />
-
-                <input id="promo" class="colonne-milieu" placeholder="Promotion concernée" required />
-
-                <input id="secteur_activite" class="colonne-droite" placeholder="Secteurs d'activité" required />
-
-              </div>
-
-
-
-              <div class="ligne">
-
-                <input id="adresse_mail" class="colonne-gauche" type="email" placeholder="Adresse mail" required />
-
-
-                <input id="nombre_place" class="colonne-milieu" placeholder="Nombre de places" required />
-
-                <input id="code_postal" class="colonne-droite" placeholder="Code postal" required />
-
-
-
-              </div>
-
-
-              <div class="ligne">
-
-
-                <select class="select-colonne-gauche" id="ville" placeholder="Ville"> </select>
-
-                <input id="num_rue" class="colonne-milieu" placeholder="Numéro de rue" required />
-
-                <input id="nom_rue" class="colonne-droite" placeholder="Nom rue" required />
-
-              </div>
 
 
 
