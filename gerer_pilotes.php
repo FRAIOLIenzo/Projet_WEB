@@ -45,7 +45,7 @@
           </div>
         </div>
         <div class="table-container">
-          <table>
+          <table id="tabinfo">
             <tr>
               <th class="bordure">#</th>
               <th class="bordure">Nom</th>
@@ -89,7 +89,7 @@
             <option value="centre2">Centre 2</option>
             <option value="centre3">Centre 3</option>
           </select>
-          <select id="promotion" name="promotion">
+          <select id="promotion" name="promotion">  
             <option value="" disabled selected>Promotion</option>
             <option value="promotion1">Promotion 1</option>
             <option value="promotion2">Promotion 2</option>

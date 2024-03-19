@@ -264,15 +264,15 @@ tbody tr:hover {
 }
 
 .formcreer1 select {
-  padding-left: 10px; /* Ajoutez le padding souhaité */
+  padding-left: 10px;
 
   margin-bottom: 15px;
 
-  height: 2.75em; /* Deux fois la taille de la police */
-  font-size: 16px; /* Ajuste la taille de la police */
+  height: 2.75em;
+  font-size: 16px;
   border-radius: 3px;
-  border: 1px solid #ccc; /* Bordure grise de 1 pixel */
-  width: 100%; /* Assure que les champs de saisie occupent toute la largeur */
+  border: 1px solid #ccc;
+  width: 100%;
 }
 
 #creertxt {
@@ -326,21 +326,21 @@ tbody tr:hover {
   transform: translate(-50%, -50%);
   display: flex;
   justify-content: center;
-  flex-direction: column; /* Changement de direction en colonne */
-  text-align: center; /* Centrer le texte */
+  flex-direction: column;
+  text-align: center;
 }
 #Supprimer,
 #Annuler {
   color: #ffffff;
   border-radius: 25px;
-  width: 150px; /* Ajustez la largeur des boutons selon vos besoins */
-  height: 50px; /* Ajustez la hauteur des boutons selon vos besoins */
+  width: 150px;
+  height: 50px;
   border: none;
   padding: 30px;
   margin-top: 40px;
   font-size: 16px;
-  text-align: center; /* Centrer le texte */
-  line-height: 0px; /* Alignement vertical */
+  text-align: center;
+  line-height: 0px;
   cursor: pointer;
 }
 #txtpopupsuppr {
