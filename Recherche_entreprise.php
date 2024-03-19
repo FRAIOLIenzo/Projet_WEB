@@ -89,7 +89,7 @@ for ($i = 0; $i < 10; $i++) {
     $html = remplacerDonneeParClasse($html, 'avis_entreprise', 'Note : ' .$nombreAleatoire2 .'/5');
     $html = remplacerDonneeParClasse($html, 'nb_avis_entreprise', '(' . $nombreAleatoire . ' avis)' );
     $html = remplacerDonneeParClasse($html, 'text_description_entreprise', "Google est une super entreprise.");
-    $html = remplacerDonneeParClasse($html, 'date_publi', '19/03/2024');
+    $html = remplacerDonneeParClasse($html, 'date_publi', 'Date de publication : 19/03/2024');
 
     echo $html;
 }
