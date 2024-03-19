@@ -13,7 +13,7 @@
 
 <body>
   <header>
-    <img class="logo" src="image/logo entreprise.png" alt="logo de l'entreprise" />
+  <a  id="imgnostagehref" href="Page_acceuil.php"><img  class="logo" src="image/logo entreprise.png" alt="logo de l'entreprise" /></a>
     <nav class="navbar">
       <a href="Page_acceuil.php">Accueil</a>
       <div class="dropdown_1">
