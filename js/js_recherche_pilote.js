@@ -222,6 +222,26 @@ function attachImageEventListeners() {
       popup.style.display = "block";
       popup.style.top = y + "px";
       popup.style.left = x + "px";
+
+      // on stock la valeur de la ligne pour si il appuis sur modifier
+      var row = img.closest("tr");
+      // Initialise un tableau pour stocker les informations de la ligne
+      var rowData = [];
+      // Parcourt chaque cellule de la ligne
+      row.querySelectorAll("td").forEach(function (cell) {
+        // Ajoute le contenu de la cellule au tableau de données de la ligne
+        rowData.push(cell.textContent);
+      });
+      console.log("Données de la ligne cliquée:", rowData);
+      var prenom = document.getElementById("prenom");
+      var nom = document.getElementById("nom");
+      var nom = document.getElementById("nom");
+      var mail = document.getElementById("email");
+      var mdp = document.getElementById("motdepasse");
+
+      prenom.value = rowData[1];
+      nom.value = rowData[2];
+      mail.value = rowData[4];
     });
   });
 }
