@@ -137,11 +137,6 @@
 
 
             <div class="ligne">
-<<<<<<< HEAD
-              <input id="description_annonce" class="description" placeholder="Description de l'annonce, compétences" />
-            </div>
-
-=======
               <textarea id="description_annonce" class="description" placeholder="Description de l'annonce, compétences"></textarea>
             </div>
 
@@ -149,7 +144,6 @@
 
             <img id="close" src="image/close.png" onclick="openPopup2()" />
 
->>>>>>> 809bd5a2ba221f48605b0c803adaa9d97c26ba06
 
 
 
@@ -220,40 +214,12 @@
 
 
               <div class="ligne">
-<<<<<<< HEAD
-                <input id="description_annonce" class="description" placeholder="Description de l'annonce, compétences" required />
-=======
                 <textarea id="description_annonce" class="description" placeholder="Description de l'annonce, compétences"></textarea>
->>>>>>> 809bd5a2ba221f48605b0c803adaa9d97c26ba06
               </div>
 
 
 
 
-<<<<<<< HEAD
-
-              <input type="submit" class="btn_creer_offre" value="Valider" />
-              <form>
-          </div>
-        </div>
-      </div>
-    </div>
-
-
-    <div id="popupsuppr">
-      <div class="popupsuppr-content">
-        <div id="txtpopupsuppr">
-          Voulez-vous supprimer ce pilote de manière définitive ?
-        </div>
-        <div>
-          <button id="Supprimer">Supprimer</button>
-          <button id="Annuler" onclick="openPopup3()">Annuler</button>
-        </div>
-      </div>
-    </div>
-
-
-=======
 
               <input type="submit" class="btn_creer_offre" value="Valider" />
               <form>
@@ -264,12 +230,8 @@
           </div>
         </div>
       </div>
-<<<<<<< HEAD
-=======
       </div>
     </div>    </div>
-
->>>>>>> 5135e9f565bf75e5bfd7b7fa207b8e6f50161cdf
 
       <div id="popupsuppr">
         <div class="popupsuppr-content">
@@ -284,7 +246,6 @@
       </div>
 
 
->>>>>>> 809bd5a2ba221f48605b0c803adaa9d97c26ba06
 
   </main>
   <?php include 'footer.php'; ?>
