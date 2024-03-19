@@ -149,14 +149,12 @@ footer {
 }
 
 .description_entreprise {
-  margin-top: 10px;
-  width: 100%;
+margin: 10px 15px;
   height: 200px;
   max-height: 200px;
 }
 
 .text_description_entreprise {
-  margin-left: 15px;
   font-size: 16px;
   font-weight: normal;
 }
