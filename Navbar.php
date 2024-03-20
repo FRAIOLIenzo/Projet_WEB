@@ -12,6 +12,8 @@
 </head>
 
 <body>
+    <?php 
+    session_start(); ?>  
   <header>
   <a  id="imgnostagehref" href="Page_acceuil.php"><img  class="logo" src="image/logo entreprise.png" alt="logo de l'entreprise" /></a>
     <nav class="navbar">
@@ -46,7 +48,7 @@
           <img class="menu_profil" src="image/menu profil.png" alt="menu profil utilisateur" />
         </button>
         <div class="content_profil">
-          <a href="profile.php">Maxime AUCHET</a>
+          <a href="profile.php"><?php echo $_SESSION['name'];?>  <?php echo $_SESSION['lastname']; ?> </a>
           <a href="profile.php">Voir le compte</a>
           <a href="deconnexion.php">Se déconnecter</a>
         </div>

@@ -44,9 +44,12 @@ if ($query->rowCount() > 0) {
     $row = $query->fetch(PDO::FETCH_ASSOC);
     $id_utilisateur = $row['id_compte'];
     session_start();
-    $_SESSION['username'] = $row['adresse_mail'];
+    $_SESSION['adresse_mail'] = $row['adresse_mail'];
     $_SESSION['connected'] = 1;
-    unset($_SESSION['adresse_mail']); // Remove 'adresse_mail' key from the session if it exists
+    $_SESSION['name'] = $row['prenom'];
+    $_SESSION['lastname'] = $row['nom'];
+    unset($_SESSION['username']); // Remove 'adresse_mail' key from the session if it exists
+      
     header("location:/Page_acceuil.php");
 } else {
     echo "Identifiants incorrects.";
