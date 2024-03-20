@@ -18,6 +18,10 @@
   <?php include 'Navbar.php'; ?>
 
   <?php
+  session_start();
+  var_dump($_SESSION); 
+
+  
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 $pseudo = $_POST['email'];
@@ -41,13 +45,17 @@ if ($query->rowCount() > 0) {
     $id_utilisateur = $row['id_compte'];
     session_start();
     $_SESSION['username'] = $row['adresse_mail'];
+    $_SESSION['connected'] = 1;
     unset($_SESSION['adresse_mail']); // Remove 'adresse_mail' key from the session if it exists
     header("location:/Page_acceuil.php");
 } else {
     echo "Identifiants incorrects.";
 }
 }
-
+if (isset($_SESSION['connected']) && $_SESSION['connected']) {
+  header("Location: Page_acceuil.php");
+  exit();
+}
 ?>
     <div class="box">
       <div class="box_connexion">

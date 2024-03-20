@@ -48,7 +48,7 @@
         <div class="content_profil">
           <a href="profile.php">Maxime AUCHET</a>
           <a href="profile.php">Voir le compte</a>
-          <a href="#">Se déconnecter</a>
+          <a href="deconnexion.php">Se déconnecter</a>
         </div>
       </div>
     </nav>
