@@ -15,7 +15,11 @@
 
 <body>
   <?php include 'Navbar.php'; ?>
-
+  <pre>
+    <?php 
+    session_start();
+    var_dump($_SESSION); ?>
+  </pre>
 
 
 

@@ -31,16 +31,17 @@ try {
     echo "Erreur lors de la connexion à la base de données : " . $e->getMessage();
 }
 
-$query = $db->prepare("SELECT * FROM admin WHERE username=:pseudo AND password=:mot_de_passe");
+$query = $db->prepare("SELECT * FROM compte WHERE adresse_mail=:pseudo AND mot_de_passe=:mot_de_passe");
 $query->bindParam(':pseudo', $pseudo);
 $query->bindParam(':mot_de_passe', $mot_de_passe);
 $query->execute();
 
 if ($query->rowCount() > 0) {
     $row = $query->fetch(PDO::FETCH_ASSOC);
-    $id_utilisateur = $row['id'];
+    $id_utilisateur = $row['id_compte'];
     session_start();
-    $_SESSION['username'] = $row['username'];
+    $_SESSION['username'] = $row['adresse_mail'];
+    unset($_SESSION['adresse_mail']); // Remove 'adresse_mail' key from the session if it exists
     header("location:/Page_acceuil.php");
 } else {
     echo "Identifiants incorrects.";
@@ -55,7 +56,7 @@ if ($query->rowCount() > 0) {
           <label class="text_connexion">Se connecter</label>
           <input
             class="email"
-            type="text"
+            type="email"
             id="email"
             name="email"
             placeholder="Adresse email"
