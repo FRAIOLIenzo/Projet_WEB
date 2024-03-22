@@ -10,7 +10,7 @@ body {
   font-family: "Inter", sans-serif;
 }
 
-.box{
+.box {
   width: 100%;
   height: 600px;
   position: relative;
@@ -62,15 +62,7 @@ input::placeholder {
   height: 52px;
   position: relative;
   display: inline-block;
-}
-
-.box_connexion a {
-  margin-top: 15px;
-  color: #7b9dd2;
-}
-
-.box_connexion a:hover {
-  color: #487aca;
+  margin-bottom: 5px;
 }
 
 .btn_password {
@@ -85,8 +77,15 @@ input::placeholder {
   font-size: 16px;
 }
 
+.lien_changer_mdp {
+  color: #7b9dd2;
+}
+
+.lien_changer_mdp:hover {
+  color: #487aca;
+}
+
 .btn_connexion {
-  margin-top: 25px;
   height: 55px;
   background-color: #7b9dd2;
   color: white;
@@ -94,6 +93,13 @@ input::placeholder {
   border-radius: 25px;
   cursor: pointer;
   font-size: 18px;
+  width: 100%;
+}
+
+.box_btn {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
 }
 
 .btn_connexion:hover {
