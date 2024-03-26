@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html>
 
@@ -49,7 +48,7 @@
           <img class="menu_profil" src="image/menu profil.png" alt="menu profil utilisateur" />
         </button>
         <div class="content_profil">
-          <a href="profile.php"><?php echo $_SESSION['name'];?>  <?php echo $_SESSION['lastname']; ?> </a>
+          <a href="profile.php"><?php echo $_SESSION['nom'];?>  <?php $_SESSION['prenom']; ?> </a>
           <a href="profile.php">Voir le compte</a>
           <a href="deconnexion.php">Se déconnecter</a>
         </div>

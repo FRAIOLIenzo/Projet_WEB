@@ -20,7 +20,9 @@
   <?php include 'Navbar.php'; ?>
 
   <?php
-    if (isset($_SESSION['statut']) && $_SESSION['statut'] == 'admin') {
+    if (!(isset($_SESSION['statut']) && $_SESSION['statut'] == 'admin')) {
+      header('Location: pasacces.php');
+        }
 ?>
   
   <main>
@@ -156,11 +158,7 @@
       </div>
     </div>
   </main>
-  <?php
-  } else {
-    echo "Vous n'avez pas accès à cette ressource.";
-  }
-?>
+
   <?php include 'footer.php'; ?>
 
 </body>

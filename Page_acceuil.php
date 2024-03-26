@@ -1,5 +1,3 @@
-<?php include 'connecteoupas.php'; ?>
-
 <!DOCTYPE html>
 <html lang="fr">
 
@@ -14,8 +12,10 @@
 
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" />
 </head>
+<?php include 'Navbar.php'; ?>
 
 <body>
+  
     <?php var_dump($_SESSION); ?>
 
 
