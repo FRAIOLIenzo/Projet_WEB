@@ -15,11 +15,6 @@
 <?php include 'Navbar.php'; ?>
 
 <body>
-  
-    <?php var_dump($_SESSION); ?>
-
-
-
   <div class="container_haut_de_page">
 
     <div class="bloc_slogan">
