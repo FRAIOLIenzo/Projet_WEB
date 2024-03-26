@@ -17,11 +17,7 @@
   <body>
   <?php include 'Navbar.php'; ?>
 
-  <?php
-  session_start();
-  var_dump($_SESSION); 
-
-  
+  <?php  
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
   include 'conexionbdd.php'; 
 

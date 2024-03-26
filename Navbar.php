@@ -12,8 +12,18 @@
 </head>
 
 <body>
-    <?php 
-    session_start(); ?>  
+<?php
+  error_reporting(0);
+  if ((isset($_SESSION['connected']) && $_SESSION['connected'])) {
+    $name=$_SESSION['name'];
+    $lastname=$_SESSION['lastname'];
+  }
+  else{
+    $name= 'Connectez';
+    $lastname='vous';}
+    
+    ?>
+
   <header>
   <a  id="imgnostagehref" href="Page_acceuil.php"><img  class="logo" src="image/logo entreprise.png" alt="logo de l'entreprise" /></a>
     <nav class="navbar">
@@ -48,7 +58,7 @@
           <img class="menu_profil" src="image/menu profil.png" alt="menu profil utilisateur" />
         </button>
         <div class="content_profil">
-          <a href="profile.php"><?php echo $_SESSION['nom'];?>  <?php $_SESSION['prenom']; ?> </a>
+          <a href="profile.php"><?php echo $name;?>  <?php echo $lastname; ?> </a>
           <a href="profile.php">Voir le compte</a>
           <a href="deconnexion.php">Se déconnecter</a>
         </div>

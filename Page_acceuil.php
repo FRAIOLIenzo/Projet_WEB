@@ -15,7 +15,7 @@
 <?php include 'Navbar.php'; ?>
 
 <body>
-  <div class="container_haut_de_page">
+   <div class="container_haut_de_page">
 
     <div class="bloc_slogan">
       <li><a>Pas de stage ?</a></li>
