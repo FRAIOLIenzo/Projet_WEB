@@ -80,7 +80,7 @@ $html = '<div class="aff_entreprise">
         </div>';
 
 // Répéter la modification quatre fois
-for ($i = 0; $i < 10; $i++) {
+for ($i = 0; $i < 4; $i++) {
     $nombreAleatoire = rand(1, 1000);
     $nombreAleatoire2 = mt_rand(1, 50) / 10;
 

@@ -83,8 +83,10 @@ if (isset($_SESSION['connected']) && $_SESSION['connected']) {
             />
             <button class="btn_password">afficher</button>
           </div>
-          <a href="Changer_mdp.html">Mot de passe oublié ?</a>
+          <a class="lien_changer_mdp" href="Changer_mdp.php">Mot de passe oublié ?</a>
+          <div class="box_btn">
           <button type="submit" class="btn_connexion">Se connecter</button>
+          </div>
           </form>
 
         </div>
