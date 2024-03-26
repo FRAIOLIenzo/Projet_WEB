@@ -196,12 +196,13 @@
             <div class="offre_page_2sur3">
 
               <div class="ligne">
-                <input id="date_debut" type="date" class="colonne-gauche" placeholder="Date de début" />
+                <label for="date_debut">Date de début :</label>
+                <input id="date_debut" type="date" class="colonne-gauche" />
               </div>
 
               <div class="ligne">
-
-                <input id="date_fin" type="date" class="colonne-gauche" placeholder="Date de fin" />
+                <label for="date_debut">Date de fin :</label>
+                <input id="date_fin" type="date" class="colonne-gauche" />
 
               </div>
 
