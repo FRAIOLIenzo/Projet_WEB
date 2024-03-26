@@ -1,3 +1,5 @@
+<?php include 'connecteoupas.php'; ?>
+
 <!DOCTYPE html>
 <html lang="fr">
 
@@ -14,12 +16,7 @@
 </head>
 
 <body>
-  <?php include 'Navbar.php'; ?>
-  <pre>
-    <?php 
-    session_start();
-    var_dump($_SESSION); ?>
-  </pre>
+    <?php var_dump($_SESSION); ?>
 
 
 

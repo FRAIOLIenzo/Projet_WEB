@@ -1,3 +1,5 @@
+<?php include 'connecteoupas.php'; ?>
+
 <!DOCTYPE html>
 <html>
 

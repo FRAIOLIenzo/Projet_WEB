@@ -1,3 +1,5 @@
+<?php include 'connecteoupas.php'; ?>
+
 <!DOCTYPE html>
 <html>
 
@@ -16,6 +18,11 @@
 
 <body>
   <?php include 'Navbar.php'; ?>
+
+  <?php
+    if (isset($_SESSION['statut']) && $_SESSION['statut'] == 'admin') {
+?>
+  
   <main>
     <div class="container2">
       <div class="menu">
@@ -149,6 +156,11 @@
       </div>
     </div>
   </main>
+  <?php
+  } else {
+    echo "Vous n'avez pas accès à cette ressource.";
+  }
+?>
   <?php include 'footer.php'; ?>
 
 </body>
