@@ -8,7 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="stylesheet" href="style/style_navbar.css" />
     <link rel="stylesheet" href="style/style_gerer_etudiants.css" />
-    <script src="js/js_recherche_pilote.js" defer></script>
+    <script src="js/js_gerer.js" defer></script>
 
     <link
       rel="stylesheet"

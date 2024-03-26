@@ -15,7 +15,7 @@
 
   <script src='js_verification_formulaire.js'></script>
 
-  <script src="js/js_recherche_pilote.js" defer></script>
+  <script src="js/js_gerer.js" defer></script>
 
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" />
 </head>
@@ -160,60 +160,95 @@
           <div class="box_connexion_contenu">
             <label class="titre-pop-up">Ajouter une offre</label>
 
-            <div class="ligne">
+            <div class="offre_page_1sur3">
+              <div class="ligne">
+                <input id="nom_offre" class="colonne-gauche" placeholder="Nom de l'offre" />
+              </div>
 
-              <input id="nom_offre" class="colonne-gauche" placeholder="Nom de l'offre" />
+              <div class="ligne">
 
-              <input id="date_stage" class="colonne-milieu calendrier" type="text" placeholder="Dates de début" />
+                <input id="nom_entreprise" class="colonne-gauche" placeholder="Nom de l'entreprise" />
 
-              <input id="remuneration" class="colonne-droite" type="text" placeholder="Date de fin" />
+              </div>
 
+              <div class="ligne">
+
+                <input id="nombre_place" type="number" class="colonne-gauche" placeholder="Nombre de place" />
+
+
+              </div>
+
+              <div class="ligne">
+                <input id="promo_concernee" class="colonne-gauche" type="email" placeholder="Promo concernées" />
+
+              </div>
+
+              <button onclick="offre_page_vers_2sur3()"> Suivant</button>
             </div>
 
+            <div class="offre_page_2sur3">
 
-            <div class="ligne">
+              <div class="ligne">
+                <input id="date_debut" type="date" class="colonne-gauche" placeholder="Date de début" />
+              </div>
 
+              <div class="ligne">
 
-              <input id="competences" class="colonne-gauche" placeholder="Rémunération" />
+                <input id="date_fin" type="date" class="colonne-gauche" placeholder="Date de fin" />
 
-              <input id="promo" class="colonne-milieu" placeholder="Promotion concernée" />
+              </div>
 
-              <input id="secteur_activite" class="colonne-droite" placeholder="Secteurs d'activité" />
+              <div class="ligne">
 
-            </div>
-
-
-
-            <div class="ligne">
-
-              <input id="adresse_mail" class="colonne-gauche" type="email" placeholder="Adresse mail" />
+                <input id="competence" class="colonne-gauche" placeholder="Compétences" />
 
 
-              <input id="nombre_place" class="colonne-milieu" placeholder="Nombre de places" />
+              </div>
 
-              <input id="code" name="code" class="colonne-droite" placeholder="Code postal" />
+              <div class="ligne">
+                <input id="secteur_activite" class="colonne-gauche" type="email" placeholder="Secteur d'activité" />
+                <input id="duree_stage" class="colonne-milieu" type="email" placeholder="Durée du stage en semaine" />
 
-
-
-            </div>
-
-
-            <div class="ligne">
-
-
-              <select class="select-colonne-gauche" id="ville_sortie" placeholder="Ville"> </select>
-
-              <input id="num_rue" class="colonne-milieu" placeholder="Numéro de rue" />
-
-              <input id="nom_rue" class="colonne-droite" placeholder="Nom rue" />
-
-            </div>
-
-
+              </div>
 
               <div class="ligne">
                 <textarea id="description_annonce" class="description" placeholder="Description de l'annonce, compétences"></textarea>
               </div>
+
+              <button onclick="offre_page_vers_1sur3()"> Précédent</button>
+              <button onclick="offre_page_vers_3sur3()"> Suivant</button>
+
+            </div>
+
+            <div class="offre_page_3sur3">
+
+              <div class="ligne">
+              <input id="code" name="code" class="colonne-gauche" placeholder="Code postal" />
+              </div>
+
+              <div class="ligne">
+
+                <select class="select-colonne-gauche" id="ville_sortie" placeholder="Ville"> </select>
+              </div>
+
+              <div class="ligne">
+
+                <input id="num_rue" class="colonne-gauche" placeholder="Numéro rue" />
+
+
+              </div>
+
+              <div class="ligne">
+                <input id="nom_rue" class="colonne-gauche" placeholder="Nom rue" />
+                
+              </div>
+
+
+
+              <button onclick="offre_page_vers_2sur3()"> Précédent</button>
+              <button type="submit"> Valider</button>
+
+            </div>
 
 
             <div id="closecircle"></div>
@@ -223,29 +258,30 @@
 
 
 
-              <input type="submit" class="btn_creer_offre" value="Valider" />
-              <form>
-                <div id="closecircle"></div>
+            <!-- <input type="submit" class="btn_creer_offre" value="Valider" /> -->
+            <form>
+              <div id="closecircle"></div>
 
-                <img id="close" src="image/close.png" onclick="openPopup1()" />
+              <img id="close" src="image/close.png" onclick="openPopup1()" />
 
           </div>
         </div>
       </div>
-      </div>
-    </div>    </div>
+    </div>
+    </div>
+    </div>
 
-      <div id="popupsuppr">
-        <div class="popupsuppr-content">
-          <div id="txtpopupsuppr">
-            Voulez-vous supprimer ce pilote de manière définitive ?
-          </div>
-          <div>
-            <button id="Supprimer">Supprimer</button>
-            <button id="Annuler" onclick="openPopup3()">Annuler</button>
-          </div>
+    <div id="popupsuppr">
+      <div class="popupsuppr-content">
+        <div id="txtpopupsuppr">
+          Voulez-vous supprimer ce pilote de manière définitive ?
+        </div>
+        <div>
+          <button id="Supprimer">Supprimer</button>
+          <button id="Annuler" onclick="openPopup3()">Annuler</button>
         </div>
       </div>
+    </div>
 
 
 
