@@ -1,3 +1,5 @@
+<?php include 'connecteoupas.php'; ?>
+
 <!DOCTYPE html>
 <html>
 
@@ -16,6 +18,13 @@
 
 <body>
   <?php include 'Navbar.php'; ?>
+
+  <?php
+    if (!(isset($_SESSION['statut']) && $_SESSION['statut'] == 'admin')) {
+      header('Location: pasacces.php');
+        }
+?>
+  
   <main>
     <div class="container2">
       <div class="menu">
@@ -149,6 +158,7 @@
       </div>
     </div>
   </main>
+
   <?php include 'footer.php'; ?>
 
 </body>
