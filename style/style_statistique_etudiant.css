@@ -181,11 +181,21 @@ padding: 0;
 }
 
 .donut svg{
-width: 310px; 
-height: 200px;
+width: 410px; 
+height: 300px;
 padding: 0;
 justify-content: space-between;
+font-size: 30px;
 
+}
+
+.donut text{
+  font-size : 10px;
+}
+
+.donut path {
+  width : 200px;
+  height : 200px;
 }
 
 
