@@ -1,4 +1,5 @@
-<?php include 'connecteoupas.php'; ?>
+
+<?php //include 'connecteoupas.php'; ?> 
 
 <!DOCTYPE html>
 <html>
@@ -25,9 +26,9 @@
 <body>
   <?php include 'Navbar.php'; ?>
   <?php
-    if (!(isset($_SESSION['statut']) && ($_SESSION['statut'] == 'admin') || $_SESSION['statut'] == 'enseignant')) {
-      header('Location: pasacces.php');
-        }
+    // if (!(isset($_SESSION['statut']) && ($_SESSION['statut'] == 'admin') || $_SESSION['statut'] == 'enseignant')) {
+    //   header('Location: pasacces.php');
+    //     }
 ?>
   <main>
     <div class="container2">
@@ -190,7 +191,7 @@
 
               </div>
 
-              <button onclick="offre_page_vers_2sur3()"> Suivant</button>
+              <button class="btn_suivant" onclick="offre_page_vers_2sur3()"> Suivant</button>
             </div>
 
             <div class="offre_page_2sur3">
@@ -223,8 +224,8 @@
                 <textarea id="description_annonce" class="description" placeholder="Description de l'annonce, compétences"></textarea>
               </div>
 
-              <button onclick="offre_page_vers_1sur3()"> Précédent</button>
-              <button onclick="offre_page_vers_3sur3()"> Suivant</button>
+              <button class = "btn_precedent" onclick="offre_page_vers_1sur3()"> Précédent</button>
+              <button class="btn_suivant" onclick="offre_page_vers_3sur3()"> Suivant</button>
 
             </div>
 
@@ -253,7 +254,7 @@
 
 
 
-              <button onclick="offre_page_vers_2sur3()"> Précédent</button>
+              <button class = "btn_precedent" onclick="offre_page_vers_2sur3()"> Précédent</button>
               <button type="submit"> Valider</button>
 
             </div>

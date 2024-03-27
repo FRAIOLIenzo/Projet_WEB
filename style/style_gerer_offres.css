@@ -143,9 +143,9 @@ tbody tr:hover {
   background-color: #7b9dd2;
   color: #ffffff;
   border-radius: 6px;
-  border: none; /* Supprime les bordures */
-  display: flex; /* Utilisation de flexbox */
-  align-items: center; /* Aligner les éléments verticalement */
+  border: none; 
+  display: flex; 
+  align-items: center; 
   cursor: pointer;
 }
 
@@ -179,7 +179,7 @@ tbody tr:hover {
   width: 20px;
   height: 20px;
 }
-/*Popup ajout 1 PILOTE */
+/*Popup ajout 1 offre */
 #popupajout1 {
   position: fixed;
   top: 0;
@@ -194,6 +194,31 @@ tbody tr:hover {
 #popupajout1.open {
   display: block !important;
 }
+
+
+.btn_suivant,.btn_precedent{
+  margin-top: 1vw;
+  margin-bottom: 10px; 
+  margin-left: 1vw;
+  height: 3vw; 
+  width: 15vw; 
+  border-radius: 20px; 
+
+  box-shadow: 2px 2px 3px #acacac; 
+  border: none;
+  font-weight: bold;
+  color: white;
+  font-size: 1vw; 
+}
+
+.btn_suivant{
+  background: #7b9dd2;
+}
+.btn_precedent{
+  background: #b1c1db;
+}
+
+
 
 .popupcontent {
   position: absolute;
