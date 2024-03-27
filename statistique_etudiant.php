@@ -25,7 +25,7 @@
 <body>
   <?php include 'Navbar.php'; ?>
   <?php
-    if (!(isset($_SESSION['statut']) && ($_SESSION['statut'] == 'admin') || $_SESSION['statut'] == 'enseignant')) {
+    if (!(isset($_SESSION['statut']) && ($_SESSION['statut'] == 'admin') || $_SESSION['statut'] == 'pilote')) {
       header('Location: pasacces.php');
         }
 ?>

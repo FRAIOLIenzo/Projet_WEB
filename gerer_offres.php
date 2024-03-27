@@ -1,5 +1,5 @@
 
-<?php //include 'connecteoupas.php'; ?> 
+<?php include 'connecteoupas.php'; ?> 
 
 <!DOCTYPE html>
 <html>
@@ -26,9 +26,9 @@
 <body>
   <?php include 'Navbar.php'; ?>
   <?php
-    // if (!(isset($_SESSION['statut']) && ($_SESSION['statut'] == 'admin') || $_SESSION['statut'] == 'enseignant')) {
-    //   header('Location: pasacces.php');
-    //     }
+    if (!(isset($_SESSION['statut']) && ($_SESSION['statut'] == 'admin') || $_SESSION['statut'] == 'enseignant')) {
+      header('Location: pasacces.php');
+        }
 ?>
   <main>
     <div class="container2">
