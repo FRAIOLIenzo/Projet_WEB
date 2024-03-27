@@ -35,7 +35,6 @@ $query = $db->prepare("SELECT * FROM compte WHERE adresse_mail=:pseudo AND mot_d
 $query->bindParam(':pseudo', $pseudo);
 $query->bindParam(':mot_de_passe', $mot_de_passe);
 $query->execute();
-
 if ($query->rowCount() > 0) {
     $row = $query->fetch(PDO::FETCH_ASSOC);
     $id_utilisateur = $row['id_compte'];

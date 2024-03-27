@@ -85,7 +85,7 @@
       $html = remplacerDonneeParClasse($html, 'text_domaine_stage', 'Web designer' . $i);
       $html = remplacerDonneeParClasse($html, 'nom_entreprise', 'Google');
       $html = remplacerDonneeParClasse($html, 'lieu_stage', 'Paris');
-      $html = remplacerDonneeParClasse($html, 'remuneration_stage', "" .$nombreAleatoire);
+      $html = remplacerDonneeParClasse($html, 'remuneration_stage', "" .$nombreAleatoire . " €");
       $html = remplacerDonneeParClasse($html, 'text_description_stage', "Google Cherche de super stagiaire");
       $html = remplacerDonneeParClasse($html, 'date_publi', 'Date de publication : 19/03/2024');
 
