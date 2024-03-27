@@ -17,19 +17,12 @@
   <body>
   <?php include 'Navbar.php'; ?>
 
-  <?php
+  <?php  
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
+  include 'conexionbdd.php'; 
 
 $pseudo = $_POST['email'];
 $mot_de_passe = $_POST['password'];
-$username= "sql11692929"; 
-$password= "lBxIuH8Sie";
-try {
-    $db = new PDO('mysql:host=sql11.freesqldatabase.com;dbname=sql11692929', $username, $password);
-    }
- catch (PDOException $e) {
-    echo "Erreur lors de la connexion à la base de données : " . $e->getMessage();
-}
 
 $query = $db->prepare("SELECT * FROM compte WHERE adresse_mail=:pseudo AND mot_de_passe=:mot_de_passe");
 $query->bindParam(':pseudo', $pseudo);
@@ -39,14 +32,36 @@ if ($query->rowCount() > 0) {
     $row = $query->fetch(PDO::FETCH_ASSOC);
     $id_utilisateur = $row['id_compte'];
     session_start();
-    $_SESSION['username'] = $row['adresse_mail'];
-    unset($_SESSION['adresse_mail']); // Remove 'adresse_mail' key from the session if it exists
+    $_SESSION['adresse_mail'] = $row['adresse_mail'];
+    $_SESSION['connected'] = 1;
+    $_SESSION['name'] = $row['prenom'];
+    $_SESSION['lastname'] = $row['nom'];
+    $_SESSION['id_compte'] = $row['id_compte'];
+    $query = $db->prepare("SELECT * FROM compte INNER JOIN enseignant ON compte.id_compte = enseignant.id_compte WHERE compte.id_compte=:id");
+    $query->bindParam(':id', $_SESSION['id_compte']);
+    $query->execute();
+    if ($query->rowCount() > 0) {
+      $_SESSION['statut'] = 'pilote';}
+    else {
+      $query = $db->prepare("SELECT * FROM compte INNER JOIN etudiant ON compte.id_compte = etudiant.id_compte WHERE compte.id_compte=:id");
+      $query->bindParam(':id', $_SESSION['id_compte']);
+      $query->execute();
+      if ($query->rowCount() > 0) {
+      $_SESSION['statut'] = 'etudiant';}
+      else {
+        $_SESSION['statut'] = 'admin';
+      }
+    }      
     header("location:/Page_acceuil.php");
+
 } else {
     echo "Identifiants incorrects.";
 }
 }
-
+if (isset($_SESSION['connected']) && $_SESSION['connected']) {
+  header("Location: Page_acceuil.php");
+  exit();
+}
 ?>
     <div class="box">
       <div class="box_connexion">

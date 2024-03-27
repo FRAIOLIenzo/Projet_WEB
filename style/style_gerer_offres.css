@@ -354,3 +354,8 @@ tbody tr:hover {
 #Annuler {
   background-color: #7b9dd2;
 }
+
+
+.offre_page_2sur3, .offre_page_3sur3 {
+  display: none;
+}

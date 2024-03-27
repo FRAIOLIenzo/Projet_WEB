@@ -1,3 +1,5 @@
+<?php include 'connecteoupas.php'; ?>
+
 <!DOCTYPE html>
 <html>
 
@@ -9,13 +11,20 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <link rel="stylesheet" href="style/style_navbar.css" />
   <link rel="stylesheet" href="style/style_gerer_pilotes.css" />
-  <script src="js/js_recherche_pilote.js" defer></script>
+  <script src="js/js_gerer.js" defer></script>
 
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" />
 </head>
 
 <body>
   <?php include 'Navbar.php'; ?>
+
+  <?php
+    if (!(isset($_SESSION['statut']) && $_SESSION['statut'] == 'admin')) {
+      header('Location: pasacces.php');
+        }
+?>
+  
   <main>
     <div class="container2">
       <div class="menu">
@@ -149,6 +158,7 @@
       </div>
     </div>
   </main>
+
   <?php include 'footer.php'; ?>
 
 </body>

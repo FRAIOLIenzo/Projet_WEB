@@ -173,9 +173,44 @@ function closePopup() {
   let popup = document.getElementById("popupautre");
   popup.style.display = "none";
 }
+
+function offre_page_vers_1sur3() {
+  let offrePage1sur3 = document.querySelector(".offre_page_1sur3");
+  let offrePage2sur3 = document.querySelector(".offre_page_2sur3");
+  let offrePage3sur3 = document.querySelector(".offre_page_3sur3");
+  offrePage1sur3.style.display = "block"; 
+  offrePage2sur3.style.display = "none"; 
+  offrePage3sur3.style.display = "none";  
+}
+
+function offre_page_vers_2sur3() {
+  let offrePage1sur3 = document.querySelector(".offre_page_1sur3");
+  let offrePage2sur3 = document.querySelector(".offre_page_2sur3");
+  let offrePage3sur3 = document.querySelector(".offre_page_3sur3");
+  offrePage1sur3.style.display = "none"; 
+  offrePage2sur3.style.display = "block"; 
+  offrePage3sur3.style.display = "none";  
+}
+
+function offre_page_vers_3sur3() {
+  let offrePage1sur3 = document.querySelector(".offre_page_1sur3");
+  let offrePage2sur3 = document.querySelector(".offre_page_2sur3");
+  let offrePage3sur3 = document.querySelector(".offre_page_3sur3");
+  offrePage1sur3.style.display = "none"; 
+  offrePage2sur3.style.display = "none"; 
+  offrePage3sur3.style.display = "block"; 
+}
+
+
+
+
+
+
+
 function openPopup1() {
   let popup = document.getElementById("popupajout1");
   popup.classList.toggle("open");
+  
 }
 function openPopup2() {
   let popup = document.getElementById("popupmodifier");
