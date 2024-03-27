@@ -14,7 +14,7 @@
 <body>
 <?php include 'Navbar.php'; ?>
 
-   t'as pas acces frr
+   t'as pas acces
    <?php include 'footer.php'; ?>
 
 </body>
