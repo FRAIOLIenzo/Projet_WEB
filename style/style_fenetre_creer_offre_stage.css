@@ -39,33 +39,29 @@ body {
   margin-bottom: 100px;
 }
 
-input,
-select {
+input {
   border: 1px solid #d9e1ec;
   border-radius: 4px;
-
+  padding-left: 10px;
   font-size: 16px;
   width: 200px;
   height: 38px;
 }
 
-select {
-  padding-left: 10px;
-}
+
+select{
+  border: 1px solid #d9e1ec;
+  border-radius: 4px;
+  font-size: 16px;
+  width: 212px;
+  height: 40px;
+
+} 
+
 
 input::placeholder {
   color: #d9e1ec;
 }
-
-.select-colonne-gauche {
-  width: 211.6px;
-  height: 39.6px;
-}
-
-.select-colonne-gauche option {
-  width: 200px;
-}
-
 
 
 
