@@ -164,6 +164,21 @@ function buildTable(data) {
   }
   attachImageEventListeners();
 }
+
+
+const bouton_suivant_1 = document.querySelector(".btn_suivant_1");
+bouton_suivant_1.addEventListener("click", (event) => {
+  event.preventDefault();
+});
+
+
+const bouton_precedent_1 = document.querySelector(".btn_precedent_1");
+bouton_precedent_1.addEventListener("click", (event) => {
+  event.preventDefault();
+});
+
+
+
 function openPopup() {
   let popup = document.getElementById("popupautre");
   popup.style.display = "block";
@@ -174,32 +189,24 @@ function closePopup() {
   popup.style.display = "none";
 }
 
-function offre_page_vers_1sur3() {
-  let offrePage1sur3 = document.querySelector(".offre_page_1sur3");
-  let offrePage2sur3 = document.querySelector(".offre_page_2sur3");
-  let offrePage3sur3 = document.querySelector(".offre_page_3sur3");
-  offrePage1sur3.style.display = "block"; 
-  offrePage2sur3.style.display = "none"; 
-  offrePage3sur3.style.display = "none";  
+function offre_page_vers_1sur2() {
+  let offrePage1sur2 = document.querySelector(".offre_page_1sur2");
+  let offrePage2sur2 = document.querySelector(".offre_page_2sur2");
+
+  offrePage1sur2.style.display = "block"; 
+  offrePage2sur2.style.display = "none"; 
+
 }
 
-function offre_page_vers_2sur3() {
-  let offrePage1sur3 = document.querySelector(".offre_page_1sur3");
-  let offrePage2sur3 = document.querySelector(".offre_page_2sur3");
-  let offrePage3sur3 = document.querySelector(".offre_page_3sur3");
-  offrePage1sur3.style.display = "none"; 
-  offrePage2sur3.style.display = "block"; 
-  offrePage3sur3.style.display = "none";  
+function offre_page_vers_2sur2() {
+  let offrePage1sur2 = document.querySelector(".offre_page_1sur2");
+  let offrePage2sur2 = document.querySelector(".offre_page_2sur2");
+  offrePage1sur2.style.display = "none"; 
+  offrePage2sur2.style.display = "block"; 
+
 }
 
-function offre_page_vers_3sur3() {
-  let offrePage1sur3 = document.querySelector(".offre_page_1sur3");
-  let offrePage2sur3 = document.querySelector(".offre_page_2sur3");
-  let offrePage3sur3 = document.querySelector(".offre_page_3sur3");
-  offrePage1sur3.style.display = "none"; 
-  offrePage2sur3.style.display = "none"; 
-  offrePage3sur3.style.display = "block"; 
-}
+
 
 
 

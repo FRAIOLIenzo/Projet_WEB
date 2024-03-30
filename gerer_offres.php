@@ -1,5 +1,4 @@
-
-<?php include 'connecteoupas.php'; ?> 
+<?php include 'connecteoupas.php'; ?>
 
 <!DOCTYPE html>
 <html>
@@ -26,10 +25,10 @@
 <body>
   <?php include 'Navbar.php'; ?>
   <?php
-    if (!(isset($_SESSION['statut']) && ($_SESSION['statut'] == 'admin') || $_SESSION['statut'] == 'enseignant')) {
-      header('Location: pasacces.php');
-        }
-?>
+  if (!(isset($_SESSION['statut']) && ($_SESSION['statut'] == 'admin') || $_SESSION['statut'] == 'enseignant')) {
+    header('Location: pasacces.php');
+  }
+  ?>
   <main>
     <div class="container2">
       <div class="menu">
@@ -167,98 +166,101 @@
         <div class="box_connexion">
           <div class="box_connexion_contenu">
             <label class="titre-pop-up">Ajouter une offre</label>
+            <form>
+              <div class="offre_page_1sur2">
+                <div class="conteneur_page_1_creer_offre">
+                  <div class="partie_gauche">
+                    <div class="ligne">
+                      <input id="nom_offre" placeholder="Nom de l'offre" />
+                    </div>
 
-            <div class="offre_page_1sur3">
-              <div class="ligne">
-                <input id="nom_offre" class="colonne-gauche" placeholder="Nom de l'offre" />
-              </div>
+                    <div class="ligne">
 
-              <div class="ligne">
+                      <input id="nom_entreprise" placeholder="Nom de l'entreprise" />
 
-                <input id="nom_entreprise" class="colonne-gauche" placeholder="Nom de l'entreprise" />
+                    </div>
 
-              </div>
+                    <div class="ligne">
 
-              <div class="ligne">
+                      <input id="nombre_place" type="number" placeholder="Nombre de place" />
+                    </div>
 
-                <input id="nombre_place" type="number" class="colonne-gauche" placeholder="Nombre de place" />
+                    <div class="ligne">
+                      <input id="promo_concernee" type="email" placeholder="Promo concernées" />
 
+                    </div>
+                  </div>
 
-              </div>
+                  <div class="trait"></div>
+                  <div class="partie_droite">
 
-              <div class="ligne">
-                <input id="promo_concernee" class="colonne-gauche" type="email" placeholder="Promo concernées" />
+                    <div class="ligne">
+                      <input id="code" name="code" placeholder="Code postal" />
+                    </div>
 
-              </div>
+                    <div class="ligne">
 
-              <button class="btn_suivant" onclick="offre_page_vers_2sur3()"> Suivant</button>
-            </div>
+                      <select id="ville_sortie" placeholder="Ville"> </select>
+                    </div>
 
-            <div class="offre_page_2sur3">
+                    <div class="ligne">
 
-              <div class="ligne">
-                <label for="date_debut">Date de début :</label>
-                <input id="date_debut" type="date" class="colonne-gauche" />
-              </div>
-
-              <div class="ligne">
-                <label for="date_debut">Date de fin :</label>
-                <input id="date_fin" type="date" class="colonne-gauche" />
-
-              </div>
-
-              <div class="ligne">
-
-                <input id="competence" class="colonne-gauche" placeholder="Compétences" />
+                      <input id="num_rue" placeholder="Numéro rue" />
 
 
-              </div>
+                    </div>
 
-              <div class="ligne">
-                <input id="secteur_activite" class="colonne-gauche" type="email" placeholder="Secteur d'activité" />
-                <input id="duree_stage" class="colonne-milieu" type="email" placeholder="Durée du stage en semaine" />
+                    <div class="ligne">
+                      <input id="nom_rue" placeholder="Nom rue" />
 
-              </div>
+                    </div>
+                    <div class="positionnement_btn_suivant_1">
+                      <button class="btn_suivant_1" onclick="offre_page_vers_2sur2()"> Suivant</button>
+                    </div>
 
-              <div class="ligne">
-                <textarea id="description_annonce" class="description" placeholder="Description de l'annonce, compétences"></textarea>
-              </div>
+                  </div>
 
-              <button class = "btn_precedent" onclick="offre_page_vers_1sur3()"> Précédent</button>
-              <button class="btn_suivant" onclick="offre_page_vers_3sur3()"> Suivant</button>
+                </div>
 
-            </div>
-
-            <div class="offre_page_3sur3">
-
-              <div class="ligne">
-              <input id="code" name="code" class="colonne-gauche" placeholder="Code postal" />
-              </div>
-
-              <div class="ligne">
-
-                <select class="select-colonne-gauche" id="ville_sortie" placeholder="Ville"> </select>
-              </div>
-
-              <div class="ligne">
-
-                <input id="num_rue" class="colonne-gauche" placeholder="Numéro rue" />
 
 
               </div>
 
-              <div class="ligne">
-                <input id="nom_rue" class="colonne-gauche" placeholder="Nom rue" />
-                
+              <div class="offre_page_2sur2">
+
+                <div class="ligne_2 premiere_ligne">
+                  <label for="date_debut">Date de début :</label>
+                  <input id="date_debut" type="date" class="colonne-gauche" />
+                </div>
+
+                <div class="ligne_2">
+                  <label for="date_debut">Date de fin :  </label>
+                  <input id="date_fin" type="date" class="colonne-gauche" />
+
+                </div>
+
+                <div class="ligne_2_de3">
+
+                  <input id="competence" class="colonne-gauche" placeholder="Compétences" />
+
+                  <input id="secteur_activite" class="colonne-gauche" type="email" placeholder="Secteur d'activité" />
+                  <input id="duree_stage" class="colonne-milieu" type="email" placeholder="Durée du stage en semaine" />
+
+                </div>
+
+                <div class="ligne">
+                  <textarea id="description_annonce" class="description" placeholder="Description de l'annonce"></textarea>
+                </div>
+
+                <div class="btn_prece_valid">
+                <button class="btn_precedent_1" onclick="offre_page_vers_1sur2()"> Précédent</button>
+                <button class="btn_valider" type="submit"> Valider</button>
+                </div>
+
               </div>
 
 
-
-              <button class = "btn_precedent" onclick="offre_page_vers_2sur3()"> Précédent</button>
-              <button type="submit"> Valider</button>
-
-            </div>
-
+            </form>
 
             <div id="closecircle"></div>
 

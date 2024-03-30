@@ -196,28 +196,6 @@ tbody tr:hover {
 }
 
 
-.btn_suivant,.btn_precedent{
-  margin-top: 1vw;
-  margin-bottom: 10px; 
-  margin-left: 1vw;
-  height: 3vw; 
-  width: 15vw; 
-  border-radius: 20px; 
-
-  box-shadow: 2px 2px 3px #acacac; 
-  border: none;
-  font-weight: bold;
-  color: white;
-  font-size: 1vw; 
-}
-
-.btn_suivant{
-  background: #7b9dd2;
-}
-.btn_precedent{
-  background: #b1c1db;
-}
-
 
 
 .popupcontent {
@@ -238,10 +216,11 @@ tbody tr:hover {
   right: 20px; /* Distance de la droite */
   cursor: pointer; /* Curseur de la souris change au survol */
   width: 20px;
-  height: 18.75px;
+  height: 20px;
 }
 #closecircle {
   position: absolute; /* Position absolue pour positionner le cercle */
+
   top: 15px; /* Ajustez la position verticale */
   right: 15px; /* Ajustez la position horizontale */
   width: 30px; /* Largeur du cercle */
@@ -381,6 +360,8 @@ tbody tr:hover {
 }
 
 
-.offre_page_2sur3, .offre_page_3sur3 {
+.offre_page_2sur2 {
   display: none;
 }
+
+

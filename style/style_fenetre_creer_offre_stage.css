@@ -43,8 +43,14 @@ input,
 select {
   border: 1px solid #d9e1ec;
   border-radius: 4px;
-  padding-left: 10px;
+
   font-size: 16px;
+  width: 200px;
+  height: 38px;
+}
+
+select {
+  padding-left: 10px;
 }
 
 input::placeholder {
@@ -60,22 +66,8 @@ input::placeholder {
   width: 200px;
 }
 
-.colonne-gauche {
-  width: 200px;
-  height: 38px;
-}
 
-.colonne-milieu {
-  margin-left: 10px;
-  margin-right: 10px;
-  width: 185px;
-  height: 38px;
-}
 
-.colonne-droite {
-  width: 190px;
-  height: 38px;
-}
 
 .description {
   width: 618px;
@@ -88,8 +80,40 @@ input::placeholder {
 }
 
 .ligne {
-  margin-top: 20px;
+  margin-top: 10px;
+  margin-bottom: 30px;
+  display : flex;
+  align-items: center;
+  justify-content: center; 
+
 }
+
+.ligne_2 {
+  margin-bottom: 30px;
+  display : flex;
+  align-items: left;
+  justify-content: left; 
+
+}
+
+
+.ligne_2_de3 {
+  margin-bottom: 30px;
+  display : flex;
+  align-items: center;
+  justify-content: space-between; 
+
+}
+.ligne_2 label {
+  padding-top: 10px;
+  margin-right: 10px;
+}
+
+.premiere_ligne{
+  margin-top : 40px;
+
+}
+
 
 .btn_creer_offre {
   margin-top: 20px;
@@ -105,3 +129,60 @@ input::placeholder {
   background-color: #487aca;
   transition: 0.5s;
 }
+
+
+
+/* separer la 1ere page en deux */
+.conteneur_page_1_creer_offre {
+  display: flex;
+
+  margin-top: 50px;
+}
+
+.partie_gauche,.partie_droite {
+  flex: 1;
+  padding: 20px;
+}
+
+
+.btn_suivant_1,.btn_precedent_1, .btn_valider{
+ 
+  height: 42px; 
+  width: 210px; 
+  border-radius: 20px; 
+
+  box-shadow: 2px 2px 3px #acacac; 
+  border: none;
+  font-weight: bold;
+  color: white;
+  font-size: 1vw; 
+}
+
+
+.btn_suivant_1,.btn_valider{
+  background: #7b9dd2;
+
+}
+.btn_precedent_1{
+  background: #b1c1db;
+}
+
+.trait {
+  border-left: 1px solid #7b9dd2;
+  height: 300px; 
+
+}
+
+.btn_prece_valid{
+  display : flex;
+  justify-content: space-between;
+}
+
+
+.positionnement_btn_suivant_1{
+  display : flex;
+  justify-content: center;
+
+}
+
+
