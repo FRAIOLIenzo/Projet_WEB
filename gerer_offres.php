@@ -15,12 +15,16 @@
   <script src="API/code_postal_ville.js" defer></script>
 
 
-  <script src='js_verification_formulaire.js'></script>
+  <script src='js/js_verification_formulaire.js'></script>
 
   <script src="js/js_gerer.js" defer></script>
 
+
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" />
 </head>
+
+
+
 
 <body>
   <?php include 'Navbar.php'; ?>
@@ -85,7 +89,7 @@
         Supprimer
       </div>
     </div>
-
+    <!-- 
     <div id="popupmodifier">
       <div class="box">
         <div class="box_connexion">
@@ -159,26 +163,29 @@
         </div>
       </div>
 
-    </div>
+    </div> -->
 
     <div id="popupajout1">
       <div class="box">
         <div class="box_connexion">
           <div class="box_connexion_contenu">
             <label class="titre-pop-up">Ajouter une offre</label>
-            <form>
+            <form id="creer_offre">
               <div class="offre_page_1sur2">
                 <div class="conteneur_page_1_creer_offre">
                   <div class="partie_gauche">
+
                     <div class="ligne">
                       <input id="nom_offre" placeholder="Nom de l'offre" />
                     </div>
 
+                    <a id="verif_nom_offre"></a>
+
                     <div class="ligne">
-
                       <input id="nom_entreprise" placeholder="Nom de l'entreprise" />
-
                     </div>
+
+                    <a id="verif_nom_entreprise"></a>
 
                     <div class="ligne">
 
@@ -186,9 +193,10 @@
                     </div>
 
                     <div class="ligne">
-                      <input id="promo_concernee" type="email" placeholder="Promo concernées" />
-
+                      <input id="promo_concernees" type="email" placeholder="Promo concernées" />
                     </div>
+
+                    <a id="verif_promo_concernees"></a>
                   </div>
 
                   <div class="trait"></div>
@@ -197,6 +205,9 @@
                     <div class="ligne">
                       <input id="code" name="code" placeholder="Code postal" />
                     </div>
+                    <a id="verif_code_postal"></a>
+
+
 
                     <div class="ligne">
 
@@ -205,7 +216,7 @@
 
                     <div class="ligne">
 
-                      <input id="num_rue" placeholder="Numéro rue" />
+                      <input id="num_rue" type="number" placeholder="Numéro rue" />
 
 
                     </div>
@@ -214,6 +225,8 @@
                       <input id="nom_rue" placeholder="Nom rue" />
 
                     </div>
+
+                    <a id="verif_nom_rue"></a>
                     <div class="positionnement_btn_suivant_1">
                       <button class="btn_suivant_1" onclick="offre_page_vers_2sur2()"> Suivant</button>
                     </div>
@@ -234,17 +247,19 @@
                 </div>
 
                 <div class="ligne_2">
-                  <label for="date_debut">Date de fin :  </label>
+                  <label for="date_debut">Date de fin : </label>
                   <input id="date_fin" type="date" class="colonne-gauche" />
 
                 </div>
-
+                <div class="virgule">
+                <label > Veuillez séparer les compétences avec une virgule </label>
+                </div>
                 <div class="ligne_2_de3">
+                
+                  <input id="competence" class="colonne-gauche" placeholder=" Compétences" />
 
-                  <input id="competence" class="colonne-gauche" placeholder="Compétences" />
-
-                  <input id="secteur_activite" class="colonne-gauche" type="email" placeholder="Secteur d'activité" />
-                  <input id="duree_stage" class="colonne-milieu" type="email" placeholder="Durée du stage en semaine" />
+                  <input id="secteur_activite" class="colonne-gauche"  placeholder="Secteur d'activité" />
+                  <input id="duree_stage" class="colonne-milieu" type="number" placeholder="Durée stage (sem)" />
 
                 </div>
 
@@ -253,8 +268,8 @@
                 </div>
 
                 <div class="btn_prece_valid">
-                <button class="btn_precedent_1" onclick="offre_page_vers_1sur2()"> Précédent</button>
-                <button class="btn_valider" type="submit"> Valider</button>
+                  <button class="btn_precedent_1" onclick="offre_page_vers_1sur2()"> Précédent</button>
+                  <button class="btn_valider" type="submit"> Valider</button>
                 </div>
 
               </div>
@@ -269,7 +284,7 @@
 
 
 
-            <!-- <input type="submit" class="btn_creer_offre" value="Valider" /> -->
+
             <form>
               <div id="closecircle"></div>
 

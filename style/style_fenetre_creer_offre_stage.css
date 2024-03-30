@@ -66,6 +66,8 @@ input::placeholder {
 
 
 .description {
+  margin-top: -10px;
+  margin-bottom: -10px;
   width: 618px;
   height: 100px;
   padding-left: 10px;
@@ -99,6 +101,11 @@ input::placeholder {
   align-items: center;
   justify-content: space-between; 
 
+}
+
+.virgule {
+  margin-top: 10px;
+  margin-bottom: 10px;
 }
 .ligne_2 label {
   padding-top: 10px;
@@ -165,7 +172,7 @@ input::placeholder {
 
 .trait {
   border-left: 1px solid #7b9dd2;
-  height: 300px; 
+  height: 320px; 
 
 }
 
@@ -178,7 +185,14 @@ input::placeholder {
 .positionnement_btn_suivant_1{
   display : flex;
   justify-content: center;
+  margin-top: 20px;
 
 }
 
+
+#creer_offre a {
+  display: none;
+  margin-top: -20px;
+  color : red;
+}
 
