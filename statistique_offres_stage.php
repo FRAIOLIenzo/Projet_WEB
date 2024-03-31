@@ -7,7 +7,7 @@
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Statistiques</title>
-  <meta name="description" content="" />
+  <meta name="description" content="statistiques des offres de stage" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <link rel="stylesheet" href="style/style_navbar.css" />
   <link rel="stylesheet" href="style/style_footer.css" />
@@ -43,7 +43,9 @@
       <ul>
 
         <div class="square">
-            <li class="active"><a href="statistique_offres_stage.html">Offres</a></li>
+   
+            <li class="active"><p>Offres</p></li>
+     
         </div>
 
           <li><a href="statistique_etudiant.php">Étudiants</a></li>

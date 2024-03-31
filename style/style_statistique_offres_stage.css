@@ -75,7 +75,7 @@ justify-content: center;
 }
 
 
-.menu a{
+.menu a, .menu p {
 color: #ffffff;
 text-decoration: none; 
 }
