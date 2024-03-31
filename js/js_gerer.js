@@ -158,7 +158,7 @@ function buildTable(data) {
                     <td>${data[i].centre}</td>
                     <td>${data[i].mail}</td>
                     <td>${data[i].promo}</td>
-                    <td><img class="imgautre" src="image/autre.png"></td>
+                    <td><img alt="autre" class="imgautre" src="image/autre.png"></td>
               </tr>`;
     table.innerHTML += row;
   }
