@@ -8,11 +8,13 @@
   <link rel="icon" href="image/logo_onglet.png" type="image/png">
   <link rel="stylesheet" href="style/style_navbar.css" />
   <link rel="stylesheet" href="style/style_page_acceuil.css" />
-
+  <?php  include 'lien_fichier_manifest.php'; ?>
 
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" />
 </head>
-<?php include 'Navbar.php'; ?>
+<?php include 'Navbar.php';
+  
+?>
 
 <body>
    <div class="container_haut_de_page">
