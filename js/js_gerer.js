@@ -7,8 +7,8 @@ function buildTable(data) {
                     <td>${data[i].id_compte}</td>
                     <td>${data[i].nom}</td>
                     <td>${data[i].prenom}</td>
-                    <td>""</td>
-                    <td>${data[i].adress_mail}</td>
+                    <td>${data[i].nom_centre}</td>
+                    <td>${data[i].adresse_mail}</td>
                     <td>${data[i].nom_promo}</td>
                     <td><img class="imgautre" src="image/autre.png"></td>
               </tr>`;

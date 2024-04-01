@@ -2,7 +2,7 @@
 <?php
             include 'conexionbdd.php'; 
 
-            $query = $db->prepare("SELECT e.id_compte, c.nom, c.prenom, c.adresse_mail, p.nom_promo FROM etudiant e JOIN compte c ON e.id_compte = c.id_compte JOIN etudie_dans ed ON ed.id_compte = e.id_compte JOIN promo p on p.id_promo = ed.id_promo");
+            $query = $db->prepare("SELECT e.id_compte, c.nom, c.prenom, c.adresse_mail, p.nom_promo, ce.nom_centre FROM etudiant e JOIN compte c ON e.id_compte = c.id_compte JOIN etudie_dans ed ON ed.id_compte = e.id_compte JOIN promo p ON p.id_promo = ed.id_promo JOIN travaille_dans t ON t.id_promo = p.id_promo JOIN Centre ce ON ce.id_centre=t.id_centre");
             $query->execute();
             $row = $query->fetchAll(PDO::FETCH_ASSOC);
             $tableau_json = json_encode($row);
