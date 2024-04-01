@@ -1,5 +1,16 @@
 <?php include 'connecteoupas.php'; ?>
-
+<?php
+            include 'conexionbdd.php'; 
+            $query = $db->prepare("SELECT o.id_offre_de_stage, o.types_de_promotion, e.nom_entreprise, v.nom_ville, s.nom_secteur_activite FROM offre_de_stage o  JOIN entreprise e ON e.id_entreprise=o.id_entreprise JOIN possede p ON p.id_entreprise = e.id_entreprise JOIN secteur_activite s ON s.id_secteur_activite=p.id_secteur_activite JOIN réside r ON r.id_entreprise = e.id_entreprise JOIN adresse a ON a.id_adresse=r.id_adresse JOIN se_localise sl ON sl.id_adresse = a.id_adresse JOIN ville v ON v.id_ville = sl.id_ville");
+            $query->execute();
+            $row = $query->fetchAll(PDO::FETCH_ASSOC);
+            $tableau_json = json_encode($row);
+            $statut = "offre";
+?>
+<script>
+    var statut = "<?php echo $statut; ?>"; 
+    var tableau_json = <?php echo $tableau_json;?>;
+</script>
 <!DOCTYPE html>
 <html>
 
@@ -26,7 +37,7 @@
 
 
 
-<body>
+<body onload="buildTable(tableau_json, statut)">
   <?php include 'Navbar.php'; ?>
   <?php
   if (!(isset($_SESSION['statut']) && ($_SESSION['statut'] == 'admin') || $_SESSION['statut'] == 'enseignant')) {
@@ -48,7 +59,7 @@
       <div class="squaredg">
         <div class="headertab">
           <div class="search-container">
-            <input type="search" id="searchbar" placeholder="Rechercher..." />
+          <input type="search" id="searchbar" onkeyup="recherche(tableau_json)" placeholder="Rechercher..." />
             <img alt="search" id="imgsearch" src="image/loupe.png" />
           </div>
           <div class="btncountainer">
@@ -65,11 +76,10 @@
           <table>
             <tr>
               <th class="bordure">#</th>
-              <th class="bordure">Secteur d'activité</th>
               <th class="bordure">Entreprises</th>
-              <th class="bordure">Date de début</th>
-              <th class="bordure">Date de fin</th>
-              <th class="bordure">Rémunération</th>
+              <th class="bordure">Type entreprise</th>
+              <th class="bordure">ville</th>
+              <th class="bordure">Secteur Activite</th>
               <th class="bordure"></th>
             </tr>
 

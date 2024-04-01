@@ -1,15 +1,15 @@
 <?php include 'connecteoupas.php'; ?>
 <?php
             include 'conexionbdd.php'; 
-
-            //$query = $db->prepare("SELECT e.id_compte, c.nom, c.prenom, c.adresse_mail, p.nom_promo, ce.nom_centre FROM etudiant e JOIN compte c ON e.id_compte = c.id_compte JOIN etudie_dans ed ON ed.id_compte = e.id_compte JOIN promo p ON p.id_promo = ed.id_promo JOIN travaille_dans t ON t.id_promo = p.id_promo JOIN Centre ce ON ce.id_centre=t.id_centre");
-            $query = $db->prepare("SELECT e.id_compte, c.nom, c.prenom, c.adresse_mail, p.nom_promo, ce.nom_centre FROM enseignant e JOIN compte c ON e.id_compte = c.id_compte JOIN pilote pi ON pi.id_compte = e.id_compte JOIN promo p ON p.id_promo = pi.id_promo JOIN travaille_dans t ON t.id_promo = p.id_promo JOIN Centre ce ON ce.id_centre=t.id_centre");
+            $query = $db->prepare("SELECT e.id_compte, c.nom, c.prenom, c.adresse_mail, pi.date_debut, p.nom_promo, ce.nom_centre FROM enseignant e JOIN compte c ON e.id_compte = c.id_compte JOIN pilote pi ON pi.id_compte = e.id_compte JOIN promo p ON p.id_promo = pi.id_promo JOIN travaille_dans t ON t.id_promo = p.id_promo JOIN Centre ce ON ce.id_centre=t.id_centre");
             $query->execute();
             $row = $query->fetchAll(PDO::FETCH_ASSOC);
             $tableau_json = json_encode($row);
+            $statut = "pilote";
 ?>
 <script>
-var tableau_json = <?php echo $tableau_json;?>;
+    var statut = "<?php echo $statut; ?>"; 
+    var tableau_json = <?php echo $tableau_json;?>;
 </script>
 <!DOCTYPE html>
 <html>
@@ -27,7 +27,7 @@ var tableau_json = <?php echo $tableau_json;?>;
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" />
 </head>
 
-<body onload="buildTable(tableau_json)">
+<body onload="buildTable(tableau_json, statut)">
   <?php include 'Navbar.php'; ?>
 
   <?php
