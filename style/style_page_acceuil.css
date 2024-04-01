@@ -32,8 +32,8 @@ footer {
   padding-left: 4vw;
 }
 
-.bloc_slogan a {
-  font-size: 5vw;
+.bloc_slogan ul li p {
+  font-size: 5.1vw;
   font-weight: bold;
 }
 

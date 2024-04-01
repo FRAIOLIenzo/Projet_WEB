@@ -143,9 +143,9 @@ tbody tr:hover {
   background-color: #7b9dd2;
   color: #ffffff;
   border-radius: 6px;
-  border: none; /* Supprime les bordures */
-  display: flex; /* Utilisation de flexbox */
-  align-items: center; /* Aligner les éléments verticalement */
+  border: none; 
+  display: flex; 
+  align-items: center; 
   cursor: pointer;
 }
 
@@ -179,7 +179,7 @@ tbody tr:hover {
   width: 20px;
   height: 20px;
 }
-/*Popup ajout 1 PILOTE */
+/*Popup ajout 1 offre */
 #popupajout1 {
   position: fixed;
   top: 0;
@@ -194,6 +194,9 @@ tbody tr:hover {
 #popupajout1.open {
   display: block !important;
 }
+
+
+
 
 .popupcontent {
   position: absolute;
@@ -213,10 +216,11 @@ tbody tr:hover {
   right: 20px; /* Distance de la droite */
   cursor: pointer; /* Curseur de la souris change au survol */
   width: 20px;
-  height: 18.75px;
+  height: 20px;
 }
 #closecircle {
   position: absolute; /* Position absolue pour positionner le cercle */
+
   top: 15px; /* Ajustez la position verticale */
   right: 15px; /* Ajustez la position horizontale */
   width: 30px; /* Largeur du cercle */
@@ -356,6 +360,8 @@ tbody tr:hover {
 }
 
 
-.offre_page_2sur3, .offre_page_3sur3 {
+.offre_page_2sur2 {
   display: none;
 }
+
+

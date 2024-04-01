@@ -15,20 +15,24 @@
   <script src="API/code_postal_ville.js" defer></script>
 
 
-  <script src='js_verification_formulaire.js'></script>
+  <script src='js/js_verification_formulaire.js'></script>
 
   <script src="js/js_gerer.js" defer></script>
+
 
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" />
 </head>
 
+
+
+
 <body>
   <?php include 'Navbar.php'; ?>
   <?php
-    if (!(isset($_SESSION['statut']) && ($_SESSION['statut'] == 'admin') || $_SESSION['statut'] == 'pilote')) {
-      header('Location: pasacces.php');
-        }
-?>
+  if (!(isset($_SESSION['statut']) && ($_SESSION['statut'] == 'admin') || $_SESSION['statut'] == 'enseignant')) {
+    header('Location: pasacces.php');
+  }
+  ?>
   <main>
     <div class="container2">
       <div class="menu">
@@ -45,15 +49,15 @@
         <div class="headertab">
           <div class="search-container">
             <input type="search" id="searchbar" placeholder="Rechercher..." />
-            <img id="imgsearch" src="image/loupe.png" />
+            <img alt="search" id="imgsearch" src="image/loupe.png" />
           </div>
           <div class="btncountainer">
             <button class="btnajouter">
-              <img class="imgplus" src="image/plus.png" />Ajouter des offres
+              <img alt="plus" class="imgplus" src="image/plus.png" />Ajouter des offres
               via un fichier CSV
             </button>
             <button onclick="openPopup1()" class="btnajouter">
-              <img class="imgplus" src="image/plus.png" />Ajouter une offre
+              <img alt="plus" class="imgplus" src="image/plus.png" />Ajouter une offre
             </button>
           </div>
         </div>
@@ -77,15 +81,15 @@
 
     <div id="popupautre">
       <div onclick="openPopup2()">
-        <img src="image/edit.png" />
+        <img alt="edit" src="image/edit.png" />
         Modifier
       </div>
       <div onclick="openPopup3()">
-        <img src="image/delete.png" />
+        <img alt="delete"src="image/delete.png" />
         Supprimer
       </div>
     </div>
-
+    <!-- 
     <div id="popupmodifier">
       <div class="box">
         <div class="box_connexion">
@@ -149,7 +153,7 @@
 
             <div id="closecircle"></div>
 
-            <img id="close" src="image/close.png" onclick="openPopup2()" />
+            <img alt="close" id="close" src="image/close.png" onclick="openPopup2()" />
 
 
 
@@ -159,118 +163,132 @@
         </div>
       </div>
 
-    </div>
+    </div> -->
 
     <div id="popupajout1">
       <div class="box">
         <div class="box_connexion">
           <div class="box_connexion_contenu">
             <label class="titre-pop-up">Ajouter une offre</label>
+            <form id="creer_offre">
+              <div class="offre_page_1sur2">
+                <div class="conteneur_page_1_creer_offre">
+                  <div class="partie_gauche">
 
-            <div class="offre_page_1sur3">
-              <div class="ligne">
-                <input id="nom_offre" class="colonne-gauche" placeholder="Nom de l'offre" />
-              </div>
+                    <div class="ligne">
+                      <input id="nom_offre" placeholder="Nom de l'offre" />
+                    </div>
 
-              <div class="ligne">
+                    <a id="verif_nom_offre"></a>
 
-                <input id="nom_entreprise" class="colonne-gauche" placeholder="Nom de l'entreprise" />
+                    <div class="ligne">
+                      <input id="nom_entreprise" placeholder="Nom de l'entreprise" />
+                    </div>
 
-              </div>
+                    <a id="verif_nom_entreprise"></a>
 
-              <div class="ligne">
+                    <div class="ligne">
 
-                <input id="nombre_place" type="number" class="colonne-gauche" placeholder="Nombre de place" />
+                      <input id="nombre_place" type="number" placeholder="Nombre de place" />
+                    </div>
 
+                    <div class="ligne">
+                      <input id="promo_concernees" type="email" placeholder="Promo concernées" />
+                    </div>
 
-              </div>
+                    <a id="verif_promo_concernees"></a>
+                  </div>
 
-              <div class="ligne">
-                <input id="promo_concernee" class="colonne-gauche" type="email" placeholder="Promo concernées" />
+                  <div class="trait"></div>
+                  <div class="partie_droite">
 
-              </div>
-
-              <button onclick="offre_page_vers_2sur3()"> Suivant</button>
-            </div>
-
-            <div class="offre_page_2sur3">
-
-              <div class="ligne">
-                <label for="date_debut">Date de début :</label>
-                <input id="date_debut" type="date" class="colonne-gauche" />
-              </div>
-
-              <div class="ligne">
-                <label for="date_debut">Date de fin :</label>
-                <input id="date_fin" type="date" class="colonne-gauche" />
-
-              </div>
-
-              <div class="ligne">
-
-                <input id="competence" class="colonne-gauche" placeholder="Compétences" />
+                    <div class="ligne">
+                      <input id="code" name="code" placeholder="Code postal" />
+                    </div>
+                    <a id="verif_code_postal"></a>
 
 
-              </div>
 
-              <div class="ligne">
-                <input id="secteur_activite" class="colonne-gauche" type="email" placeholder="Secteur d'activité" />
-                <input id="duree_stage" class="colonne-milieu" type="email" placeholder="Durée du stage en semaine" />
+                    <div class="ligne">
 
-              </div>
+                      <select id="ville_sortie" placeholder="Ville"> </select>
+                    </div>
 
-              <div class="ligne">
-                <textarea id="description_annonce" class="description" placeholder="Description de l'annonce, compétences"></textarea>
-              </div>
+                    <div class="ligne">
 
-              <button onclick="offre_page_vers_1sur3()"> Précédent</button>
-              <button onclick="offre_page_vers_3sur3()"> Suivant</button>
+                      <input id="num_rue" type="number" placeholder="Numéro rue" />
 
-            </div>
 
-            <div class="offre_page_3sur3">
+                    </div>
 
-              <div class="ligne">
-              <input id="code" name="code" class="colonne-gauche" placeholder="Code postal" />
-              </div>
+                    <div class="ligne">
+                      <input id="nom_rue" placeholder="Nom rue" />
 
-              <div class="ligne">
+                    </div>
 
-                <select class="select-colonne-gauche" id="ville_sortie" placeholder="Ville"> </select>
-              </div>
+                    <a id="verif_nom_rue"></a>
+                    <div class="positionnement_btn_suivant_1">
+                      <button class="btn_suivant_1" onclick="offre_page_vers_2sur2()"> Suivant</button>
+                    </div>
 
-              <div class="ligne">
+                  </div>
 
-                <input id="num_rue" class="colonne-gauche" placeholder="Numéro rue" />
+                </div>
+
 
 
               </div>
 
-              <div class="ligne">
-                <input id="nom_rue" class="colonne-gauche" placeholder="Nom rue" />
+              <div class="offre_page_2sur2">
+
+                <div class="ligne_2 premiere_ligne">
+                  <label for="date_debut">Date de début :</label>
+                  <input id="date_debut" type="date" class="colonne-gauche" />
+                </div>
+
+                <div class="ligne_2">
+                  <label for="date_debut">Date de fin : </label>
+                  <input id="date_fin" type="date" class="colonne-gauche" />
+
+                </div>
+                <div class="virgule">
+                <label > Veuillez séparer les compétences avec une virgule </label>
+                </div>
+                <div class="ligne_2_de3">
                 
+                  <input id="competence" class="colonne-gauche" placeholder=" Compétences" />
+
+                  <input id="secteur_activite" class="colonne-gauche"  placeholder="Secteur d'activité" />
+                  <input id="duree_stage" class="colonne-milieu" type="number" placeholder="Durée stage (sem)" />
+
+                </div>
+
+                <div class="ligne">
+                  <textarea id="description_annonce" class="description" placeholder="Description de l'annonce"></textarea>
+                </div>
+
+                <div class="btn_prece_valid">
+                  <button class="btn_precedent_1" onclick="offre_page_vers_1sur2()"> Précédent</button>
+                  <button class="btn_valider" type="submit"> Valider</button>
+                </div>
+
               </div>
 
 
-
-              <button onclick="offre_page_vers_2sur3()"> Précédent</button>
-              <button type="submit"> Valider</button>
-
-            </div>
-
+            </form>
 
             <div id="closecircle"></div>
 
-            <img id="close" src="image/close.png" onclick="openPopup1()" />
+            <img alt="close" id="close" src="image/close.png" onclick="openPopup1()" />
 
 
 
 
-            <!-- <input type="submit" class="btn_creer_offre" value="Valider" /> -->
+
             <form>
               <div id="closecircle"></div>
 
-              <img id="close" src="image/close.png" onclick="openPopup1()" />
+              <img alt="close" id="close" src="image/close.png" onclick="openPopup1()" />
 
           </div>
         </div>

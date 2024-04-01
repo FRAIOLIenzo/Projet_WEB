@@ -41,15 +41,15 @@
         <div class="headertab">
           <div class="search-container">
             <input type="search" id="searchbar" placeholder="Rechercher..." />
-            <img id="imgsearch" src="image/loupe.png" />
+            <img alt="search" id="imgsearch" src="image/loupe.png" />
           </div>
           <div class="btncountainer">
             <button class="btnajouter">
-              <img class="imgplus" src="image/plus.png" />Ajouter des pilotes
+              <img alt="plus" class="imgplus" src="image/plus.png" />Ajouter des pilotes
               via un fichier CSV
             </button>
             <button onclick="openPopup1()" class="btnajouter">
-              <img class="imgplus" src="image/plus.png" />Ajouter un pilote
+              <img alt="plus" class="imgplus" src="image/plus.png" />Ajouter un pilote
             </button>
           </div>
         </div>
@@ -73,11 +73,11 @@
 
     <div id="popupautre">
       <div onclick="openPopup2()">
-        <img src="image/edit.png" />
+        <img alt="edti" src="image/edit.png" />
         Modifier
       </div>
       <div onclick="openPopup3()">
-        <img src="image/delete.png" />
+        <img alt="delete" src="image/delete.png" />
         Supprimer
       </div>
     </div>
@@ -110,7 +110,7 @@
         </form>
         <div id="closecircle"></div>
 
-        <img id="close" src="image/close.png" onclick="openPopup2()" />
+        <img alt="close" id="close" src="image/close.png" onclick="openPopup2()" />
       </div>
     </div>
 
@@ -142,7 +142,7 @@
         </form>
         <div id="closecircle"></div>
 
-        <img id="close" src="image/close.png" onclick="openPopup1()" />
+        <img alt ="close" id="close" src="image/close.png" onclick="openPopup1()" />
       </div>
     </div>
 
