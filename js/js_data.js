@@ -1,0 +1,1 @@
+var mydata = [{"id_compte":2,"nom":"Jean","prenom":"Dupond","adresse_mail":"jeandupond@viacesi.fr","nom_promo":"A1-INFO"},{"id_compte":3,"nom":"Alice","prenom":"Aubert","adresse_mail":"aliceaubert@viacesi.fr","nom_promo":"A1-INFO"}]; export {mydata};
