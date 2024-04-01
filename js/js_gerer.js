@@ -37,7 +37,7 @@ function buildTable(data, status) {
                     <td>${data[i].types_de_promotion}</td>
                     <td>${data[i].nom_ville}</td>
                     <td>${data[i].nom_secteur_activite}</td>
-                    <td><img class="imgautre" src="image/autre.png"></td>
+                    <td><img class="imgautre" alt="autre" src="image/autre.png"></td>
               </tr>`;
       table.innerHTML += row;
     }
