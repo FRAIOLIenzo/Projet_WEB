@@ -2,7 +2,8 @@
 <?php
             include 'conexionbdd.php'; 
 
-            $query = $db->prepare("SELECT e.id_compte, c.nom, c.prenom, c.adresse_mail, p.nom_promo, ce.nom_centre FROM etudiant e JOIN compte c ON e.id_compte = c.id_compte JOIN etudie_dans ed ON ed.id_compte = e.id_compte JOIN promo p ON p.id_promo = ed.id_promo JOIN travaille_dans t ON t.id_promo = p.id_promo JOIN Centre ce ON ce.id_centre=t.id_centre");
+            //$query = $db->prepare("SELECT e.id_compte, c.nom, c.prenom, c.adresse_mail, p.nom_promo, ce.nom_centre FROM etudiant e JOIN compte c ON e.id_compte = c.id_compte JOIN etudie_dans ed ON ed.id_compte = e.id_compte JOIN promo p ON p.id_promo = ed.id_promo JOIN travaille_dans t ON t.id_promo = p.id_promo JOIN Centre ce ON ce.id_centre=t.id_centre");
+            $query = $db->prepare("SELECT e.id_compte, c.nom, c.prenom, c.adresse_mail, p.nom_promo, ce.nom_centre FROM enseignant e JOIN compte c ON e.id_compte = c.id_compte JOIN pilote pi ON pi.id_compte = e.id_compte JOIN promo p ON p.id_promo = pi.id_promo JOIN travaille_dans t ON t.id_promo = p.id_promo JOIN Centre ce ON ce.id_centre=t.id_centre");
             $query->execute();
             $row = $query->fetchAll(PDO::FETCH_ASSOC);
             $tableau_json = json_encode($row);
@@ -155,6 +156,26 @@ var tableau_json = <?php echo $tableau_json;?>;
         <img alt ="close" id="close" src="image/close.png" onclick="openPopup1()" />
       </div>
     </div>
+    <?php
+    if ($_SERVER["REQUEST_METHOD"] == "POST") {
+      $nom = $_POST['nom'];
+      $prenom = $_POST['prenom'];
+      $email = $_POST['email'];
+      $motdepasse = $_POST['motdepasse'];
+      $centre = $_POST['centre'];
+      $promotion = $_POST['promotion'];
+      $query = $db->prepare("INSERT INTO pilote (nom, prenom, email, motdepasse, centre, promotion) VALUES (:nom, :prenom, :email, :motdepasse, :centre, :promotion)");
+      $query->bindValue(':nom', $nom);
+      $query->bindValue(':prenom', $prenom);
+      $query->bindValue(':email', $email);
+      $query->bindValue(':motdepasse', $motdepasse);
+      $query->bindValue( 'promotion', $promotion);
+      $query->bindValue( 'centre', $centre);
+      $query->execute();
+      echo '<script>alert("Pilote ajouté avec succès");</script>';}
+      ?>
+
+
 
     <div id="popupsuppr">
       <div class="popupsuppr-content">
