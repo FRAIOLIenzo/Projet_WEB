@@ -7,17 +7,16 @@ const overlay = document.getElementById("overlay");
 const popup = document.getElementById("popup_offre_de_stage");
 const popup2 = document.getElementById("popup_postuler");
 
-
 function openPopup() {
   overlay.style.display = "block"; // Affiche la superposition
   popup.style.display = "block"; // Affiche la boîte modale
 }
 
 function openPopup2() {
-    overlay.style.display = "block"; // Affiche la superposition
-    popup2.style.display = "block"; // Affiche la boîte modale
-    popup.style.display = "none";
-  }
+  overlay.style.display = "block"; // Affiche la superposition
+  popup2.style.display = "block"; // Affiche la boîte modale
+  popup.style.display = "none";
+}
 
 function closePopup() {
   overlay.style.display = "none"; // Cache la superposition
@@ -25,10 +24,9 @@ function closePopup() {
 }
 
 function closePopup2() {
-    overlay.style.display = "none"; // Cache la superposition
-    popup2.style.display = "none"; // Cache la boîte modale
-  }
-
+  overlay.style.display = "none"; // Cache la superposition
+  popup2.style.display = "none"; // Cache la boîte modale
+}
 
 // Ajoute un gestionnaire d'événements pour le clic sur l'image d'étoile
 // Parcourt chaque élément et ajoute un gestionnaire d'événements pour le clic
@@ -37,15 +35,11 @@ popupTriggers.forEach((trigger) => {
 });
 
 btnTrigger.forEach((trigger) => {
-    trigger.addEventListener("click", closePopup);
-    trigger.addEventListener("click", closePopup2);
-  });;
+  trigger.addEventListener("click", closePopup);
+  trigger.addEventListener("click", closePopup2);
+});
 
 btnTrigger2.addEventListener("click", openPopup2);
-
-
-
-
 
 window.addEventListener("click", function (event) {
   if (event.target === overlay) {
@@ -53,3 +47,7 @@ window.addEventListener("click", function (event) {
     closePopup2();
   }
 });
+
+
+
+

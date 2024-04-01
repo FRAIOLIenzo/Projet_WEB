@@ -34,29 +34,25 @@ window.addEventListener("click", function (event) {
   }
 });
 
-
-
-
-
 // Récupération de toutes les étoiles
-var etoiles = document.querySelectorAll('.etoiles_avis');
+var etoiles = document.querySelectorAll(".etoiles_avis");
 
 // Parcourir chaque étoile
-etoiles.forEach(function(etoile, index) {
-    // Ajouter un gestionnaire d'événements de clic
-    etoile.addEventListener('click', function() {
-        // Vérifier si l'étoile est vide ou pleine
-        var etoileVide = etoile.src.includes('etoile_avis_vide.png');
-        
-        // Parcourir toutes les étoiles
-        etoiles.forEach(function(etoile, i) {
-            // Si l'étoile est vide, la remplir jusqu'à l'index actuel
-            if (etoileVide && i <= index) {
-                etoile.src = 'image/etoile_avis.png';
-            } else { // Sinon, vider toutes les étoiles
-                etoile.src = 'image/etoile_avis_vide.png';
-            }
-        });
-    });
-});
+etoiles.forEach(function (etoile, index) {
+  // Ajouter un gestionnaire d'événements de clic
+  etoile.addEventListener("click", function () {
+    // Vérifier si l'étoile est vide ou pleine
+    var etoileVide = etoile.src.includes("etoile_avis_vide.png");
 
+    // Parcourir toutes les étoiles
+    etoiles.forEach(function (etoile, i) {
+      // Si l'étoile est vide, la remplir jusqu'à l'index actuel
+      if (etoileVide && i <= index) {
+        etoile.src = "image/etoile_avis.png";
+      } else {
+        // Sinon, vider toutes les étoiles
+        etoile.src = "image/etoile_avis_vide.png";
+      }
+    });
+  });
+});
