@@ -1,7 +1,7 @@
 <?php include 'connecteoupas.php'; ?>
 <?php
             include 'conexionbdd.php'; 
-            $query = $db->prepare("SELECT o.id_offre_de_stage, o.types_de_promotion, e.nom_entreprise, v.nom_ville, s.nom_secteur_activite FROM offre_de_stage o  JOIN entreprise e ON e.id_entreprise=o.id_entreprise JOIN possede p ON p.id_entreprise = e.id_entreprise JOIN secteur_activite s ON s.id_secteur_activite=p.id_secteur_activite JOIN réside r ON r.id_entreprise = e.id_entreprise JOIN adresse a ON a.id_adresse=r.id_adresse JOIN se_localise sl ON sl.id_adresse = a.id_adresse JOIN ville v ON v.id_ville = sl.id_ville");
+            $query = $db->prepare("SELECT e.id_entreprise, e.nom_entreprise,e.numero_siret ,s.nom_secteur_activite, v.nom_ville FROM entreprise e JOIN possede p ON p.id_entreprise = e.id_entreprise JOIN secteur_activite s ON s.id_secteur_activite=p.id_secteur_activite JOIN réside r ON r.id_entreprise = e.id_entreprise JOIN adresse a ON a.id_adresse=r.id_adresse JOIN se_localise sl ON sl.id_adresse = a.id_adresse JOIN ville v ON v.id_ville = sl.id_ville	");
             $query->execute();
             $row = $query->fetchAll(PDO::FETCH_ASSOC);
             $tableau_json = json_encode($row);
@@ -70,11 +70,9 @@
               <tr>
                 <th class="bordure">#</th>
                 <th class="bordure">Nom</th>
-                <th class="bordure">entreprise</th>
+                <th class="bordure">Numéro de Siret</th>
                 <th class="bordure">Secteur d'activitée</th>
                 <th class="bordure">Ville</th>
-                <th class="bordure">Mail</th>
-                <th class="bordure">entreprise</th>
                 <th class="bordure"></th>
               </tr>
 

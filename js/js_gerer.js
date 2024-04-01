@@ -42,6 +42,19 @@ function buildTable(data, status) {
       table.innerHTML += row;
     }
   }
+  if (status == "entreprise") {
+    for (var i = 0; i < data.length; i++) {
+      var row = `<tr>
+                    <td>${data[i].id_entreprise}</td>
+                    <td>${data[i].nom_entreprise}</td>
+                    <td>${data[i].numero_siret}</td>
+                    <td>${data[i].nom_secteur_activite}</td>
+                    <td>${data[i].nom_ville}</td>
+                    <td><img class="imgautre" src="image/autre.png"></td>
+              </tr>`;
+      table.innerHTML += row;
+    }
+  }
 
   attachImageEventListeners();
 }
