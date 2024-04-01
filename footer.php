@@ -21,7 +21,7 @@
             <li><a class="interligne" href="mentions_legales.php"> Mentions légales</a></li>
             <li><a class="interligne" href="#"> Tous droits réservés</a></li>
             <li>
-              <a class="interligne" href="#"> Politiques de confidentialité</a>
+              <a class="interligne" href="politique_confidentialite.php"> Politiques de confidentialité</a>
             </li>
           </ul>
         </div>

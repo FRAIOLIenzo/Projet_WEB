@@ -9,6 +9,14 @@ body {
   margin: 30px;
 }
 
+.text_politique {
+  margin-left: 30px;
+  margin-top: 30px;
+}
+
+.text {
+  margin-left: 30px;
+}
 section {
   margin: 30px;
 }
@@ -17,10 +25,18 @@ section {
   margin-bottom: 10px;
 }
 
+ul {
+  margin-left: 30px;
+}
 p {
   margin: 10px 0 0 10px;
 }
 
 footer {
   background-color: #7b9dd2;
+}
+
+main li {
+  text-decoration: solid;
+  list-style-type: circle;
 }
