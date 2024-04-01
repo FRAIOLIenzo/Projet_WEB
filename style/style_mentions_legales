@@ -1,0 +1,26 @@
+body {
+  font-family: "Inter", sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #ffffff;
+}
+
+.text_mentions {
+  margin: 30px;
+}
+
+section {
+  margin: 30px;
+}
+
+.sous_text {
+  margin-bottom: 10px;
+}
+
+p {
+  margin: 10px 0 0 10px;
+}
+
+footer {
+  background-color: #7b9dd2;
+}

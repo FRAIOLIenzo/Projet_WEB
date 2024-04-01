@@ -18,7 +18,7 @@
         <h1>A propos</h1>
         <div class="liste_a_propos">
           <ul>
-            <li><a class="interligne" href="#"> Mentions légales</a></li>
+            <li><a class="interligne" href="mentions_legales.php"> Mentions légales</a></li>
             <li><a class="interligne" href="#"> Tous droits réservés</a></li>
             <li>
               <a class="interligne" href="#"> Politiques de confidentialité</a>
