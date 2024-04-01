@@ -16,7 +16,7 @@
     <main>
         <section>
             <h2 class="sous_text">Informations sur l'éditeur du site :</h2>
-            <p>Nom de l'entreprise : NoStage</p>
+            <p>Nom de l'entreprise : noStage</p>
             <p>Adresse : 19 Av. de la Forêt de Haye Bâtiment Orion, 54500 Vandœuvre-lès-Nancy</p>
             <p>Téléphone : 06 09 82 16 83</p>
             <p>Email : NoStage@cesi.fr</p>

@@ -25,15 +25,20 @@ section {
   margin-bottom: 10px;
 }
 
-ul {
+main ul {
   margin-left: 30px;
 }
+
 p {
   margin: 10px 0 0 10px;
 }
 
 footer {
   background-color: #7b9dd2;
+}
+
+footer .liste_a_propos a:hover {
+  color: #2063cf;
 }
 
 main li {
