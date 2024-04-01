@@ -7,7 +7,7 @@
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Recherche de stage</title>
-  <meta name="description" content="" />
+  <meta name="description" content="recherche de stage" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <link rel="stylesheet" href="style/style_navbar.css" />
   <link rel="stylesheet" href="style/style_footer.css" />
@@ -17,6 +17,7 @@
 
 <body>
   <?php include 'Navbar.php'; ?>
+
   <div class="container_recherche">
     <div class="box_recherche">
       <label class="text_box_recherche">Commencer votre recherche d'offre de stage ici</label>
@@ -30,39 +31,31 @@
 
   <div class="container_offre_stage">
 
-    <?php
+  <?php
 
-    // Fonction pour remplacer une donnée dans une balise HTML avec une classe spécifique
-    function remplacerDonneeParClasse($html, $classe, $nouvelleDonnee)
-    {
-      // Créer un objet DOMDocument
-      $dom = new DOMDocument();
-      // Charger le code HTML fourni
-      $dom->loadHTML($html);
-      // Créer un objet DOMXPath
-      $xpath = new DOMXPath($dom);
-      // Sélectionner toutes les balises avec la classe spécifiée
-      $elements = $xpath->query("//*[@class='$classe']");
-      // Parcourir toutes les balises trouvées
-      foreach ($elements as $element) {
-        // Remplacer le contenu de la balise par la nouvelle donnée
-        $element->nodeValue = $nouvelleDonnee;
-      }
-      // Récupérer le code HTML modifié
-      $nouveauHtml = $dom->saveHTML();
-      // Retourner le HTML modifié
-      return $nouveauHtml;
-    }
 
-    // Votre code HTML initial
-    $html = '    <div class="offre_stage">
+function remplacerDonneeParClasse($html, $classe, $nouvelleDonnee)
+{
+  $dom = new DOMDocument();
+  $dom->loadHTML($html);
+  $xpath = new DOMXPath($dom);
+  $elements = $xpath->query("//*[@class='$classe']");
+  foreach ($elements as $element) {
+    $element->nodeValue = $nouvelleDonnee;
+  }
+  $nouveauHtml = $dom->saveHTML();
+  return $nouveauHtml;
+}
+
+$html_template = '
+<div class="offre_stage">
 <div class="box_domaine_stage">
   <label class="text_domaine_stage">Domaine du stage</label>
   <label class="nom_entreprise">Nom de l\'entreprise</label>
   <label class="lieu_stage">Lieu du stage</label>
   <label class="remuneration_stage">Rémunération</label>
   <div class="fond_wishlist">
-    <img class="img_wishlist" src="image/wishlist.png" alt="banniére de wishlist" />
+    <img class="img_wishlist" src="image/bookmark.png" alt="bannière de wishlist"/>
   </div>
 </div>
 <div class="trait"></div>
@@ -71,36 +64,28 @@
 </div>
 <div class="bas_offre_stage">
   <label class="date_publi">Date de publication</label>
-
 </div>
 <div class="fond_plus popup_trigger">
   <img class="img_plus" src="image/plus_noir.png" alt="bouton pour voir plus d\'offre de stage" />
 </div>
 </div>';
 
+for ($i = 0; $i < 10; $i++) {
+  $nombreAleatoire = rand(500, 1500);
 
-    // Répéter la modification quatre fois
-    for ($i = 0; $i < 100; $i++) {
-      $nombreAleatoire = rand(500, 1500);
-      $nombreAleatoire2 = mt_rand(1, 50) / 10;
+  $html = $html_template;
+  $html = remplacerDonneeParClasse($html, 'text_domaine_stage', 'Web designer' . $i);
+  $html = remplacerDonneeParClasse($html, 'nom_entreprise', 'Google');
+  $html = remplacerDonneeParClasse($html, 'lieu_stage', 'Paris');
+  $html = remplacerDonneeParClasse($html, 'remuneration_stage', "" .$nombreAleatoire . " €");
+  $html = remplacerDonneeParClasse($html, 'text_description_stage', "Google Cherche de super stagiaire");
+  $html = remplacerDonneeParClasse($html, 'date_publi', 'Date de publication : 19/03/2024');
 
-      $html = remplacerDonneeParClasse($html, 'text_domaine_stage', 'Web designer' . $i);
-      $html = remplacerDonneeParClasse($html, 'nom_entreprise', 'Google');
-      $html = remplacerDonneeParClasse($html, 'lieu_stage', 'Paris');
-      $html = remplacerDonneeParClasse($html, 'remuneration_stage', "" .$nombreAleatoire);
-      $html = remplacerDonneeParClasse($html, 'text_description_stage', "Google Cherche de super stagiaire");
-      $html = remplacerDonneeParClasse($html, 'date_publi', 'Date de publication : 19/03/2024');
-
-      echo $html;
-    }
-
-    ?>
-
-
+  echo $html;
+}
+?>
 
   </div>
-
-
   <div class="popup_offre_de_stage" id="popup_offre_de_stage">
     <div class="content_popup_offre_stage">
       <div class="box_domaine_stage_popup">
@@ -137,8 +122,6 @@
       </div>
     </div>
   </div>
-
-
   <div class="popup_postuler" id="popup_postuler">
     <div class="content_popup_postuler">
       <label class="text_popup">Téléverser votre CV en format PDF</label>
@@ -157,12 +140,8 @@
       </div>
     </div>
   </div>
-
-
   <div class="overlay" id="overlay"></div>
-
   <?php include 'footer.php'; ?>
-
   <script src="js/js_rechercher_stage.js" async defer></script>
 </body>
 

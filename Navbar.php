@@ -5,7 +5,7 @@
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Navbar NoStage</title>
-  <meta name="description" content="" />
+  <meta name="description" content="haut de page du site noStage" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <link rel="stylesheet" href="style/style_navbar.css" />
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" />
@@ -26,7 +26,7 @@
     ?>
 
   <header>
-  <a  id="imgnostagehref" href="Page_acceuil.php"><img  class="logo" src="image/logo entreprise.png" alt="logo de l'entreprise" /></a>
+  <a  id="imgnostagehref" href="Page_acceuil.php" alt="logo de notre site"><img  class="logo" src="image/logo entreprise.png" alt="logo de l'entreprise" /></a>
     <nav class="navbar">
       <a href="Page_acceuil.php">Accueil</a>
       <div class="dropdown_1">

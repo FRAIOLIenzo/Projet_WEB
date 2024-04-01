@@ -3,35 +3,41 @@
 
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="voici la page d'acceuil de notre site noStage" />
   <title>noStage</title>
   <link rel="icon" href="image/logo_onglet.png" type="image/png">
   <link rel="stylesheet" href="style/style_navbar.css" />
   <link rel="stylesheet" href="style/style_page_acceuil.css" />
-
+  <?php  include 'lien_fichier_manifest.php'; ?>
 
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" />
 </head>
-<?php include 'Navbar.php'; ?>
+<?php include 'Navbar.php';
+  
+?>
 
 <body>
    <div class="container_haut_de_page">
 
     <div class="bloc_slogan">
-      <li><a>Pas de stage ?</a></li>
-      <li><a>Pas de stagiaire ?</a></li>
-      <li><a>Pas de problème !</a></li>
+      <ul>
+      
+      <li><p>Pas de stage ?</p></li>
+      <li><p>Pas de stagiaire ?</p></li>
+      <li><p>Pas de problème !</p></li>
+      </ul>
 
-
+      <div>
       <p class="phrase_acceuil">
         Votre futur commence ici : découvrez nos offres de stages pour vous lancer dans votre carrière !
       </p>
+      </div>
 
       <button class="bouton_commencer">Commencer à rechercher</button>
     </div>
 
     <div class="bloc_homme_loupe">
-      <img class="homme_loupe" src="image/homme_loupe.png" />
+      <img alt =" homme loupe " class="homme_loupe" src="image/homme_loupe.webP" />
 
     </div>
 
@@ -62,7 +68,7 @@
         noStage a la chance d’avoir élaboré de nombreux partenariats avec
         diverses entreprises
       </p>
-      <img class="partenaires" src="image/partenaires.png" />
+      <img alt ="ensemble des partenaires de CESI " class="partenaires" src="image/partenaires.png" />
     </div>
 
     <h1>Nos collaborateurs</h1>
@@ -70,21 +76,21 @@
     <div class="container_collaborateur">
 
       <div class="container_collaborateur_items">
-        <img src="image/maxime.png" />
+        <img alt="Maxime Auchet" src="image/maxime.webP" />
         <div class="nom">
           <p>Maxime Auchet</p>
         </div>
       </div>
 
       <div class="container_collaborateur_items">
-        <img src="image/alexis.png" />
+        <img alt="Alexis Peiffer" src="image/alexis.webP" />
         <div class="nom">
           <p>Alexis Peiffer</p>
         </div>
       </div>
 
       <div class="container_collaborateur_items">
-        <img src="image/enzo.png" />
+        <img alt="Enzo Fraïoli" src="image/enzo.webP" />
         <div class="nom">
           <p>Enzo Fraïoli</p>
         </div>

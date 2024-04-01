@@ -34,9 +34,9 @@ footer {
   right: 10px;
 }
 
-.bloc_footer_a_propos h3,
-.bloc_footer_nous_contacter h3,
-.bloc_footer_reseaux_sociaux h3 {
+.bloc_footer_a_propos h1,
+.bloc_footer_nous_contacter h1,
+.bloc_footer_reseaux_sociaux h1 {
   font-size: 17px;
   padding-bottom: 20 px;
   justify-content: space-between;
@@ -60,7 +60,7 @@ footer {
 }
 
 .liste_a_propos a,
-.liste_nous_contacter a {
+.liste_nous_contacter p {
   text-decoration: none;
   color: rgb(249, 249, 249);
   flex-direction: column;
@@ -74,8 +74,9 @@ footer {
   color: #7b9dd2;
 }
 
-footer img {
+.bloc_footer_reseaux_sociaux img {
   width: 50px;
+  height : 50px;
   padding-right: 10px;
 }
 
@@ -125,8 +126,8 @@ footer img {
 
   
 
-.bloc_footer_nous_contacter h3,
-.bloc_footer_reseaux_sociaux h3 {
+.bloc_footer_nous_contacter h1,
+.bloc_footer_reseaux_sociaux h1 {
   margin-top: 20px;
 }
 
