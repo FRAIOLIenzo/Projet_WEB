@@ -1,9 +1,9 @@
-function buildTable(data) {
+function buildTable(data, status) {
   var table = document.getElementById("myTable");
   table.innerHTML = "";
-
-  for (var i = 0; i < data.length; i++) {
-    var row = `<tr>
+  if (status == "etudiant") {
+    for (var i = 0; i < data.length; i++) {
+      var row = `<tr>
                     <td>${data[i].id_compte}</td>
                     <td>${data[i].nom}</td>
                     <td>${data[i].prenom}</td>
@@ -12,8 +12,37 @@ function buildTable(data) {
                     <td>${data[i].nom_promo}</td>
                     <td><img class="imgautre" src="image/autre.png"></td>
               </tr>`;
-    table.innerHTML += row;
+      table.innerHTML += row;
+    }
   }
+  if (status == "pilote") {
+    for (var i = 0; i < data.length; i++) {
+      var row = `<tr>
+                    <td>${data[i].id_compte}</td>
+                    <td>${data[i].nom}</td>
+                    <td>${data[i].prenom}</td>
+                    <td>${data[i].nom_centre}</td>
+                    <td>${data[i].adresse_mail}</td>
+                    <td>${data[i].nom_promo}</td>
+                    <td><img class="imgautre" src="image/autre.png"></td>
+              </tr>`;
+      table.innerHTML += row;
+    }
+  }
+  if (status == "offre") {
+    for (var i = 0; i < data.length; i++) {
+      var row = `<tr>
+                    <td>${data[i].id_offre_de_stage}</td>
+                    <td>${data[i].nom_entreprise}</td>
+                    <td>${data[i].types_de_promotion}</td>
+                    <td>${data[i].nom_ville}</td>
+                    <td>${data[i].nom_secteur_activite}</td>
+                    <td><img class="imgautre" src="image/autre.png"></td>
+              </tr>`;
+      table.innerHTML += row;
+    }
+  }
+
   attachImageEventListeners();
 }
 

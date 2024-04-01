@@ -1,5 +1,17 @@
 <?php include 'connecteoupas.php'; ?>
+<?php
+            include 'conexionbdd.php'; 
 
+            $query = $db->prepare("SELECT e.id_compte, c.nom, c.prenom, c.adresse_mail, p.nom_promo, ce.nom_centre FROM etudiant e JOIN compte c ON e.id_compte = c.id_compte JOIN etudie_dans ed ON ed.id_compte = e.id_compte JOIN promo p ON p.id_promo = ed.id_promo JOIN travaille_dans t ON t.id_promo = p.id_promo JOIN Centre ce ON ce.id_centre=t.id_centre");
+            $query->execute();
+            $row = $query->fetchAll(PDO::FETCH_ASSOC);
+            $tableau_json = json_encode($row);
+            $statut = "etudiant";
+?>
+<script>
+    var statut = "<?php echo $statut; ?>"; 
+    var tableau_json = <?php echo $tableau_json;?>;
+</script>
 <!DOCTYPE html>
 <html>
   <head>
@@ -17,7 +29,7 @@
       href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap"
     />
   </head>
-  <body>
+  <body onload="buildTable(tableau_json, statut)">
   <?php include 'Navbar.php'; ?>
   <?php
     if (!(isset($_SESSION['statut']) && ($_SESSION['statut'] == 'admin') || $_SESSION['statut'] == 'pilote')) {
@@ -43,7 +55,7 @@
         <div class="squaredg">
           <div class="headertab">
             <div class="search-container">
-              <input type="search" id="searchbar" placeholder="Rechercher..." />
+            <input type="search" id="searchbar" onkeyup="recherche(tableau_json)" placeholder="Rechercher..." />
               <img alt="search" id="imgsearch" src="image/loupe.png" />
             </div>
             <div class="btncountainer">
