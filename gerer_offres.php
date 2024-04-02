@@ -137,7 +137,7 @@
 
               <input id="nombre_place" class="colonne-milieu" placeholder="Nombre de places" />
 
-              <input id="code_postal" name="code_postal" class="colonne-droite" placeholder="Code postal" />
+              <input id="code" name="code" class="colonne-droite" placeholder="Code postal" />
 
 
 
@@ -147,7 +147,7 @@
             <div class="ligne">
 
 
-              <select class="select-colonne-gauche" id="ville" placeholder="Ville"> </select>
+              <select class="select-colonne-gauche" id="ville_sortie" placeholder="Ville"> </select>
 
               <input id="num_rue" class="colonne-milieu" placeholder="Numéro de rue" />
 
@@ -213,7 +213,7 @@
                   <div class="partie_droite">
 
                     <div class="ligne">
-                      <input id="code" name="code" placeholder="Code postal" />
+                      <input id="code_postal" name="code_postal" placeholder="Code postal" />
                     </div>
                     <a id="verif_code_postal"></a>
 
@@ -221,7 +221,7 @@
 
                     <div class="ligne">
 
-                      <select id="ville_sortie" placeholder="Ville"> </select>
+                      <select id="ville" placeholder="Ville"> </select>
                     </div>
 
                     <div class="ligne">
