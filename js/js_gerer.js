@@ -24,7 +24,7 @@ function buildTable(data, status) {
                     <td>${data[i].nom_centre}</td>
                     <td>${data[i].adresse_mail}</td>
                     <td>${data[i].nom_promo}</td>
-                    <td><img class="imgautre" src="image/autre.png"></td>
+                    <td><img class="imgautre" alt="autre"  src="image/autre.png"></td>
               </tr>`;
       table.innerHTML += row;
     }
@@ -132,6 +132,7 @@ function recherche(myArray) {
 function attachImageEventListeners() {
   document.querySelectorAll(".imgautre").forEach((img) => {
     img.addEventListener("click", function (event) {
+      rowData = [];
       openPopup();
       var rect = img.getBoundingClientRect(); // Obtient les dimensions et la position de l'image par rapport à la fenêtre visible
       var x = rect.left + window.scrollX; // Ajoute le décalage horizontal de défilement
@@ -149,7 +150,7 @@ function attachImageEventListeners() {
       // on stock la valeur de la ligne pour si il appuis sur modifier
       var row = img.closest("tr");
       // Initialise un tableau pour stocker les informations de la ligne
-      var rowData = [];
+
       // Parcourt chaque cellule de la ligne
       row.querySelectorAll("td").forEach(function (cell) {
         // Ajoute le contenu de la cellule au tableau de données de la ligne
@@ -161,7 +162,7 @@ function attachImageEventListeners() {
       var nom = document.getElementById("nom");
       var mail = document.getElementById("email");
       var mdp = document.getElementById("motdepasse");
-
+      id = rowData[0];
       prenom.value = rowData[1];
       nom.value = rowData[2];
       mail.value = rowData[4];
@@ -194,3 +195,7 @@ document
   .addEventListener("scroll", function (event) {
     closePopup();
   });
+
+function recupereid() {
+  console.log("Données de la ligne cliquée:", id);
+}
