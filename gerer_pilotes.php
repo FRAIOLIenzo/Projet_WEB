@@ -97,7 +97,7 @@
       <div class="popupcontent">
         <div id="creertxt">Modifier le compte pilote</div>
 
-        <form action="/votre-page-de-traitement" method="post" class="formcreer1">
+        <form action="" method="post" name="modifier1Form">
           <div id="nomprenom">
             <input type="text" id="prenom" name="prenom" placeholder="Prénom" required />
             <input type="text" id="nom" name="nom" placeholder="Nom" required />
@@ -129,7 +129,7 @@
       <div class="popupcontent">
         <div id="creertxt">Créer le compte pilote</div>
 
-        <form action="/votre-page-de-traitement" method="post" class="formcreer1">
+        <form action="" class="formcreer1" method="post">
           <div id="nomprenom">
             <input type="text" id="prenom" name="prenom" placeholder="Prénom" required />
             <input type="text" id="nom" name="nom" placeholder="Nom" required />
@@ -137,13 +137,13 @@
           <select id="centre" name="centre">
             <option value="" disabled selected>Centre</option>
 
-            <option value="centre1">Centre 1</option>
+            <option value="Nancy">Nancy</option>
             <option value="centre2">Centre 2</option>
             <option value="centre3">Centre 3</option>
           </select>
           <select id="promotion" name="promotion">
             <option value="" disabled selected>Promotion</option>
-            <option value="promotion1">Promotion 1</option>
+            <option value="A1-INFO">A1-INFO</option>
             <option value="promotion2">Promotion 2</option>
             <option value="promotion3">Promotion 3</option>
           </select>
@@ -157,37 +157,59 @@
       </div>
     </div>
     <?php
-    if ($_SERVER["REQUEST_METHOD"] == "POST") {
-      $nom = $_POST['nom'];
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+  $nom = $_POST['nom'];
       $prenom = $_POST['prenom'];
       $email = $_POST['email'];
       $motdepasse = $_POST['motdepasse'];
       $centre = $_POST['centre'];
       $promotion = $_POST['promotion'];
-      $query = $db->prepare("INSERT INTO pilote (nom, prenom, email, motdepasse, centre, promotion) VALUES (:nom, :prenom, :email, :motdepasse, :centre, :promotion)");
+      // on insere le compte pilote dans la base de donnée
+      $query = $db->prepare("INSERT INTO `max`.`compte` (`adresse_mail`, `nom`, `prenom`, `mot_de_passe`) VALUES (:email, :nom,:prenom, :motdepasse)");
       $query->bindValue(':nom', $nom);
       $query->bindValue(':prenom', $prenom);
       $query->bindValue(':email', $email);
       $query->bindValue(':motdepasse', $motdepasse);
-      $query->bindValue( 'promotion', $promotion);
-      $query->bindValue( 'centre', $centre);
+      $query->execute();
+      // on recupere l'id
+      $query = $db->prepare("SELECT id_compte FROM max.compte WHERE adresse_mail=:email;");
+      $query->bindValue(':email', $email);
+      $query->execute();
+      $row = $query->fetchAll(PDO::FETCH_ASSOC);
+      $id = $row[0]['id_compte'];
+      // on recupere id de la promo 
+      $query = $db->prepare("SELECT p.id_promo FROM max.promo p JOIN travaille_dans t ON t.id_promo = p.id_promo JOIN  Centre c on c.id_centre = t.id_centre WHERE c.nom_centre = :centre AND p.nom_promo=:promo;");
+      $query->bindValue(':promo', $promotion);
+      $query->bindValue(':centre', $centre);
+      $query->execute();
+      $row2 = $query->fetchAll(PDO::FETCH_ASSOC);
+      $idpromo = $row2[0]['id_promo'];
+      // On insere l'enseignant dans la base de donnée
+      $query = $db->prepare("INSERT INTO `max`.`enseignant` (`id_compte`) VALUES (:id);");
+      $query->bindValue(':id', $id);
+      $query->execute();
+      $query = $db->prepare("INSERT INTO `max`.`pilote` (`id_compte`, `id_promo`) VALUES (:id, :idpromo);");
+      $query->bindValue(':id', $id);
+      $query->bindValue(':idpromo', $idpromo);
+      $query->execute();
       $query->execute();
       echo '<script>alert("Pilote ajouté avec succès");</script>';}
       ?>
 
 
-
+<form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post" name="supprimerForm">
     <div id="popupsuppr">
       <div class="popupsuppr-content">
         <div id="txtpopupsuppr">
           Voulez-vous supprimer ce pilote de manière définitive ?
         </div>
         <div>
-          <button id="Supprimer">Supprimer</button>
+          <button type="submit" id="Supprimer" onclick="recupereid()">Supprimer</button>
           <button id="Annuler" onclick="openPopup3()">Annuler</button>
         </div>
       </div>
     </div>
+</form>
   </main>
 
 
