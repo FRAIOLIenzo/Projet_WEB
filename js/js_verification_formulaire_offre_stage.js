@@ -11,13 +11,13 @@ document.addEventListener('DOMContentLoaded', function() {
     const input_nom_rue = document.getElementById('nom_rue');
     const balise_nom_rue = document.querySelector('#verif_nom_rue');
 
-    const input_code_postal = document.getElementById('code');
+    const input_code_postal = document.getElementById('code_postal');
     const balise_code_postal = document.querySelector('#verif_code_postal');
 
 
 
     document.addEventListener('click', function(event) {
-      if (event.target !== input_nom_offre) {
+
 
         /* NOM DE L OFFRE */
 
@@ -62,16 +62,17 @@ document.addEventListener('DOMContentLoaded', function() {
         /*CODE POSTAL */
 
         const valeur_code_postal = input_code_postal.value.trim();
-        if (valeur_code_postal !== '' && !/^\d+$/.test(valeur_code_postal)) {
+        if (valeur_code_postal !== '' && !/^\d{5}$/.test(valeur_code_postal)) {
             balise_code_postal.style.display = 'block';
-            balise_code_postal.textContent = 'Ne doit contenir que des chiffres';
+            balise_code_postal.textContent = 'Le code postal doit contenir exactement 5 chiffres';
         } else {
             balise_code_postal.style.display = 'none';
         }
+        
 
 
 
 
-      }
+      
     });
 });

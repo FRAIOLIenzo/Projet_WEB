@@ -44,7 +44,7 @@ input {
   border-radius: 4px;
   padding-left: 10px;
   font-size: 16px;
-  width: 200px;
+  width: 230px;
   height: 38px;
 }
 
@@ -53,7 +53,7 @@ select{
   border: 1px solid #d9e1ec;
   border-radius: 4px;
   font-size: 16px;
-  width: 200px;
+  width: 230px;
   height: 38px;
 
 } 
@@ -99,18 +99,19 @@ input::placeholder {
   margin-bottom: 30px;
   display : flex;
   align-items: center;
-  justify-content: space-between; 
-
-}
-
-.virgule {
+  justify-content: space-between;
+  margin-right: 10px; 
+  margin-left: 10px;
   margin-top: 10px;
-  margin-bottom: 10px;
+
 }
+
 .ligne_2 label {
   padding-top: 10px;
-  margin-right: 10px;
+  margin-right: 30px;
+
 }
+
 
 .premiere_ligne{
   margin-top : 40px;
@@ -196,3 +197,7 @@ input::placeholder {
   color : red;
 }
 
+
+.offre_page_2sur2 input, .offre_page_2sur2 select {
+  width: 200px;
+}
