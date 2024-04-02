@@ -10,6 +10,8 @@
   <link rel="stylesheet" href="style/style_page_acceuil.css" />
   <?php  include 'lien_fichier_manifest.php'; ?>
 
+
+
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" />
 </head>
 <?php include 'Navbar.php';?>
@@ -101,6 +103,7 @@
   </main>
 
   <?php include 'footer.php'; ?>
+  
 
 </body>
 
