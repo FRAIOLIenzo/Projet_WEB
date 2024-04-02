@@ -12,9 +12,7 @@
 
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" />
 </head>
-<?php include 'Navbar.php';
-  
-?>
+<?php include 'Navbar.php';?>
 
 <body>
    <div class="container_haut_de_page">
