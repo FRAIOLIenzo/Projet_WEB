@@ -15,7 +15,7 @@ document.getElementById("code_postal").onchange = function() {
 
             html += '';
         } else {
-            html = '<option> Erreur de la saisie du code postal </option>';
+            html = '<option>Code postal non valide</option>';
         }
         document.getElementById("ville").innerHTML = html;
     };
