@@ -9,8 +9,6 @@
   <title>Recherche de stage</title>
   <meta name="description" content="recherche de stage" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <link rel="stylesheet" href="style/style_navbar.css" />
-  <link rel="stylesheet" href="style/style_footer.css" />
   <link rel="stylesheet" href="style/style_recherche_stage.css" />
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" />
 </head>
@@ -31,118 +29,88 @@
 
   <div class="container_offre_stage">
 
-  <?php
-
-
-function remplacerDonneeParClasse($html, $classe, $nouvelleDonnee)
-{
-  $dom = new DOMDocument();
-  $dom->loadHTML($html);
-  $xpath = new DOMXPath($dom);
-  $elements = $xpath->query("//*[@class='$classe']");
-  foreach ($elements as $element) {
-    $element->nodeValue = $nouvelleDonnee;
-  }
-  $nouveauHtml = $dom->saveHTML();
-  return $nouveauHtml;
-}
-
-$html_template = '
-<div class="offre_stage">
-<div class="box_domaine_stage">
-  <label class="text_domaine_stage">Domaine du stage</label>
-  <label class="nom_entreprise">Nom de l\'entreprise</label>
-  <label class="lieu_stage">Lieu du stage</label>
-  <label class="remuneration_stage">Rémunération</label>
-  <div class="fond_wishlist">
-    <img class="img_wishlist" src="image/bookmark.png" alt="bannière de wishlist"/>
-  </div>
-</div>
-<div class="trait"></div>
-<div class="description_stage">
-  <label class="text_description_stage">Description du stage...</label>
-</div>
-<div class="bas_offre_stage">
-  <label class="date_publi">Date de publication</label>
-</div>
-<div class="fond_plus popup_trigger">
-  <img class="img_plus" src="image/plus_noir.png" alt="bouton pour voir plus d\'offre de stage" />
-</div>
-</div>';
-
-for ($i = 0; $i < 10; $i++) {
-  $nombreAleatoire = rand(500, 1500);
-
-  $html = $html_template;
-  $html = remplacerDonneeParClasse($html, 'text_domaine_stage', 'Web designer' . $i);
-  $html = remplacerDonneeParClasse($html, 'nom_entreprise', 'Google');
-  $html = remplacerDonneeParClasse($html, 'lieu_stage', 'Paris');
-  $html = remplacerDonneeParClasse($html, 'remuneration_stage', "" .$nombreAleatoire . " €");
-  $html = remplacerDonneeParClasse($html, 'text_description_stage', "Google Cherche de super stagiaire");
-  $html = remplacerDonneeParClasse($html, 'date_publi', 'Date de publication : 19/03/2024');
-
-  echo $html;
-}
-?>
-
-  </div>
-  <div class="popup_offre_de_stage" id="popup_offre_de_stage">
-    <div class="content_popup_offre_stage">
-      <div class="box_domaine_stage_popup">
-        <div class="box_gauche_domaine_stage">
-          <label class="text_domaine_stage">Domaine du stage</label>
-          <label class="nom_entreprise">Nom de l'entreprise</label>
-          <label class="lieu_stage">Lieu du stage</label>
-          <label class="remuneration_stage">Rémunération</label>
-        </div>
-        <div class="trait_vertical"></div>
-        <div class="box_droite_domaine_stage">
-          <label class="promotion_concernee">Promotion concernée</label>
-          <label class="date_stage">Date du stage</label>
-          <label class="nb_place">nombre de place</label>
-          <label class="adresse_mail">Adresse mail</label>
+    <div class="offre_stage">
+      <div class="box_domaine_stage">
+        <label class="text_domaine_stage">Domaine du stage</label>
+        <label class="nom_entreprise">Nom de l\'entreprise</label>
+        <label class="lieu_stage">Lieu du stage</label>
+        <label class="remuneration_stage">Rémunération</label>
+        <div class="fond_wishlist">
+          <img class="img_wishlist" src="image/bookmark.png" alt="bannière de wishlist" />
         </div>
       </div>
       <div class="trait"></div>
-      <div class="box_competences">
-        <ul class="competence">
-          <li>Compétence1</li>
-          <li>-</li>
-          <li>Compétence2</li>
-          <li>-</li>
-          <li>Compétence3</li>
-        </ul>
-      </div>
       <div class="description_stage">
         <label class="text_description_stage">Description du stage...</label>
       </div>
-      <div class="box_btn">
-        <button class="btn_annuler" id="btn_annuler">Annuler</button>
-        <button class="btn_postuler" id="btn_postuler">Postuler</button>
+      <div class="bas_offre_stage">
+        <label class="date_publi">Date de publication</label>
+      </div>
+      <div class="fond_plus popup_trigger">
+        <img class="img_plus" src="image/plus_noir.png" alt="bouton pour voir plus d\'offre de stage" />
       </div>
     </div>
-  </div>
-  <div class="popup_postuler" id="popup_postuler">
-    <div class="content_popup_postuler">
-      <label class="text_popup">Téléverser votre CV en format PDF</label>
-      <button class="btn_cv">
-        <img class="img_cv" src="image/pdf.png">
-        <span class="btn_text">Selectionner votre fichier</span>
-      </button>
-      <div class="trait"></div>
-      <label class="text_popup">Lettre de motivation</label>
-      <div class="box_lettre_motiv">
-        <textarea class="lettre_motiv" id="lettre_motiv" name="comment" rows="8" cols="50" placeholder="Lettre de motivation"></textarea>
-      </div>
-      <div class="box_btn">
-        <button class="btn_annuler" id="btn_annuler">Annuler</button>
-        <button class="btn_envoyer" id="btn_envoyer">Envoyer</button>
+
+
+
+
+    <div class="popup_offre_de_stage" id="popup_offre_de_stage">
+      <div class="content_popup_offre_stage">
+        <div class="box_domaine_stage_popup">
+          <div class="box_gauche_domaine_stage">
+            <label class="text_domaine_stage">Domaine du stage</label>
+            <label class="nom_entreprise">Nom de l'entreprise</label>
+            <label class="lieu_stage">Lieu du stage</label>
+            <label class="remuneration_stage">Rémunération</label>
+          </div>
+          <div class="trait_vertical"></div>
+          <div class="box_droite_domaine_stage">
+            <label class="promotion_concernee">Promotion concernée</label>
+            <label class="date_stage">Date du stage</label>
+            <label class="nb_place">nombre de place</label>
+            <label class="adresse_mail">Adresse mail</label>
+          </div>
+        </div>
+        <div class="trait"></div>
+        <div class="box_competences">
+          <ul class="competence">
+            <li>Compétence1</li>
+            <li>-</li>
+            <li>Compétence2</li>
+            <li>-</li>
+            <li>Compétence3</li>
+          </ul>
+        </div>
+        <div class="description_stage">
+          <label class="text_description_stage">Description du stage...</label>
+        </div>
+        <div class="box_btn">
+          <button class="btn_annuler" id="btn_annuler">Annuler</button>
+          <button class="btn_postuler" id="btn_postuler">Postuler</button>
+        </div>
       </div>
     </div>
-  </div>
-  <div class="overlay" id="overlay"></div>
-  <?php include 'footer.php'; ?>
-  <script src="js/js_rechercher_stage.js" async defer></script>
+    <div class="popup_postuler" id="popup_postuler">
+      <div class="content_popup_postuler">
+        <label class="text_popup">Téléverser votre CV en format PDF</label>
+        <button class="btn_cv">
+          <img class="img_cv" src="image/pdf.png">
+          <span class="btn_text">Selectionner votre fichier</span>
+        </button>
+        <div class="trait"></div>
+        <label class="text_popup">Lettre de motivation</label>
+        <div class="box_lettre_motiv">
+          <textarea class="lettre_motiv" id="lettre_motiv" name="comment" rows="8" cols="50" placeholder="Lettre de motivation"></textarea>
+        </div>
+        <div class="box_btn">
+          <button class="btn_annuler" id="btn_annuler">Annuler</button>
+          <button class="btn_envoyer" id="btn_envoyer">Envoyer</button>
+        </div>
+      </div>
+    </div>
+    <div class="overlay" id="overlay"></div>
+    <?php include 'footer.php'; ?>
+    <script src="js/js_rechercher_stage.js" async defer></script>
 </body>
 
 </html>
