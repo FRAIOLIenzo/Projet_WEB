@@ -147,7 +147,7 @@
             <option value="promotion2">Promotion 2</option>
             <option value="promotion3">Promotion 3</option>
           </select>
-          <input type="email" id="email" name="email" placeholder="Adresse e-mail" required />
+          <input type="email" id="email" name="email1" placeholder="Adresse e-mail" required />
           <input type="password" id="motdepasse" name="motdepasse" placeholder="Mot de passe" required />
           <input type="submit" value="Valider" />
         </form>
@@ -157,10 +157,10 @@
       </div>
     </div>
     <?php
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
+if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['email1'])) {
   $nom = $_POST['nom'];
       $prenom = $_POST['prenom'];
-      $email = $_POST['email'];
+      $email = $_POST['email1'];
       $motdepasse = $_POST['motdepasse'];
       $centre = $_POST['centre'];
       $promotion = $_POST['promotion'];
@@ -192,24 +192,38 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
       $query->bindValue(':id', $id);
       $query->bindValue(':idpromo', $idpromo);
       $query->execute();
-      $query->execute();
       echo '<script>alert("Pilote ajouté avec succès");</script>';}
       ?>
 
 
-<form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post" name="supprimerForm">
+<form action="" method="post" name="supprimerForm">
     <div id="popupsuppr">
       <div class="popupsuppr-content">
         <div id="txtpopupsuppr">
           Voulez-vous supprimer ce pilote de manière définitive ?
         </div>
         <div>
-          <button type="submit" id="Supprimer" onclick="recupereid()">Supprimer</button>
-          <button id="Annuler" onclick="openPopup3()">Annuler</button>
+        <input type="text" id="idsup" name="id" placeholder="id" style="display : block ;" required />
+          <button type="submit" id="Supprimer">Supprimer</button>
+          <button id="Annuler" type="button" onclick="openPopup3()">Annuler</button>
         </div>
       </div>
     </div>
 </form>
+<?php
+  if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['id'])) {
+    $id = $_POST['id'];
+    $query = $db->prepare("DELETE FROM `max`.`pilote` WHERE id_compte = :id;");
+    $query->bindValue(':id', $id);
+    $query->execute();
+    $query = $db->prepare("DELETE FROM `max`.`enseignant` WHERE id_compte = :id;");
+    $query->bindValue(':id', $id);
+    $query->execute();
+    $query = $db->prepare("DELETE FROM `max`.`compte` WHERE id_compte = :id;");
+    $query->bindValue(':id', $id);
+    $query->execute();
+    echo '<script>alert("Pilote supprimé avec succès");</script>';
+  } ?>
   </main>
 
 

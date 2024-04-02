@@ -162,10 +162,11 @@ function attachImageEventListeners() {
       var nom = document.getElementById("nom");
       var mail = document.getElementById("email");
       var mdp = document.getElementById("motdepasse");
-      id = rowData[0];
+      var id = document.getElementById("idsup");
       prenom.value = rowData[1];
       nom.value = rowData[2];
       mail.value = rowData[4];
+      id.value = rowData[0];
     });
   });
 }
@@ -196,6 +197,7 @@ document
     closePopup();
   });
 
-function recupereid() {
-  console.log("Données de la ligne cliquée:", id);
-}
+const button = document.querySelector(".btn_password");
+button.addEventListener("click", (event) => {
+  event.preventDefault();
+});
