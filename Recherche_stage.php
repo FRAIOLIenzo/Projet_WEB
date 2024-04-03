@@ -42,11 +42,14 @@ try {
         // Requête SQL pour récupérer les détails de l'offre de stage avec l'ID actuel de la boucle
         $sql = "SELECT o.types_de_promotion, o.duree_stage, o.remuneration, o.date_publication_offre, 
         o.nombre_places_offertes, o.date_de_debut, o.date_de_fin, o.description_offre, 
-        o.domaine_stage, o.id_entreprise, e.nom_entreprise, e.adresse_mail, r.etage, a.nom_rue, a.numero_rue
+        o.domaine_stage, o.id_entreprise, e.nom_entreprise, e.adresse_mail, r.etage, a.nom_rue, a.numero_rue,
+        c.description_competence
         FROM offre_de_stage o
         JOIN entreprise e ON o.id_entreprise = e.id_entreprise
         JOIN réside r ON e.id_entreprise = o.id_entreprise
         JOIN adresse a ON e.id_entreprise = o.id_entreprise
+        JOIN necessite n ON o.id_offre_de_stage = n.id_offre_de_stage
+        JOIN competence c ON n.id_competence = c.id_competence
         WHERE o.id_offre_de_stage = $i";
 
         $stmt = $pdo->query($sql);
@@ -70,6 +73,7 @@ try {
             $nom_rue = $row['nom_rue'];
             $numero_rue = $row['numero_rue'];
             $adresse_mail = $row['adresse_mail'];
+            $description_competence = $row['description_competence'];
 
             // Affichage des détails de l'offre de stage
 ?>
@@ -108,19 +112,19 @@ try {
           <div class="trait_vertical"></div>
           <div class="box_droite_domaine_stage">
             <label class="promotion_concernee"><?php echo $types_de_promotion; ?></label>
-            <label class="date_stage"><?php echo $duree_stage; ?> </label>
-            <label class="nb_place"><?php echo $nombre_places_offertes; ?></label>
-            <label class="adresse_mail"><?php echo $adresse_mail; ?></label>
+            <label class="date_stage">Durée du stage : <?php echo $duree_stage; ?> </label>
+            <label class="nb_place">Nombre de places disponibles : <?php echo $nombre_places_offertes; ?></label>
+            <label class="adresse_mail">Contact : <?php echo $adresse_mail; ?></label>
           </div>
         </div>
         <div class="trait"></div>
         <div class="box_competences">
           <ul class="competence">
-            <li>Compétence1</li>
+            <li><?php echo $description_competence; ?></li>
             <li>-</li>
-            <li>Compétence2</li>
+            <li><?php echo $description_competence; ?></li>
             <li>-</li>
-            <li>Compétence3</li>
+            <li><?php echo $description_competence; ?></li>
           </ul>
         </div>
         <div class="description_stage">
@@ -167,7 +171,7 @@ $pdo = null;
       </div>
     </div>
 
-    
+
     <div class="overlay" id="overlay"></div>
     <?php include 'footer.php'; ?>
     <script src="js/js_rechercher_stage.js" async defer></script>
