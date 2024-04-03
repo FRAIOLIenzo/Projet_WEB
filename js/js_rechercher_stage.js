@@ -37,4 +37,17 @@ $(document).ready(function () {
       $(this).attr("src", "image/bookmark.png");
     }
   });
+// Gestionnaire d'événements pour la recherche dynamique
+$('#text_recherche').on('input', function() {
+  var searchTerm = $(this).val().toLowerCase();
+  $('.offre_stage').each(function() {
+      var domaine = $(this).find('.text_domaine_stage').text().toLowerCase();
+      if (domaine.startsWith(searchTerm)) {
+          $(this).show();
+      } else {
+          $(this).hide();
+      }
+  });
+});
+
 });
