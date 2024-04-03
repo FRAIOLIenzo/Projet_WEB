@@ -235,7 +235,7 @@ footer {
 
 /* POPUP */
 
-#popup_avis_entreprise {
+.popup_avis_entreprise {
   display: flex;
   align-items: center;
   justify-content: center;

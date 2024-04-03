@@ -1,58 +1,58 @@
-// Récupère l'élément image d'étoile par son ID
-// Sélectionne tous les éléments avec la classe "popup_trigger"
-const popupTriggers = document.querySelectorAll(".popup_trigger");
-
-const btnTrigger = document.getElementById("btn_annuler");
-
-// Récupère l'élément de superposition et la boîte modale par leur ID
-const overlay = document.getElementById("overlay");
-const popup = document.getElementById("popup_avis_entreprise");
-
-// Fonction pour afficher la boîte modale
-function openPopup() {
-  overlay.style.display = "block"; // Affiche la superposition
-  popup.style.display = "block"; // Affiche la boîte modale
-}
-
-// Fonction pour fermer la boîte modale
-function closePopup() {
-  overlay.style.display = "none"; // Cache la superposition
-  popup.style.display = "none"; // Cache la boîte modale
-}
-
-// Ajoute un gestionnaire d'événements pour le clic sur l'image d'étoile
-// Parcourt chaque élément et ajoute un gestionnaire d'événements pour le clic
-popupTriggers.forEach((trigger) => {
-  trigger.addEventListener("click", openPopup);
-});
-btnTrigger.addEventListener("click", closePopup);
-
-// Ferme la boîte modale lorsque l'utilisateur clique en dehors de celle-ci
-window.addEventListener("click", function (event) {
-  if (event.target === overlay) {
-    closePopup();
-  }
-});
-
-// Récupération de toutes les étoiles
-var etoiles = document.querySelectorAll(".etoiles_avis");
-
-// Parcourir chaque étoile
-etoiles.forEach(function (etoile, index) {
-  // Ajouter un gestionnaire d'événements de clic
-  etoile.addEventListener("click", function () {
-    // Vérifier si l'étoile est vide ou pleine
-    var etoileVide = etoile.src.includes("etoile_avis_vide.png");
-
-    // Parcourir toutes les étoiles
-    etoiles.forEach(function (etoile, i) {
-      // Si l'étoile est vide, la remplir jusqu'à l'index actuel
-      if (etoileVide && i <= index) {
-        etoile.src = "image/etoile_avis.png";
-      } else {
-        // Sinon, vider toutes les étoiles
-        etoile.src = "image/etoile_avis_vide.png";
+$(document).ready(function () {
+  // Code pour afficher la popup et gérer l'annulation
+  $(".img_star").click(function () {
+      var popupId = $(this).parent().attr("data-popup-id");
+      var popup = $("#popup_avis_entreprise" + popupId);
+      if (popup.length) {
+          $("#overlay").show();
+          popup.show();
       }
-    });
   });
+
+  $(".btn_annuler").click(function () {
+      // Cacher la popup
+      var popup = $(this).closest(".popup_avis_entreprise");
+      popup.hide();
+      $("#overlay").hide();
+      
+      // Réinitialiser les étoiles à leur état vide
+      popup.find(".etoiles_avis").attr("src", "image/etoile_avis_vide.png");
+      
+      // Réinitialiser le texte dans la zone de texte
+      popup.find(".commentaire_avis").val("");
+  });
+
+  // Code pour gérer le clic sur les étoiles et les remplir progressivement
+  $(".etoiles_avis").click(function () {
+      // Obtenir l'index de l'image d'étoile sur laquelle on a cliqué
+      var clickedIndex = $(this).index();
+
+      // Parcourir toutes les images d'étoiles
+      $(this).siblings().addBack().each(function (index) {
+          // Si l'index de l'image d'étoile actuelle est inférieur ou égal à l'index de l'étoile cliquée, mettre à jour son attribut src
+          if (index <= clickedIndex) {
+              $(this).attr("src", "image/etoile_avis.png");
+          } else {
+              // Sinon, mettre à jour l'image d'étoile avec l'image vide
+              $(this).attr("src", "image/etoile_avis_vide.png");
+          }
+      });
+  });
+
+
+
+  
+  // Gestionnaire d'événements pour la recherche dynamique
+  $('#text_recherche').on('input', function() {
+    var searchTerm = $(this).val().toLowerCase();
+    $('.aff_entreprise').each(function() {
+        var entreprise = $(this).find('.nom_entreprise').text().toLowerCase();
+        if (entreprise.startsWith(searchTerm)) {
+            $(this).show();
+        } else {
+            $(this).hide();
+        }
+    });
+});
+
 });

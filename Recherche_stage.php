@@ -38,7 +38,14 @@ try {
     $pdo = new PDO('mysql:host=db.aws.gop.onl;dbname=max', $username, $password);
     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-    for ($i = 1; $i <= 5; $i++) {
+    // Requête SQL pour obtenir l'ID maximum de l'entreprise
+    $sql_max_id = "SELECT MAX(id_offre_de_stage) AS max_id FROM offre_de_stage";
+    $stmt_max_id = $pdo->query($sql_max_id);
+    $row_max_id = $stmt_max_id->fetch(PDO::FETCH_ASSOC);
+    $max_id = $row_max_id['max_id'];
+
+    // Utiliser l'ID maximum de l'entreprise dans la boucle
+    for ($i = 1; $i <= $max_id; $i++) {
         // Requête SQL pour récupérer les détails de l'offre de stage avec l'ID actuel de la boucle
         $sql = "SELECT o.types_de_promotion, o.duree_stage, o.remuneration, o.date_publication_offre, 
         o.nombre_places_offertes, o.date_de_debut, o.date_de_fin, o.description_offre, 
