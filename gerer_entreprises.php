@@ -1,7 +1,7 @@
 <?php include 'connecteoupas.php'; ?>
 <?php
 include 'conexionbdd.php';
-$query = $db->prepare("SELECT e.id_entreprise, e.nom_entreprise,e.numero_siret ,s.nom_secteur_activite, v.nom_ville FROM entreprise e JOIN possede p ON p.id_entreprise = e.id_entreprise JOIN secteur_activite s ON s.id_secteur_activite=p.id_secteur_activite JOIN réside r ON r.id_entreprise = e.id_entreprise JOIN adresse a ON a.id_adresse=r.id_adresse JOIN se_localise sl ON sl.id_adresse = a.id_adresse JOIN ville v ON v.id_ville = sl.id_ville	");
+$query = $db->prepare("SELECT e.id_entreprise, e.nom_entreprise,e.numero_siret ,s.nom_secteur_activite, v.nom_ville FROM entreprise e LEFT JOIN possede p ON p.id_entreprise = e.id_entreprise LEFT JOIN secteur_activite s ON s.id_secteur_activite=p.id_secteur_activite LEFT JOIN réside r ON r.id_entreprise = e.id_entreprise LEFT JOIN adresse a ON a.id_adresse=r.id_adresse LEFT JOIN se_localise sl ON sl.id_adresse = a.id_adresse LEFT JOIN ville v ON v.id_ville = sl.id_ville	");
 $query->execute();
 $row = $query->fetchAll(PDO::FETCH_ASSOC);
 $tableau_json = json_encode($row);
@@ -136,7 +136,7 @@ $statut = "entreprise";
         <div class="box_connexion">
           <div class="box_connexion_contenu">
             <label class="titre-pop-up">Ajouter une entreprise</label>
-            <form action="" id = "creer_entreprise" class="formcreer_entreprise" method="post">
+            <form action="" id="creer_entreprise" class="formcreer_entreprise" method="post">
               <div class="offre_page_1sur2">
                 <div class="conteneur_page_1_creer_offre">
                   <div class="partie_gauche">
@@ -155,14 +155,14 @@ $statut = "entreprise";
 
                     <div class="ligne">
 
-                      <input id="adresse_mail" name = "adresse_mail" type="email" placeholder="Adresse mail" />
+                      <input id="adresse_mail" name="adresse_mail" type="email" placeholder="Adresse mail" />
                     </div>
 
                     <a id="verif_adresse_mail"></a>
 
                     <div class="ligne">
 
-                      <input id="num_siret" name = "num_siret" type="number" class="colonne-gauche" placeholder="Numérot de siret" />
+                      <input id="num_siret" name="num_siret" type="number" class="colonne-gauche" placeholder="Numérot de siret" />
                     </div>
 
                     <a id="verif_num_siret"></a>
@@ -182,18 +182,18 @@ $statut = "entreprise";
 
                     <div class="ligne">
 
-                      <select id="ville" name = "ville" placeholder="Ville"> </select>
+                      <select id="ville" name="ville" placeholder="Ville"> </select>
                     </div>
 
                     <div class="ligne">
 
-                      <input id="num_rue" name = "num_rue" type="number" placeholder="Numéro rue" />
+                      <input id="num_rue" name="num_rue" type="number" placeholder="Numéro rue" />
 
 
                     </div>
 
                     <div class="ligne">
-                      <input id="nom_rue" name = "nom_rue" placeholder="Nom rue" />
+                      <input id="nom_rue" name="nom_rue" placeholder="Nom rue" />
 
                     </div>
 
@@ -220,14 +220,14 @@ $statut = "entreprise";
 
                 <div class="ligne">
 
-                  <textarea id="secteur_activite" name = "secteur_activite" class="description" placeholder="Secteurs d'activités"></textarea>
+                  <textarea id="secteur_activite" name="secteur_activite" class="description" placeholder="Secteurs d'activités"></textarea>
 
                 </div>
 
 
 
                 <div class="ligne">
-                  <textarea id="description_entreprise" name = "description_entreprise" class="description" placeholder="Description de l'entreprise"></textarea>
+                  <textarea id="description_entreprise" name="description_entreprise" class="description" placeholder="Description de l'entreprise"></textarea>
                 </div>
 
                 <div class="btn_prece_valid">
@@ -256,61 +256,110 @@ $statut = "entreprise";
       </div>
     </div>
     <?php
-    if ($_SERVER["REQUEST_METHOD"] == "POST" ) {
+
+
+    if ($_SERVER["REQUEST_METHOD"] == "POST") {
       $nom_entreprise = $_POST['nom_entreprise'];
-      $numero_telephone = $_POST['numero_telephone'];
+      $num_tel = $_POST['num_tel'];
       $adresse_mail = $_POST['adresse_mail'];
       $description_entreprise = $_POST['description_entreprise'];
-      $numero_siret = $_POST['numero_siret'];
-      $secteurs_activite = $_POST['secteurs_activite'];
-      $numero_rue = $_POST['numero_rue'];
+      $num_siret = $_POST['num_siret'];
+      $secteurs_activite = $_POST['secteur_activite'];
+      $numero_rue = $_POST['num_rue'];
       $nom_rue = $_POST['nom_rue'];
-      $nom_ville = $_POST['nom_ville'];
+      $ville = $_POST['ville'];
       $code_postal = $_POST['code_postal'];
-      $region = $_POST['region'];
-  
+
       // Insérer l'adresse
-      $query = $db->prepare("INSERT INTO adresse (numero_rue, nom_rue) VALUES (:numero_rue, :nom_rue)");
+      $query = $db->prepare("INSERT IGNORE INTO adresse (numero_rue, nom_rue) VALUES (:numero_rue, :nom_rue);");
       $query->bindValue(':numero_rue', $numero_rue);
       $query->bindValue(':nom_rue', $nom_rue);
       $query->execute();
-      $id_adresse = $db->lastInsertId();
-  
+
       // Insérer la ville
-      $query = $db->prepare("INSERT INTO ville (nom_ville, code_postal, id_region) VALUES (:nom_ville, :code_postal, :region)");
-      $query->bindValue(':nom_ville', $nom_ville);
+      $query = $db->prepare("INSERT IGNORE INTO ville (nom_ville, code_postal, id_region) VALUES (:ville,:code_postal, 1);");
+      $query->bindValue(':ville', $ville);
       $query->bindValue(':code_postal', $code_postal);
-      $query->bindValue(':region', $region);
       $query->execute();
-      $id_ville = $db->lastInsertId();
-  
+
       // Associer l'adresse à la ville
-      $query = $db->prepare("INSERT INTO se_localise (id_ville, id_adresse) VALUES (:id_ville, :id_adresse)");
-      $query->bindValue(':id_ville', $id_ville);
-      $query->bindValue(':id_adresse', $id_adresse);
+      $query = $db->prepare("INSERT IGNORE INTO se_localise (id_ville, id_adresse)
+                             SELECT v.id_ville, a.id_adresse
+                             FROM ville v
+                             JOIN adresse a ON v.id_ville = a.id_adresse
+                             WHERE v.nom_ville = :ville AND a.numero_rue = :numero_rue AND a.nom_rue = :nom_rue;");
+      $query->bindValue(':ville', $ville);
+      $query->bindValue(':numero_rue', $numero_rue);
+      $query->bindValue(':nom_rue', $nom_rue);
       $query->execute();
-  
+
       // Insérer l'entreprise
-      $query = $db->prepare("INSERT INTO entreprise (nom_entreprise, numero_telephone, adresse_mail, description_entreprise, numero_siret) VALUES (:nom_entreprise, :numero_telephone, :adresse_mail, :description_entreprise, :numero_siret)");
+      $query = $db->prepare("INSERT INTO entreprise (nom_entreprise, numero_telephone, adresse_mail, description_entreprise, numero_siret) 
+       VALUES (:nom_entreprise, :num_tel, :adresse_mail, :description_entreprise, :num_siret);");
       $query->bindValue(':nom_entreprise', $nom_entreprise);
-      $query->bindValue(':numero_telephone', $numero_telephone);
+      $query->bindValue(':num_tel', $num_tel);
       $query->bindValue(':adresse_mail', $adresse_mail);
       $query->bindValue(':description_entreprise', $description_entreprise);
-      $query->bindValue(':numero_siret', $numero_siret);
+      $query->bindValue(':num_siret', $num_siret);
       $query->execute();
-      $id_entreprise = $db->lastInsertId();
-  
+
+      // Récupérer l'id de l'entreprise insérée
+      $query = $db->prepare("SELECT LAST_INSERT_ID() AS id_entreprise;");
+      $query->execute();
+      $row = $query->fetch(PDO::FETCH_ASSOC);
+      $id_entreprise = $row['id_entreprise'];
+
+      // Insérer le secteur d'activité
+      $query = $db->prepare("INSERT INTO secteur_activite (nom_secteur_activite) VALUES (:secteur_activite);");
+      $query->bindValue(':secteur_activite', $secteurs_activite);
+      $query->execute();
+
+      // Récupérer l'id du secteur d'activité inséré
+      $query = $db->prepare("SELECT LAST_INSERT_ID() AS id_secteur_activite;");
+      $query->execute();
+      $row = $query->fetch(PDO::FETCH_ASSOC);
+      $id_secteur_activite = $row['id_secteur_activite'];
+
       // Insérer les secteurs d'activité de l'entreprise
-      foreach ($secteurs_activite as $id_secteur_activite) {
-          $query = $db->prepare("INSERT INTO possede (id_entreprise, id_secteur_activite) VALUES (:id_entreprise, :id_secteur_activite)");
-          $query->bindValue(':id_entreprise', $id_entreprise);
-          $query->bindValue(':id_secteur_activite', $id_secteur_activite);
-          $query->execute();
-      }
-  
-      echo '<script>alert("Entreprise ajoutée avec succès");</script>';
-  }
-?>  
+      $query = $db->prepare("INSERT INTO possede (id_entreprise, id_secteur_activite) VALUES (:id_entreprise, :id_secteur_activite);");
+      $query->bindValue(':id_entreprise', $id_entreprise);
+      $query->bindValue(':id_secteur_activite', $id_secteur_activite);
+      $query->execute();
+
+
+      // Insérer l'adresse de l'entreprise dans la table reside
+      // Insérer l'adresse de l'entreprise dans la table réside
+      $query = $db->prepare("INSERT INTO réside (id_entreprise, id_adresse)
+   SELECT :id_entreprise, a.id_adresse
+   FROM adresse a
+   JOIN se_localise sl ON a.id_adresse = sl.id_adresse
+   WHERE sl.id_ville = (SELECT id_ville FROM ville WHERE nom_ville = :ville)
+   AND a.numero_rue = :numero_rue AND a.nom_rue = :nom_rue;");
+      $query->bindValue(':id_entreprise', $id_entreprise);
+      $query->bindValue(':ville', $ville);
+      $query->bindValue(':numero_rue', $numero_rue);
+      $query->bindValue(':nom_rue', $nom_rue);
+      $query->execute();
+
+
+
+      // Associer l'entreprise à l'adresse dans la table se_localise
+      $query = $db->prepare("INSERT IGNORE INTO se_localise (id_ville, id_adresse)
+       SELECT v.id_ville, a.id_adresse
+       FROM ville v
+       JOIN adresse a ON v.id_ville = a.id_adresse
+       JOIN réside r ON a.id_adresse = r.id_adresse
+       JOIN entreprise e ON r.id_entreprise = e.id_entreprise
+       WHERE v.nom_ville = :ville AND a.numero_rue = :numero_rue AND a.nom_rue = :nom_rue;");
+      $query->bindValue(':ville', $ville);
+      $query->bindValue(':numero_rue', $numero_rue);
+      $query->bindValue(':nom_rue', $nom_rue);
+      $query->execute();
+    }
+
+
+    ?>
+
 
     <div id="popupsuppr">
       <div class="popupsuppr-content">

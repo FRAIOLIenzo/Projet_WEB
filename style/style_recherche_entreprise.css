@@ -10,13 +10,13 @@ body {
 }
 
 footer {
-  background-color: #f4f0e3;
+  background-color: #e6dfc8;
 }
 
 .container_recherche {
   width: 100%;
   height: 250px;
-  background-color: #f4f0e3;
+  background-color: #e6dfc8;
   display: flex;
   justify-content: center;
   align-items: center;
