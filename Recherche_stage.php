@@ -11,6 +11,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <link rel="stylesheet" href="style/style_recherche_stage.css" />
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" />
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
 
 <body>
@@ -89,7 +90,7 @@ try {
                     <label class="date_publi"><?php echo $date_publication_offre; ?></label>
                 </div>
                 <div class="fond_plus popup_trigger">
-                    <img class="img_plus" src="image/plus_noir.png" alt="bouton pour voir plus d\'offre de stage" />
+                  <img class="img_plus" src="image/plus_noir.png" alt="bouton pour voir plus d'offre de stage" data-offre-id="<?php echo $i; ?>" />
                 </div>
             </div>
 <?php
