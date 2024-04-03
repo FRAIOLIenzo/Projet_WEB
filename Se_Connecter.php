@@ -52,14 +52,14 @@ if ($query->rowCount() > 0) {
         $_SESSION['statut'] = 'admin';
       }
     }      
-    header("location:/Page_acceuil.php");
+    header("location:/index.php");
 
 } else {
     echo "Identifiants incorrects.";
 }
 }
 if (isset($_SESSION['connected']) && $_SESSION['connected']) {
-  header("Location: Page_acceuil.php");
+  header("Location: index.php");
   exit();
 }
 ?>

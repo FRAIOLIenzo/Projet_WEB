@@ -6,7 +6,6 @@
   <meta name="description" content="voici la page d'acceuil de notre site noStage" />
   <title>noStage</title>
   <link rel="icon" href="image/logo_onglet.png" type="image/png">
-  <link rel="stylesheet" href="style/style_navbar.css" />
   <link rel="stylesheet" href="style/style_page_acceuil.css" />
   <?php  include 'lien_fichier_manifest.php'; ?>
 

@@ -28,7 +28,7 @@
   <header>
   <a  id="imgnostagehref" href="Page_acceuil.php" alt="logo de notre site"><img  class="logo" src="image/logo entreprise.png" alt="logo de l'entreprise" /></a>
     <nav class="navbar">
-      <a href="Page_acceuil.php">Accueil</a>
+      <a href="index.php">Accueil</a>
       <div class="dropdown_1">
         <button>Chercher</button>
         <div class="content">

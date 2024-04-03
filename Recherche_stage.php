@@ -29,27 +29,81 @@
 
   <div class="container_offre_stage">
 
-    <div class="offre_stage">
-      <div class="box_domaine_stage">
-        <label class="text_domaine_stage">Domaine du stage</label>
-        <label class="nom_entreprise">Nom de l\'entreprise</label>
-        <label class="lieu_stage">Lieu du stage</label>
-        <label class="remuneration_stage">Rémunération</label>
-        <div class="fond_wishlist">
-          <img class="img_wishlist" src="image/bookmark.png" alt="bannière de wishlist" />
-        </div>
-      </div>
-      <div class="trait"></div>
-      <div class="description_stage">
-        <label class="text_description_stage">Description du stage...</label>
-      </div>
-      <div class="bas_offre_stage">
-        <label class="date_publi">Date de publication</label>
-      </div>
-      <div class="fond_plus popup_trigger">
-        <img class="img_plus" src="image/plus_noir.png" alt="bouton pour voir plus d\'offre de stage" />
-      </div>
-    </div>
+
+  <?php
+$username = "max";
+$password = "]$;8ytb]%n-Jg;^";
+try {
+    $pdo = new PDO('mysql:host=db.aws.gop.onl;dbname=max', $username, $password);
+    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+    for ($i = 1; $i <= 5; $i++) {
+        // Requête SQL pour récupérer les détails de l'offre de stage avec l'ID actuel de la boucle
+        $sql = "SELECT o.types_de_promotion, o.duree_stage, o.remuneration, o.date_publication_offre, 
+        o.nombre_places_offertes, o.date_de_debut, o.date_de_fin, o.description_offre, 
+        o.domaine_stage, o.id_entreprise, e.nom_entreprise, r.etage, a.nom_rue, a.numero_rue
+        FROM offre_de_stage o
+        JOIN entreprise e ON o.id_entreprise = e.id_entreprise
+        JOIN réside r ON e.id_entreprise = o.id_entreprise
+        JOIN adresse a ON e.id_entreprise = o.id_entreprise
+        WHERE o.id_offre_de_stage = $i";
+
+        $stmt = $pdo->query($sql);
+
+        // Récupération des données de l'offre de stage
+        $row = $stmt->fetch(PDO::FETCH_ASSOC);
+        // Vérification s'il y a des données à afficher
+        if ($row) {
+            $types_de_promotion = $row['types_de_promotion'];
+            $duree_stage = $row['duree_stage'];
+            $remuneration = $row['remuneration'];
+            $date_publication_offre = $row['date_publication_offre'];
+            $nombre_places_offertes = $row['nombre_places_offertes'];
+            $date_de_debut = $row['date_de_debut'];
+            $date_de_fin = $row['date_de_fin'];
+            $description_offre = $row['description_offre'];
+            $domaine_stage = $row['domaine_stage'];
+            $id_entreprise = $row['id_entreprise'];
+            $nom_entreprise = $row['nom_entreprise'];
+            $etage = $row['etage'];
+            $nom_rue = $row['nom_rue'];
+            $numero_rue = $row['numero_rue'];
+
+            // Affichage des détails de l'offre de stage
+?>
+            <div class="offre_stage">
+                <div class="box_domaine_stage">
+                    <label class="text_domaine_stage"><?php echo $domaine_stage; ?></label>
+                    <label class="nom_entreprise"><?php echo $nom_entreprise; ?></label>
+                    <label class="lieu_stage"><?php echo $numero_rue; ?> <?php echo $nom_rue; ?></label>
+                    <label class="remuneration_stage"><?php echo $remuneration; ?></label>
+                    <div class="fond_wishlist">
+                        <img class="img_wishlist" src="image/bookmark.png" alt="bannière de wishlist" />
+                    </div>
+                </div>
+                <div class="trait"></div>
+                <div class="description_stage">
+                    <label class="text_description_stage"><?php echo $description_offre; ?></label>
+                </div>
+                <div class="bas_offre_stage">
+                    <label class="date_publi"><?php echo $date_publication_offre; ?></label>
+                </div>
+                <div class="fond_plus popup_trigger">
+                    <img class="img_plus" src="image/plus_noir.png" alt="bouton pour voir plus d\'offre de stage" />
+                </div>
+            </div>
+<?php
+        }
+    }
+} catch (PDOException $e) {
+    echo 'Erreur : ' . $e->getMessage();
+}
+
+// Fermeture de la connexion
+$pdo = null;
+?>
+
+
 
 
 
