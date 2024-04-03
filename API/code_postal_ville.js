@@ -15,34 +15,34 @@ document.getElementById("code_postal").onchange = function() {
 
             html += '';
         } else {
-            html = '<option> Erreur de la saisie du code postal </option>';
+            html = '<option>Code postal non valide</option>';
         }
         document.getElementById("ville").innerHTML = html;
     };
     xhr.send(); 
 };
 
-document.getElementById("code").onchange = function() {
-    var xhr = new XMLHttpRequest();
-    var lien = "https://apicarto.ign.fr/api/codes-postaux/communes/" + document.getElementById("code").value;
+// document.getElementById("code").onchange = function() {
+//     var xhr = new XMLHttpRequest();
+//     var lien = "https://apicarto.ign.fr/api/codes-postaux/communes/" + document.getElementById("code").value;
 
-    xhr.open("GET", lien, true);
+//     xhr.open("GET", lien, true);
 
-    xhr.onload = function() {
-        var html = "";
-        if (xhr.status == 200) {
-            var response = JSON.parse(xhr.response);
+//     xhr.onload = function() {
+//         var html = "";
+//         if (xhr.status == 200) {
+//             var response = JSON.parse(xhr.response);
 
-            for (let i = 0; i < response.length; i++) {
-                html += '<option>' + response[i].nomCommune + '<option>';
-            }
+//             for (let i = 0; i < response.length; i++) {
+//                 html += '<option>' + response[i].nomCommune + '<option>';
+//             }
 
-            html += '';
-        } else {
-            html = '<option> Erreur de la saisie du code postal </option>';
-        }
-        document.getElementById("ville_sortie").innerHTML = html;
-    };
-    xhr.send(); 
-};
+//             html += '';
+//         } else {
+//             html = '<option> Erreur de la saisie du code postal </option>';
+//         }
+//         document.getElementById("ville_sortie").innerHTML = html;
+//     };
+//     xhr.send(); 
+// };
 

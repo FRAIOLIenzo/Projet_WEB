@@ -1,7 +1,7 @@
 /*CSS POUR LE MAIN */
 
 body {
-  background-color: #e8e4d8;
+  background-color: #e6dfc8;
   font-family: "Inter", sans-serif;
 }
 main {
@@ -353,4 +353,9 @@ tbody tr:hover {
 
 #Annuler {
   background-color: #7b9dd2;
+}
+
+
+.offre_page_2sur2 {
+  display: none;
 }

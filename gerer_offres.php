@@ -1,15 +1,15 @@
 <?php include 'connecteoupas.php'; ?>
 <?php
-            include 'conexionbdd.php'; 
-            $query = $db->prepare("SELECT o.id_offre_de_stage, o.types_de_promotion, e.nom_entreprise, v.nom_ville, s.nom_secteur_activite FROM offre_de_stage o  JOIN entreprise e ON e.id_entreprise=o.id_entreprise JOIN possede p ON p.id_entreprise = e.id_entreprise JOIN secteur_activite s ON s.id_secteur_activite=p.id_secteur_activite JOIN réside r ON r.id_entreprise = e.id_entreprise JOIN adresse a ON a.id_adresse=r.id_adresse JOIN se_localise sl ON sl.id_adresse = a.id_adresse JOIN ville v ON v.id_ville = sl.id_ville");
-            $query->execute();
-            $row = $query->fetchAll(PDO::FETCH_ASSOC);
-            $tableau_json = json_encode($row);
-            $statut = "offre";
+include 'conexionbdd.php';
+$query = $db->prepare("SELECT o.id_offre_de_stage, o.types_de_promotion, e.nom_entreprise, v.nom_ville, s.nom_secteur_activite FROM offre_de_stage o  JOIN entreprise e ON e.id_entreprise=o.id_entreprise JOIN possede p ON p.id_entreprise = e.id_entreprise JOIN secteur_activite s ON s.id_secteur_activite=p.id_secteur_activite JOIN réside r ON r.id_entreprise = e.id_entreprise JOIN adresse a ON a.id_adresse=r.id_adresse JOIN se_localise sl ON sl.id_adresse = a.id_adresse JOIN ville v ON v.id_ville = sl.id_ville");
+$query->execute();
+$row = $query->fetchAll(PDO::FETCH_ASSOC);
+$tableau_json = json_encode($row);
+$statut = "offre";
 ?>
 <script>
-    var statut = "<?php echo $statut; ?>"; 
-    var tableau_json = <?php echo $tableau_json;?>;
+  var statut = "<?php echo $statut; ?>";
+  var tableau_json = <?php echo $tableau_json; ?>;
 </script>
 <!DOCTYPE html>
 <html>
@@ -18,7 +18,7 @@
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>noStage</title>
-  <meta name="description" content="" />
+  <meta name="description" content="gerer_offre_de_stage" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <link rel="stylesheet" href="style/style_navbar.css" />
   <link rel="stylesheet" href="style/style_gerer_offres.css" />
@@ -26,7 +26,7 @@
   <script src="API/code_postal_ville.js" defer></script>
 
 
-  <script src='js/js_verification_formulaire.js'></script>
+  <script src='js/js_verification_formulaire_offre_stage.js' defer></script>
 
   <script src="js/js_gerer.js" defer></script>
 
@@ -59,7 +59,7 @@
       <div class="squaredg">
         <div class="headertab">
           <div class="search-container">
-          <input type="search" id="searchbar" onkeyup="recherche(tableau_json)" placeholder="Rechercher..." />
+            <input type="search" id="searchbar" onkeyup="recherche(tableau_json)" placeholder="Rechercher..." />
             <img alt="search" id="imgsearch" src="image/loupe.png" />
           </div>
           <div class="btncountainer">
@@ -95,7 +95,7 @@
         Modifier
       </div>
       <div onclick="openPopup3()">
-        <img alt="delete"src="image/delete.png" />
+        <img alt="delete" src="image/delete.png" />
         Supprimer
       </div>
     </div>
@@ -137,7 +137,7 @@
 
               <input id="nombre_place" class="colonne-milieu" placeholder="Nombre de places" />
 
-              <input id="code_postal" name="code_postal" class="colonne-droite" placeholder="Code postal" />
+              <input id="code" name="code" class="colonne-droite" placeholder="Code postal" />
 
 
 
@@ -147,7 +147,7 @@
             <div class="ligne">
 
 
-              <select class="select-colonne-gauche" id="ville" placeholder="Ville"> </select>
+              <select class="select-colonne-gauche" id="ville_sortie" placeholder="Ville"> </select>
 
               <input id="num_rue" class="colonne-milieu" placeholder="Numéro de rue" />
 
@@ -213,7 +213,7 @@
                   <div class="partie_droite">
 
                     <div class="ligne">
-                      <input id="code" name="code" placeholder="Code postal" />
+                      <input id="code_postal" type="number" name="code_postal" placeholder="Code postal" />
                     </div>
                     <a id="verif_code_postal"></a>
 
@@ -221,7 +221,7 @@
 
                     <div class="ligne">
 
-                      <select id="ville_sortie" placeholder="Ville"> </select>
+                      <select id="ville" placeholder="Ville"> </select>
                     </div>
 
                     <div class="ligne">
@@ -261,14 +261,14 @@
                   <input id="date_fin" type="date" class="colonne-gauche" />
 
                 </div>
-                <div class="virgule">
-                <label > Veuillez séparer les compétences avec une virgule </label>
+                <div >
+                  <label id="virgule_label"> Veuillez séparer les compétences avec une virgule </label>
                 </div>
                 <div class="ligne_2_de3">
-                
+
                   <input id="competence" class="colonne-gauche" placeholder=" Compétences" />
 
-                  <input id="secteur_activite" class="colonne-gauche"  placeholder="Secteur d'activité" />
+                  <input id="secteur_activite" class="colonne-gauche" placeholder="Secteur d'activité" />
                   <input id="duree_stage" class="colonne-milieu" type="number" placeholder="Durée stage (sem)" />
 
                 </div>
@@ -304,8 +304,7 @@
         </div>
       </div>
     </div>
-    </div>
-    </div>
+
 
     <div id="popupsuppr">
       <div class="popupsuppr-content">
