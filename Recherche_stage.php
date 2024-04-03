@@ -162,10 +162,13 @@ $pdo = null;
     <div class="popup_postuler" id="popup_postuler">
       <div class="content_popup_postuler">
         <label class="text_popup">Téléverser votre CV en format PDF</label>
-        <button class="btn_cv">
-          <img class="img_cv" src="image/pdf.png">
-          <span class="btn_text">Selectionner votre fichier</span>
-        </button>
+
+        <button class="btn_cv" id="custom_btn">
+    <img class="img_cv" src="image/pdf.png">
+    <span class="btn_text">Sélectionner votre fichier</span>
+</button>
+<input type="file" id="file_input" style="display: none;">
+
         <div class="trait"></div>
         <label class="text_popup">Lettre de motivation</label>
         <div class="box_lettre_motiv">

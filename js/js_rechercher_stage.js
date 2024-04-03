@@ -15,6 +15,7 @@ $(document).ready(function() {
 
   $('.btn_postuler').click(function() {
       $('#popup_postuler').show();
+      $(this).closest('.popup_offre_de_stage').hide();
       $('#overlay').show();
   });
 
@@ -50,4 +51,17 @@ $(document).ready(function() {
           }
       });
   });
+
+
+  document.getElementById('custom_btn').addEventListener('click', function() {
+  document.getElementById('file_input').click();
+});
+
+document.getElementById('file_input').addEventListener('change', function() {
+    // Gérer le fichier sélectionné
+    var selectedFile = this.files[0];
+    console.log(selectedFile);
+});
+
+
 });
