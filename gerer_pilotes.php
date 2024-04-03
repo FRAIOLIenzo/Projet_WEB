@@ -276,7 +276,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['email1'])) {
           Voulez-vous supprimer ce pilote de manière définitive ?
         </div>
         <div>
-        <input type="text" id="idsup" name="id" placeholder="id" style="display : none ;" required />
+        <input type="text" id="idsup2" name="id2" placeholder="id" style="display : block ;" required />
           <button type="submit" id="Supprimer">Supprimer</button>
           <button id="Annuler" type="button" onclick="openPopup3()">Annuler</button>
         </div>
@@ -284,16 +284,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['email1'])) {
     </div>
 </form>
 <?php
-  if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['id'])) {
-    $id = $_POST['id'];
+  if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['id2'])) {
+    $id2 = $_POST['id2'];
     $query = $db->prepare("DELETE FROM `max`.`pilote` WHERE id_compte = :id;");
-    $query->bindValue(':id', $id);
+    $query->bindValue(':id', $id2);
     $query->execute();
     $query = $db->prepare("DELETE FROM `max`.`enseignant` WHERE id_compte = :id;");
-    $query->bindValue(':id', $id);
+    $query->bindValue(':id', $id2);
     $query->execute();
     $query = $db->prepare("DELETE FROM `max`.`compte` WHERE id_compte = :id;");
-    $query->bindValue(':id', $id);
+    $query->bindValue(':id', $id2);
     $query->execute();
     header("Location: gerer_pilotes.php");
   } ?>

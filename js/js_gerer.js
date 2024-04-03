@@ -163,6 +163,8 @@ function attachImageEventListeners() {
       var mail = document.getElementById("email");
       var mdp = document.getElementById("motdepasse");
       var id = document.getElementById("idsup");
+      var id2 = document.getElementById("idsup2");
+
       var promoc = document.getElementById("promoc");
       var centrec = document.getElementById("centrec");
 
@@ -170,6 +172,8 @@ function attachImageEventListeners() {
       nom.value = rowData[2];
       mail.value = rowData[4];
       id.value = rowData[0];
+      id2.value = rowData[0];
+
       promoc.value = rowData[5];
       centrec.value = rowData[3];
     });
