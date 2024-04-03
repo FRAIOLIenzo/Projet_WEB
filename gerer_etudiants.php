@@ -2,7 +2,7 @@
 <?php
             include 'conexionbdd.php'; 
 
-            $query = $db->prepare("SELECT e.id_compte, c.nom, c.prenom, c.adresse_mail, p.nom_promo, ce.nom_centre FROM etudiant e JOIN compte c ON e.id_compte = c.id_compte JOIN etudie_dans ed ON ed.id_compte = e.id_compte JOIN promo p ON p.id_promo = ed.id_promo JOIN travaille_dans t ON t.id_promo = p.id_promo JOIN Centre ce ON ce.id_centre=t.id_centre");
+            $query = $db->prepare("SELECT e.id_compte, c.nom, c.prenom, c.adresse_mail, p.nom_promo, ce.nom_centre FROM etudiant e LEFT JOIN compte c ON e.id_compte = c.id_compte LEFT JOIN etudie_dans ed ON ed.id_compte = e.id_compte LEFT JOIN promo p ON p.id_promo = ed.id_promo LEFT JOIN travaille_dans t ON t.id_promo = p.id_promo LEFT JOIN Centre ce ON ce.id_centre=t.id_centre");
             $query->execute();
             $row = $query->fetchAll(PDO::FETCH_ASSOC);
             $tableau_json = json_encode($row);
@@ -162,7 +162,7 @@
           <div id="creertxt">Créer le compte étudiant</div>
 
           <form
-            action="/votre-page-de-traitement"
+            action=""
             method="post"
             class="formcreer1"
           >
@@ -184,21 +184,30 @@
             </div>
             <select id="centre" name="centre">
               <option value="" disabled selected>Centre</option>
-
-              <option value="centre1">Centre 1</option>
-              <option value="centre2">Centre 2</option>
-              <option value="centre3">Centre 3</option>
+              <?php 
+            $query = $db->prepare("SELECT nom_centre FROM Centre");
+            $query->execute();
+            $row = $query->fetchAll(PDO::FETCH_ASSOC);
+            foreach ($row as $rows){
+              echo '<option value="'.$rows['nom_centre'].'">'.$rows['nom_centre'].'</option>';
+            }
+            ?>
             </select>
             <select id="promotion" name="promotion">
               <option value="" disabled selected>Promotion</option>
-              <option value="promotion1">Promotion 1</option>
-              <option value="promotion2">Promotion 2</option>
-              <option value="promotion3">Promotion 3</option>
+              <?php 
+            $query = $db->prepare("SELECT nom_promo FROM promo");
+            $query->execute();
+            $row = $query->fetchAll(PDO::FETCH_ASSOC);
+            foreach ($row as $rows){
+              echo '<option value="'.$rows['nom_promo'].'">'.$rows['nom_promo'].'</option>';
+            }
+            ?>
             </select>
             <input
               type="email"
               id="email"
-              name="email"
+              name="email1"
               placeholder="Adresse e-mail"
               required
             />
@@ -216,19 +225,75 @@
           <img alt="close" id="close" src="image/close.png" onclick="openPopup1()" />
         </div>
       </div>
+      <?php
+if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['email1'])) {
+      $nom = $_POST['nom'];
+      $prenom = $_POST['prenom'];
+      $email = $_POST['email1'];
+      $motdepasse = $_POST['motdepasse'];
+      $centre = $_POST['centre'];
+      $promotion = $_POST['promotion'];
+      // on insere le compte pilote dans la base de donnée
+      $query = $db->prepare("INSERT INTO `max`.`compte` (`adresse_mail`, `nom`, `prenom`, `mot_de_passe`) VALUES (:email, :nom,:prenom, :motdepasse)");
+      $query->bindValue(':nom', $nom);
+      $query->bindValue(':prenom', $prenom);
+      $query->bindValue(':email', $email);
+      $query->bindValue(':motdepasse', $motdepasse);
+      $query->execute();
+      // on recupere l'id
+      $query = $db->prepare("SELECT id_compte FROM max.compte WHERE adresse_mail=:email;");
+      $query->bindValue(':email', $email);
+      $query->execute();
+      $row = $query->fetchAll(PDO::FETCH_ASSOC);
+      $id = $row[0]['id_compte'];
+      // on recupere id de la promo 
+      $query = $db->prepare("SELECT p.id_promo FROM max.promo p JOIN travaille_dans t ON t.id_promo = p.id_promo JOIN  Centre c on c.id_centre = t.id_centre WHERE c.nom_centre = :centre AND p.nom_promo=:promo;");
+      $query->bindValue(':promo', $promotion);
+      $query->bindValue(':centre', $centre);
+      $query->execute();
+      $row2 = $query->fetchAll(PDO::FETCH_ASSOC);
+      $idpromo = $row2[0]['id_promo'];
+      // On insere l'etudiant  dans la etudiant
+      $query = $db->prepare("INSERT INTO etudiant (id_compte) VALUES (:id);      ");
+      $query->bindValue(':id', $id);
+      $query->execute();
 
-      <div id="popupsuppr">
-        <div class="popupsuppr-content">
-          <div id="txtpopupsuppr">
-            Voulez-vous supprimer ce pilote de manière définitive ?
-          </div>
-          <div>
-            <button id="Supprimer">Supprimer</button>
-            <button id="Annuler" onclick="openPopup3()">Annuler</button>
-          </div>
+      // On insere l'etudiant  dans la base de donnée
+      $query = $db->prepare("INSERT INTO etudie_dans (id_compte, id_promo) VALUES (:id, :idpromo);      ");
+      $query->bindValue(':id', $id);
+      $query->bindValue(':idpromo', $idpromo);
+      $query->execute();
+      echo '<script>alert("Etudiant ajouté avec succès");</script>';
+    }
+      ?>
+<form action="" method="post">
+    <div id="popupsuppr">
+      <div class="popupsuppr-content">
+        <div id="txtpopupsuppr">
+          Voulez-vous supprimer ce pilote de manière définitive ?
+        </div>
+        <div>
+        <input type="text" id="idsup3" name="id3" placeholder="id" style="display : block ;" required />
+          <button type="submit" id="Supprimer">Supprimer</button>
+          <button id="Annuler" type="button" onclick="openPopup3()">Annuler</button>
         </div>
       </div>
-    </main>
+    </div>
+</form>
+<?php
+  if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['id3'])) {
+    $id3 = $_POST['id3'];
+    $query = $db->prepare("DELETE FROM etudie-dans WHERE id_compte = :id;");
+    $query->bindValue(':id', $id3);
+    $query->execute();
+    $query = $db->prepare("DELETE FROM etudiant WHERE id_compte = :id;");
+    $query->bindValue(':id', $id3);
+    $query->execute();
+    $query = $db->prepare("DELETE FROM compte WHERE id_compte = :id;");
+    $query->bindValue(':id', $id3);
+    $query->execute();
+  } ?>
+  </main>
     <?php include 'footer.php'; ?>
 
   </body>

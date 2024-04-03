@@ -1,7 +1,7 @@
 <?php include 'connecteoupas.php'; ?>
 <?php
             include 'conexionbdd.php'; 
-            $query = $db->prepare("SELECT e.id_compte, c.nom, c.prenom, c.adresse_mail, pi.date_debut, p.nom_promo, ce.nom_centre FROM enseignant e LEFT   JOIN compte c ON e.id_compte = c.id_compte LEFT JOIN pilote pi ON pi.id_compte = e.id_compte LEFT JOIN promo p ON p.id_promo = pi.id_promo LEFT JOIN travaille_dans t ON t.id_promo = p.id_promo LEFT JOIN Centre ce ON ce.id_centre=t.id_centre");
+            $query = $db->prepare("SELECT e.id_compte, c.nom, c.prenom, c.adresse_mail, pi.date_debut, p.nom_promo, ce.nom_centre FROM enseignant e LEFT JOIN compte c ON e.id_compte = c.id_compte LEFT JOIN pilote pi ON pi.id_compte = e.id_compte LEFT JOIN promo p ON p.id_promo = pi.id_promo LEFT JOIN Centre ce ON ce.id_centre=pi.id_centre");
             $query->execute();
             $row = $query->fetchAll(PDO::FETCH_ASSOC);
             $tableau_json = json_encode($row);
@@ -255,20 +255,32 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['email1'])) {
       $query->execute();
       $row = $query->fetchAll(PDO::FETCH_ASSOC);
       $id = $row[0]['id_compte'];
-      // on recupere id de la promo 
-      $query = $db->prepare("SELECT p.id_promo FROM max.promo p JOIN travaille_dans t ON t.id_promo = p.id_promo JOIN  Centre c on c.id_centre = t.id_centre WHERE c.nom_centre = :centre AND p.nom_promo=:promo;");
-      $query->bindValue(':promo', $promotion);
+      echo '<script>alert("'.$centre.'");</script>';
+
+      // on recupere l'id
+      $query = $db->prepare("SELECT id_centre FROM Centre WHERE nom_centre=:centre;");
       $query->bindValue(':centre', $centre);
+      $query->execute();
+      $row = $query->fetchAll(PDO::FETCH_ASSOC);
+      $idcentre = $row[0]['id_centre'];
+      echo '<script>alert("3");</script>';
+
+      // on recupere id de la promo 
+      $query = $db->prepare("SELECT p.id_promo FROM max.promo p WHERE p.nom_promo=:promo;");
+      $query->bindValue(':promo', $promotion);
       $query->execute();
       $row2 = $query->fetchAll(PDO::FETCH_ASSOC);
       $idpromo = $row2[0]['id_promo'];
+
       // On insere l'enseignant dans la base de donnée
       $query = $db->prepare("INSERT INTO `max`.`enseignant` (`id_compte`) VALUES (:id);");
       $query->bindValue(':id', $id);
       $query->execute();
-      $query = $db->prepare("INSERT INTO `max`.`pilote` (`id_compte`, `id_promo`) VALUES (:id, :idpromo);");
+      $query = $db->prepare("INSERT INTO `max`.`pilote` (`id_compte`, `id_promo`, `id_centre`) VALUES (:id, :idpromo, :idcentre);");
       $query->bindValue(':id', $id);
       $query->bindValue(':idpromo', $idpromo);
+      $query->bindValue(':idcentre', $idcentre);
+
       $query->execute();
       header("Location: ".$_SERVER['PHP_SELF']);
       echo '<script>alert("Pilote ajouté avec succès");</script>';}
