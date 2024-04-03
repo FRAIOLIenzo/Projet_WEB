@@ -42,7 +42,7 @@ try {
         // Requête SQL pour récupérer les détails de l'offre de stage avec l'ID actuel de la boucle
         $sql = "SELECT o.types_de_promotion, o.duree_stage, o.remuneration, o.date_publication_offre, 
         o.nombre_places_offertes, o.date_de_debut, o.date_de_fin, o.description_offre, 
-        o.domaine_stage, o.id_entreprise, e.nom_entreprise, r.etage, a.nom_rue, a.numero_rue
+        o.domaine_stage, o.id_entreprise, e.nom_entreprise, e.adresse_mail, r.etage, a.nom_rue, a.numero_rue
         FROM offre_de_stage o
         JOIN entreprise e ON o.id_entreprise = e.id_entreprise
         JOIN réside r ON e.id_entreprise = o.id_entreprise
@@ -69,6 +69,7 @@ try {
             $etage = $row['etage'];
             $nom_rue = $row['nom_rue'];
             $numero_rue = $row['numero_rue'];
+            $adresse_mail = $row['adresse_mail'];
 
             // Affichage des détails de l'offre de stage
 ?>
@@ -89,10 +90,48 @@ try {
                 <div class="bas_offre_stage">
                     <label class="date_publi"><?php echo $date_publication_offre; ?></label>
                 </div>
-                <div class="fond_plus popup_trigger">
-                  <img class="img_plus" src="image/plus_noir.png" alt="bouton pour voir plus d'offre de stage" data-offre-id="<?php echo $i; ?>" />
+                <div class="fond_plus popup_trigger" data-popup-id="<?php echo $i; ?>">
+                  <img class="img_plus" src="image/plus_noir.png" alt="bouton pour voir plus d'offre de stage" />
                 </div>
             </div>
+
+            
+    <div class="popup_offre_de_stage" id="popup_offre_de_stage<?php echo $i; ?>">
+      <div class="content_popup_offre_stage">
+        <div class="box_domaine_stage_popup">
+          <div class="box_gauche_domaine_stage">
+            <label class="text_domaine_stage"><?php echo $domaine_stage; ?></label>
+            <label class="nom_entreprise"><?php echo $nom_entreprise; ?></label>
+            <label class="lieu_stage"><?php echo $numero_rue; ?> <?php echo $nom_rue; ?></label>
+            <label class="remuneration_stage"><?php echo $remuneration; ?></label>
+          </div>
+          <div class="trait_vertical"></div>
+          <div class="box_droite_domaine_stage">
+            <label class="promotion_concernee"><?php echo $types_de_promotion; ?></label>
+            <label class="date_stage"><?php echo $duree_stage; ?> </label>
+            <label class="nb_place"><?php echo $nombre_places_offertes; ?></label>
+            <label class="adresse_mail"><?php echo $adresse_mail; ?></label>
+          </div>
+        </div>
+        <div class="trait"></div>
+        <div class="box_competences">
+          <ul class="competence">
+            <li>Compétence1</li>
+            <li>-</li>
+            <li>Compétence2</li>
+            <li>-</li>
+            <li>Compétence3</li>
+          </ul>
+        </div>
+        <div class="description_stage">
+          <label class="text_description_stage"><?php echo $description_offre; ?></label>
+        </div>
+        <div class="box_btn">
+          <button class="btn_annuler" id="btn_annuler">Annuler</button>
+          <button class="btn_postuler" id="btn_postuler">Postuler</button>
+        </div>
+      </div>
+    </div>
 <?php
         }
     }
@@ -109,42 +148,6 @@ $pdo = null;
 
 
 
-    <div class="popup_offre_de_stage" id="popup_offre_de_stage">
-      <div class="content_popup_offre_stage">
-        <div class="box_domaine_stage_popup">
-          <div class="box_gauche_domaine_stage">
-            <label class="text_domaine_stage">Domaine du stage</label>
-            <label class="nom_entreprise">Nom de l'entreprise</label>
-            <label class="lieu_stage">Lieu du stage</label>
-            <label class="remuneration_stage">Rémunération</label>
-          </div>
-          <div class="trait_vertical"></div>
-          <div class="box_droite_domaine_stage">
-            <label class="promotion_concernee">Promotion concernée</label>
-            <label class="date_stage">Date du stage</label>
-            <label class="nb_place">nombre de place</label>
-            <label class="adresse_mail">Adresse mail</label>
-          </div>
-        </div>
-        <div class="trait"></div>
-        <div class="box_competences">
-          <ul class="competence">
-            <li>Compétence1</li>
-            <li>-</li>
-            <li>Compétence2</li>
-            <li>-</li>
-            <li>Compétence3</li>
-          </ul>
-        </div>
-        <div class="description_stage">
-          <label class="text_description_stage">Description du stage...</label>
-        </div>
-        <div class="box_btn">
-          <button class="btn_annuler" id="btn_annuler">Annuler</button>
-          <button class="btn_postuler" id="btn_postuler">Postuler</button>
-        </div>
-      </div>
-    </div>
     <div class="popup_postuler" id="popup_postuler">
       <div class="content_popup_postuler">
         <label class="text_popup">Téléverser votre CV en format PDF</label>
@@ -163,6 +166,8 @@ $pdo = null;
         </div>
       </div>
     </div>
+
+    
     <div class="overlay" id="overlay"></div>
     <?php include 'footer.php'; ?>
     <script src="js/js_rechercher_stage.js" async defer></script>
