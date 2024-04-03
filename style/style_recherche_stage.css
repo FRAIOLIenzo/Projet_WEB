@@ -286,12 +286,12 @@ footer {
   cursor: pointer;
 }
 
-ul {
+.competence {
   margin-left: 20px;
   margin-top: 10px;
 }
 
-ul li {
+.competence li {
   display: inline;
 }
 
