@@ -1,7 +1,7 @@
 <?php include 'connecteoupas.php'; ?>
 <?php
             include 'conexionbdd.php'; 
-            $query = $db->prepare("SELECT e.id_compte, c.nom, c.prenom, c.adresse_mail, pi.date_debut, p.nom_promo, ce.nom_centre FROM enseignant e JOIN compte c ON e.id_compte = c.id_compte JOIN pilote pi ON pi.id_compte = e.id_compte JOIN promo p ON p.id_promo = pi.id_promo JOIN travaille_dans t ON t.id_promo = p.id_promo JOIN Centre ce ON ce.id_centre=t.id_centre");
+            $query = $db->prepare("SELECT e.id_compte, c.nom, c.prenom, c.adresse_mail, pi.date_debut, p.nom_promo, ce.nom_centre FROM enseignant e LEFT   JOIN compte c ON e.id_compte = c.id_compte LEFT JOIN pilote pi ON pi.id_compte = e.id_compte LEFT JOIN promo p ON p.id_promo = pi.id_promo LEFT JOIN travaille_dans t ON t.id_promo = p.id_promo LEFT JOIN Centre ce ON ce.id_centre=t.id_centre");
             $query->execute();
             $row = $query->fetchAll(PDO::FETCH_ASSOC);
             $tableau_json = json_encode($row);
@@ -97,23 +97,35 @@
       <div class="popupcontent">
         <div id="creertxt">Modifier le compte pilote</div>
 
-        <form action="" method="post" name="modifier1Form">
+        <form action="" method="post" class="formcreer1">
+        <input type="text" id="idsup" name="id" placeholder="id" style="display : none ;" required />
+        <input type="text" id="promoc" name="promoc" style="display : none ;" required />
+        <input type="text" id="centrec" name="centrec" style="display : none ;" required />
           <div id="nomprenom">
             <input type="text" id="prenom" name="prenom" placeholder="Prénom" required />
             <input type="text" id="nom" name="nom" placeholder="Nom" required />
           </div>
           <select id="centre" name="centre">
             <option value="" disabled selected>Centre</option>
-
-            <option value="centre1">Centre 1</option>
-            <option value="centre2">Centre 2</option>
-            <option value="centre3">Centre 3</option>
+            <?php 
+            $query = $db->prepare("SELECT nom_centre FROM Centre");
+            $query->execute();
+            $row = $query->fetchAll(PDO::FETCH_ASSOC);
+            foreach ($row as $rows){
+              echo '<option value="'.$rows['nom_centre'].'">'.$rows['nom_centre'].'</option>';
+            }
+            ?>
           </select>
           <select id="promotion" name="promotion">
             <option value="" disabled selected>Promotion</option>
-            <option value="promotion1">Promotion 1</option>
-            <option value="promotion2">Promotion 2</option>
-            <option value="promotion3">Promotion 3</option>
+            <?php 
+            $query = $db->prepare("SELECT nom_promo FROM promo");
+            $query->execute();
+            $row = $query->fetchAll(PDO::FETCH_ASSOC);
+            foreach ($row as $rows){
+              echo '<option value="'.$rows['nom_promo'].'">'.$rows['nom_promo'].'</option>';
+            }
+            ?>
           </select>
           <input type="email" id="email" name="email" placeholder="Adresse e-mail" required />
           <input type="password" id="motdepasse" name="motdepasse" placeholder="Mot de passe" required />
@@ -125,6 +137,56 @@
       </div>
     </div>
 
+    <?php
+if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['email'])) {
+    $nom = $_POST['nom'];
+    $prenom = $_POST['prenom'];
+    $email = $_POST['email'];
+    $motdepasse = $_POST['motdepasse'];
+    $centre = $_POST['centre'];
+    $promotion = $_POST['promotion'];
+    $id = $_POST['id'];
+    $promoc = $_POST['promoc'];
+    $centrec = $_POST['centrec'];
+
+    // Assuming $db is your PDO database connection
+    try {
+        // Update the account in the `compte` table
+        $query = $db->prepare("UPDATE `max`.`compte` SET `adresse_mail` = :email, `nom` = :nom, `prenom` = :prenom, `mot_de_passe` = :motdepasse WHERE (`id_compte` = :id);");
+        $query->bindValue(':nom', $nom);
+        $query->bindValue(':prenom', $prenom);
+        $query->bindValue(':email', $email);
+        $query->bindValue(':motdepasse', $motdepasse);
+        $query->bindValue(':id', $id);
+        $query->execute();
+
+        // Get the ID of the current promotion
+        $query = $db->prepare("SELECT p.id_promo FROM max.promo p WHERE p.nom_promo=:promo;");
+        // Get the ID of the new promotion
+        $query->bindValue(':promo', $promoc);
+        $query->execute();
+        $idpromoc = $query->fetchColumn(); // Fetch single column directly
+        
+        // Selecte the `centre` 
+        $query = $db->prepare("SELECT id_centre FROM max.Centre WHERE nom_centre=:centre;");
+        $query->bindValue(':centre', $centre);
+        $query->execute();
+        $idcentre = $query->fetchColumn(); 
+
+        // Update the `pilote` table
+        $query = $db->prepare("UPDATE pilote JOIN promo p ON p.id_promo=pilote.id_promo JOIN  travaille_dans t ON t.id_promo =p.id_promo JOIN Centre c on c.id_centre=t.id_centre SET pilote .id_promo = 2 WHERE `id_compte` = :id AND c.nom_centre=:centre ");
+        $query->bindValue(':id', $id);
+        $query->execute();
+
+        echo '<script>alert("Modif ajouté avec succès");</script>';
+    } catch (PDOException $e) {
+        // Handle PDO exception
+        echo "Error: " . $e->getMessage();
+    }
+}
+ ?>
+
+
     <div id="popupajout1">
       <div class="popupcontent">
         <div id="creertxt">Créer le compte pilote</div>
@@ -135,17 +197,27 @@
             <input type="text" id="nom" name="nom" placeholder="Nom" required />
           </div>
           <select id="centre" name="centre">
-            <option value="" disabled selected>Centre</option>
+          <option value="" disabled selected>Centre</option>
 
-            <option value="Nancy">Nancy</option>
-            <option value="centre2">Centre 2</option>
-            <option value="centre3">Centre 3</option>
+            <?php 
+            $query = $db->prepare("SELECT nom_centre FROM Centre");
+            $query->execute();
+            $row = $query->fetchAll(PDO::FETCH_ASSOC);
+            foreach ($row as $rows){
+              echo '<option value="'.$rows['nom_centre'].'">'.$rows['nom_centre'].'</option>';
+            }
+            ?>
           </select>
           <select id="promotion" name="promotion">
             <option value="" disabled selected>Promotion</option>
-            <option value="A1-INFO">A1-INFO</option>
-            <option value="promotion2">Promotion 2</option>
-            <option value="promotion3">Promotion 3</option>
+            <?php 
+            $query = $db->prepare("SELECT nom_promo FROM promo");
+            $query->execute();
+            $row = $query->fetchAll(PDO::FETCH_ASSOC);
+            foreach ($row as $rows){
+              echo '<option value="'.$rows['nom_promo'].'">'.$rows['nom_promo'].'</option>';
+            }
+            ?>
           </select>
           <input type="email" id="email" name="email1" placeholder="Adresse e-mail" required />
           <input type="password" id="motdepasse" name="motdepasse" placeholder="Mot de passe" required />
@@ -158,7 +230,7 @@
     </div>
     <?php
 if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['email1'])) {
-  $nom = $_POST['nom'];
+      $nom = $_POST['nom'];
       $prenom = $_POST['prenom'];
       $email = $_POST['email1'];
       $motdepasse = $_POST['motdepasse'];
@@ -192,6 +264,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['email1'])) {
       $query->bindValue(':id', $id);
       $query->bindValue(':idpromo', $idpromo);
       $query->execute();
+      header("Location: ".$_SERVER['PHP_SELF']);
       echo '<script>alert("Pilote ajouté avec succès");</script>';}
       ?>
 
@@ -203,7 +276,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['email1'])) {
           Voulez-vous supprimer ce pilote de manière définitive ?
         </div>
         <div>
-        <input type="text" id="idsup" name="id" placeholder="id" style="display : block ;" required />
+        <input type="text" id="idsup" name="id" placeholder="id" style="display : none ;" required />
           <button type="submit" id="Supprimer">Supprimer</button>
           <button id="Annuler" type="button" onclick="openPopup3()">Annuler</button>
         </div>
@@ -222,7 +295,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['email1'])) {
     $query = $db->prepare("DELETE FROM `max`.`compte` WHERE id_compte = :id;");
     $query->bindValue(':id', $id);
     $query->execute();
-    echo '<script>alert("Pilote supprimé avec succès");</script>';
+    header("Location: gerer_pilotes.php");
   } ?>
   </main>
 
