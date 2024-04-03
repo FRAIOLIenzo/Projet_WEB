@@ -136,33 +136,33 @@ $statut = "entreprise";
         <div class="box_connexion">
           <div class="box_connexion_contenu">
             <label class="titre-pop-up">Ajouter une entreprise</label>
-            <form id="creer_offre">
+            <form action="" id = "creer_entreprise" class="formcreer_entreprise" method="post">
               <div class="offre_page_1sur2">
                 <div class="conteneur_page_1_creer_offre">
                   <div class="partie_gauche">
 
                     <div class="ligne">
-                      <input id="nom_entreprise" placeholder="Nom de l'entreprise" />
+                      <input id="nom_entreprise" name="nom_entreprise" placeholder="Nom de l'entreprise" />
                     </div>
 
                     <a id="verif_nom_entreprise"></a>
 
                     <div class="ligne">
-                      <input id="num_tel" type="number" placeholder="Numéro de téléphone" />
+                      <input id="num_tel" type="number" name="num_tel" placeholder="Numéro de téléphone" />
                     </div>
 
                     <a id="verif_num_tel"></a>
 
                     <div class="ligne">
 
-                      <input id="adresse_mail" type="email" placeholder="Adresse mail" />
+                      <input id="adresse_mail" name = "adresse_mail" type="email" placeholder="Adresse mail" />
                     </div>
 
                     <a id="verif_adresse_mail"></a>
 
                     <div class="ligne">
 
-                      <input id="num_siret" type = "number" class="colonne-gauche" placeholder="Numérot de siret" />
+                      <input id="num_siret" name = "num_siret" type="number" class="colonne-gauche" placeholder="Numérot de siret" />
                     </div>
 
                     <a id="verif_num_siret"></a>
@@ -174,7 +174,7 @@ $statut = "entreprise";
                   <div class="partie_droite">
 
                     <div class="ligne">
-                      <input id="code_postal" type = "number" name="code_postal" placeholder="Code postal" />
+                      <input id="code_postal" type="number" name="code_postal" placeholder="Code postal" />
                     </div>
                     <a id="verif_code_postal"></a>
 
@@ -182,18 +182,18 @@ $statut = "entreprise";
 
                     <div class="ligne">
 
-                      <select id="ville" placeholder="Ville"> </select>
+                      <select id="ville" name = "ville" placeholder="Ville"> </select>
                     </div>
 
                     <div class="ligne">
 
-                      <input id="num_rue" type="number" placeholder="Numéro rue" />
+                      <input id="num_rue" name = "num_rue" type="number" placeholder="Numéro rue" />
 
 
                     </div>
 
                     <div class="ligne">
-                      <input id="nom_rue" placeholder="Nom rue" />
+                      <input id="nom_rue" name = "nom_rue" placeholder="Nom rue" />
 
                     </div>
 
@@ -220,14 +220,14 @@ $statut = "entreprise";
 
                 <div class="ligne">
 
-                  <textarea id="secteur_activite" class="description" placeholder="Secteurs d'activités"></textarea>
+                  <textarea id="secteur_activite" name = "secteur_activite" class="description" placeholder="Secteurs d'activités"></textarea>
 
                 </div>
 
 
 
                 <div class="ligne">
-                  <textarea id="description_entreprise" class="description" placeholder="Description de l'entreprise"></textarea>
+                  <textarea id="description_entreprise" name = "description_entreprise" class="description" placeholder="Description de l'entreprise"></textarea>
                 </div>
 
                 <div class="btn_prece_valid">
@@ -247,16 +247,70 @@ $statut = "entreprise";
 
 
 
+            <div id="closecircle"></div>
 
-            <form>
-              <div id="closecircle"></div>
-
-              <img alt="close" id="close" src="image/close.png" onclick="openPopup1()" />
+            <img alt="close" id="close" src="image/close.png" onclick="openPopup1()" />
 
           </div>
         </div>
       </div>
     </div>
+    <?php
+    if ($_SERVER["REQUEST_METHOD"] == "POST" ) {
+      $nom_entreprise = $_POST['nom_entreprise'];
+      $numero_telephone = $_POST['numero_telephone'];
+      $adresse_mail = $_POST['adresse_mail'];
+      $description_entreprise = $_POST['description_entreprise'];
+      $numero_siret = $_POST['numero_siret'];
+      $secteurs_activite = $_POST['secteurs_activite'];
+      $numero_rue = $_POST['numero_rue'];
+      $nom_rue = $_POST['nom_rue'];
+      $nom_ville = $_POST['nom_ville'];
+      $code_postal = $_POST['code_postal'];
+      $region = $_POST['region'];
+  
+      // Insérer l'adresse
+      $query = $db->prepare("INSERT INTO adresse (numero_rue, nom_rue) VALUES (:numero_rue, :nom_rue)");
+      $query->bindValue(':numero_rue', $numero_rue);
+      $query->bindValue(':nom_rue', $nom_rue);
+      $query->execute();
+      $id_adresse = $db->lastInsertId();
+  
+      // Insérer la ville
+      $query = $db->prepare("INSERT INTO ville (nom_ville, code_postal, id_region) VALUES (:nom_ville, :code_postal, :region)");
+      $query->bindValue(':nom_ville', $nom_ville);
+      $query->bindValue(':code_postal', $code_postal);
+      $query->bindValue(':region', $region);
+      $query->execute();
+      $id_ville = $db->lastInsertId();
+  
+      // Associer l'adresse à la ville
+      $query = $db->prepare("INSERT INTO se_localise (id_ville, id_adresse) VALUES (:id_ville, :id_adresse)");
+      $query->bindValue(':id_ville', $id_ville);
+      $query->bindValue(':id_adresse', $id_adresse);
+      $query->execute();
+  
+      // Insérer l'entreprise
+      $query = $db->prepare("INSERT INTO entreprise (nom_entreprise, numero_telephone, adresse_mail, description_entreprise, numero_siret) VALUES (:nom_entreprise, :numero_telephone, :adresse_mail, :description_entreprise, :numero_siret)");
+      $query->bindValue(':nom_entreprise', $nom_entreprise);
+      $query->bindValue(':numero_telephone', $numero_telephone);
+      $query->bindValue(':adresse_mail', $adresse_mail);
+      $query->bindValue(':description_entreprise', $description_entreprise);
+      $query->bindValue(':numero_siret', $numero_siret);
+      $query->execute();
+      $id_entreprise = $db->lastInsertId();
+  
+      // Insérer les secteurs d'activité de l'entreprise
+      foreach ($secteurs_activite as $id_secteur_activite) {
+          $query = $db->prepare("INSERT INTO possede (id_entreprise, id_secteur_activite) VALUES (:id_entreprise, :id_secteur_activite)");
+          $query->bindValue(':id_entreprise', $id_entreprise);
+          $query->bindValue(':id_secteur_activite', $id_secteur_activite);
+          $query->execute();
+      }
+  
+      echo '<script>alert("Entreprise ajoutée avec succès");</script>';
+  }
+?>  
 
     <div id="popupsuppr">
       <div class="popupsuppr-content">

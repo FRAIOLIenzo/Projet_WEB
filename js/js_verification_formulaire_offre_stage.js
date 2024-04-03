@@ -42,12 +42,13 @@ document.addEventListener('DOMContentLoaded', function() {
         /* PROMO CONCERNEES */
 
         const valeur_nom_promo_concernees = input_promo_concernees.value.trim();
-        if (valeur_nom_promo_concernees!== '' && !/^[a-zA-ZÀ-ÖØ-öø-ÿ' ]+$/u.test(valeur_nom_promo_concernees)) {
+        if (valeur_nom_promo_concernees !== '' && !/^[a-zA-Z0-9\s]+$/u.test(valeur_nom_promo_concernees)) {
             balise_promo_concernees.style.display = 'block'; 
-            balise_promo_concernees.textContent = 'Ne doit contenir aucun chiffres ou caractères spéciaux'; 
+            balise_promo_concernees.textContent = 'Ne doit contenir aucun caractères spéciaux'; 
         } else {
             balise_promo_concernees.style.display = 'none';
         }
+        
 
         /* NOM DE LA RUE */ 
 
