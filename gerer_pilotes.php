@@ -163,19 +163,25 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['email'])) {
         // Get the ID of the current promotion
         $query = $db->prepare("SELECT p.id_promo FROM max.promo p WHERE p.nom_promo=:promo;");
         // Get the ID of the new promotion
-        $query->bindValue(':promo', $promoc);
+        $query->bindValue(':promo', $promotion);
         $query->execute();
         $idpromoc = $query->fetchColumn(); // Fetch single column directly
-        
+        echo '<script>alert(' . $idpromoc .');</script>';
+
         // Selecte the `centre` 
         $query = $db->prepare("SELECT id_centre FROM max.Centre WHERE nom_centre=:centre;");
         $query->bindValue(':centre', $centre);
         $query->execute();
         $idcentre = $query->fetchColumn(); 
+        echo '<script>alert("bientot2");</script>';
 
         // Update the `pilote` table
-        $query = $db->prepare("UPDATE pilote JOIN promo p ON p.id_promo=pilote.id_promo JOIN  travaille_dans t ON t.id_promo =p.id_promo JOIN Centre c on c.id_centre=t.id_centre SET pilote .id_promo = 2 WHERE `id_compte` = :id AND c.nom_centre=:centre ");
+        $query = $db->prepare("UPDATE pilote JOIN promo p ON p.id_promo=pilote.id_promo JOIN  travaille_dans t ON t.id_promo =p.id_promo JOIN Centre c on c.id_centre=t.id_centre SET pilote.id_promo = :idpromo  WHERE `id_compte` = :id AND c.nom_centre= :centre;");
         $query->bindValue(':id', $id);
+        $query->bindValue(':idpromo', $idpromoc);
+        $query->bindValue(':centre', $centrec);
+
+
         $query->execute();
 
         echo '<script>alert("Modif ajouté avec succès");</script>';
