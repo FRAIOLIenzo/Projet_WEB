@@ -303,7 +303,9 @@ $statut = "offre";
 
                 <div class="btn_prece_valid">
                   <button class="btn_precedent_1" onclick="offre_page_vers_1sur2()"> Précédent</button>
-                  <button class="btn_valider" type="submit"> Valider</button>
+                  <button class="btn_valider" type="submit" id="btn_valider"> Valider</button>
+                  <button type = "button" id="btn_donnees_incorrect" class="btn_valider">Merci de vérifier vos informations</button>
+
                 </div>
 
               </div>
