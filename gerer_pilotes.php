@@ -24,8 +24,9 @@
   <link rel="stylesheet" href="style/style_gerer_pilotes.css" />
   <link rel="stylesheet" href="style/style_fenetre_gerer_pilotes.css" />
   <script src="js/js_gerer.js" defer></script>
-  <script src='js/js_verification_formulaire_pilote.js' defer></script>
-
+  <script>
+    var page = "<?php echo basename($_SERVER['PHP_SELF']); ?>";
+    </script>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" />
 </head>
 
@@ -151,8 +152,7 @@
       $promoc = $_POST['promoc'];
       $centrec = $_POST['centrec'];
 
-      // Assuming $db is your PDO database connection
-      try {
+    try {
         // Update the account in the `compte` table
         $query = $db->prepare("UPDATE `max`.`compte` SET `adresse_mail` = :email, `nom` = :nom, `prenom` = :prenom, `mot_de_passe` = :motdepasse WHERE (`id_compte` = :id);");
         $query->bindValue(':nom', $nom);
@@ -329,21 +329,23 @@
           </div>
         </div>
       </div>
-    </form>
-    <?php
-    if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['id2'])) {
-      $id2 = $_POST['id2'];
-      $query = $db->prepare("DELETE FROM `max`.`pilote` WHERE id_compte = :id;");
-      $query->bindValue(':id', $id2);
-      $query->execute();
-      $query = $db->prepare("DELETE FROM `max`.`enseignant` WHERE id_compte = :id;");
-      $query->bindValue(':id', $id2);
-      $query->execute();
-      $query = $db->prepare("DELETE FROM `max`.`compte` WHERE id_compte = :id;");
-      $query->bindValue(':id', $id2);
-      $query->execute();
-      header("Location: gerer_pilotes.php");
-    } ?>
+    </div>
+</form>
+<?php
+  if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['id2'])) {
+    $id2 = $_POST['id2'];
+    $query = $db->prepare("DELETE FROM `max`.`pilote` WHERE id_compte = :id;");
+    $query->bindValue(':id', $id2);
+    $query->execute();
+    $query = $db->prepare("DELETE FROM `max`.`enseignant` WHERE id_compte = :id;");
+    $query->bindValue(':id', $id2);
+    $query->execute();
+    $query = $db->prepare("DELETE FROM `max`.`compte` WHERE id_compte = :id;");
+    $query->bindValue(':id', $id2);
+    $query->execute();
+    echo '<script>alert("Pilote ajouté avec succès");</script>';
+    header("Location: gerer_pilotes.php");
+  } ?>
   </main>
 
 
