@@ -198,7 +198,7 @@ footer {
 
 /* POPUP */
 
-#popup_offre_de_stage {
+.popup_offre_de_stage {
   display: flex;
   align-items: center;
   justify-content: center;

@@ -1,12 +1,12 @@
 {
     "name": "noStage",
     "short_name": "NS",
-    "start_url": "page_accueil.php",
+    "start_url": "/index.php",
     "display": "standalone",
     "description": "L'application qui vous aide à trouver votre stage facilement !",
     "lang" : "fr",
-    "theme_color": "#ffffff",
-    "background_color": "#ffffff", 
+    "theme_color":"#7b9dd2",
+    "background_color": "#7b9dd2;", 
 
     "icons": [
       {

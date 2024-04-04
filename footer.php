@@ -19,7 +19,7 @@
         <div class="liste_a_propos">
           <ul>
             <li><a class="interligne" href="mentions_legales.php"> Mentions légales</a></li>
-            <li><a class="interligne" href="droit_reserve.php"> Tous droits réservés</a></li>
+
             <li>
               <a class="interligne" href="politique_confidentialite.php"> Politiques de confidentialité</a>
             </li>
@@ -61,7 +61,8 @@
     </div>
 
 
-    <p class="noStage">© noStage 2024</p>
+    <p class="noStage">© noStage 2024 Tous droits réservés</p>
+
   </footer>
 </body>
 

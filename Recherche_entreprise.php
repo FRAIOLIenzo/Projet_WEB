@@ -9,10 +9,9 @@
     <title>Recherche de stage</title>
     <meta name="description" content="recherche d'entreprise" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="stylesheet" href="style/style_navbar.css" />
-    <link rel="stylesheet" href="style/style_footer.css" />
     <link rel="stylesheet" href="style/style_recherche_entreprise.css" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" />
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
 
 <body>
@@ -30,83 +29,85 @@
 
     <div class="container_aff_entreprise">
 
-    <?php
+ 
 
-// Fonction pour remplacer une donnée dans une balise HTML avec une classe spécifique
-function remplacerDonneeParClasse($html, $classe, $nouvelleDonnee) {
-    // Créer un objet DOMDocument
-    $dom = new DOMDocument();
-    // Charger le code HTML fourni
-    $dom->loadHTML($html);
-    // Créer un objet DOMXPath
-    $xpath = new DOMXPath($dom);
-    // Sélectionner toutes les balises avec la classe spécifiée
-    $elements = $xpath->query("//*[@class='$classe']");
-    // Parcourir toutes les balises trouvées
-    foreach ($elements as $element) {
-        // Remplacer le contenu de la balise par la nouvelle donnée
-        $element->nodeValue = $nouvelleDonnee;
-    }
-    // Récupérer le code HTML modifié
-    $nouveauHtml = $dom->saveHTML();
-    // Retourner le HTML modifié
-    return $nouveauHtml;
-}
+<!-- ---------------------------------------------------------------------------------------------------- -->
 
-// Votre code HTML initial
-$html = '<div class="aff_entreprise">
+<?php
+$username = "max";
+$password = "]$;8ytb]%n-Jg;^";
+try {
+    $pdo = new PDO('mysql:host=db.aws.gop.onl;dbname=max', $username, $password);
+    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+    // Requête SQL pour obtenir l'ID maximum de l'entreprise
+    $sql_max_id = "SELECT MAX(id_entreprise) AS max_id FROM entreprise";
+    $stmt_max_id = $pdo->query($sql_max_id);
+    $row_max_id = $stmt_max_id->fetch(PDO::FETCH_ASSOC);
+    $max_id = $row_max_id['max_id'];
+
+
+    
+    // Utiliser l'ID maximum de l'entreprise dans la boucle
+    for ($i = 1; $i <= $max_id; $i++) {
+        // Requête SQL pour récupérer les détails de l'offre de stage avec l'ID actuel de la boucle
+        $sql = "SELECT e.nom_entreprise, e.description_entreprise, a.numero_rue, a.nom_rue, 
+        av.note_globale, av.commentaire
+        FROM entreprise e
+        JOIN réside r ON e.id_entreprise = r.id_entreprise
+        JOIN adresse a ON r.id_adresse = a.id_adresse
+        LEFT JOIN Avis av ON e.id_entreprise = av.id_entreprise
+        WHERE e.id_entreprise = $i";
+
+        $stmt = $pdo->query($sql);
+
+        // Récupération des données de l'offre de stage
+        $row = $stmt->fetch(PDO::FETCH_ASSOC);
+        // Vérification s'il y a des données à afficher
+        if ($row) {
+            $nom_entreprise = $row['nom_entreprise'];
+            $etage = $row['etage'];
+            $nom_rue = $row['nom_rue'];
+            $numero_rue = $row['numero_rue'];
+            $adresse_mail = $row['adresse_mail'];
+            $description_entreprise = $row['description_entreprise'];
+            $note_globale = $row['note_globale'];
+            $commentaire = $row['commentaire'];
+
+            // Affichage des détails de l'offre de stage
+?>
+                  <div class="aff_entreprise">
             <div class="box_info_entreprise">
                 <div class="box_img_entreprise">
                     <img class="img_entreprise" src="image/entreprise.png" alt="menu avis" />
                 </div>
                 <div class="box_entreprise">
-                    <label class="nom_entreprise">Nom de l\'entreprise</label>
-                    <label class="localisation_entreprise">Localisation de l\'entreprise</label>
+                    <label class="nom_entreprise"><?php echo $nom_entreprise; ?></label>
+                    <label class="localisation_entreprise"><?php echo $numero_rue; ?> <?php echo $nom_rue; ?></label>
                     <div class="box_avis">
-                        <label class="avis_entreprise">Avis</label>
+                        <label class="avis_entreprise"><?php echo $note_globale; ?></label>
 
-                        <label class="nb_avis_entreprise">(Nombre d\'avis)</label>
+                        <label class="nb_avis_entreprise"><?php echo $description_competence; ?></label>
                     </div>
                 </div>
             </div>
             <div class="trait"></div>
             <div class="description_entreprise">
-                <label class="text_description_entreprise">Description de l\'entreprise...</label>
+                <label class="text_description_entreprise"><?php echo $description_entreprise; ?></label>
             </div>
             <div class="bas_aff_entreprise">
-                <label class="date_publi">Date de publication</label>
             </div>
-            <div class="fond_star popup_trigger">
+            <div class="fond_star popup_trigger" data-popup-id="<?php echo $i; ?>">
                 <img class="img_star" src="image/star.png" alt="menu avis" />
             </div>
-        </div>';
+        </div>
 
-// Répéter la modification quatre fois
-for ($i = 0; $i < 4; $i++) {
-    $nombreAleatoire = rand(1, 1000);
-    $nombreAleatoire2 = mt_rand(1, 50) / 10;
-
-    $html = remplacerDonneeParClasse($html, 'nom_entreprise', 'Google' . $i);
-    $html = remplacerDonneeParClasse($html, 'localisation_entreprise', 'Paris');
-    $html = remplacerDonneeParClasse($html, 'avis_entreprise', 'Note : ' .$nombreAleatoire2 .'/5');
-    $html = remplacerDonneeParClasse($html, 'nb_avis_entreprise', '(' . $nombreAleatoire . ' avis)' );
-    $html = remplacerDonneeParClasse($html, 'text_description_entreprise', "Google est une super entreprise.");
-    $html = remplacerDonneeParClasse($html, 'date_publi', 'Date de publication : 19/03/2024');
-
-    echo $html;
-}
-
-?>
-
-
-    </div>
-    </div>
-
-    <div class="popup_avis_entreprise" id="popup_avis_entreprise">
+            
+    <div class="popup_avis_entreprise" id="popup_avis_entreprise<?php echo $i; ?>">
         <div class="content_poppup_avis_entreprise">
             <div class="box_info_personne">
                 <img class="img_personne" src="image/profil.png" alt="image profil de la personne">
-                <div class="nom_personne">Nom personne</div>
+                <div class="nom_personne"><?php echo $name;?>  <?php echo $lastname; ?></div>
             </div>
             <div class="box_etoiles_avis">
                 <img class="etoiles_avis" src="image/etoile_avis_vide.png" alt="étoiles avis" />
@@ -117,16 +118,38 @@ for ($i = 0; $i < 4; $i++) {
             </div>
             <div class="box_commentaire_avis">
 
-                <textarea class="commentaire_avis" id="commentaire_avis" name="comment" rows="8" cols="50" placeholder="Partagez votre expérience concernant cette entreprise"></textarea>
+                <textarea class="commentaire_avis" name="comment" rows="8" cols="50" placeholder="Partagez votre expérience concernant cette entreprise"></textarea>
 
             </div>
             <div class="box_btn">
-                <button class="btn_annuler" id="btn_annuler">Annuler</button>
+                <button class="btn_annuler">Annuler</button>
                 <button class="btn_publier">Publier</button>
             </div>
         </div>
     </div>
 
+
+<?php
+        }
+    }
+} catch (PDOException $e) {
+    echo 'Erreur : ' . $e->getMessage();
+}
+
+// Fermeture de la connexion
+$pdo = null;
+?>
+
+
+
+
+
+<!-- --------------------------------------------------------------------------------------------------------------- -->
+
+
+
+
+</div> 
 
     <div class="overlay" id="overlay"></div>
 

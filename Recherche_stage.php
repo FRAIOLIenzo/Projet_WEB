@@ -38,15 +38,25 @@ try {
     $pdo = new PDO('mysql:host=db.aws.gop.onl;dbname=max', $username, $password);
     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-    for ($i = 1; $i <= 5; $i++) {
+    // Requête SQL pour obtenir l'ID maximum de l'entreprise
+    $sql_max_id = "SELECT MAX(id_offre_de_stage) AS max_id FROM offre_de_stage";
+    $stmt_max_id = $pdo->query($sql_max_id);
+    $row_max_id = $stmt_max_id->fetch(PDO::FETCH_ASSOC);
+    $max_id = $row_max_id['max_id'];
+
+    // Utiliser l'ID maximum de l'entreprise dans la boucle
+    for ($i = 1; $i <= $max_id; $i++) {
         // Requête SQL pour récupérer les détails de l'offre de stage avec l'ID actuel de la boucle
         $sql = "SELECT o.types_de_promotion, o.duree_stage, o.remuneration, o.date_publication_offre, 
         o.nombre_places_offertes, o.date_de_debut, o.date_de_fin, o.description_offre, 
-        o.domaine_stage, o.id_entreprise, e.nom_entreprise, r.etage, a.nom_rue, a.numero_rue
+        o.domaine_stage, o.id_entreprise, e.nom_entreprise, e.adresse_mail, r.etage, a.nom_rue, a.numero_rue,
+        c.description_competence
         FROM offre_de_stage o
         JOIN entreprise e ON o.id_entreprise = e.id_entreprise
         JOIN réside r ON e.id_entreprise = o.id_entreprise
         JOIN adresse a ON e.id_entreprise = o.id_entreprise
+        JOIN necessite n ON o.id_offre_de_stage = n.id_offre_de_stage
+        JOIN competence c ON n.id_competence = c.id_competence
         WHERE o.id_offre_de_stage = $i";
 
         $stmt = $pdo->query($sql);
@@ -69,6 +79,8 @@ try {
             $etage = $row['etage'];
             $nom_rue = $row['nom_rue'];
             $numero_rue = $row['numero_rue'];
+            $adresse_mail = $row['adresse_mail'];
+            $description_competence = $row['description_competence'];
 
             // Affichage des détails de l'offre de stage
 ?>
@@ -89,10 +101,48 @@ try {
                 <div class="bas_offre_stage">
                     <label class="date_publi"><?php echo $date_publication_offre; ?></label>
                 </div>
-                <div class="fond_plus popup_trigger">
-                  <img class="img_plus" src="image/plus_noir.png" alt="bouton pour voir plus d'offre de stage" data-offre-id="<?php echo $i; ?>" />
+                <div class="fond_plus popup_trigger" data-popup-id="<?php echo $i; ?>">
+                  <img class="img_plus" src="image/plus_noir.png" alt="bouton pour voir plus d'offre de stage" />
                 </div>
             </div>
+
+            
+    <div class="popup_offre_de_stage" id="popup_offre_de_stage<?php echo $i; ?>">
+      <div class="content_popup_offre_stage">
+        <div class="box_domaine_stage_popup">
+          <div class="box_gauche_domaine_stage">
+            <label class="text_domaine_stage"><?php echo $domaine_stage; ?></label>
+            <label class="nom_entreprise"><?php echo $nom_entreprise; ?></label>
+            <label class="lieu_stage"><?php echo $numero_rue; ?> <?php echo $nom_rue; ?></label>
+            <label class="remuneration_stage"><?php echo $remuneration; ?></label>
+          </div>
+          <div class="trait_vertical"></div>
+          <div class="box_droite_domaine_stage">
+            <label class="promotion_concernee"><?php echo $types_de_promotion; ?></label>
+            <label class="date_stage">Durée du stage : <?php echo $duree_stage; ?> </label>
+            <label class="nb_place">Nombre de places disponibles : <?php echo $nombre_places_offertes; ?></label>
+            <label class="adresse_mail">Contact : <?php echo $adresse_mail; ?></label>
+          </div>
+        </div>
+        <div class="trait"></div>
+        <div class="box_competences">
+          <ul class="competence">
+            <li><?php echo $description_competence; ?></li>
+            <li>-</li>
+            <li><?php echo $description_competence; ?></li>
+            <li>-</li>
+            <li><?php echo $description_competence; ?></li>
+          </ul>
+        </div>
+        <div class="description_stage">
+          <label class="text_description_stage"><?php echo $description_offre; ?></label>
+        </div>
+        <div class="box_btn">
+          <button class="btn_annuler" id="btn_annuler">Annuler</button>
+          <button class="btn_postuler" id="btn_postuler">Postuler</button>
+        </div>
+      </div>
+    </div>
 <?php
         }
     }
@@ -109,49 +159,16 @@ $pdo = null;
 
 
 
-    <div class="popup_offre_de_stage" id="popup_offre_de_stage">
-      <div class="content_popup_offre_stage">
-        <div class="box_domaine_stage_popup">
-          <div class="box_gauche_domaine_stage">
-            <label class="text_domaine_stage">Domaine du stage</label>
-            <label class="nom_entreprise">Nom de l'entreprise</label>
-            <label class="lieu_stage">Lieu du stage</label>
-            <label class="remuneration_stage">Rémunération</label>
-          </div>
-          <div class="trait_vertical"></div>
-          <div class="box_droite_domaine_stage">
-            <label class="promotion_concernee">Promotion concernée</label>
-            <label class="date_stage">Date du stage</label>
-            <label class="nb_place">nombre de place</label>
-            <label class="adresse_mail">Adresse mail</label>
-          </div>
-        </div>
-        <div class="trait"></div>
-        <div class="box_competences">
-          <ul class="competence">
-            <li>Compétence1</li>
-            <li>-</li>
-            <li>Compétence2</li>
-            <li>-</li>
-            <li>Compétence3</li>
-          </ul>
-        </div>
-        <div class="description_stage">
-          <label class="text_description_stage">Description du stage...</label>
-        </div>
-        <div class="box_btn">
-          <button class="btn_annuler" id="btn_annuler">Annuler</button>
-          <button class="btn_postuler" id="btn_postuler">Postuler</button>
-        </div>
-      </div>
-    </div>
     <div class="popup_postuler" id="popup_postuler">
       <div class="content_popup_postuler">
         <label class="text_popup">Téléverser votre CV en format PDF</label>
-        <button class="btn_cv">
-          <img class="img_cv" src="image/pdf.png">
-          <span class="btn_text">Selectionner votre fichier</span>
-        </button>
+
+        <button class="btn_cv" id="custom_btn">
+    <img class="img_cv" src="image/pdf.png">
+    <span class="btn_text">Sélectionner votre fichier</span>
+</button>
+<input type="file" id="file_input" style="display: none;">
+
         <div class="trait"></div>
         <label class="text_popup">Lettre de motivation</label>
         <div class="box_lettre_motiv">
@@ -163,6 +180,8 @@ $pdo = null;
         </div>
       </div>
     </div>
+
+
     <div class="overlay" id="overlay"></div>
     <?php include 'footer.php'; ?>
     <script src="js/js_rechercher_stage.js" async defer></script>

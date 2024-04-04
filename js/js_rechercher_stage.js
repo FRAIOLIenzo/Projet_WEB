@@ -1,78 +1,67 @@
-// const popupTriggers = document.querySelectorAll(".popup_trigger");
-// const btnTrigger = document.querySelectorAll(".btn_annuler");
-
-// const btnTrigger2 = document.getElementById("btn_postuler");
-
-// const overlay = document.getElementById("overlay");
-// const popup = document.getElementById("popup_offre_de_stage");
-// const popup2 = document.getElementById("popup_postuler");
-
-// function openPopup() {
-//   overlay.style.display = "block"; // Affiche la superposition
-//   popup.style.display = "block"; // Affiche la boîte modale
-// }
-
-// function openPopup2() {
-//   overlay.style.display = "block"; // Affiche la superposition
-//   popup2.style.display = "block"; // Affiche la boîte modale
-//   popup.style.display = "none";
-// }
-
-// function closePopup() {
-//   overlay.style.display = "none"; // Cache la superposition
-//   popup.style.display = "none"; // Cache la boîte modale
-// }
-
-// function closePopup2() {
-//   overlay.style.display = "none"; // Cache la superposition
-//   popup2.style.display = "none"; // Cache la boîte modale
-// }
-
-// // Ajoute un gestionnaire d'événements pour le clic sur l'image d'étoile
-// // Parcourt chaque élément et ajoute un gestionnaire d'événements pour le clic
-// popupTriggers.forEach((trigger) => {
-//   trigger.addEventListener("click", openPopup);
-// });
-
-// btnTrigger.forEach((trigger) => {
-//   trigger.addEventListener("click", closePopup);
-//   trigger.addEventListener("click", closePopup2);
-// });
-// btnTrigger2.addEventListener("click", openPopup2);
-
-// window.addEventListener("click", function (event) {
-//   if (event.target === overlay) {
-//     closePopup();
-//     closePopup2();
-//   }
-// });
-
-
-
-
-
-
 $(document).ready(function() {
   $('.img_plus').click(function() {
-      var offreId = $(this).data('offre-id');
-      var domaineStage = $('.offre_stage[data-offre-id="' + offreId + '"] .text_domaine_stage').text();
-      var nomEntreprise = $('.offre_stage[data-offre-id="' + offreId + '"] .nom_entreprise').text();
-      var lieuStage = $('.offre_stage[data-offre-id="' + offreId + '"] .lieu_stage').text();
-      var remuneration = $('.offre_stage[data-offre-id="' + offreId + '"] .remuneration_stage').text();
-
-      $('#popup_offre_de_stage .text_domaine_stage').text(domaineStage);
-      $('#popup_offre_de_stage .nom_entreprise').text(nomEntreprise);
-      $('#popup_offre_de_stage .lieu_stage').text(lieuStage);
-      $('#popup_offre_de_stage .remuneration_stage').text(remuneration);
-
-      // Autres valeurs à mettre à jour selon les besoins...
-
-      // Afficher la popup
-      $('#popup_offre_de_stage').fadeIn();
+      var popupId = $(this).parent().attr('data-popup-id');
+      var popup = $('#popup_offre_de_stage' + popupId);
+      if (popup.length) {
+          $('#overlay').show();
+          popup.show();
+      }
   });
 
-  // Gestion du bouton "Annuler"
-  $('#btn_annuler').click(function() {
-      $('#popup_offre_de_stage').fadeOut();
+  $('.btn_annuler').click(function() {
+      $(this).closest('.popup_offre_de_stage').hide();
+      $('#overlay').hide();
   });
+
+  $('.btn_postuler').click(function() {
+      $('#popup_postuler').show();
+      $(this).closest('.popup_offre_de_stage').hide();
+      $('#overlay').show();
+  });
+
+  $('#popup_postuler .btn_annuler').click(function() {
+      $('#popup_postuler').hide();
+      $('#overlay').hide();
+  });
+
+  $('#popup_postuler .btn_envoyer').click(function() {
+      $('#popup_postuler').hide();
+      $('#overlay').hide();
+  });
+
+  $('.img_wishlist').click(function() {
+      var currentSrc = $(this).attr('src');
+      if (currentSrc === 'image/bookmark.png') {
+          $(this).attr('src', 'image/bookmark_2.png');
+      } else {
+          $(this).attr('src', 'image/bookmark.png');
+      }
+  });
+
+  // Gestionnaire d'événements pour la recherche dynamique
+  $('#text_recherche').on('input', function() {
+      var searchTerm = $(this).val().toLowerCase();
+      $('.offre_stage').each(function() {
+          var domaine = $(this).find('.text_domaine_stage').text().toLowerCase();
+          var entreprise = $(this).find('.nom_entreprise').text().toLowerCase();
+          if (domaine.startsWith(searchTerm) || entreprise.startsWith(searchTerm)) {
+              $(this).show();
+          } else {
+              $(this).hide();
+          }
+      });
+  });
+
+
+  document.getElementById('custom_btn').addEventListener('click', function() {
+  document.getElementById('file_input').click();
+});
+
+document.getElementById('file_input').addEventListener('change', function() {
+    // Gérer le fichier sélectionné
+    var selectedFile = this.files[0];
+    console.log(selectedFile);
+});
+
+
 });
