@@ -1,10 +1,10 @@
-google.charts.load("current", {packages:["corechart"]});
+google.charts.load("current", { packages: ["corechart"] });
 google.charts.setOnLoadCallback(drawCharts);
 
 function drawCharts() {
   // Créer un tableau vide pour stocker les données
   var dataCampus = [["Campus", "Localisation"]];
-  var dataSecteur = [['Secteur', 'Activite']];
+  var dataSecteur = [["Secteur", "Activite"]];
 
   // Parcourir les données JSON stockées dans la variable donutData2 pour le premier graphique
   // et ajouter chaque paire de données au tableau
@@ -22,9 +22,32 @@ function drawCharts() {
     pieHole: 0,
   };
 
-  var chartCampus = new google.visualization.PieChart(document.getElementById('donut_campus'));
+  var chartCampus = new google.visualization.PieChart(
+    document.getElementById("donut_campus")
+  );
   chartCampus.draw(google.visualization.arrayToDataTable(dataCampus), options);
 
-  var chartSecteur = new google.visualization.PieChart(document.getElementById('donut_secteur_activite'));
-  chartSecteur.draw(google.visualization.arrayToDataTable(dataSecteur), options);
+  var chartSecteur = new google.visualization.PieChart(
+    document.getElementById("donut_secteur_activite")
+  );
+  chartSecteur.draw(
+    google.visualization.arrayToDataTable(dataSecteur),
+    options
+  );
 }
+
+
+// Sélection de la liste
+var liste = document.getElementById("listeEntreprises");
+
+// Effacement du contenu actuel de la liste
+liste.innerHTML = "";
+var sixPremiers = donutData3.slice(0, 6);
+// Boucle à travers le tableau d'entreprises et de leurs notes pour créer les éléments de liste
+sixPremiers.forEach(function (entrepriseNote) {
+  var entreprise = entrepriseNote[0];
+  var note = entrepriseNote[1];
+  var li = document.createElement("li");
+  li.textContent = entreprise + " - Note : " + note;
+  liste.appendChild(li);
+});
