@@ -186,7 +186,9 @@ input::placeholder {
 .positionnement_btn_suivant_1{
   display : flex;
   justify-content: center;
-  margin-top: 20px;
+  margin-top: 180px;
+  margin-left: 20px;
+
 
 }
 
