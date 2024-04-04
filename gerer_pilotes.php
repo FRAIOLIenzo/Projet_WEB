@@ -20,7 +20,7 @@
   <title>noStage</title>
   <meta name="description" content="" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <link rel="stylesheet" href="style/style_navbar.css" />
+
   <link rel="stylesheet" href="style/style_gerer_pilotes.css" />
   <link rel="stylesheet" href="style/style_fenetre_gerer_pilotes.css" />
   <script src="js/js_gerer.js" defer></script>

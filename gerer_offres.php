@@ -20,7 +20,7 @@ $statut = "offre";
   <title>noStage</title>
   <meta name="description" content="gerer_offre_de_stage" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <link rel="stylesheet" href="style/style_navbar.css" />
+
   <link rel="stylesheet" href="style/style_gerer_offres.css" />
   <link rel="stylesheet" href="style/style_fenetre_creer_offre_stage.css" />
   <script src="API/code_postal_ville.js" defer></script>
