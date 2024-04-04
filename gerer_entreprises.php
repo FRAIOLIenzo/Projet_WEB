@@ -30,6 +30,7 @@ $statut = "entreprise";
   <link rel="stylesheet" href="style/style_fenetre_creer_entreprise.css" />
   <script src="API/code_postal_ville.js" defer></script>
   <script src='js/js_verification_formulaire_entreprise.js' defer></script>
+  <script src='js/js_verification_formulaire_entreprise_modification.js' defer></script>
 
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" />
 </head>
@@ -100,34 +101,127 @@ $statut = "entreprise";
     </div>
 
     <div id="popupmodifier">
-      <div class="popupcontent">
-        <div id="creertxt">Modifier le profil de l'entreprise</div>
+      <div class="box">
+        <div class="box_connexion">
+          <div class="box_connexion_contenu">
+            <label class="titre-pop-up" >Modifier une entreprise</label>
+            <form action="" id="creer_entreprise" class="formcreer_entreprise" method="post">
+              <div class="offre_page_1sur2modif">
+                <div class="conteneur_page_1_creer_offre">
+                  <div class="partie_gauche">
 
-        <form action="/votre-page-de-traitement" method="post" class="formcreer1">
-          <div id="nomprenom">
-            <input type="text" id="prenom" name="prenom" placeholder="Prénom" required />
-            <input type="text" id="nom" name="nom" placeholder="Nom" required />
+                    <div class="ligne">
+                      <input id="nom_entreprisemodif" name="nom_entreprise" placeholder="Nom de l'entreprise" required />
+                    </div>
+
+                    <a id="verif_nom_entreprisemodif"></a>
+
+                    <div class="ligne">
+                      <input id="num_telmodif" type="number" name="num_tel" placeholder="Numéro de téléphone" required />
+                    </div>
+
+                    <a id="verif_num_telmodif"></a>
+
+                    <div class="ligne">
+
+                      <input id="adresse_mailmodif" name="adresse_mail" type="email" placeholder="Adresse mail" required/>
+                    </div>
+
+                    <a id="verif_adresse_mailmodif"></a>
+
+                    <div class="ligne">
+
+                      <input id="num_siretmodif" name="num_siret" type="number" class="colonne-gauche" placeholder="Numérot de siret" required />
+                    </div>
+
+                    <a id="verif_num_siretmodif"></a>
+
+
+                  </div>
+
+                  <div class="trait"></div>
+                  <div class="partie_droite">
+
+                    <div class="ligne">
+                      <input id="code_postalmodif" type="number" name="code_postal" placeholder="Code postal" required />
+                    </div>
+                    <a id="verif_code_postalmodif"></a>
+
+
+
+                    <div class="ligne">
+
+                      <select id="villemodif" name="ville" placeholder="Ville" required> </select>
+                    </div>
+
+                    <div class="ligne">
+
+                      <input id="num_ruemodif" name="num_rue" type="number" placeholder="Numéro rue" required />
+
+
+                    </div>
+
+                    <div class="ligne">
+                      <input id="nom_ruemodif" name="nom_rue" placeholder="Nom rue" required/>
+
+                    </div>
+
+                    <a id="verif_nom_ruemodif"></a>
+                    <div class="positionnement_btn_suivant_1">
+                      <button class="btn_suivant_1" onclick="offre_page_vers_2sur2modif()"> Suivant</button>
+                    </div>
+
+                  </div>
+
+                </div>
+
+
+
+              </div>
+
+              <div class="offre_page_2sur2modif">
+
+
+
+                <div>
+                  <label id="virgule_labelmodif"> Veuillez séparer les secteurs d'activités avec une virgule </label>
+                </div>
+
+                <div class="ligne">
+
+                  <textarea id="secteur_activitemodif" name="secteur_activite" class="description" placeholder="Secteurs d'activités" required></textarea>
+
+                </div>
+
+
+
+                <div class="ligne">
+                  <textarea id="description_entreprisemodif" name="description_entreprise" class="description" placeholder="Description de l'entreprise" required></textarea>
+                </div>
+
+                <div class="btn_prece_valid">
+                  <button class="btn_precedent_1" onclick="offre_page_vers_1sur2modif()"> Précédent</button>
+                  <button class="btn_valider" type="submit" id="btn_validermodif"> Valider</button>
+                  <button type = "button" id="btn_donnees_incorrectmodif" class="btn_valider" >Merci de vérifier vos informations</button>
+
+                </div>
+
+              </div>
+
+
+            </form>
+
+            <div id="closecircle"></div>
+
+            <img alt="close" id="close" src="image/close.png" onclick="openPopup2()" />
+
+
+
+
+          
+
           </div>
-          <select id="centre" name="centre">
-            <option value="" disabled selected>Centre</option>
-
-            <option value="centre1">Centre 1</option>
-            <option value="centre2">Centre 2</option>
-            <option value="centre3">Centre 3</option>
-          </select>
-          <select id="promotion" name="promotion">
-            <option value="" disabled selected>Promotion</option>
-            <option value="promotion1">Promotion 1</option>
-            <option value="promotion2">Promotion 2</option>
-            <option value="promotion3">Promotion 3</option>
-          </select>
-          <input type="email" id="email" name="email" placeholder="Adresse e-mail" required />
-          <input type="password" id="motdepasse" name="motdepasse" placeholder="Mot de passe" required />
-          <input type="submit" value="Valider" />
-        </form>
-        <div id="closecircle"></div>
-
-        <img alt="close" id="close" src="image/close.png" onclick="openPopup2()" />
+        </div>
       </div>
     </div>
 
@@ -249,9 +343,6 @@ $statut = "entreprise";
 
 
 
-            <div id="closecircle"></div>
-
-            <img alt="close" id="close" src="image/close.png" onclick="openPopup1()" />
 
           </div>
         </div>

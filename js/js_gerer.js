@@ -78,7 +78,26 @@ function offre_page_vers_2sur2() {
   let offrePage2sur2 = document.querySelector(".offre_page_2sur2");
   offrePage1sur2.style.display = "none";
   offrePage2sur2.style.display = "block";
+
 }
+
+
+function offre_page_vers_1sur2modif() {
+  let offrePage1sur2modif = document.querySelector(".offre_page_1sur2modif");
+  let offrePage2sur2modif = document.querySelector(".offre_page_2sur2modif");
+
+  offrePage1sur2modif.style.display = "block";
+  offrePage2sur2modif.style.display = "none";
+}
+
+function offre_page_vers_2sur2modif() {
+  let offrePage1sur2modif = document.querySelector(".offre_page_1sur2modif");
+  let offrePage2sur2modif = document.querySelector(".offre_page_2sur2modif");
+  offrePage1sur2modif.style.display = "none";
+  offrePage2sur2modif.style.display = "block";
+
+}
+
 
 function openPopup1() {
   let popup = document.getElementById("popupajout1");
