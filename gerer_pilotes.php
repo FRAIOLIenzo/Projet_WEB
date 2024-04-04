@@ -259,7 +259,7 @@
 
 
           <input type="submit" id="btn_valider" value="Valider" />
-          <button type = "button" id="btn_donnees_incorrect" >Veuillez valider toutes données avant de pourvoir les envoyer</button>
+          <button type = "button" id="btn_donnees_incorrect" >Merci de vérifier vos informations</button>
         </form>
         <div id="closecircle"></div>
 

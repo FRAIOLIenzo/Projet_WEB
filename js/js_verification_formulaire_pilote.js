@@ -68,7 +68,7 @@ document.addEventListener("DOMContentLoaded", function () {
       balise_motdepasse.style.display = "none";
     }
 
-    // Afficher ou masquer les boutons en fonction de l'état des balises
+    // Afficher ou masquer les boutons en si les champs sont ok ou non 
     if (
       balise_prenom.style.display === "block" ||
       balise_nom.style.display === "block" ||
