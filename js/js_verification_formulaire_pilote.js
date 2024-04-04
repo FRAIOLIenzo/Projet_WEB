@@ -11,8 +11,7 @@ document.addEventListener("DOMContentLoaded", function () {
   const input_motdepasse = document.getElementById("motdepasse_inserer");
   const balise_motdepasse = document.querySelector("#verif_motdepasse");
 
-  const btn_valider = document.getElementById("btn_valider");
-  const btn_donnees_incorrect = document.getElementById("btn_donnees_incorrect");
+
 
   document.addEventListener("click", function (event) {
     /*PRENOM*/

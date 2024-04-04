@@ -360,7 +360,7 @@ tbody tr:hover {
 }
 
 
-.offre_page_2sur2 {
+.offre_page_2sur2,.offre_page_2sur2modif {
   display: none;
 }
 

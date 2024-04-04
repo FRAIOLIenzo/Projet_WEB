@@ -26,6 +26,7 @@
     </script>
     <script src="js/js_gerer.js" defer></script>
     <script src='js/js_verification_formulaire_etudiant.js' defer></script>
+    <script src="js/js_verification_formulaire_etudiant_modification.js" defer></script>
 
     <link
       rel="stylesheet"
@@ -108,11 +109,26 @@
         <input type="text" id="idsup" name="id" placeholder="id" style="display : none ;" required />
         <input type="text" id="promoc" value ="a" name="promoc" style="display : none ;" required />
         <input type="text" id="centrec" name="centrec" style="display : none ;" required />
-          <div id="nomprenom">
-            <input type="text" id="prenom" name="prenom" placeholder="Prénom" required />
-            <input type="text" id="nom" name="nom" placeholder="Nom" required />
+        <div id="nomprenom">
+            <div id="prenom1" class="aaaa">
+              <input id="prenommodif" name="prenom" placeholder="Prénom" required />
+              <a id="verif_prenommodif"></a>
+
+            </div>
+
+            <div id="nom1">
+              <input type="text" id="nommodif" name="nom" placeholder="Nom" required />
+
+              <a id="verif_nommodif"></a>
+
+            </div>
+
+
+
           </div>
-          <select id="centre" name="centre">
+
+
+          <select id="centremodif" name="centre">
             <option value="" disabled selected>Centre</option>
             <?php 
             $query = $db->prepare("SELECT nom_centre FROM Centre");
@@ -134,9 +150,14 @@
             }
             ?>
           </select>
-          <input type="email" id="email" name="email" placeholder="Adresse e-mail" required />
-          <input type="password" id="motdepasse" name="motdepasse" placeholder="Mot de passe" required />
-          <input type="submit" value="Valider"/>
+
+
+          <input type="email" id="emailmodif" name="email" placeholder="Adresse e-mail" required />
+          <a id="verif_emailmodif"></a>
+          <input type="password" id="motdepassemodif" name="motdepasse" placeholder="Mot de passe" required />
+          <a id="verif_motdepassemodif"></a>
+          <input type="submit" id="btn_validermodif" value="Valider" />
+          <button type="button" id="btn_donnees_incorrectmodif">Merci de vérifier vos informations</button>
         </form>
         <div id="closecircle"></div>
 
