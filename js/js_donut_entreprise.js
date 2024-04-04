@@ -51,3 +51,27 @@ sixPremiers.forEach(function (entrepriseNote) {
   li.textContent = entreprise + " - Note : " + note;
   liste.appendChild(li);
 });
+
+
+
+  // Tableau de données
+
+
+  // Sélection du corps du tableau
+  var tableBody = document.getElementById("tableBody");
+
+  // Effacement du contenu actuel du corps du tableau
+  tableBody.innerHTML = "";
+  var troisPremiers = donutData4.slice(0, 3);
+  // Boucle à travers le tableau de données pour créer les lignes et les cellules
+  troisPremiers.forEach(function(rowData) {
+    var row = document.createElement("tr");
+
+    rowData.forEach(function(cellData) {
+      var cell = document.createElement("td");
+      cell.textContent = cellData;
+      row.appendChild(cell);
+    });
+
+    tableBody.appendChild(row);
+  });
