@@ -97,9 +97,6 @@ try {
 ?>
                   <div class="aff_entreprise">
             <div class="box_info_entreprise">
-                <div class="box_img_entreprise">
-                    <img class="img_entreprise" src="image/entreprise.png" alt="menu avis" />
-                </div>
                 <div class="box_entreprise">
                     <label class="nom_entreprise"><?php echo $nom_entreprise; ?></label>
                     <label class="localisation_entreprise"><?php echo $numero_rue; ?> <?php echo $nom_rue; ?></label>
