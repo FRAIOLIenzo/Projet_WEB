@@ -188,6 +188,11 @@ function attachImageEventListeners() {
 
         supid.value = rowData[0];
       }
+      if (page == "gerer_entreprises.php") {
+        var supid = document.getElementById("idsup3");
+
+        supid.value = rowData[0];
+      }
     });
   });
 }

@@ -51,13 +51,31 @@ try {
     // Utiliser l'ID maximum de l'entreprise dans la boucle
     for ($i = 1; $i <= $max_id; $i++) {
         // Requête SQL pour récupérer les détails de l'offre de stage avec l'ID actuel de la boucle
-        $sql = "SELECT e.nom_entreprise, e.description_entreprise, a.numero_rue, a.nom_rue, 
-        av.note_globale, av.commentaire
-        FROM entreprise e
-        JOIN réside r ON e.id_entreprise = r.id_entreprise
-        JOIN adresse a ON r.id_adresse = a.id_adresse
-        LEFT JOIN Avis av ON e.id_entreprise = av.id_entreprise
-        WHERE e.id_entreprise = $i";
+        $sql = "SELECT 
+        e.nom_entreprise, 
+        e.description_entreprise, 
+        a.numero_rue, 
+        a.nom_rue, 
+        ROUND(COALESCE(AVG(av.note_globale), 0)) AS moyenne_notes, 
+        COUNT(av.id_entreprise) AS nombre_avis, 
+        av.commentaire
+    FROM 
+        entreprise e
+    JOIN 
+        réside r ON e.id_entreprise = r.id_entreprise
+    JOIN 
+        adresse a ON r.id_adresse = a.id_adresse
+    LEFT JOIN 
+        Avis av ON e.id_entreprise = av.id_entreprise
+    WHERE 
+        e.id_entreprise = $i
+    GROUP BY 
+        e.nom_entreprise, 
+        e.description_entreprise, 
+        a.numero_rue, 
+        a.nom_rue;
+    
+    ";
 
         $stmt = $pdo->query($sql);
 
@@ -71,8 +89,9 @@ try {
             $numero_rue = $row['numero_rue'];
             $adresse_mail = $row['adresse_mail'];
             $description_entreprise = $row['description_entreprise'];
-            $note_globale = $row['note_globale'];
+            $moyenne_notes = $row['moyenne_notes'];
             $commentaire = $row['commentaire'];
+            $nombre_avis = $row['nombre_avis'];
 
             // Affichage des détails de l'offre de stage
 ?>
@@ -85,9 +104,9 @@ try {
                     <label class="nom_entreprise"><?php echo $nom_entreprise; ?></label>
                     <label class="localisation_entreprise"><?php echo $numero_rue; ?> <?php echo $nom_rue; ?></label>
                     <div class="box_avis">
-                        <label class="avis_entreprise">Note : <?php echo $note_globale; ?>/5</label>
+                        <label class="avis_entreprise">Note :<?php echo $moyenne_notes; ?>/5</label>
 
-                        <label class="nb_avis_entreprise"><?php echo $description_competence; ?></label>
+                        <label class="nb_avis_entreprise">(<?php echo $nombre_avis; ?> avis)</label>
                     </div>
                 </div>
             </div>

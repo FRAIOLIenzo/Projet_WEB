@@ -24,8 +24,9 @@ $statut = "entreprise";
 
   <link rel="stylesheet" href="style/style_gerer_entreprises.css" />
   <script src="js/js_gerer.js" defer></script>
-
-
+  <script>
+    var page = "<?php echo basename($_SERVER['PHP_SELF']); ?>";
+    </script>
 
   <link rel="stylesheet" href="style/style_fenetre_creer_entreprise.css" />
   <script src="API/code_postal_ville.js" defer></script>
@@ -45,6 +46,59 @@ $statut = "entreprise";
 
 
   <main>
+  <form action="" method="post">
+      <div id="popupsuppr">
+        <div class="popupsuppr-content">
+          <div id="txtpopupsuppr">
+            Voulez-vous supprimer ce pilote de manière définitive ?
+          </div>
+          <div>
+            <input type="text" id="idsup3" name="idsup3" placeholder="id" style="display : block ;" required />
+            <button type="submit" id="Supprimer">Supprimer</button>
+            <button id="Annuler" type="button" onclick="openPopup3()">Annuler</button>
+          </div>
+        </div>
+      </div>
+    </div>
+</form>
+
+
+<?php
+  if (($_SERVER["REQUEST_METHOD"] == "POST") && (isset($_POST['idsup3']))) {
+    
+    $id2 = $_POST['idsup3'];
+    echo '<script>alert("'.$id2.'");</script>';
+
+    $query = $db->prepare("DELETE FROM `max`.`réside` WHERE id_entreprise = :id;");
+    $query->bindValue(':id', $id2);
+    $query->execute();
+    $query = $db->prepare("DELETE FROM `max`.`possede` WHERE id_entreprise = :id;");
+    $query->bindValue(':id', $id2);
+    $query->execute();
+    // on verifie si ya avis : 
+    $query = $db->prepare("SELECT id_entreprise FROM Avis WHERE id_entreprise=:id;");
+    $query->bindValue(':id', $id2);
+    $query->execute();
+    $row = $query->fetch(PDO::FETCH_ASSOC);
+      // Vérifie si la ville existe déjà
+    if ($row) {
+        $query = $db->prepare("DELETE FROM `max`.`avis` WHERE id_entreprise = :id;");
+        $query->bindValue(':id', $id2);
+        $query->execute();
+    }
+    $query = $db->prepare("DELETE FROM `max`.`entreprise` WHERE id_entreprise = :id;");
+    $query->bindValue(':id', $id2);
+    $query->execute();
+    echo '<script>alert("Pilote ajouté avec succès");</script>';
+    header("Location: gerer_pilotes.php");
+  } ?>
+
+
+
+
+
+
+
     <div class="container2">
       <div class="menu">
         <ul>
@@ -348,10 +402,10 @@ $statut = "entreprise";
         </div>
       </div>
     </div>
+    
+    
     <?php
-
-
-    if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["num_siret"])) {
       $nom_entreprise = $_POST['nom_entreprise'];
       $num_tel = $_POST['num_tel'];
       $adresse_mail = $_POST['adresse_mail'];
@@ -362,29 +416,7 @@ $statut = "entreprise";
       $nom_rue = $_POST['nom_rue'];
       $ville = $_POST['ville'];
       $code_postal = $_POST['code_postal'];
-
-      // Insérer l'adresse
-      $query = $db->prepare("INSERT IGNORE INTO adresse (numero_rue, nom_rue) VALUES (:numero_rue, :nom_rue);");
-      $query->bindValue(':numero_rue', $numero_rue);
-      $query->bindValue(':nom_rue', $nom_rue);
-      $query->execute();
-
-      // Insérer la ville
-      $query = $db->prepare("INSERT IGNORE INTO ville (nom_ville, code_postal, id_region) VALUES (:ville,:code_postal, 1);");
-      $query->bindValue(':ville', $ville);
-      $query->bindValue(':code_postal', $code_postal);
-      $query->execute();
-
-      // Associer l'adresse à la ville
-      $query = $db->prepare("INSERT IGNORE INTO se_localise (id_ville, id_adresse)
-                             SELECT v.id_ville, a.id_adresse
-                             FROM ville v
-                             JOIN adresse a ON v.id_ville = a.id_adresse
-                             WHERE v.nom_ville = :ville AND a.numero_rue = :numero_rue AND a.nom_rue = :nom_rue;");
-      $query->bindValue(':ville', $ville);
-      $query->bindValue(':numero_rue', $numero_rue);
-      $query->bindValue(':nom_rue', $nom_rue);
-      $query->execute();
+      echo '<script>alert("'.$ville.$nom_rue.$numero_rue.'");</script>';
 
       // Insérer l'entreprise
       $query = $db->prepare("INSERT INTO entreprise (nom_entreprise, numero_telephone, adresse_mail, description_entreprise, numero_siret) 
@@ -395,78 +427,75 @@ $statut = "entreprise";
       $query->bindValue(':description_entreprise', $description_entreprise);
       $query->bindValue(':num_siret', $num_siret);
       $query->execute();
-
       // Récupérer l'id de l'entreprise insérée
-      $query = $db->prepare("SELECT LAST_INSERT_ID() AS id_entreprise;");
+      $id_entreprise =$db->lastInsertId();
+      echo '<script>alert("entreprise");</script>';
+
+      
+
+      // On regarde si la ville existe déjà
+      $query = $db->prepare("SELECT id_ville FROM ville WHERE nom_ville=:ville;");
+      $query->bindValue(':ville', $ville);
       $query->execute();
       $row = $query->fetch(PDO::FETCH_ASSOC);
-      $id_entreprise = $row['id_entreprise'];
+
+      // Vérifie si la ville existe déjà
+      if ($row) {
+          $idville = $row['id_ville'];
+      } else {
+          // Si la ville n'existe pas, l'insérer
+          $query = $db->prepare("INSERT INTO ville (nom_ville) VALUES (:ville);");
+          $query->bindValue(':ville', $ville);
+          $query->execute();
+          // Récupérer l'id de la ville nouvellement insérée
+          $idville = $db->lastInsertId();
+      }
+      echo '<script>alert("ville '.$idville.'");</script>';
+
+      // Associer l'adresse à la ville
+      $query = $db->prepare("INSERT INTO adresse (numero_rue, nom_rue) VALUES (:numero_rue, :nom_rue)");
+      $query->bindValue(':numero_rue', $numero_rue);
+      $query->bindValue(':nom_rue', $nom_rue);
+      $query->execute();
+      // on selectionne l'id de l'addresse
+      $id_adresse= $db->lastInsertId();
+      echo '<script>alert("'.$id_adresse." | ".$idville. '");</script>';
+
+
+      // on la lie à localise 
+      $query = $db->prepare("INSERT INTO se_localise (id_ville, id_adresse) VALUES (:id_ville, :id_adresse);");
+      $query->bindValue(':id_ville', $idville);
+      $query->bindValue(':id_adresse', $id_adresse);
+      $query->execute();
+      echo '<script>alert("localise");</script>';
+
+      // puis à réside 
+      $query = $db->prepare("INSERT INTO réside (id_entreprise, id_adresse) VALUES (:id_entreprise, :id_adresse);");
+      $query->bindValue(':id_entreprise', $id_entreprise);
+      $query->bindValue(':id_adresse', $id_adresse);
+      $query->execute();
+      echo '<script>alert("reside");</script>';
 
       // Insérer le secteur d'activité
       $query = $db->prepare("INSERT INTO secteur_activite (nom_secteur_activite) VALUES (:secteur_activite);");
       $query->bindValue(':secteur_activite', $secteurs_activite);
       $query->execute();
-
-      // Récupérer l'id du secteur d'activité inséré
-      $query = $db->prepare("SELECT LAST_INSERT_ID() AS id_secteur_activite;");
-      $query->execute();
-      $row = $query->fetch(PDO::FETCH_ASSOC);
-      $id_secteur_activite = $row['id_secteur_activite'];
+      // Récupérer l'id secteur d'activité
+      $id_secteur_activite =$db->lastInsertId();
+      echo '<script>alert("secteur");</script>';
 
       // Insérer les secteurs d'activité de l'entreprise
       $query = $db->prepare("INSERT INTO possede (id_entreprise, id_secteur_activite) VALUES (:id_entreprise, :id_secteur_activite);");
       $query->bindValue(':id_entreprise', $id_entreprise);
       $query->bindValue(':id_secteur_activite', $id_secteur_activite);
       $query->execute();
+      echo '<script>alert("Entreprise ajouté avec siccès");</script>';
 
-
-      // Insérer l'adresse de l'entreprise dans la table reside
-      // Insérer l'adresse de l'entreprise dans la table réside
-      $query = $db->prepare("INSERT INTO réside (id_entreprise, id_adresse)
-   SELECT :id_entreprise, a.id_adresse
-   FROM adresse a
-   JOIN se_localise sl ON a.id_adresse = sl.id_adresse
-   WHERE sl.id_ville = (SELECT id_ville FROM ville WHERE nom_ville = :ville)
-   AND a.numero_rue = :numero_rue AND a.nom_rue = :nom_rue;");
-      $query->bindValue(':id_entreprise', $id_entreprise);
-      $query->bindValue(':ville', $ville);
-      $query->bindValue(':numero_rue', $numero_rue);
-      $query->bindValue(':nom_rue', $nom_rue);
-      $query->execute();
-
-
-
-      // Associer l'entreprise à l'adresse dans la table se_localise
-      $query = $db->prepare("INSERT IGNORE INTO se_localise (id_ville, id_adresse)
-       SELECT v.id_ville, a.id_adresse
-       FROM ville v
-       JOIN adresse a ON v.id_ville = a.id_adresse
-       JOIN réside r ON a.id_adresse = r.id_adresse
-       JOIN entreprise e ON r.id_entreprise = e.id_entreprise
-       WHERE v.nom_ville = :ville AND a.numero_rue = :numero_rue AND a.nom_rue = :nom_rue;");
-      $query->bindValue(':ville', $ville);
-      $query->bindValue(':numero_rue', $numero_rue);
-      $query->bindValue(':nom_rue', $nom_rue);
-      $query->execute();
     }
 
 
     ?>
 
-
-    <div id="popupsuppr">
-      <div class="popupsuppr-content">
-        <div id="txtpopupsuppr">
-          Voulez-vous supprimer cette entreprise de manière définitive ?
-        </div>
-        <div>
-          <button id="Supprimer">Supprimer</button>
-          <button id="Annuler" onclick="openPopup3()">Annuler</button>
-        </div>
-      </div>
-    </div>
-  </main>
-  <?php include 'footer.php'; ?>
 
 </body>
 
