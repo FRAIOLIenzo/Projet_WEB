@@ -186,24 +186,24 @@ $statut = "offre";
                   <div class="partie_gauche">
 
                     <div class="ligne">
-                      <input id="nom_offre" placeholder="Nom de l'offre" />
+                      <input id="nom_offre" placeholder="Nom de l'offre" required />
                     </div>
 
                     <a id="verif_nom_offre"></a>
 
                     <div class="ligne">
-                      <input id="nom_entreprise" placeholder="Nom de l'entreprise" />
+                      <input id="nom_entreprise" placeholder="Nom de l'entreprise" required/>
                     </div>
 
                     <a id="verif_nom_entreprise"></a>
 
                     <div class="ligne">
 
-                      <input id="nombre_place" type="number" placeholder="Nombre de place" />
+                      <input id="nombre_place" type="number" placeholder="Nombre de place" required/>
                     </div>
 
                     <div class="ligne">
-                      <input id="promo_concernees" type="email" placeholder="Promo concernées" />
+                      <input id="promo_concernees" type="email" placeholder="Promo concernées" required/>
                     </div>
 
                     <a id="verif_promo_concernees"></a>
@@ -213,7 +213,7 @@ $statut = "offre";
                   <div class="partie_droite">
 
                     <div class="ligne">
-                      <input id="code_postal" type="number" name="code_postal" placeholder="Code postal" />
+                      <input id="code_postal" type="number" name="code_postal" placeholder="Code postal" required/>
                     </div>
                     <a id="verif_code_postal"></a>
 
@@ -221,18 +221,18 @@ $statut = "offre";
 
                     <div class="ligne">
 
-                      <select id="ville" placeholder="Ville"> </select>
+                      <select id="ville" placeholder="Ville" required> </select>
                     </div>
 
                     <div class="ligne">
 
-                      <input id="num_rue" type="number" placeholder="Numéro rue" />
+                      <input id="num_rue" type="number" placeholder="Numéro rue" required/>
 
 
                     </div>
 
                     <div class="ligne">
-                      <input id="nom_rue" placeholder="Nom rue" />
+                      <input id="nom_rue" placeholder="Nom rue" required/>
 
                     </div>
 
@@ -253,12 +253,12 @@ $statut = "offre";
 
                 <div class="ligne_2 premiere_ligne">
                   <label for="date_debut">Date de début :</label>
-                  <input id="date_debut" type="date" class="colonne-gauche" />
+                  <input id="date_debut" type="date" class="colonne-gauche" required/>
                 </div>
 
                 <div class="ligne_2">
                   <label for="date_debut">Date de fin : </label>
-                  <input id="date_fin" type="date" class="colonne-gauche" />
+                  <input id="date_fin" type="date" class="colonne-gauche" required/>
 
                 </div>
                 <div >
@@ -266,15 +266,15 @@ $statut = "offre";
                 </div>
                 <div class="ligne_2_de3">
 
-                  <input id="competence" class="colonne-gauche" placeholder=" Compétences" />
+                  <input id="competence" class="colonne-gauche" placeholder=" Compétences" required/>
 
-                  <input id="secteur_activite" class="colonne-gauche" placeholder="Secteur d'activité" />
-                  <input id="duree_stage" class="colonne-milieu" type="number" placeholder="Durée stage (sem)" />
+                  <input id="secteur_activite" class="colonne-gauche" placeholder="Secteur d'activité" required/>
+                  <input id="duree_stage" class="colonne-milieu" type="number" placeholder="Durée stage (sem)"required />
 
                 </div>
 
                 <div class="ligne">
-                  <textarea id="description_annonce" class="description" placeholder="Description de l'annonce"></textarea>
+                  <textarea id="description_annonce" class="description" placeholder="Description de l'annonce" required></textarea>
                 </div>
 
                 <div class="btn_prece_valid">
