@@ -19,8 +19,8 @@ function buildTable(data, status) {
     for (var i = 0; i < data.length; i++) {
       var row = `<tr>
                     <td>${data[i].id_offre_de_stage}</td>
+                    <td>${data[i].nom_offre}</td>
                     <td>${data[i].nom_entreprise}</td>
-                    <td>${data[i].types_de_promotion}</td>
                     <td>${data[i].nom_ville}</td>
                     <td>${data[i].nom_secteur_activite}</td>
                     <td><img class="imgautre" alt="autre" src="image/autre.png"></td>
@@ -78,9 +78,7 @@ function offre_page_vers_2sur2() {
   let offrePage2sur2 = document.querySelector(".offre_page_2sur2");
   offrePage1sur2.style.display = "none";
   offrePage2sur2.style.display = "block";
-
 }
-
 
 function offre_page_vers_1sur2modif() {
   let offrePage1sur2modif = document.querySelector(".offre_page_1sur2modif");
@@ -95,9 +93,7 @@ function offre_page_vers_2sur2modif() {
   let offrePage2sur2modif = document.querySelector(".offre_page_2sur2modif");
   offrePage1sur2modif.style.display = "none";
   offrePage2sur2modif.style.display = "block";
-
 }
-
 
 function openPopup1() {
   let popup = document.getElementById("popupajout1");
@@ -112,23 +108,36 @@ function openPopup3() {
   popup.classList.toggle("open");
 }
 
-function recherche(myArray) {
+function recherche(myArray, statut) {
   document
     .querySelector("#searchbar")
     .addEventListener("keyup", function (event) {
       var value = event.target.value;
-      console.log("Value : ", value);
-      var data = searchTable(value, myArray);
-      buildTable(data);
+      var data = searchTable(value, myArray, statut);
+      console.log("data  ?", data);
+
+      buildTable(data, statut);
     });
-  function searchTable(value, data) {
+  function searchTable(value, data, statut) {
     var filteredData = [];
 
     for (var i = 0; i < data.length; i++) {
       value = value.toLowerCase();
-      var prenom = data[i].prenom.toLowerCase();
-      if (prenom.includes(value)) {
-        filteredData.push(data[i]);
+      if (statut == "pilote" || statut == "etudiant") {
+        var nom = data[i].nom.toLowerCase();
+        if (nom.includes(value)) {
+          filteredData.push(data[i]);
+        }
+      } else if (statut == "offre") {
+        var nom = data[i].nom_offre.toLowerCase();
+        if (nom.includes(value)) {
+          filteredData.push(data[i]);
+        }
+      } else if (statut == "entreprise") {
+        var nom = data[i].nom_entreprise.toLowerCase();
+        if (nom.includes(value)) {
+          filteredData.push(data[i]);
+        }
       }
     }
     return filteredData;
@@ -185,11 +194,6 @@ function attachImageEventListeners() {
       }
       if (page == "gerer_offres.php") {
         var supid = document.getElementById("supid");
-
-        supid.value = rowData[0];
-      }
-      if (page == "gerer_entreprises.php") {
-        var supid = document.getElementById("idsup3");
 
         supid.value = rowData[0];
       }

@@ -1,7 +1,7 @@
 <?php include 'connecteoupas.php'; ?>
 <?php
 include 'conexionbdd.php';
-$query = $db->prepare("SELECT o.id_offre_de_stage, o.types_de_promotion, e.nom_entreprise, v.nom_ville, s.nom_secteur_activite FROM offre_de_stage o  JOIN entreprise e ON e.id_entreprise=o.id_entreprise JOIN possede p ON p.id_entreprise = e.id_entreprise JOIN secteur_activite s ON s.id_secteur_activite=p.id_secteur_activite JOIN réside r ON r.id_entreprise = e.id_entreprise JOIN adresse a ON a.id_adresse=r.id_adresse JOIN se_localise sl ON sl.id_adresse = a.id_adresse JOIN ville v ON v.id_ville = sl.id_ville");
+$query = $db->prepare("SELECT o.id_offre_de_stage, o.nom_offre, e.nom_entreprise, v.nom_ville, s.nom_secteur_activite FROM offre_de_stage o  JOIN entreprise e ON e.id_entreprise=o.id_entreprise JOIN possede p ON p.id_entreprise = e.id_entreprise JOIN secteur_activite s ON s.id_secteur_activite=p.id_secteur_activite JOIN réside r ON r.id_entreprise = e.id_entreprise JOIN adresse a ON a.id_adresse=r.id_adresse JOIN se_localise sl ON sl.id_adresse = a.id_adresse JOIN ville v ON v.id_ville = sl.id_ville");
 $query->execute();
 $row = $query->fetchAll(PDO::FETCH_ASSOC);
 $tableau_json = json_encode($row);
@@ -98,7 +98,7 @@ $statut = "offre";
       <div class="squaredg">
         <div class="headertab">
           <div class="search-container">
-            <input type="search" id="searchbar" onkeyup="recherche(tableau_json)" placeholder="Rechercher..." />
+            <input type="search" id="searchbar" onkeyup="recherche(tableau_json, statut)" placeholder="Rechercher..." />
             <img alt="search" id="imgsearch" src="image/loupe.png" />
           </div>
           <div class="btncountainer">
@@ -115,10 +115,10 @@ $statut = "offre";
           <table>
             <tr>
               <th class="bordure">#</th>
-              <th class="bordure">Entreprises</th>
-              <th class="bordure">Type entreprise</th>
+              <th class="bordure">Nom offre</th>
+              <th class="bordure">Nom entreprise</th>
               <th class="bordure">ville</th>
-              <th class="bordure">Secteur Activite</th>
+              <th class="bordure">Secteur Activité</th>
               <th class="bordure"></th>
             </tr>
 

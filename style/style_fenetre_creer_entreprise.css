@@ -1,184 +1,168 @@
 * {
-    margin: 0px;
-    padding: 0;
-    text-decoration: none;
-    list-style: none;
-  }
-  
-  body {
-    font-family: "Inter", sans-serif;
-  }
-  
-  .box {
-    width: 100%;
-    height: 600px;
-    position: relative;
-  }
-  
-  .box_connexion {
-    background-color: white;
-    width: 680px;
-    height: 520px;
-    border-radius: 30px;
-    align-items: center;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    box-shadow: 0px 3px 4px 0px rgba(0, 0, 0, 0.25);
-  }
-  
-  .box_connexion_contenu {
-    margin: 20px;
-    align-items: center;
-  }
-  
-  .titre-pop-up {
-    font-size: 36px;
-    font-weight: bold;
+  margin: 0px;
+  padding: 0;
+  text-decoration: none;
+  list-style: none;
+}
 
-  }
-  
-  input {
-    border: 1px solid #d9e1ec;
-    border-radius: 4px;
-    padding-left: 10px;
-    font-size: 16px;
-    width: 230px;
-    height: 38px;
-  }
-  
-  
-  select{
-    border: 1px solid #d9e1ec;
-    border-radius: 4px;
-    font-size: 16px;
-    width: 230px;
-    height: 38px;
-  
-  } 
-  
-  
-  input::placeholder {
-    color: #d9e1ec;
-  }
-  
-  
-  
-  .description {
-    margin-top: -10px;
-    margin-bottom: -10px;
-    width: 100%;
-    height: 100px;
-    padding-left: 10px;
-    padding-right: 10px;
-    resize: none;
-    border: 1px solid #d9e1ec;
-    border-radius: 4px;
-  }
-  
-  .ligne {
-    margin-top: 10px;
-    margin-bottom: 30px;
-    display : flex;
-    align-items: center;
-    justify-content: center; 
-  
-  }
-  
+body {
+  font-family: "Inter", sans-serif;
+}
 
-  
-  
+.box {
+  width: 100%;
+  height: 600px;
+  position: relative;
+}
 
-  .btn_creer_offre {
-    margin-top: 20px;
-    color: white;
-    background-color: #7b9dd2;
-    border-radius: 25px;
-    width: 640px;
-    height: 43px;
-    border: none;
-  }
-  
-  .btn_creer_offre:hover {
-    background-color: #487aca;
-    transition: 0.5s;
-  }
-  
-  
-  
-  /* separer la 1ere page en deux */
-  .conteneur_page_1_creer_offre {
-    display: flex;
-  
-    margin-top: 50px;
-  }
-  
-  .partie_gauche,.partie_droite {
-    flex: 1;
-    padding: 20px;
-  }
-  
-  
-  .btn_suivant_1,.btn_precedent_1, .btn_valider{
-   
-    height: 42px; 
-    width: 210px; 
-    border-radius: 20px; 
-  
-    box-shadow: 2px 2px 3px #acacac; 
-    border: none;
-    font-weight: bold;
-    color: white;
-    font-size: 1vw; 
-  }
-  
-  
-  .btn_suivant_1,.btn_valider{
-    background: #7b9dd2;
-  
-  }
-  .btn_precedent_1{
-    background: #b1c1db;
-  }
-  
-  .trait {
-    border-left: 1px solid #7b9dd2;
-    height: 320px; 
-  
-  }
-  
-  .btn_prece_valid{
-    display : flex;
-    justify-content: space-between;
-  }
-  
-  
-  .positionnement_btn_suivant_1{
-    display : flex;
-    justify-content: center;
-    margin-top: 20px;
-  
-  }
-  
-  
-  #creer_entreprise a {
-    display: none;
-    margin-top: -20px;
-    color : red;
-    font-size: 14px;
-  }
+.box_connexion {
+  background-color: white;
+  width: 680px;
+  height: 520px;
+  border-radius: 30px;
+  align-items: center;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  box-shadow: 0px 3px 4px 0px rgba(0, 0, 0, 0.25);
+}
 
+.box_connexion_contenu {
+  margin: 20px;
+  align-items: center;
+}
 
-.offre_page_2sur2{
+.titre-pop-up {
+  font-size: 36px;
+  font-weight: bold;
+}
+
+input {
+  border: 1px solid #d9e1ec;
+  border-radius: 4px;
+  padding-left: 10px;
+  font-size: 16px;
+  width: 230px;
+  height: 38px;
+}
+
+select {
+  border: 1px solid #d9e1ec;
+  border-radius: 4px;
+  font-size: 16px;
+  width: 230px;
+  height: 38px;
+}
+
+input::placeholder {
+  color: #d9e1ec;
+}
+
+.description {
+  margin-top: -10px;
+  margin-bottom: -10px;
+  width: 100%;
+  height: 100px;
+  padding-left: 10px;
+  padding-right: 10px;
+  resize: none;
+  border: 1px solid #d9e1ec;
+  border-radius: 4px;
+}
+
+.ligne {
+  margin-top: 10px;
+  margin-bottom: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn_creer_offre {
+  margin-top: 20px;
+  color: white;
+  background-color: #7b9dd2;
+  border-radius: 25px;
+  width: 640px;
+  height: 43px;
+  border: none;
+}
+
+.btn_creer_offre:hover {
+  background-color: #487aca;
+  transition: 0.5s;
+}
+
+/* separer la 1ere page en deux */
+.conteneur_page_1_creer_offre {
+  display: flex;
+
   margin-top: 50px;
 }
-  
-#secteur_activite,#secteur_activitemodif{
+
+.partie_gauche,
+.partie_droite {
+  flex: 1;
+  padding: 20px;
+}
+
+.btn_suivant_1,
+.btn_precedent_1,
+.btn_valider {
+  height: 42px;
+  width: 210px;
+  border-radius: 20px;
+
+  box-shadow: 2px 2px 3px #acacac;
+  border: none;
+  font-weight: bold;
+  color: white;
+  font-size: 1vw;
+}
+
+.btn_suivant_1,
+.btn_valider {
+  background: #7b9dd2;
+}
+.btn_precedent_1 {
+  background: #b1c1db;
+}
+
+.trait {
+  border-left: 1px solid #7b9dd2;
+  height: 320px;
+}
+
+.btn_prece_valid {
+  display: flex;
+  justify-content: space-between;
+}
+
+.positionnement_btn_suivant_1 {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+#creer_entreprise a {
+  display: none;
+  margin-top: -20px;
+  color: red;
+  font-size: 14px;
+}
+
+.offre_page_2sur2 {
+  margin-top: 50px;
+}
+
+#secteur_activite,
+#secteur_activitemodif {
   margin-top: 10px;
   margin-bottom: 15px;
 }
 
-#description_entreprise,#description_entreprisemodif{
+#description_entreprise,
+#description_entreprisemodif {
   margin-bottom: 30px;
 }
