@@ -355,7 +355,10 @@ tbody tr:hover {
   background-color: #7b9dd2;
 }
 
-
 .offre_page_2sur2 {
+  display: none;
+}
+
+.offre_page_2sur2M {
   display: none;
 }

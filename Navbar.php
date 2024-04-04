@@ -60,8 +60,7 @@
           <img class="menu_profil" src="image/menu profil.png" alt="menu profil utilisateur" />
         </button>
         <div class="content_profil">
-          <a href="profile.php"><?php echo $name;?>  <?php echo $lastname; ?> </a>
-          <a href="profile.php">Voir le compte</a>
+          <a ><?php echo $name;?>  <?php echo $lastname; ?> </a>
           <a href="deconnexion.php">Se déconnecter</a>
         </div>
       </div>

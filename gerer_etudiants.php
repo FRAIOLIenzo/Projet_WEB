@@ -58,7 +58,7 @@
         <div class="squaredg">
           <div class="headertab">
             <div class="search-container">
-            <input type="search" id="searchbar" onkeyup="recherche(tableau_json)" placeholder="Rechercher..." />
+            <input type="search" id="searchbar" onkeyup="recherche(tableau_json, statut)" placeholder="Rechercher..." />
               <img alt="search" id="imgsearch" src="image/loupe.png" />
             </div>
             <div class="btncountainer">
