@@ -10,7 +10,7 @@ function buildTable(data, status) {
                     <td>${data[i].nom_centre}</td>
                     <td>${data[i].adresse_mail}</td>
                     <td>${data[i].nom_promo}</td>
-                    <td><img class="imgautre" src="image/autre.png"></td>
+                    <td><img class="imgautre" alt="autre" src="image/autre.png"></td>
               </tr>`;
       table.innerHTML += row;
     }
@@ -164,8 +164,8 @@ function attachImageEventListeners() {
       var mdp = document.getElementById("motdepasse");
       var id = document.getElementById("idsup");
       var id2 = document.getElementById("idsup2");
-
       var promoc = document.getElementById("promoc");
+      console.log("promoc", promoc);
       var centrec = document.getElementById("centrec");
 
       prenom.value = rowData[1];
@@ -174,7 +174,9 @@ function attachImageEventListeners() {
       id.value = rowData[0];
       id2.value = rowData[0];
 
+      console.log("rowData 5", rowData[5]);
       promoc.value = rowData[5];
+      console.log("promoc.value", promoc.value);
       centrec.value = rowData[3];
     });
   });

@@ -1,11 +1,20 @@
 <?php include 'connecteoupas.php'; ?>
 <?php
+<<<<<<< HEAD
 include 'conexionbdd.php';
 $query = $db->prepare("SELECT e.id_compte, c.nom, c.prenom, c.adresse_mail, pi.date_debut, p.nom_promo, ce.nom_centre FROM enseignant e LEFT   JOIN compte c ON e.id_compte = c.id_compte LEFT JOIN pilote pi ON pi.id_compte = e.id_compte LEFT JOIN promo p ON p.id_promo = pi.id_promo LEFT JOIN travaille_dans t ON t.id_promo = p.id_promo LEFT JOIN Centre ce ON ce.id_centre=t.id_centre");
 $query->execute();
 $row = $query->fetchAll(PDO::FETCH_ASSOC);
 $tableau_json = json_encode($row);
 $statut = "pilote";
+=======
+            include 'conexionbdd.php'; 
+            $query = $db->prepare("SELECT e.id_compte, c.nom, c.prenom, c.adresse_mail, pi.date_debut, p.nom_promo, ce.nom_centre FROM enseignant e LEFT JOIN compte c ON e.id_compte = c.id_compte LEFT JOIN pilote pi ON pi.id_compte = e.id_compte LEFT JOIN promo p ON p.id_promo = pi.id_promo LEFT JOIN Centre ce ON ce.id_centre=pi.id_centre");
+            $query->execute();
+            $row = $query->fetchAll(PDO::FETCH_ASSOC);
+            $tableau_json = json_encode($row);
+            $statut = "pilote";
+>>>>>>> aaab0ddb10cece8c3737e674d71a0d842c535329
 ?>
 <script>
   var statut = "<?php echo $statut; ?>";
@@ -100,9 +109,15 @@ $statut = "pilote";
         <div id="creertxt">Modifier le compte pilote</div>
 
         <form action="" method="post" class="formcreer1">
+<<<<<<< HEAD
           <input type="text" id="idsup" name="id" placeholder="id" style="display : none ;" required />
           <input type="text" id="promoc" name="promoc" style="display : none ;" required />
           <input type="text" id="centrec" name="centrec" style="display : none ;" required />
+=======
+        <input type="text" id="idsup" name="id" placeholder="id" style="display : none ;" required />
+        <input type="text" id="promoc" value ="a" name="promoc" style="display : none ;" required />
+        <input type="text" id="centrec" name="centrec" style="display : none ;" required />
+>>>>>>> aaab0ddb10cece8c3737e674d71a0d842c535329
           <div id="nomprenom">
             <input type="text" id="prenom" name="prenom" placeholder="Prénom" required />
             <input type="text" id="nom" name="nom" placeholder="Nom" required />
@@ -131,7 +146,7 @@ $statut = "pilote";
           </select>
           <input type="email" id="email" name="email" placeholder="Adresse e-mail" required />
           <input type="password" id="motdepasse" name="motdepasse" placeholder="Mot de passe" required />
-          <input type="submit" value="Valider" />
+          <input type="submit" value="Valider"/>
         </form>
         <div id="closecircle"></div>
 
@@ -178,10 +193,10 @@ $statut = "pilote";
         echo '<script>alert("bientot2");</script>';
 
         // Update the `pilote` table
-        $query = $db->prepare("UPDATE pilote JOIN promo p ON p.id_promo=pilote.id_promo JOIN  travaille_dans t ON t.id_promo =p.id_promo JOIN Centre c on c.id_centre=t.id_centre SET pilote.id_promo = :idpromo  WHERE `id_compte` = :id AND c.nom_centre= :centre;");
+        $query = $db->prepare("UPDATE pilote SET id_promo = :idpromo, id_centre = :idcentre WHERE `id_compte` = :id");
         $query->bindValue(':id', $id);
         $query->bindValue(':idpromo', $idpromoc);
-        $query->bindValue(':centre', $centrec);
+        $query->bindValue(':idcentre', $idcentre);
 
 
         $query->execute();
@@ -284,20 +299,28 @@ $statut = "pilote";
       $query->execute();
       $row = $query->fetchAll(PDO::FETCH_ASSOC);
       $id = $row[0]['id_compte'];
-      // on recupere id de la promo 
-      $query = $db->prepare("SELECT p.id_promo FROM max.promo p JOIN travaille_dans t ON t.id_promo = p.id_promo JOIN  Centre c on c.id_centre = t.id_centre WHERE c.nom_centre = :centre AND p.nom_promo=:promo;");
-      $query->bindValue(':promo', $promotion);
+      // on recupere l'id
+      $query = $db->prepare("SELECT id_centre FROM Centre WHERE nom_centre=:centre;");
       $query->bindValue(':centre', $centre);
+      $query->execute();
+      $row = $query->fetchAll(PDO::FETCH_ASSOC);
+      $idcentre = $row[0]['id_centre'];
+      // on recupere id de la promo 
+      $query = $db->prepare("SELECT p.id_promo FROM max.promo p WHERE p.nom_promo=:promo;");
+      $query->bindValue(':promo', $promotion);
       $query->execute();
       $row2 = $query->fetchAll(PDO::FETCH_ASSOC);
       $idpromo = $row2[0]['id_promo'];
+
       // On insere l'enseignant dans la base de donnée
       $query = $db->prepare("INSERT INTO `max`.`enseignant` (`id_compte`) VALUES (:id);");
       $query->bindValue(':id', $id);
       $query->execute();
-      $query = $db->prepare("INSERT INTO `max`.`pilote` (`id_compte`, `id_promo`) VALUES (:id, :idpromo);");
+      $query = $db->prepare("INSERT INTO `max`.`pilote` (`id_compte`, `id_promo`, `id_centre`) VALUES (:id, :idpromo, :idcentre);");
       $query->bindValue(':id', $id);
       $query->bindValue(':idpromo', $idpromo);
+      $query->bindValue(':idcentre', $idcentre);
+
       $query->execute();
       header("Location: " . $_SERVER['PHP_SELF']);
       echo '<script>alert("Pilote ajouté avec succès");</script>';

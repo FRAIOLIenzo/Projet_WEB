@@ -85,7 +85,7 @@ try {
                     <label class="nom_entreprise"><?php echo $nom_entreprise; ?></label>
                     <label class="localisation_entreprise"><?php echo $numero_rue; ?> <?php echo $nom_rue; ?></label>
                     <div class="box_avis">
-                        <label class="avis_entreprise"><?php echo $note_globale; ?></label>
+                        <label class="avis_entreprise">Note : <?php echo $note_globale; ?>/5</label>
 
                         <label class="nb_avis_entreprise"><?php echo $description_competence; ?></label>
                     </div>
