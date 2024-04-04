@@ -197,6 +197,15 @@ function attachImageEventListeners() {
 
         supid.value = rowData[0];
       }
+      if (page == "gerer_entreprises.php") {
+        var supid = document.getElementById("idsup3");
+        var supid2 = document.getElementById("idsup4");
+        var siret = document.getElementById("num_siretmodifc");
+
+        supid.value = rowData[0];
+        supid2.value = rowData[0];
+        siret.value = rowData[2];
+      }
     });
   });
 }

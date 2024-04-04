@@ -53,7 +53,7 @@ $statut = "entreprise";
             Voulez-vous supprimer ce pilote de manière définitive ?
           </div>
           <div>
-            <input type="text" id="idsup3" name="idsup3" placeholder="id" style="display : block ;" required />
+            <input type="text" id="idsup3" name="idsup3" placeholder="id" style="display : none ;" required />
             <button type="submit" id="Supprimer">Supprimer</button>
             <button id="Annuler" type="button" onclick="openPopup3()">Annuler</button>
           </div>
@@ -67,8 +67,6 @@ $statut = "entreprise";
   if (($_SERVER["REQUEST_METHOD"] == "POST") && (isset($_POST['idsup3']))) {
     
     $id2 = $_POST['idsup3'];
-    echo '<script>alert("'.$id2.'");</script>';
-
     $query = $db->prepare("DELETE FROM `max`.`réside` WHERE id_entreprise = :id;");
     $query->bindValue(':id', $id2);
     $query->execute();
@@ -89,7 +87,7 @@ $statut = "entreprise";
     $query = $db->prepare("DELETE FROM `max`.`entreprise` WHERE id_entreprise = :id;");
     $query->bindValue(':id', $id2);
     $query->execute();
-    echo '<script>alert("Pilote ajouté avec succès");</script>';
+    echo '<script>alert("Entreprise supprimé avec succès");</script>';
     header("Location: gerer_pilotes.php");
   } ?>
 
@@ -164,9 +162,12 @@ $statut = "entreprise";
                 <div class="conteneur_page_1_creer_offre">
                   <div class="partie_gauche">
 
+                  <input type="text" id="idsup4" name="idsup4" placeholder="id" style="display : none ;" required />
+
                     <div class="ligne">
                       <input id="nom_entreprisemodif" name="nom_entreprise" placeholder="Nom de l'entreprise" required />
                     </div>
+                    
 
                     <a id="verif_nom_entreprisemodif"></a>
 
@@ -184,8 +185,7 @@ $statut = "entreprise";
                     <a id="verif_adresse_mailmodif"></a>
 
                     <div class="ligne">
-
-                      <input id="num_siretmodif" name="num_siret" type="number" class="colonne-gauche" placeholder="Numérot de siret" required />
+                      <input id="num_siretmodif" name="num_siretmodif" type="number" class="colonne-gauche" placeholder="Numérot de siret" required />
                     </div>
 
                     <a id="verif_num_siretmodif"></a>
@@ -205,7 +205,7 @@ $statut = "entreprise";
 
                     <div class="ligne">
 
-                      <select id="villemodif" name="ville" placeholder="Ville" required> </select>
+                      <select id="villemodif" name="ville" placeholder="Ville"> </select>
                     </div>
 
                     <div class="ligne">
@@ -278,6 +278,91 @@ $statut = "entreprise";
         </div>
       </div>
     </div>
+    <?php
+    if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["num_siretmodif"])) {
+      $id = $_POST['idsup4'];
+      $nom_entreprise = $_POST['nom_entreprise'];
+      $num_tel = $_POST['num_tel'];
+      $adresse_mail = $_POST['adresse_mail'];
+      $description_entreprise = $_POST['description_entreprise'];
+      $num_siret = $_POST['num_siretmodif'];
+      $secteurs_activite = $_POST['secteur_activite'];
+      $numero_rue = $_POST['num_rue'];
+      $nom_rue = $_POST['nom_rue'];
+      $ville = $_POST['ville'];
+      $code_postal = $_POST['code_postal'];
+      
+      $query = $db->prepare("UPDATE `max`.`entreprise` SET `nom_entreprise` = :nom_entreprise, `numero_telephone` = :num_tel, `adresse_mail` = :adresse_mail, `description_entreprise` = :description_entreprise, `numero_siret` = :num_siret WHERE (`id_entreprise` = :id);
+      ");
+      $query->bindValue(':nom_entreprise', $nom_entreprise);
+      $query->bindValue(':num_tel', $num_tel);
+      $query->bindValue(':adresse_mail', $adresse_mail);
+      $query->bindValue(':description_entreprise', $description_entreprise);
+      $query->bindValue(':num_siret', $num_siret);
+      $query->bindValue(':id', $id);
+      $query->execute();
+
+      // selectionne entreprise 
+      $query = $db->prepare("SELECT v.nom_ville FROM entreprise e LEFT JOIN possede p ON p.id_entreprise = e.id_entreprise LEFT JOIN secteur_activite s ON s.id_secteur_activite=p.id_secteur_activite LEFT JOIN réside r ON r.id_entreprise = e.id_entreprise LEFT JOIN adresse a ON a.id_adresse=r.id_adresse LEFT JOIN se_localise sl ON sl.id_adresse = a.id_adresse LEFT JOIN ville v ON v.id_ville = sl.id_ville WHERE e.id_entreprise =:id");
+      $query->bindValue(':id', $id);
+      $query->execute();
+      $id_ville =  $query->fetchColumn();
+
+      // selectionne address ancienne: 
+      $query = $db->prepare("SELECT id_adresse FROM réside WHERE id_entreprise = :id");
+      $query->bindValue(':id', $id);
+      $query->execute();
+      $id_adresse = $query->fetchColumn();
+      // secteur activite ancienne: 
+      $query = $db->prepare("SELECT s.id_secteur_activite FROM secteur_activite s JOIN possede p ON p.id_secteur_activite=s.id_secteur_activite LEFT JOIN entreprise e ON e.id_entreprise=p.id_entreprise WHERE e.id_entreprise= :id");
+      $query->bindValue(':id', $id);
+      $query->execute();
+      $id_secteurs_activite = $query->fetchColumn();
+      // update le secteur d'activité
+      $query = $db->prepare("UPDATE `max`.`secteur_activite` SET `nom_secteur_activite` = :secteur_activite WHERE (`id_secteur_activite` =:id)");
+      $query->bindValue(':secteur_activite', $secteurs_activite);
+      $query->bindValue(':id', $id_secteurs_activite);
+      $query->execute();
+
+
+      // met à jour s 
+      $query = $db->prepare("UPDATE `max`.`adresse` SET `numero_rue` = :numero_rue, `nom_rue` = :nom_rue WHERE (`id_adresse` = :id_adresse);");
+      $query->bindValue(':numero_rue', $numero_rue);
+      $query->bindValue(':nom_rue', $nom_rue);
+      $query->bindValue(':id_adresse', $id_adresse);
+
+      $query->execute();
+      
+
+
+      // On regarde si la ville existe déjà
+      $query = $db->prepare("SELECT id_ville FROM ville WHERE nom_ville=:ville;");
+      $query->bindValue(':ville', $ville);
+      $query->execute();
+      $row = $query->fetch(PDO::FETCH_ASSOC);
+    
+
+      // Vérifie si la ville existe déjà
+      if ($row) {
+          $idville = $row['id_ville'];
+      } else {
+          // Si la ville n'existe pas, l'insérer
+          $query = $db->prepare("INSERT INTO ville (nom_ville) VALUES (:ville);");
+          $query->bindValue(':ville', $ville);
+          $query->execute();
+          // Récupérer l'id de la ville nouvellement insérée
+          $idville = $db->lastInsertId();
+      }
+
+
+      $query = $db->prepare("UPDATE `max`.`se_localise` SET `id_ville` = :idville WHERE (`id_adresse` = id_adresse);");
+      $query->bindValue(':idville', $idville);
+      $query->bindValue(':id_adresse', $id_adresse);
+      $query->execute();
+      echo '<script>alert("Modif ajouté avec succès");</script>';
+
+
+    } ?>
 
     <div id="popupajout1">
       <div class="box">
@@ -402,8 +487,6 @@ $statut = "entreprise";
         </div>
       </div>
     </div>
-    
-    
     <?php
     if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["num_siret"])) {
       $nom_entreprise = $_POST['nom_entreprise'];
@@ -420,7 +503,7 @@ $statut = "entreprise";
 
       // Insérer l'entreprise
       $query = $db->prepare("INSERT INTO entreprise (nom_entreprise, numero_telephone, adresse_mail, description_entreprise, numero_siret) 
-       VALUES (:nom_entreprise, :num_tel, :adresse_mail, :description_entreprise, :num_siret);");
+      VALUES (:nom_entreprise, :num_tel, :adresse_mail, :description_entreprise, :num_siret);");
       $query->bindValue(':nom_entreprise', $nom_entreprise);
       $query->bindValue(':num_tel', $num_tel);
       $query->bindValue(':adresse_mail', $adresse_mail);
@@ -450,7 +533,6 @@ $statut = "entreprise";
           // Récupérer l'id de la ville nouvellement insérée
           $idville = $db->lastInsertId();
       }
-      echo '<script>alert("ville '.$idville.'");</script>';
 
       // Associer l'adresse à la ville
       $query = $db->prepare("INSERT INTO adresse (numero_rue, nom_rue) VALUES (:numero_rue, :nom_rue)");
