@@ -223,7 +223,7 @@ main {
   right: 20px; /* Distance de la droite */
   cursor: pointer; /* Curseur de la souris change au survol */
   width: 20px;
-  height: 18.75px;
+  height: 20px;
 }
 #closecircle {
   position: absolute; /* Position absolue pour positionner le cercle */

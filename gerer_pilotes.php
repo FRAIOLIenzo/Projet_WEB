@@ -1,20 +1,11 @@
 <?php include 'connecteoupas.php'; ?>
 <?php
-<<<<<<< HEAD
-include 'conexionbdd.php';
-$query = $db->prepare("SELECT e.id_compte, c.nom, c.prenom, c.adresse_mail, pi.date_debut, p.nom_promo, ce.nom_centre FROM enseignant e LEFT   JOIN compte c ON e.id_compte = c.id_compte LEFT JOIN pilote pi ON pi.id_compte = e.id_compte LEFT JOIN promo p ON p.id_promo = pi.id_promo LEFT JOIN travaille_dans t ON t.id_promo = p.id_promo LEFT JOIN Centre ce ON ce.id_centre=t.id_centre");
-$query->execute();
-$row = $query->fetchAll(PDO::FETCH_ASSOC);
-$tableau_json = json_encode($row);
-$statut = "pilote";
-=======
             include 'conexionbdd.php'; 
             $query = $db->prepare("SELECT e.id_compte, c.nom, c.prenom, c.adresse_mail, pi.date_debut, p.nom_promo, ce.nom_centre FROM enseignant e LEFT JOIN compte c ON e.id_compte = c.id_compte LEFT JOIN pilote pi ON pi.id_compte = e.id_compte LEFT JOIN promo p ON p.id_promo = pi.id_promo LEFT JOIN Centre ce ON ce.id_centre=pi.id_centre");
             $query->execute();
             $row = $query->fetchAll(PDO::FETCH_ASSOC);
             $tableau_json = json_encode($row);
             $statut = "pilote";
->>>>>>> aaab0ddb10cece8c3737e674d71a0d842c535329
 ?>
 <script>
   var statut = "<?php echo $statut; ?>";
@@ -109,15 +100,9 @@ $statut = "pilote";
         <div id="creertxt">Modifier le compte pilote</div>
 
         <form action="" method="post" class="formcreer1">
-<<<<<<< HEAD
-          <input type="text" id="idsup" name="id" placeholder="id" style="display : none ;" required />
-          <input type="text" id="promoc" name="promoc" style="display : none ;" required />
-          <input type="text" id="centrec" name="centrec" style="display : none ;" required />
-=======
         <input type="text" id="idsup" name="id" placeholder="id" style="display : none ;" required />
         <input type="text" id="promoc" value ="a" name="promoc" style="display : none ;" required />
         <input type="text" id="centrec" name="centrec" style="display : none ;" required />
->>>>>>> aaab0ddb10cece8c3737e674d71a0d842c535329
           <div id="nomprenom">
             <input type="text" id="prenom" name="prenom" placeholder="Prénom" required />
             <input type="text" id="nom" name="nom" placeholder="Nom" required />
