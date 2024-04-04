@@ -204,7 +204,7 @@ main {
   position: absolute;
   background-color: #ffffff;
   width: 450px;
-  height: 488px;
+  height: 540px;
   border-radius: 25px;
   top: 50%;
   left: 50%;
@@ -212,13 +212,18 @@ main {
   display: flex;
   flex-direction: column;
 }
+
+#btn_valider{
+  margin-top: 17px;
+}
+
 #close {
   position: absolute; /* Position absolue pour positionner l'image */
   top: 20px; /* Distance du haut */
   right: 20px; /* Distance de la droite */
   cursor: pointer; /* Curseur de la souris change au survol */
   width: 20px;
-  height: 18.75px;
+  height: 20px;
 }
 #closecircle {
   position: absolute; /* Position absolue pour positionner le cercle */
@@ -232,22 +237,27 @@ main {
 .formcreer1 {
   margin: 44px;
   margin-top: 1px;
-  display: flex; /* Utilisation de flexbox */
+  
   justify-content: center; /* Centrage horizontal */
   align-items: center;
   flex-direction: column;
-  align-items: stretch;
+  align-items: center;
+
 }
 #nomprenom {
   display: flex;
-  justify-content: space-between;
+
 }
-#nom,
-#prenom {
-  width: calc(
-    50% - 20px
-  ); /* Divise l'espace disponible en deux avec un petit espacement */
+#nom1,
+#prenom1 {
+  flex : 1;
 }
+
+#prenom1{
+  margin-right: 10px;
+}
+
+
 
 .formcreer1 input {
   padding-left: 10px; /* Ajoutez le padding souhaité */
@@ -288,6 +298,7 @@ main {
   color: black;
   font-weight: bold;
   flex-wrap: wrap;
+  margin-bottom: 20px;
 }
 /*CSS POUR LE POPUP MODIF */
 
@@ -358,4 +369,13 @@ main {
 
 #Annuler {
   background-color: #7b9dd2;
+}
+
+
+#popupajout1 a {
+  display: block;
+  margin-top: -10px;
+  margin-bottom: 10px;
+  color : red;
+  font-size: 14px;
 }

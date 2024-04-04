@@ -201,7 +201,7 @@ tbody tr:hover {
   position: absolute;
   background-color: #ffffff;
   width: 450px;
-  height: 488px;
+  height: 540px;
   border-radius: 25px;
   top: 50%;
   left: 50%;
@@ -215,7 +215,7 @@ tbody tr:hover {
   right: 20px; /* Distance de la droite */
   cursor: pointer; /* Curseur de la souris change au survol */
   width: 20px;
-  height: 18.75px;
+  height: 20px;
 }
 #closecircle {
   position: absolute; /* Position absolue pour positionner le cercle */
@@ -237,13 +237,15 @@ tbody tr:hover {
 }
 #nomprenom {
   display: flex;
-  justify-content: space-between;
+
 }
-#nom,
-#prenom {
-  width: calc(
-    50% - 20px
-  ); /* Divise l'espace disponible en deux avec un petit espacement */
+#nom1,
+#prenom1 {
+  flex : 1;
+}
+
+#prenom1{
+  margin-right: 10px;
 }
 
 .formcreer1 input {
@@ -355,4 +357,22 @@ tbody tr:hover {
 
 #Annuler {
   background-color: #7b9dd2;
+}
+
+
+#popupajout1 a {
+  display: block;
+  margin-top: -10px;
+  margin-bottom: 10px;
+  color : red;
+  font-size: 14px;
+}
+
+
+.titre_ajout_etudiant{
+  margin-bottom: 20px;
+}
+
+#btn_valider{
+  margin-top: 20px;
 }

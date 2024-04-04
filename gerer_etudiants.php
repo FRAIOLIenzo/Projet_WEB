@@ -23,6 +23,7 @@
     <link rel="stylesheet" href="style/style_navbar.css" />
     <link rel="stylesheet" href="style/style_gerer_etudiants.css" />
     <script src="js/js_gerer.js" defer></script>
+    <script src='js/js_verification_formulaire_etudiant.js' defer></script>
 
     <link
       rel="stylesheet"
@@ -199,28 +200,29 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['email'])) {
 
       <div id="popupajout1">
         <div class="popupcontent">
-          <div id="creertxt">Créer le compte étudiant</div>
+          <div id="creertxt" class="titre_ajout_etudiant">Créer le compte étudiant</div>
 
           <form
             action=""
             method="post"
             class="formcreer1"
           >
-            <div id="nomprenom">
-              <input
-                type="text"
-                id="prenom"
-                name="prenom"
-                placeholder="Prénom"
-                required
-              />
-              <input
-                type="text"
-                id="nom"
-                name="nom"
-                placeholder="Nom"
-                required
-              />
+          <div id="nomprenom">
+              <div id="prenom1">
+                <input id="prenom_inserer" name="prenom" placeholder="Prénom" required />
+                <a id="verif_prenom"></a>
+         
+              </div>
+
+              <div id="nom1">
+                <input type="text" id="nom_inserer" name="nom" placeholder="Nom" required />
+
+                <a id="verif_nom"></a>
+        
+              </div>
+
+
+
             </div>
             <select id="centre" name="centre">
               <option value="" disabled selected>Centre</option>
@@ -246,19 +248,21 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['email'])) {
             </select>
             <input
               type="email"
-              id="email"
+              id="email_inserer"
               name="email1"
               placeholder="Adresse e-mail"
               required
             />
+            <a id="verif_email"></a>
             <input
               type="password"
-              id="motdepasse"
+              id="motdepasse_inserer"
               name="motdepasse"
               placeholder="Mot de passe"
               required
             />
-            <input type="submit" value="Valider" />
+            <a id="verif_motdepasse"></a>
+            <input type="submit" value="Valider" id="btn_valider" />
           </form>
           <div id="closecircle"></div>
 

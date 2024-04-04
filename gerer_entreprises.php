@@ -142,27 +142,27 @@ $statut = "entreprise";
                   <div class="partie_gauche">
 
                     <div class="ligne">
-                      <input id="nom_entreprise" name="nom_entreprise" placeholder="Nom de l'entreprise" />
+                      <input id="nom_entreprise" name="nom_entreprise" placeholder="Nom de l'entreprise" required />
                     </div>
 
                     <a id="verif_nom_entreprise"></a>
 
                     <div class="ligne">
-                      <input id="num_tel" type="number" name="num_tel" placeholder="Numéro de téléphone" />
+                      <input id="num_tel" type="number" name="num_tel" placeholder="Numéro de téléphone" required />
                     </div>
 
                     <a id="verif_num_tel"></a>
 
                     <div class="ligne">
 
-                      <input id="adresse_mail" name="adresse_mail" type="email" placeholder="Adresse mail" />
+                      <input id="adresse_mail" name="adresse_mail" type="email" placeholder="Adresse mail" required/>
                     </div>
 
                     <a id="verif_adresse_mail"></a>
 
                     <div class="ligne">
 
-                      <input id="num_siret" name="num_siret" type="number" class="colonne-gauche" placeholder="Numérot de siret" />
+                      <input id="num_siret" name="num_siret" type="number" class="colonne-gauche" placeholder="Numérot de siret" required />
                     </div>
 
                     <a id="verif_num_siret"></a>
@@ -174,7 +174,7 @@ $statut = "entreprise";
                   <div class="partie_droite">
 
                     <div class="ligne">
-                      <input id="code_postal" type="number" name="code_postal" placeholder="Code postal" />
+                      <input id="code_postal" type="number" name="code_postal" placeholder="Code postal" required />
                     </div>
                     <a id="verif_code_postal"></a>
 
@@ -182,18 +182,18 @@ $statut = "entreprise";
 
                     <div class="ligne">
 
-                      <select id="ville" name="ville" placeholder="Ville"> </select>
+                      <select id="ville" name="ville" placeholder="Ville" required> </select>
                     </div>
 
                     <div class="ligne">
 
-                      <input id="num_rue" name="num_rue" type="number" placeholder="Numéro rue" />
+                      <input id="num_rue" name="num_rue" type="number" placeholder="Numéro rue" required />
 
 
                     </div>
 
                     <div class="ligne">
-                      <input id="nom_rue" name="nom_rue" placeholder="Nom rue" />
+                      <input id="nom_rue" name="nom_rue" placeholder="Nom rue" required/>
 
                     </div>
 
@@ -220,14 +220,14 @@ $statut = "entreprise";
 
                 <div class="ligne">
 
-                  <textarea id="secteur_activite" name="secteur_activite" class="description" placeholder="Secteurs d'activités"></textarea>
+                  <textarea id="secteur_activite" name="secteur_activite" class="description" placeholder="Secteurs d'activités" required></textarea>
 
                 </div>
 
 
 
                 <div class="ligne">
-                  <textarea id="description_entreprise" name="description_entreprise" class="description" placeholder="Description de l'entreprise"></textarea>
+                  <textarea id="description_entreprise" name="description_entreprise" class="description" placeholder="Description de l'entreprise" required></textarea>
                 </div>
 
                 <div class="btn_prece_valid">
