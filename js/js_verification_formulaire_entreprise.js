@@ -94,5 +94,20 @@ document.addEventListener("DOMContentLoaded", function () {
     } else {
       balise_nom_rue.style.display = "none";
     }
+
+    if (
+      balise_code_postal.style.display === "block" ||
+      balise_nom_entreprise.style.display === "block" ||
+      balise_num_tel.style.display === "block" ||
+      balise_adresse_mail.style.display === "block"||
+      balise_num_siret.style.display === "block"||
+      balise_nom_rue.style.display === "block"
+    ) {
+      btn_valider.style.display = "none";
+      btn_donnees_incorrect.style.display = "block";
+    } else {
+      btn_valider.style.display = "block";
+      btn_donnees_incorrect.style.display = "none";
+    }
   });
 });

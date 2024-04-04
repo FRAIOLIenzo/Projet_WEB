@@ -21,6 +21,9 @@
     <meta name="description" content="" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="stylesheet" href="style/style_gerer_etudiants.css" />
+    <script>
+    var page = "<?php echo basename($_SERVER['PHP_SELF']); ?>";
+    </script>
     <script src="js/js_gerer.js" defer></script>
     <script src='js/js_verification_formulaire_etudiant.js' defer></script>
 
