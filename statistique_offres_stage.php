@@ -78,28 +78,13 @@
         </div>
       </div>
 
-
       <div class="box_stats">
         <div class="box_stats_contenu">
-
-        
-
-          <h1>Offres les mieux notées</h1>
-
-            <div class="emplacement_box_droite">
-              <ol>
-                <li>Maxime</li>
-                <li>Alexis</li>
-                <li>Enzo</li>
-                <li>Maxime</li>
-                <li>Alexis</li>
-                <li>Enzo</li>
-
-              </ol>
-            </div>
-
-
-          
+          <h1>Offres par promotions</h1>
+          <div class="emplacement_box_droite">
+            <ol id="listeEntreprises">
+            </ol>
+          </div>
         </div>
       </div>
       </div>
@@ -107,69 +92,24 @@
     
 
 
-    <div class="container_box_tableau">
+      <div class="container_box_tableau">
       <div class="box_stats_tableau">
-
         <div class="tableau_offre">
 
-          <h1>Annonces les plus solicitées</h1>
-
+          <h1>Offres de stages les plus longues</h1>
           <table>
-
             <thead>
               <tr>
-                <th>Nom</th>
-                <th>Secteurs d'activité</th>
+                <th>Domaine</th>
+                <th>Entreprise</th>
                 <th>Localisation</th>
-                <th>Promotions concernées</th>
+                <th>Durée</th>
               </tr>
             </thead>
-
-            <tbody>
-              <tr>
-                <td>Programmeur</td>
-                <td>informatique</td>
-                <td>Nancy</td>
-                <td>
-                  CPI A2
-                </td>
-              </tr>
-
-              <tr>
-                <td>Programmeur</td>
-                <td>informatique</td>
-                <td>Nancy</td>
-                <td>
-                  CPI A2
-                </td>
-              </tr>
-
-              <tr>
-                <td>Programmeur</td>
-                <td>informatique</td>
-                <td>Nancy</td>
-                <td>
-                  CPI A2
-                </td>
-              </tr>
-
-
-              <tr>
-                <td>Programmeur</td>
-                <td>informatique</td>
-                <td>Nancy</td>
-                <td>
-                  CPI A2
-                </td>
-              </tr>
-
-
-
+            <tbody id="tableBody">
+              <!-- Les lignes du tableau seront générées dynamiquement ici -->
             </tbody>
-
           </table>
-
-
         </div>
       </div>
     </div>
@@ -216,7 +156,58 @@ while ($row = $stmt2->fetch(PDO::FETCH_ASSOC)) {
     $data2[] = array($row['nom_ville'], intval($row['nombre_d_occurrences']));
 }
 $json_data2 = json_encode($data2);
+  //----------------------------------------------------------------------------------------------
+  $sql3 = "SELECT types_de_promotion, COUNT(*) AS nombre_offres
+  FROM offre_de_stage
+  GROUP BY types_de_promotion
+  ORDER BY nombre_offres DESC;";
 
+  $stmt3 = $pdo->query($sql3);
+  $data3 = array();
+
+
+  while ($row = $stmt3->fetch(PDO::FETCH_ASSOC)) {
+    $data3[] = array($row['types_de_promotion'], intval($row['nombre_offres']));
+  }
+
+  $json_data3 = json_encode($data3);
+    //----------------------------------------------------------------------------------------------
+    $sql4 = "SELECT 
+    ods.domaine_stage AS domaine_de_stage, 
+    ent.nom_entreprise AS nom_entreprise, 
+    v.nom_ville AS nom_ville, 
+    CONCAT(FLOOR(DATEDIFF(ods.date_de_fin, ods.date_de_debut) / 30), ' mois ', DATEDIFF(ods.date_de_fin, ods.date_de_debut) % 30, ' jours') AS duree_offre
+FROM 
+    offre_de_stage AS ods
+JOIN 
+    entreprise AS ent ON ods.id_entreprise = ent.id_entreprise
+JOIN 
+    réside AS r ON ent.id_entreprise = r.id_entreprise
+JOIN 
+    adresse AS ad ON r.id_adresse = ad.id_adresse
+JOIN 
+    se_localise AS sl ON ad.id_adresse = sl.id_adresse
+JOIN 
+    ville AS v ON sl.id_ville = v.id_ville
+ORDER BY duree_offre DESC;
+;
+    ";
+    
+      $stmt4 = $pdo->query($sql4);
+      $data4 = array();
+    
+    
+      while ($row = $stmt4->fetch(PDO::FETCH_ASSOC)) {
+        $data4[] = array(
+          $row['domaine_de_stage'],
+          $row['nom_entreprise'],
+          $row['nom_ville'], // Ajouter le secteur d'activité
+          $row['duree_offre'] // Ajouter la ville
+      );;
+      }
+    
+      $json_data4 = json_encode($data4);
+      var_dump($json_data4);
 } catch (PDOException $e) {
     echo "Erreur : " . $e->getMessage();
 }
@@ -226,12 +217,17 @@ $json_data2 = json_encode($data2);
 
 
 <script>
-var donutData = <?php echo $json_data; ?>
+  var donutData = <?php echo $json_data; ?>
 </script>
 <script>
-var donutData2 = <?php echo $json_data2; ?>
+  var donutData2 = <?php echo $json_data2; ?>
 </script>
-
+<script>
+  var donutData3 = <?php echo $json_data3; ?>
+</script>
+<script>
+  var donutData4 = <?php echo $json_data4; ?>
+</script>
 <script src="js/js_donut_offres.js" async defer></script>
 
 
