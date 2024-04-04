@@ -366,7 +366,7 @@ tbody tr:hover {
 }
 
 
-#popupajout1 a {
+#popupajout1 a, #popupmodifier a {
   display: block;
   margin-top: -10px;
   margin-bottom: 10px;
@@ -374,6 +374,18 @@ tbody tr:hover {
   font-size: 14px;
 }
 
+#btn_donnees_incorrectmodif{
+  
+  border-radius: 25px;
+  color: #ffffff;
+  background-color: #7b9dd2;
+  cursor: pointer;
+  border : none; 
+  width: 362px;
+  height: 44px;
+
+
+}
 
 .titre_ajout_etudiant{
   margin-bottom: 20px;
