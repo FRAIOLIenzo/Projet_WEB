@@ -29,6 +29,8 @@ $statut = "offre";
   </script>
 
   <script src='js/js_verification_formulaire_offre_stage.js' defer></script>
+  <script src='js/js_verification_formulaire_offre_stage_modification.js' defer></script>
+  
 
   <script src="js/js_gerer.js" defer></script>
 
@@ -136,67 +138,109 @@ $statut = "offre";
         Supprimer
       </div>
     </div>
-    <!-- 
+
     <div id="popupmodifier">
       <div class="box">
         <div class="box_connexion">
           <div class="box_connexion_contenu">
             <label class="titre-pop-up">Modifier une offre</label>
 
-            <div class="ligne">
+            <form action="" id="creer_offre" method="post" name="ajout1">
+              <div class="offre_page_1sur2modif">
+                <div class="conteneur_page_1_creer_offre">
+                  <div class="partie_gauche">
 
-              <input id="nom_offre" class="colonne-gauche" placeholder="Nom de l'offre" />
+                    <div class="ligne">
+                      <input id="nom_offre1modif" name="nom_offre1" placeholder="Nom de l'offre" required />
+                    </div>
 
-              <input id="date_stage" class="colonne-milieu calendrier" type="text" placeholder="Dates de début" />
+                    <a id="verif_nom_offremodif"></a>
 
-              <input id="remuneration" class="colonne-droite" type="text" placeholder="Date de fin" />
+                    <div class="ligne">
+                      <select id="nom_entreprisemodif" name="nom_entreprise" required>
+                        <option value="" disabled selected>Nom entreprise</option>
+                        <?php
+                        $query = $db->prepare("SELECT nom_entreprise FROM entreprise");
+                        $query->execute();
+                        $row = $query->fetchAll(PDO::FETCH_ASSOC);
+                        foreach ($row as $rows) {
+                          echo '<option value="' . $rows['nom_entreprise'] . '">' . $rows['nom_entreprise'] . '</option>';
+                        }
+                        ?>
+                      </select>
+                    </div>
 
-            </div>
+                  
 
+                    <div class="ligne">
 
-            <div class="ligne">
-
-
-              <input id="competences" class="colonne-gauche" placeholder="Rémunération" />
-
-              <input id="promo" class="colonne-milieu" placeholder="Promotion concernée" />
-
-              <input id="secteur_activite" class="colonne-droite" placeholder="Secteurs d'activité" />
-
-            </div>
-
-
-
-            <div class="ligne">
-
-              <input id="adresse_mail" class="colonne-gauche" type="email" placeholder="Adresse mail" />
-
-
-              <input id="nombre_place" class="colonne-milieu" placeholder="Nombre de places" />
-
-              <input id="code" name="code" class="colonne-droite" placeholder="Code postal" />
-
-
-
-            </div>
-
-
-            <div class="ligne">
-
-
-              <select class="select-colonne-gauche" id="ville_sortie" placeholder="Ville"> </select>
-
-              <input id="num_rue" class="colonne-milieu" placeholder="Numéro de rue" />
-
-              <input id="nom_rue" class="colonne-droite" placeholder="Nom rue" />
-
-            </div>
+                      <input id="nombre_placemodif" type="number" name="nombre_place" placeholder="Nombre de place" required />
+                    </div>
 
 
 
-            <div class="ligne">
-              <textarea id="description_annonce" class="description" placeholder="Description de l'annonce, compétences"></textarea>
-            </div>
+
+                  </div>
+
+                  <div class="partie_droite">
+
+                    <div class="ligne">
+                      <input id="promo_concerneesmodif" name="promo_concernees" placeholder="Promo concernées" required />
+                    </div>
+                    <a id="verif_promo_concerneesmodif"></a>
+
+                    <div class="ligne">
+                      <input id="remunerationmodif" name="remuneration" type="number" placeholder="Rémuneration (€)" required />
+                    </div>
+                    <div class="positionnement_btn_suivant_1">
+                      <button class="btn_suivant_1" id="btn_suivant1modif" onclick="offre_page_vers_2sur2modif()"> Suivant</button>
+                    </div>
+
+                  </div>
+
+                </div>
+
+
+
+              </div>
+
+              <div class="offre_page_2sur2modif">
+
+                <div class="ligne_2 premiere_ligne">
+                  <label for="date_debut">Date de début :</label>
+                  <input id="date_debutmodif" name="date_debut" type="date" class="colonne-gauche" required />
+                </div>
+
+                <div class="ligne_2">
+                  <label for="date_debut">Date de fin : </label>
+                  <input id="date_finmodif" name="date_fin" type="date" class="colonne-gauche" required />
+
+                </div>
+                <div>
+                  <label id="virgule_label"> Veuillez séparer les compétences avec une virgule </label>
+                </div>
+                <div class="ligne_2_de3">
+
+                  <input id="competencemodif" name="competence" class="colonne-gauche" placeholder=" Compétences" required />
+
+                  <input id="domaine_stagemodif" name="domaine_stage" class="colonne-gauche" placeholder="Secteur d'activité" />
+                </div>
+
+                <div class="ligne">
+                  <textarea id="description_annoncemodif" class="description" placeholder="Description de l'annonce" required></textarea>
+                </div>
+
+                <div class="btn_prece_valid">
+                  <button class="btn_precedent_1" onclick="offre_page_vers_1sur2modif()"> Précédent</button>
+                  <button class="btn_valider" type="submit" id="btn_validermodif"> Valider</button>
+                  <button type="button" id="btn_donnees_incorrectmodif" class="btn_valider">Merci de vérifier vos informations</button>
+
+                </div>
+
+              </div>
+
+
+            </form>
 
             <div id="closecircle"></div>
 
@@ -205,12 +249,13 @@ $statut = "offre";
 
 
 
-            <button class="btn_creer_offre">Créer une offre</button>
+
+
           </div>
         </div>
       </div>
+    </div>
 
-    </div> -->
 
     <div id="popupajout1">
       <div class="box">
@@ -243,7 +288,7 @@ $statut = "offre";
                       </select>
                     </div>
 
-                    <a id="verif_nom_entreprise"></a>
+          
 
                     <div class="ligne">
 
