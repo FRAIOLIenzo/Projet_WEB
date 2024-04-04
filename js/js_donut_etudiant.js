@@ -35,3 +35,43 @@ function drawCharts() {
     options
   );
 }
+
+
+// Sélection de la liste
+var liste = document.getElementById("listeEntreprises");
+
+// Effacement du contenu actuel de la liste
+liste.innerHTML = "";
+var sixPremiers = donutData3.slice(0, 6);
+// Boucle à travers le tableau d'entreprises et de leurs notes pour créer les éléments de liste
+sixPremiers.forEach(function (entrepriseNote) {
+  var entreprise = entrepriseNote[0];
+  var note = entrepriseNote[1];
+  var li = document.createElement("li");
+  li.textContent = entreprise + " - " + note + " étudiants ";
+  liste.appendChild(li);
+});
+
+
+
+  // Tableau de données
+
+
+  // Sélection du corps du tableau
+  var tableBody = document.getElementById("tableBody");
+
+  // Effacement du contenu actuel du corps du tableau
+  tableBody.innerHTML = "";
+  var troisPremiers = donutData4.slice(0, 3);
+  // Boucle à travers le tableau de données pour créer les lignes et les cellules
+  troisPremiers.forEach(function(rowData) {
+    var row = document.createElement("tr");
+
+    rowData.forEach(function(cellData) {
+      var cell = document.createElement("td");
+      cell.textContent = cellData;
+      row.appendChild(cell);
+    });
+
+    tableBody.appendChild(row);
+  });

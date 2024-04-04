@@ -39,148 +39,63 @@
 
     <div class="menu">
       <ul>
-
         <li class="active"><a href="statistique_offres_stage.php">Offres</a></li>
         <div class="square">
           <li><p>Étudiants</p></li>
           </div>
-        
           <li><a href="statistique_entreprises.php">Entreprise</a></li>
       </ul>
     </div>
-
     </div>
-
-
-
     <div class="container_box">
-
       <div class="box_stats">
         <div class="box_stats_contenu">
-
-          
-
             <h1>Répartition par centre</h1>
             <div class="donut" id="donut_secteur_activite"></div>
-
-          
         </div>
       </div>
-
       <div class="box_stats">
         <div class="box_stats_contenu">
-
-          
-
             <h1>Répartition par promotion</h1>
             <div class="donut" id="donut_campus"></div>
-
-          
         </div>
       </div>
 
 
       <div class="box_stats">
         <div class="box_stats_contenu">
-
-         
-
-            <h1>Étudiants ayant recherché le plus de stage</h1>
-
-            <div class="emplacement_box_droite">
-              <ol>
-                <li>Maxime</li>
-                <li>Alexis</li>
-                <li>Enzo</li>
-                <li>Maxime</li>
-                <li>Alexis</li>
-                <li>Enzo</li>
-
-              </ol>
-            </div>
-
-
-          
+          <h1>Promotions avec le plus d'étudiants</h1>
+          <div class="emplacement_box_droite">
+            <ol id="listeEntreprises">
+            </ol>
+          </div>
         </div>
       </div>
       </div>
 
     
 
-
-    <div class="container_box_tableau">
+      <div class="container_box_tableau">
       <div class="box_stats_tableau">
-
         <div class="tableau_offre">
 
-          <h1>Annonces les plus solicitées</h1>
-
+          <h1>Étudiants avec le plus d'avis effectués</h1>
           <table>
-
             <thead>
               <tr>
                 <th>Nom</th>
-                <th>Secteurs d'activité</th>
+                <th>Promotion</th>
                 <th>Localisation</th>
-                <th>Promotions concernées</th>
+                <th>Nombre d'avis effectués</th>
               </tr>
             </thead>
-
-            <tbody>
-              <tr>
-                <td>Programmeur</td>
-                <td>informatique</td>
-                <td>Nancy</td>
-                <td>
-                  CPI A2
-                </td>
-              </tr>
-
-              <tr>
-                <td>Programmeur</td>
-                <td>informatique</td>
-                <td>Nancy</td>
-                <td>
-                  CPI A2
-                </td>
-              </tr>
-
-              <tr>
-                <td>Programmeur</td>
-                <td>informatique</td>
-                <td>Nancy</td>
-                <td>
-                  CPI A2
-                </td>
-              </tr>
-
-
-              <tr>
-                <td>Programmeur</td>
-                <td>informatique</td>
-                <td>Nancy</td>
-                <td>
-                  CPI A2
-                </td>
-              </tr>
-
-
-
+            <tbody id="tableBody">
+              <!-- Les lignes du tableau seront générées dynamiquement ici -->
             </tbody>
-
           </table>
-
-
         </div>
       </div>
     </div>
-
-    
-
-
-
-
-
   </main>
 
 
@@ -226,7 +141,52 @@ while ($row = $stmt2->fetch(PDO::FETCH_ASSOC)) {
     $data2[] = array($row['nom_promo'], intval($row['nombre_de_comptes']));
 }
 $json_data2 = json_encode($data2);
-
+ //----------------------------------------------------------------------------------------------
+ $sql3 = "SELECT p.nom_promo, COUNT(e.id_compte) AS nombre_etudiants
+ FROM promo AS p
+ JOIN etudie_dans AS ed ON p.id_promo = ed.id_promo
+ JOIN etudiant AS e ON ed.id_compte = e.id_compte
+ GROUP BY p.nom_promo
+ ORDER BY nombre_etudiants DESC;
+ ";
+ 
+   $stmt3 = $pdo->query($sql3);
+   $data3 = array();
+ 
+ 
+   while ($row = $stmt3->fetch(PDO::FETCH_ASSOC)) {
+     $data3[] = array($row['nom_promo'], intval($row['nombre_etudiants']));
+   }
+ 
+   $json_data3 = json_encode($data3);
+     //----------------------------------------------------------------------------------------------
+     $sql4 = "SELECT CONCAT(c.nom, ' ', c.prenom) AS nom_etudiant, p.nom_promo, v.nom_ville, COUNT(a.id_compte) AS nombre_avis
+     FROM etudiant AS e
+     JOIN etudie_dans AS ed ON e.id_compte = ed.id_compte
+     JOIN Centre AS ct ON ed.id_centre = ct.id_centre
+     JOIN promo AS p ON ed.id_promo = p.id_promo
+     JOIN adresse AS ad ON ct.id_adresse = ad.id_adresse
+     JOIN se_localise AS sl ON ad.id_adresse = sl.id_adresse
+     JOIN ville AS v ON sl.id_ville = v.id_ville
+     JOIN compte AS c ON e.id_compte = c.id_compte
+     LEFT JOIN Avis AS a ON e.id_compte = a.id_compte
+     GROUP BY nom_etudiant, p.nom_promo, v.nom_ville
+     ORDER BY nombre_avis DESC;";
+     
+       $stmt4 = $pdo->query($sql4);
+       $data4 = array();
+     
+     
+       while ($row = $stmt4->fetch(PDO::FETCH_ASSOC)) {
+         $data4[] = array(
+           $row['nom_etudiant'],
+           $row['nom_promo'],
+           $row['nom_ville'], // Ajouter le secteur d'activité
+           $row['nombre_avis'] // Ajouter la ville
+       );;
+       }
+     
+       $json_data4 = json_encode($data4);
 } catch (PDOException $e) {
     echo "Erreur : " . $e->getMessage();
 }
@@ -236,13 +196,18 @@ $json_data2 = json_encode($data2);
 
 
 <script>
-var donutData = <?php echo $json_data; ?>
+  var donutData = <?php echo $json_data; ?>
 </script>
 <script>
-var donutData2 = <?php echo $json_data2; ?>
+  var donutData2 = <?php echo $json_data2; ?>
 </script>
-
-<script src="js/js_donut_entreprise.js" async defer></script>
+<script>
+  var donutData3 = <?php echo $json_data3; ?>
+</script>
+<script>
+  var donutData4 = <?php echo $json_data4; ?>
+</script>
+<script src="js/js_donut_etudiant.js" async defer></script>
 
 
 </body>
