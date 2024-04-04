@@ -6,9 +6,9 @@
     <title>Se connecter</title>
     <meta name="description" content="" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="stylesheet" href="style/style_navbar.css" />
+
     <link rel="stylesheet" href="style/style_connecter.css" />
-    <link rel="stylesheet" href="style/style_footer.css" />
+
     <link
       rel="stylesheet"
       href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap"

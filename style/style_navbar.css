@@ -139,7 +139,7 @@ header .content a,
 .content_profil a {
   color: #7b9dd2;
   font-weight: normal;
-  width: auto;   /*Mettre auto ici pour dynamique*/
+  width: auto; /*Mettre auto ici pour dynamique*/
 }
 
 .content_profil {
@@ -163,4 +163,26 @@ header .content a,
 
 .profil-container:hover .menu_profil {
   transform: rotate(-180deg);
+}
+
+@media screen and (max-width: 700px) {
+  header {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .logo {
+    margin-left: 0;
+  }
+}
+
+@media screen and (max-width: 580px) {
+  .navbar {
+    display: flex;
+    flex-direction: column;
+    margin-right: 0;
+  }
+  .profil{
+    margin-left: 0;
+  }
 }

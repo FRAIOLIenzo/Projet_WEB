@@ -20,7 +20,7 @@ $statut = "offre";
   <title>noStage</title>
   <meta name="description" content="gerer_offre_de_stage" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <link rel="stylesheet" href="style/style_navbar.css" />
+
   <link rel="stylesheet" href="style/style_gerer_offres.css" />
   <link rel="stylesheet" href="style/style_fenetre_creer_offre_stage.css" />
   <script src="API/code_postal_ville.js" defer></script>
@@ -225,13 +225,13 @@ $statut = "offre";
                   <div class="partie_gauche">
 
                     <div class="ligne">
-                      <input id="nom_offre1" name="nom_offre1" placeholder="Nom de l'offre" />
+                      <input id="nom_offre1" name="nom_offre1" placeholder="Nom de l'offre" required />
                     </div>
 
                     <a id="verif_nom_offre"></a>
 
                     <div class="ligne">
-                      <select id="nom_entreprise" name="nom_entreprise">
+                      <select id="nom_entreprise" name="nom_entreprise" required>
                         <option value="" disabled selected>Nom entreprise</option>
                         <?php
                         $query = $db->prepare("SELECT nom_entreprise FROM entreprise");
@@ -248,14 +248,14 @@ $statut = "offre";
 
                     <div class="ligne">
 
-                      <input id="nombre_place" type="number" name="nombre_place" placeholder="Nombre de place" />
+                      <input id="nombre_place" type="number" name="nombre_place" placeholder="Nombre de place" required/>
                     </div>
 
                     <div class="ligne">
-                      <input id="promo_concernees" name="promo_concernees" placeholder="Promo concernées" />
+                      <input id="promo_concernees" name="promo_concernees" placeholder="Promo concernées"required />
                     </div>
                     <div class="ligne">
-                      <input id="remuneration" name="remuneration" placeholder="Rémuneration (€)" />
+                      <input id="remuneration" name="remuneration" placeholder="Rémuneration (€)" required/>
                     </div>
 
                     <a id="verif_promo_concernees"></a>
@@ -280,12 +280,12 @@ $statut = "offre";
 
                 <div class="ligne_2 premiere_ligne">
                   <label for="date_debut">Date de début :</label>
-                  <input id="date_debut" name="date_debut" type="date" class="colonne-gauche" />
+                  <input id="date_debut" name="date_debut" type="date" class="colonne-gauche" required/>
                 </div>
 
                 <div class="ligne_2">
                   <label for="date_debut">Date de fin : </label>
-                  <input id="date_fin" name="date_fin" type="date" class="colonne-gauche" />
+                  <input id="date_fin" name="date_fin" type="date" class="colonne-gauche" required/>
 
                 </div>
                 <div>
@@ -293,13 +293,13 @@ $statut = "offre";
                 </div>
                 <div class="ligne_2_de3">
 
-                  <input id="competence" name="competence" class="colonne-gauche" placeholder=" Compétences" />
+                  <input id="competence" name="competence" class="colonne-gauche" placeholder=" Compétences" required/>
 
                   <input id="domaine_stage" name="domaine_stage" class="colonne-gauche" placeholder="Secteur d'activité" />
                 </div>
 
                 <div class="ligne">
-                  <textarea id="description_annonce" class="description" placeholder="Description de l'annonce"></textarea>
+                  <textarea id="description_annonce" class="description" placeholder="Description de l'annonce" required></textarea>
                 </div>
 
                 <div class="btn_prece_valid">
