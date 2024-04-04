@@ -99,7 +99,7 @@
 
         <form action="" method="post" class="formcreer1">
         <input type="text" id="idsup" name="id" placeholder="id" style="display : none ;" required />
-        <input type="text" id="promoc" name="promoc" style="display : none ;" required />
+        <input type="text" id="promoc" value ="a" name="promoc" style="display : none ;" required />
         <input type="text" id="centrec" name="centrec" style="display : none ;" required />
           <div id="nomprenom">
             <input type="text" id="prenom" name="prenom" placeholder="Prénom" required />
@@ -129,7 +129,7 @@
           </select>
           <input type="email" id="email" name="email" placeholder="Adresse e-mail" required />
           <input type="password" id="motdepasse" name="motdepasse" placeholder="Mot de passe" required />
-          <input type="submit" value="Valider" />
+          <input type="submit" value="Valider"/>
         </form>
         <div id="closecircle"></div>
 
@@ -176,10 +176,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['email'])) {
         echo '<script>alert("bientot2");</script>';
 
         // Update the `pilote` table
-        $query = $db->prepare("UPDATE pilote JOIN promo p ON p.id_promo=pilote.id_promo JOIN  travaille_dans t ON t.id_promo =p.id_promo JOIN Centre c on c.id_centre=t.id_centre SET pilote.id_promo = :idpromo  WHERE `id_compte` = :id AND c.nom_centre= :centre;");
+        $query = $db->prepare("UPDATE pilote SET id_promo = :idpromo, id_centre = :idcentre WHERE `id_compte` = :id");
         $query->bindValue(':id', $id);
         $query->bindValue(':idpromo', $idpromoc);
-        $query->bindValue(':centre', $centrec);
+        $query->bindValue(':idcentre', $idcentre);
 
 
         $query->execute();
@@ -255,16 +255,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['email1'])) {
       $query->execute();
       $row = $query->fetchAll(PDO::FETCH_ASSOC);
       $id = $row[0]['id_compte'];
-      echo '<script>alert("'.$centre.'");</script>';
-
       // on recupere l'id
       $query = $db->prepare("SELECT id_centre FROM Centre WHERE nom_centre=:centre;");
       $query->bindValue(':centre', $centre);
       $query->execute();
       $row = $query->fetchAll(PDO::FETCH_ASSOC);
       $idcentre = $row[0]['id_centre'];
-      echo '<script>alert("3");</script>';
-
       // on recupere id de la promo 
       $query = $db->prepare("SELECT p.id_promo FROM max.promo p WHERE p.nom_promo=:promo;");
       $query->bindValue(':promo', $promotion);

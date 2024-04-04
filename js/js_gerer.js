@@ -164,9 +164,8 @@ function attachImageEventListeners() {
       var mdp = document.getElementById("motdepasse");
       var id = document.getElementById("idsup");
       var id2 = document.getElementById("idsup2");
-      var id3 = document.getElementById("idsup3");
-
       var promoc = document.getElementById("promoc");
+      console.log("promoc", promoc);
       var centrec = document.getElementById("centrec");
 
       prenom.value = rowData[1];
@@ -174,9 +173,10 @@ function attachImageEventListeners() {
       mail.value = rowData[4];
       id.value = rowData[0];
       id2.value = rowData[0];
-      id3.value = rowData[0];
 
+      console.log("rowData 5", rowData[5]);
       promoc.value = rowData[5];
+      console.log("promoc.value", promoc.value);
       centrec.value = rowData[3];
     });
   });
