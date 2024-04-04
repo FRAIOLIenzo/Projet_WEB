@@ -262,6 +262,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['email'])) {
             />
             <a id="verif_motdepasse"></a>
             <input type="submit" value="Valider" id="btn_valider" />
+            <button type = "button" id="btn_donnees_incorrect" >Merci de vérifier vos informations</button>
+
           </form>
           <div id="closecircle"></div>
 

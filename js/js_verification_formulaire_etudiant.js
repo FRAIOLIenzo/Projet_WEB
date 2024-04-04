@@ -64,6 +64,21 @@ document.addEventListener("DOMContentLoaded", function () {
       } else {
         balise_motdepasse.style.display = "none";
       }
+
+
+          // Afficher ou masquer les boutons en si les champs sont ok ou non 
+    if (
+      balise_prenom.style.display === "block" ||
+      balise_nom.style.display === "block" ||
+      balise_email.style.display === "block" ||
+      balise_motdepasse.style.display === "block"
+    ) {
+      btn_valider.style.display = "none";
+      btn_donnees_incorrect.style.display = "block";
+    } else {
+      btn_valider.style.display = "block";
+      btn_donnees_incorrect.style.display = "none";
+    }
     });
   });
   
