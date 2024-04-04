@@ -23,7 +23,9 @@
   <link rel="stylesheet" href="style/style_navbar.css" />
   <link rel="stylesheet" href="style/style_gerer_pilotes.css" />
   <script src="js/js_gerer.js" defer></script>
-
+  <script>
+    var page = "<?php echo basename($_SERVER['PHP_SELF']); ?>";
+    </script>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" />
 </head>
 
@@ -149,7 +151,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['email'])) {
     $promoc = $_POST['promoc'];
     $centrec = $_POST['centrec'];
 
-    // Assuming $db is your PDO database connection
     try {
         // Update the account in the `compte` table
         $query = $db->prepare("UPDATE `max`.`compte` SET `adresse_mail` = :email, `nom` = :nom, `prenom` = :prenom, `mot_de_passe` = :motdepasse WHERE (`id_compte` = :id);");
@@ -309,6 +310,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['email1'])) {
     $query = $db->prepare("DELETE FROM `max`.`compte` WHERE id_compte = :id;");
     $query->bindValue(':id', $id2);
     $query->execute();
+    echo '<script>alert("Pilote ajouté avec succès");</script>';
     header("Location: gerer_pilotes.php");
   } ?>
   </main>

@@ -1,21 +1,7 @@
 function buildTable(data, status) {
   var table = document.getElementById("myTable");
   table.innerHTML = "";
-  if (status == "etudiant") {
-    for (var i = 0; i < data.length; i++) {
-      var row = `<tr>
-                    <td>${data[i].id_compte}</td>
-                    <td>${data[i].nom}</td>
-                    <td>${data[i].prenom}</td>
-                    <td>${data[i].nom_centre}</td>
-                    <td>${data[i].adresse_mail}</td>
-                    <td>${data[i].nom_promo}</td>
-                    <td><img class="imgautre" alt="autre" src="image/autre.png"></td>
-              </tr>`;
-      table.innerHTML += row;
-    }
-  }
-  if (status == "pilote") {
+  if (status == "pilote" || status == "etudiant") {
     for (var i = 0; i < data.length; i++) {
       var row = `<tr>
                     <td>${data[i].id_compte}</td>
@@ -157,27 +143,32 @@ function attachImageEventListeners() {
         rowData.push(cell.textContent);
       });
       console.log("Données de la ligne cliquée:", rowData);
-      var prenom = document.getElementById("prenom");
-      var nom = document.getElementById("nom");
-      var nom = document.getElementById("nom");
-      var mail = document.getElementById("email");
-      var mdp = document.getElementById("motdepasse");
-      var id = document.getElementById("idsup");
-      var id2 = document.getElementById("idsup2");
-      var promoc = document.getElementById("promoc");
-      console.log("promoc", promoc);
-      var centrec = document.getElementById("centrec");
+      if (page == "gerer_etudiants.php" || page == "gerer_pilotes.php") {
+        var prenom = document.getElementById("prenom");
+        var nom = document.getElementById("nom");
+        var nom = document.getElementById("nom");
+        var mail = document.getElementById("email");
+        var mdp = document.getElementById("motdepasse");
+        var id = document.getElementById("idsup");
+        var id2 = document.getElementById("idsup2");
+        var promoc = document.getElementById("promoc");
+        var centrec = document.getElementById("centrec");
 
-      prenom.value = rowData[1];
-      nom.value = rowData[2];
-      mail.value = rowData[4];
-      id.value = rowData[0];
-      id2.value = rowData[0];
+        prenom.value = rowData[1];
+        nom.value = rowData[2];
+        mail.value = rowData[4];
+        id.value = rowData[0];
+        id2.value = rowData[0];
+        console.log("rowData 5", rowData[5]);
+        promoc.value = rowData[5];
+        console.log("promoc.value", promoc.value);
+        centrec.value = rowData[3];
+      }
+      if (page == "gerer_offres.php") {
+        var supid = document.getElementById("supid");
 
-      console.log("rowData 5", rowData[5]);
-      promoc.value = rowData[5];
-      console.log("promoc.value", promoc.value);
-      centrec.value = rowData[3];
+        supid.value = rowData[0];
+      }
     });
   });
 }
