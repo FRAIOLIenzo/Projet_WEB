@@ -38,7 +38,6 @@ $statut = "offre";
 
 
 
-
 <body onload="buildTable(tableau_json, statut)">
   <?php include 'Navbar.php'; ?>
   <?php
