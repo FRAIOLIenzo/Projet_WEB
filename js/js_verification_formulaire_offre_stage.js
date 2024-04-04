@@ -72,7 +72,20 @@ document.addEventListener('DOMContentLoaded', function() {
         
 
 
-
+         // Afficher ou masquer les boutons en si les champs sont ok ou non 
+    if (
+        balise_nom_offre.style.display === "block" ||
+        balise_nom_entreprise.style.display === "block" ||
+        balise_promo_concernees.style.display === "block" ||
+        balise_nom_rue.style.display === "block" ||
+        balise_code_postal.style.display === "block" 
+      ) {
+        btn_valider.style.display = "none";
+        btn_donnees_incorrect.style.display = "block";
+      } else {
+        btn_valider.style.display = "block";
+        btn_donnees_incorrect.style.display = "none";
+      }
 
       
     });
