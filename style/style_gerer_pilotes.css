@@ -271,12 +271,18 @@ main {
   width: 100%; /* Assure que les champs de saisie occupent toute la largeur */
 }
 
-.formcreer1 input[type="submit"] {
+.formcreer1 input[type="submit"], #btn_donnees_incorrect {
   border-radius: 25px;
   color: #ffffff;
   background-color: #7b9dd2;
   cursor: pointer;
 }
+
+#btn_donnees_incorrect{
+  height : 50px;
+  border :none;
+}
+
 
 .formcreer1 select {
   padding-left: 10px; /* Ajoutez le padding souhaité */
