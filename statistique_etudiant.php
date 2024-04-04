@@ -60,7 +60,7 @@
 
           
 
-            <h1>Répartition par secteur d'activité</h1>
+            <h1>Répartition par centre</h1>
             <div class="donut" id="donut_secteur_activite"></div>
 
           
@@ -72,7 +72,7 @@
 
           
 
-            <h1>Répartition par localisation</h1>
+            <h1>Répartition par promotion</h1>
             <div class="donut" id="donut_campus"></div>
 
           
@@ -187,6 +187,62 @@
 
 
   <?php include 'footer.php'; ?>
+
+
+  
+<?php
+// Récupérez vos données depuis la base de données et encodez-les en JSON
+$username = "max";
+$password = "]$;8ytb]%n-Jg;^";
+try {
+    $pdo = new PDO('mysql:host=db.aws.gop.onl;dbname=max', $username, $password);
+    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+    // Requête SQL pour obtenir le nom du secteur d'activité et le nombre d'apparitions
+    $sql = "SELECT c.nom_centre, COUNT(e.id_compte) AS nombre_de_comptes
+    FROM etudiant AS e
+    JOIN etudie_dans AS ed ON e.id_compte = ed.id_compte
+    JOIN Centre AS c ON ed.id_centre = c.id_centre
+    GROUP BY c.nom_centre;
+    ";
+    $stmt = $pdo->query($sql);
+    $data = array();
+
+    while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+        $data[] = array($row['nom_centre'], intval($row['nombre_de_comptes']));
+    }
+    $json_data = json_encode($data);
+//----------------------------------------------------------------------------------------------
+    $sql2 = "SELECT p.nom_promo, COUNT(e.id_compte) AS nombre_de_comptes
+    FROM etudiant AS e
+    JOIN etudie_dans AS ed ON e.id_compte = ed.id_compte
+    JOIN promo AS p ON ed.id_promo = p.id_promo
+    GROUP BY p.nom_promo";
+
+$stmt2 = $pdo->query($sql2);
+$data2 = array();
+
+while ($row = $stmt2->fetch(PDO::FETCH_ASSOC)) {
+    $data2[] = array($row['nom_promo'], intval($row['nombre_de_comptes']));
+}
+$json_data2 = json_encode($data2);
+
+} catch (PDOException $e) {
+    echo "Erreur : " . $e->getMessage();
+}
+?>
+
+
+
+
+<script>
+var donutData = <?php echo $json_data; ?>
+</script>
+<script>
+var donutData2 = <?php echo $json_data2; ?>
+</script>
+
+<script src="js/js_donut_entreprise.js" async defer></script>
 
 
 </body>
