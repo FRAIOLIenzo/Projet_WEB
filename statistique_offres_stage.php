@@ -207,7 +207,7 @@ ORDER BY duree_offre DESC;
       }
     
       $json_data4 = json_encode($data4);
-      var_dump($json_data4);
+
 } catch (PDOException $e) {
     echo "Erreur : " . $e->getMessage();
 }

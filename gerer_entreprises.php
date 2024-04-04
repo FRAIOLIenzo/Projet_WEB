@@ -31,6 +31,7 @@ $statut = "entreprise";
   <link rel="stylesheet" href="style/style_fenetre_creer_entreprise.css" />
   <script src="API/code_postal_ville.js" defer></script>
   <script src='js/js_verification_formulaire_entreprise.js' defer></script>
+  <script src='js/js_verification_formulaire_entreprise_modification.js' defer></script>
 
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" />
 </head>
@@ -112,7 +113,7 @@ $statut = "entreprise";
       <div class="squaredg">
         <div class="headertab">
           <div class="search-container">
-            <input type="search" id="searchbar" onkeyup="recherche(tableau_json,statut)" placeholder="Rechercher..." />
+            <input type="search" id="searchbar" onkeyup="recherche(tableau_json, statut)" placeholder="Rechercher..." />
             <img alt="loupe" id="imgsearch" src="image/loupe.png" />
           </div>
           <div class="btncountainer">
@@ -153,41 +154,41 @@ $statut = "entreprise";
       </div>
     </div>
 
-<div id="popupajout1">
+    <div id="popupmodifier">
       <div class="box">
         <div class="box_connexion">
           <div class="box_connexion_contenu">
-            <label class="titre-pop-up">Ajouter une entreprise</label>
+            <label class="titre-pop-up" >Modifier une entreprise</label>
             <form action="" id="creer_entreprise" class="formcreer_entreprise" method="post">
-              <div class="offre_page_1sur2">
+              <div class="offre_page_1sur2modif">
                 <div class="conteneur_page_1_creer_offre">
                   <div class="partie_gauche">
 
                     <div class="ligne">
-                      <input id="nom_entreprise" name="nom_entreprise" placeholder="Nom de l'entreprise" required />
+                      <input id="nom_entreprisemodif" name="nom_entreprise" placeholder="Nom de l'entreprise" required />
                     </div>
 
-                    <a id="verif_nom_entreprise"></a>
+                    <a id="verif_nom_entreprisemodif"></a>
 
                     <div class="ligne">
-                      <input id="num_tel" type="number" name="num_tel" placeholder="Numéro de téléphone" required />
+                      <input id="num_telmodif" type="number" name="num_tel" placeholder="Numéro de téléphone" required />
                     </div>
 
-                    <a id="verif_num_tel"></a>
-
-                    <div class="ligne">
-
-                      <input id="adresse_mail" name="adresse_mail" type="email" placeholder="Adresse mail" required/>
-                    </div>
-
-                    <a id="verif_adresse_mail"></a>
+                    <a id="verif_num_telmodif"></a>
 
                     <div class="ligne">
 
-                      <input id="num_siret" name="num_siret" type="number" class="colonne-gauche" placeholder="Numérot de siret" required />
+                      <input id="adresse_mailmodif" name="adresse_mail" type="email" placeholder="Adresse mail" required/>
                     </div>
 
-                    <a id="verif_num_siret"></a>
+                    <a id="verif_adresse_mailmodif"></a>
+
+                    <div class="ligne">
+
+                      <input id="num_siretmodif" name="num_siret" type="number" class="colonne-gauche" placeholder="Numérot de siret" required />
+                    </div>
+
+                    <a id="verif_num_siretmodif"></a>
 
 
                   </div>
@@ -196,32 +197,32 @@ $statut = "entreprise";
                   <div class="partie_droite">
 
                     <div class="ligne">
-                      <input id="code_postal" type="number" name="code_postal" placeholder="Code postal" required />
+                      <input id="code_postalmodif" type="number" name="code_postal" placeholder="Code postal" required />
                     </div>
-                    <a id="verif_code_postal"></a>
+                    <a id="verif_code_postalmodif"></a>
 
 
 
                     <div class="ligne">
 
-                      <select id="ville" name="ville" placeholder="Ville" required> </select>
+                      <select id="villemodif" name="ville" placeholder="Ville" required> </select>
                     </div>
 
                     <div class="ligne">
 
-                      <input id="num_rue" name="num_rue" type="number" placeholder="Numéro rue" required />
+                      <input id="num_ruemodif" name="num_rue" type="number" placeholder="Numéro rue" required />
 
 
                     </div>
 
                     <div class="ligne">
-                      <input id="nom_rue" name="nom_rue" placeholder="Nom rue" required/>
+                      <input id="nom_ruemodif" name="nom_rue" placeholder="Nom rue" required/>
 
                     </div>
 
-                    <a id="verif_nom_rue"></a>
+                    <a id="verif_nom_ruemodif"></a>
                     <div class="positionnement_btn_suivant_1">
-                      <button class="btn_suivant_1" onclick="offre_page_vers_2sur2()"> Suivant</button>
+                      <button class="btn_suivant_1" onclick="offre_page_vers_2sur2modif()"> Suivant</button>
                     </div>
 
                   </div>
@@ -232,30 +233,30 @@ $statut = "entreprise";
 
               </div>
 
-              <div class="offre_page_2sur2">
+              <div class="offre_page_2sur2modif">
 
 
 
                 <div>
-                  <label id="virgule_label"> Veuillez séparer les secteurs d'activités avec une virgule </label>
+                  <label id="virgule_labelmodif"> Veuillez séparer les secteurs d'activités avec une virgule </label>
                 </div>
 
                 <div class="ligne">
 
-                  <textarea id="secteur_activite" name="secteur_activite" class="description" placeholder="Secteurs d'activités" required></textarea>
+                  <textarea id="secteur_activitemodif" name="secteur_activite" class="description" placeholder="Secteurs d'activités" required></textarea>
 
                 </div>
 
 
 
                 <div class="ligne">
-                  <textarea id="description_entreprise" name="description_entreprise" class="description" placeholder="Description de l'entreprise" required></textarea>
+                  <textarea id="description_entreprisemodif" name="description_entreprise" class="description" placeholder="Description de l'entreprise" required></textarea>
                 </div>
 
                 <div class="btn_prece_valid">
-                  <button class="btn_precedent_1" onclick="offre_page_vers_1sur2()"> Précédent</button>
-                  <button class="btn_valider" type="submit" id="btn_valider"> Valider</button>
-                  <button type = "button" id="btn_donnees_incorrect" class="btn_valider" >Merci de vérifier vos informations</button>
+                  <button class="btn_precedent_1" onclick="offre_page_vers_1sur2modif()"> Précédent</button>
+                  <button class="btn_valider" type="submit" id="btn_validermodif"> Valider</button>
+                  <button type = "button" id="btn_donnees_incorrectmodif" class="btn_valider" >Merci de vérifier vos informations</button>
 
                 </div>
 
@@ -266,22 +267,18 @@ $statut = "entreprise";
 
             <div id="closecircle"></div>
 
-            <img alt="close" id="close" src="image/close.png" onclick="openPopup1()" />
+            <img alt="close" id="close" src="image/close.png" onclick="openPopup2()" />
 
 
 
 
-            <div id="closecircle"></div>
-
-            <img alt="close" id="close" src="image/close.png" onclick="openPopup1()" />
+          
 
           </div>
         </div>
       </div>
     </div>
 
-
-    
     <div id="popupajout1">
       <div class="box">
         <div class="box_connexion">
@@ -400,9 +397,6 @@ $statut = "entreprise";
 
 
 
-            <div id="closecircle"></div>
-
-            <img alt="close" id="close" src="image/close.png" onclick="openPopup1()" />
 
           </div>
         </div>

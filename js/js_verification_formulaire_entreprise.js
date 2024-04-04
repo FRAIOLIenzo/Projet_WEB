@@ -109,5 +109,7 @@ document.addEventListener("DOMContentLoaded", function () {
       btn_valider.style.display = "block";
       btn_donnees_incorrect.style.display = "none";
     }
+
+    
   });
 });

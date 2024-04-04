@@ -48,41 +48,41 @@ $statut = "offre";
   <main>
 
     <form action="" method="post" name="supprimerForm">
-            <div id="popupsuppr">
-              <div class="popupsuppr-content">
-                <div id="txtpopupsuppr">
-                  Voulez-vous supprimer ce pilote de manière définitive ?
-                </div>
-                <div>
-                <input type="text" id="supid" name="supid" placeholder="id" style="display : block ;" required />
-                  <button type="submit" id="Supprimer">Supprimer</button>
-                  <button id="Annuler" type="button" onclick="openPopup3()">Annuler</button>
-                </div>
-              </div>
-            </div>
-        </form>
-        <?php
+      <div id="popupsuppr">
+        <div class="popupsuppr-content">
+          <div id="txtpopupsuppr">
+            Voulez-vous supprimer ce pilote de manière définitive ?
+          </div>
+          <div>
+            <input type="text" id="supid" name="supid" placeholder="id" style="display : block ;" required />
+            <button type="submit" id="Supprimer">Supprimer</button>
+            <button id="Annuler" type="button" onclick="openPopup3()">Annuler</button>
+          </div>
+        </div>
+      </div>
+    </form>
+    <?php
 
-          if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['supid'])) {
-            echo '<script>alert("zeazeaz");</script>';
+    if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['supid'])) {
+      echo '<script>alert("zeazeaz");</script>';
 
-            $supid = $_POST['supid'];
-            $query = $db->prepare("DELETE FROM `max`.`necessite` WHERE (`id_offre_de_stage` = :id);");
-            $query->bindValue(':id', $supid);
-            $query->execute();
-            $query = $db->prepare("DELETE FROM `max`.`offre_de_stage` WHERE (`id_offre_de_stage` = :id);");
-            $query->bindValue(':id', $supid);
-            $query->execute();
-            echo '<script>alert("Offre supprimé avec succès");</script>';
+      $supid = $_POST['supid'];
+      $query = $db->prepare("DELETE FROM `max`.`necessite` WHERE (`id_offre_de_stage` = :id);");
+      $query->bindValue(':id', $supid);
+      $query->execute();
+      $query = $db->prepare("DELETE FROM `max`.`offre_de_stage` WHERE (`id_offre_de_stage` = :id);");
+      $query->bindValue(':id', $supid);
+      $query->execute();
+      echo '<script>alert("Offre supprimé avec succès");</script>';
 
-            header("Location: gerer_pilotes.php");
-          } ?>
-
-
+      header("Location: gerer_pilotes.php");
+    } ?>
 
 
-    
-<div class="container2">
+
+
+
+    <div class="container2">
       <div class="menu">
         <ul>
           <li><a href="gerer_pilotes.php">Pilotes</a></li>
@@ -247,24 +247,26 @@ $statut = "offre";
 
                     <div class="ligne">
 
-                      <input id="nombre_place" type="number" name="nombre_place" placeholder="Nombre de place" required/>
+                      <input id="nombre_place" type="number" name="nombre_place" placeholder="Nombre de place" required />
                     </div>
 
-                    <div class="ligne">
-                      <input id="promo_concernees" name="promo_concernees" placeholder="Promo concernées"required />
-                    </div>
-                    <div class="ligne">
-                      <input id="remuneration" name="remuneration" placeholder="Rémuneration (€)" required/>
-                    </div>
 
-                    <a id="verif_promo_concernees"></a>
+
+
                   </div>
 
                   <div class="partie_droite">
 
-                    <a id="verif_nom_rue"></a>
+                    <div class="ligne">
+                      <input id="promo_concernees" name="promo_concernees" placeholder="Promo concernées" required />
+                    </div>
+                    <a id="verif_promo_concernees"></a>
+
+                    <div class="ligne">
+                      <input id="remuneration" name="remuneration" type="number" placeholder="Rémuneration (€)" required />
+                    </div>
                     <div class="positionnement_btn_suivant_1">
-                      <button class="btn_suivant_1" onclick="offre_page_vers_2sur2()"> Suivant</button>
+                      <button class="btn_suivant_1" id="btn_suivant1" onclick="offre_page_vers_2sur2()"> Suivant</button>
                     </div>
 
                   </div>
@@ -279,12 +281,12 @@ $statut = "offre";
 
                 <div class="ligne_2 premiere_ligne">
                   <label for="date_debut">Date de début :</label>
-                  <input id="date_debut" name="date_debut" type="date" class="colonne-gauche" required/>
+                  <input id="date_debut" name="date_debut" type="date" class="colonne-gauche" required />
                 </div>
 
                 <div class="ligne_2">
                   <label for="date_debut">Date de fin : </label>
-                  <input id="date_fin" name="date_fin" type="date" class="colonne-gauche" required/>
+                  <input id="date_fin" name="date_fin" type="date" class="colonne-gauche" required />
 
                 </div>
                 <div>
@@ -292,7 +294,7 @@ $statut = "offre";
                 </div>
                 <div class="ligne_2_de3">
 
-                  <input id="competence" name="competence" class="colonne-gauche" placeholder=" Compétences" required/>
+                  <input id="competence" name="competence" class="colonne-gauche" placeholder=" Compétences" required />
 
                   <input id="domaine_stage" name="domaine_stage" class="colonne-gauche" placeholder="Secteur d'activité" />
                 </div>
@@ -304,7 +306,7 @@ $statut = "offre";
                 <div class="btn_prece_valid">
                   <button class="btn_precedent_1" onclick="offre_page_vers_1sur2()"> Précédent</button>
                   <button class="btn_valider" type="submit" id="btn_valider"> Valider</button>
-                  <button type = "button" id="btn_donnees_incorrect" class="btn_valider">Merci de vérifier vos informations</button>
+                  <button type="button" id="btn_donnees_incorrect" class="btn_valider">Merci de vérifier vos informations</button>
 
                 </div>
 

@@ -36,7 +36,6 @@ body {
 .titre-pop-up {
   font-size: 36px;
   font-weight: bold;
-  margin-bottom: 100px;
 }
 
 input {
@@ -129,13 +128,6 @@ input::placeholder {
 .btn_precedent_1 {
   background: #b1c1db;
 }
-.btn_suivant_1M,
-.btn_validerM {
-  background: #7b9dd2;
-}
-.btn_precedent_1M {
-  background: #b1c1db;
-}
 
 .trait {
   border-left: 1px solid #7b9dd2;
@@ -163,15 +155,14 @@ input::placeholder {
 .offre_page_2sur2 {
   margin-top: 50px;
 }
-.offre_page_2sur2M {
-  margin-top: 50px;
-}
 
-#secteur_activite {
+#secteur_activite,
+#secteur_activitemodif {
   margin-top: 10px;
   margin-bottom: 15px;
 }
 
-#description_entreprise {
+#description_entreprise,
+#description_entreprisemodif {
   margin-bottom: 30px;
 }
