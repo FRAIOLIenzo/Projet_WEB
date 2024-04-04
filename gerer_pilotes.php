@@ -24,6 +24,8 @@
   <link rel="stylesheet" href="style/style_gerer_pilotes.css" />
   <link rel="stylesheet" href="style/style_fenetre_gerer_pilotes.css" />
   <script src="js/js_gerer.js" defer></script>
+  <script src="js/js_verification_formulaire_pilote.js" defer></script>
+
   <script>
     var page = "<?php echo basename($_SERVER['PHP_SELF']); ?>";
     </script>
