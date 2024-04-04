@@ -47,7 +47,7 @@ try {
     // Utiliser l'ID maximum de l'entreprise dans la boucle
     for ($i = 1; $i <= $max_id; $i++) {
         // Requête SQL pour récupérer les détails de l'offre de stage avec l'ID actuel de la boucle
-        $sql = "SELECT o.types_de_promotion, o.duree_stage, o.remuneration, o.date_publication_offre, 
+        $sql = "SELECT o.types_de_promotion, o.remuneration, o.date_publication_offre, 
         o.nombre_places_offertes, o.date_de_debut, o.date_de_fin, o.description_offre, 
         o.domaine_stage, o.id_entreprise, e.nom_entreprise, e.adresse_mail, r.etage, a.nom_rue, a.numero_rue,
         c.description_competence
@@ -66,7 +66,6 @@ try {
         // Vérification s'il y a des données à afficher
         if ($row) {
             $types_de_promotion = $row['types_de_promotion'];
-            $duree_stage = $row['duree_stage'];
             $remuneration = $row['remuneration'];
             $date_publication_offre = $row['date_publication_offre'];
             $nombre_places_offertes = $row['nombre_places_offertes'];
@@ -119,7 +118,7 @@ try {
           <div class="trait_vertical"></div>
           <div class="box_droite_domaine_stage">
             <label class="promotion_concernee"><?php echo $types_de_promotion; ?></label>
-            <label class="date_stage">Durée du stage : <?php echo $duree_stage; ?> </label>
+            <label class="date_stage">Du : <?php echo $date_de_debut; ?> au <?php echo $date_de_fin; ?></label>
             <label class="nb_place">Nombre de places disponibles : <?php echo $nombre_places_offertes; ?></label>
             <label class="adresse_mail">Contact : <?php echo $adresse_mail; ?></label>
           </div>
