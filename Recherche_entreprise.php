@@ -101,7 +101,8 @@ try {
                     <label class="nom_entreprise"><?php echo $nom_entreprise; ?></label>
                     <label class="localisation_entreprise"><?php echo $numero_rue; ?> <?php echo $nom_rue; ?></label>
                     <div class="box_avis">
-                        <label class="avis_entreprise">Note :<?php echo $moyenne_notes; ?>/5</label>
+                    <label class="avis_entreprise">Note : <?php if ($moyenne_notes === NULL) {echo "0";} else {echo $moyenne_notes;} ?>/5</label>
+
 
                         <label class="nb_avis_entreprise">(<?php echo $nombre_avis; ?> avis)</label>
                     </div>
