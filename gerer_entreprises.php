@@ -100,7 +100,9 @@ $statut = "entreprise";
     <div class="container2">
       <div class="menu">
         <ul>
+        <?php if(isset($_SESSION['statut']) && $_SESSION['statut'] == 'admin'): ?>
           <li><a href="gerer_pilotes.php">Pilotes</a></li>
+          <?php endif; ?>
           <li><a href="gerer_offres.php">Offres</a></li>
           <li><a href="gerer_etudiants.php">Étudiants</a></li>
           <div class="square">
@@ -115,10 +117,6 @@ $statut = "entreprise";
             <img alt="loupe" id="imgsearch" src="image/loupe.png" />
           </div>
           <div class="btncountainer">
-            <button class="btnajouter">
-              <img alt="plus" class="imgplus" src="image/plus.png" />Ajouter des
-              entreprises via un fichier CSV
-            </button>
             <button onclick="openPopup1()" class="btnajouter">
               <img alt="plus" class="imgplus" src="image/plus.png" />Ajouter une entreprise
             </button>

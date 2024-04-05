@@ -19,11 +19,7 @@
 
 <body>
   <?php include 'Navbar.php'; ?>
-  <?php
-    if (!(isset($_SESSION['statut']) && ($_SESSION['statut'] == 'admin') || $_SESSION['statut'] == 'pilote')) {
-      header('Location: pasacces.php');
-        }
-?>
+
 
 
   <main>
@@ -42,8 +38,9 @@
             <li class="active"><p>Offres</p></li>
      
         </div>
-
+        <?php if(isset($_SESSION['statut']) && $_SESSION['statut'] == 'admin' || $_SESSION['statut'] == 'pilote'): ?>
           <li><a href="statistique_etudiant.php">Étudiants</a></li>
+          <?php endif; ?>
           <li><a href="statistique_entreprises.php">Entreprise</a></li>
         
       </ul>

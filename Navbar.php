@@ -37,20 +37,27 @@
           <a href="Recherche_stage.php">Offres</a>
         </div>
       </div>
+      <?php if(isset($_SESSION['statut']) && $_SESSION['statut'] == 'admin' || $_SESSION['statut'] == 'pilote'): ?>
       <div class="dropdown_2">
         <button>Gérer</button>
         <div class="content_gerer">
+        <?php if(isset($_SESSION['statut']) && $_SESSION['statut'] == 'admin'): ?>
           <a href="gerer_pilotes.php">Pilotes</a>
+        <?php endif; ?>
+
           <a href="gerer_entreprises.php">Entreprises</a>
           <a href="gerer_etudiants.php">Etudiants</a>
           <a href="gerer_offres.php">Offres</a>
+        <?php endif; ?>
         </div>
       </div>
       <div class="dropdown_3">
         <button>Statistiques</button>
         <div class="content_stat">
           <a href="statistique_entreprises.php">Entreprises</a>
+          <?php if(isset($_SESSION['statut']) && $_SESSION['statut'] == 'admin' || $_SESSION['statut'] == 'pilote'): ?>
           <a href="statistique_etudiant.php">Etudiants</a>
+          <?php endif; ?>
           <a href="statistique_offres_stage.php">Offres</a>
         </div>
       </div>

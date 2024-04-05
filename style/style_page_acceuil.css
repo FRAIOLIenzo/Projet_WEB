@@ -57,7 +57,7 @@ footer {
   border-radius: 25px;
   background: #7b9dd2;
   box-shadow: 3px 3px 4px #acacac;
-
+  cursor: pointer;
   border: none;
   font-weight: bold;
   color: white;

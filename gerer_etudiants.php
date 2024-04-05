@@ -46,8 +46,9 @@
       <div class="container2">
         <div class="menu">
           <ul>
+          <?php if(isset($_SESSION['statut']) && $_SESSION['statut'] == 'admin'): ?>
             <li><a href="gerer_pilotes.php">Pilotes</a></li>
-
+            <?php endif; ?>
             <li><a href="gerer_offres.php">Offres</a></li>
             <div class="square">
               <li><a class="active" href="gerer_etudiants.php">Étudiants</a></li>
@@ -63,10 +64,6 @@
               <img alt="search" id="imgsearch" src="image/loupe.png" />
             </div>
             <div class="btncountainer">
-              <button class="btnajouter">
-                <img alt="plus" class="imgplus" src="image/plus.png" />Ajouter des
-                étudiants via un fichier CSV
-              </button>
               <button onclick="openPopup1()" class="btnajouter">
                 <img alt="plus" class="imgplus" src="image/plus.png" />Ajouter un étudiant
               </button>
