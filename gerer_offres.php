@@ -56,7 +56,7 @@ $statut = "offre";
                   Voulez-vous supprimer ce pilote de manière définitive ?
                 </div>
                 <div>
-                <input type="text" id="supid" name="supid" placeholder="id" style="display : block ;" required />
+                <input type="text" id="supid" name="supid" placeholder="id" style="display : none ;" required />
                   <button type="submit" id="Supprimer">Supprimer</button>
                   <button id="Annuler" type="button" onclick="openPopup3()">Annuler</button>
                 </div>
@@ -149,9 +149,10 @@ $statut = "offre";
               <div class="offre_page_1sur2modif">
                 <div class="conteneur_page_1_creer_offre">
                   <div class="partie_gauche">
+                  <input type="text" id="supid2" name="supid2" placeholder="id" style="display : none ;" required />
 
                     <div class="ligne">
-                      <input id="nom_offre1modif" name="nom_offre1" placeholder="Nom de l'offre" required />
+                      <input id="nom_offre1modif" name="nom_offre2" placeholder="Nom de l'offre" required />
                     </div>
 
                     <a id="verif_nom_offremodif"></a>
@@ -255,6 +256,50 @@ $statut = "offre";
         </div>
       </div>
     </div>
+    <?php
+    if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['supid2'])) {
+      $id = $_POST['supid2'];
+      $nom_offre2 = $_POST['nom_offre2'];
+      $nom_entreprise = $_POST['nom_entreprise'];
+      $nombre_place = $_POST['nombre_place'];
+      $promo_concernees = $_POST['promo_concernees'];
+      $date_debut = $_POST['date_debut'];
+      $date_fin = $_POST['date_fin'];
+      $competence = $_POST['competence'];
+      $tabcomp = [];
+      $tabcomp = explode(",", $competence);
+      $domaine_stage = $_POST['domaine_stage'];
+      $remuneration = $_POST['remuneration'];
+      $description_annonce = $_POST['description_annonce'];
+
+      // on reucpère l'id de l'entreprise
+      $query = $db->prepare("SELECT id_entreprise FROM entreprise WHERE nom_entreprise=:nom_entreprise");
+      $query->bindValue(':nom_entreprise', $nom_entreprise);
+      $query->execute();
+      $id_entreprise = $query->fetchColumn();
+      echo '<script>alert("1");</script>';
+      echo '<script>alert("'.$promo_concernees.$remuneration.$nombre_place.$date_debut.$date_fin.$description_annonce.$domaine_stage.$nom_offre2.$id.'");</script>';
+
+      // on recupere l'id
+      $query = $db->prepare("UPDATE `max`.`offre_de_stage` SET `types_de_promotion` = :promo_concernees, `remuneration` = :remuneration, `nombre_places_offertes` = :nombre_place, `date_de_debut` = :date_debut, `date_de_fin` = :date_fin, `description_offre` = :description_annonce, `domaine_stage` = :domaine_stage, `nom_offre` = :nom_offre1 WHERE (`id_offre_de_stage` = :id)");
+      
+      $query->bindValue(':promo_concernees', $promo_concernees);
+      $query->bindValue(':remuneration', $remuneration);
+      $query->bindValue(':nombre_place', $nombre_place);
+      $query->bindValue(':date_debut', $date_debut);
+      $query->bindValue(':date_fin', $date_fin);
+      $query->bindValue(':description_annonce', $description_annonce);
+      $query->bindValue(':domaine_stage', $domaine_stage);
+      $query->bindValue(':nom_offre1', $nom_offre2); // Correction : Utilisation de :nom_offre1
+      $query->bindValue(':id', $id);
+
+      $query->execute();
+    } ?>
+
+
+
+
+
 
 
     <div id="popupajout1">
@@ -413,7 +458,7 @@ $statut = "offre";
       // on recupere l'id
       $query = $db->prepare("INSERT INTO `max`.`offre_de_stage` (`types_de_promotion`, `remuneration`, `date_publication_offre`, `nombre_places_offertes`, `date_de_debut`, `date_de_fin`, `description_offre`, `domaine_stage`, `id_entreprise`, `nom_offre`) VALUES (:promo_concernees, :remuneration, :datepublication, :nombre_place, :date_debut, :date_fin, :description_annonce, :domaine_stage, :id_entreprise, :nom_offre1);");
       $query->bindValue(':promo_concernees', $promo_concernees);
-      $query->bindValue(':remuneration', $email);
+      $query->bindValue(':remuneration', $remuneration);
       $query->bindValue(':datepublication', $datepublication);
       $query->bindValue(':nombre_place', $nombre_place);
       $query->bindValue(':date_debut', $date_debut);
