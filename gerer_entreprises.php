@@ -100,7 +100,9 @@ $statut = "entreprise";
     <div class="container2">
       <div class="menu">
         <ul>
+        <?php if(isset($_SESSION['statut']) && $_SESSION['statut'] == 'admin'): ?>
           <li><a href="gerer_pilotes.php">Pilotes</a></li>
+          <?php endif; ?>
           <li><a href="gerer_offres.php">Offres</a></li>
           <li><a href="gerer_etudiants.php">Étudiants</a></li>
           <div class="square">

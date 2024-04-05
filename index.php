@@ -32,7 +32,7 @@
       </p>
       </div>
 
-      <button class="bouton_commencer">Commencer à rechercher</button>
+      <a href="Recherche_stage.php"> <button class="bouton_commencer">Commencer à rechercher</button></a>
     </div>
 
     <div class="bloc_homme_loupe">

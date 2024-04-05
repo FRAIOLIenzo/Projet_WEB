@@ -87,7 +87,9 @@ $statut = "offre";
 <div class="container2">
       <div class="menu">
         <ul>
+        <?php if(isset($_SESSION['statut']) && $_SESSION['statut'] == 'admin'): ?>
           <li><a href="gerer_pilotes.php">Pilotes</a></li>
+          <?php endif; ?>
           <div class="square">
             <li class="active"><a href="#">Offres</a></li>
           </div>
