@@ -52,11 +52,6 @@ sixPremiers.forEach(function (entrepriseNote) {
   liste.appendChild(li);
 });
 
-
-
-  // Tableau de données
-
-
   // Sélection du corps du tableau
   var tableBody = document.getElementById("tableBody");
 

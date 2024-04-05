@@ -2,7 +2,6 @@ google.charts.load("current", { packages: ["corechart"] });
 google.charts.setOnLoadCallback(drawCharts);
 
 function drawCharts() {
-  // Créer un tableau vide pour stocker les données
   var dataCampus = [["Campus", "Localisation"]];
   var dataSecteur = [["Secteur", "Activite"]];
 
@@ -51,12 +50,10 @@ sixPremiers.forEach(function (entrepriseNote) {
   liste.appendChild(li);
 });
 
-// Tableau de données
 
 // Sélection du corps du tableau
 var tableBody = document.getElementById("tableBody");
 
-// Effacement du contenu actuel du corps du tableau
 tableBody.innerHTML = "";
 var troisPremiers = donutData4.slice(0, 3);
 // Boucle à travers le tableau de données pour créer les lignes et les cellules

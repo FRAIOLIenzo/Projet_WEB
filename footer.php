@@ -32,13 +32,13 @@
         <div class="liste_nous_contacter">
           <ul>
             <li>
-              <p class="interligne"> 07 83 41 25 40</p>
+              <p class="interligne"> 03 83 41 25 40</p>
             </li>
             <li>
-              <p class="interligne"> 06 09 82 16 83</p>
+              <p class="interligne"> 03 09 82 16 83</p>
             </li>
             <li>
-              <p class="interligne"> 06 89 77 85 64</p>
+              <p class="interligne"> 03 89 77 85 64</p>
             </li>
           </ul>
         </div>

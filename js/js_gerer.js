@@ -155,13 +155,13 @@ function attachImageEventListeners() {
       console.log(x);
       console.log(y);
 
-      // Show the popup and position it below the clicked image
+
       let popup = document.getElementById("popupautre");
       popup.style.display = "block";
       popup.style.top = y + "px";
       popup.style.left = x + "px";
 
-      // on stock la valeur de la ligne pour si il appuis sur modifier
+
       var row = img.closest("tr");
       // Initialise un tableau pour stocker les informations de la ligne
 
