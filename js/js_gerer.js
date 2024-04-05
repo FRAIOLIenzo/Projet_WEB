@@ -194,8 +194,10 @@ function attachImageEventListeners() {
       }
       if (page == "gerer_offres.php") {
         var supid = document.getElementById("supid");
+        var supid2 = document.getElementById("supid2");
 
         supid.value = rowData[0];
+        supid2.value = rowData[0];
       }
       if (page == "gerer_entreprises.php") {
         var supid = document.getElementById("idsup3");
