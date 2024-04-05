@@ -127,10 +127,6 @@ try {
         <div class="box_competences">
           <ul class="competence">
             <li><?php echo $description_competence; ?></li>
-            <li>-</li>
-            <li><?php echo $description_competence; ?></li>
-            <li>-</li>
-            <li><?php echo $description_competence; ?></li>
           </ul>
         </div>
         <div class="description_stage">
