@@ -117,10 +117,6 @@ $statut = "entreprise";
             <img alt="loupe" id="imgsearch" src="image/loupe.png" />
           </div>
           <div class="btncountainer">
-            <button class="btnajouter">
-              <img alt="plus" class="imgplus" src="image/plus.png" />Ajouter des
-              entreprises via un fichier CSV
-            </button>
             <button onclick="openPopup1()" class="btnajouter">
               <img alt="plus" class="imgplus" src="image/plus.png" />Ajouter une entreprise
             </button>
