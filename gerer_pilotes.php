@@ -170,7 +170,6 @@ $statut = "pilote";
       $centrec = $_POST['centrec'];
 
       try {
-        // Update the account in the `compte` table
         $query = $db->prepare("UPDATE `max`.`compte` SET `adresse_mail` = :email, `nom` = :nom, `prenom` = :prenom, `mot_de_passe` = :motdepasse WHERE (`id_compte` = :id);");
         $query->bindValue(':nom', $nom);
         $query->bindValue(':prenom', $prenom);
@@ -179,22 +178,18 @@ $statut = "pilote";
         $query->bindValue(':id', $id);
         $query->execute();
 
-        // Get the ID of the current promotion
         $query = $db->prepare("SELECT p.id_promo FROM max.promo p WHERE p.nom_promo=:promo;");
-        // Get the ID of the new promotion
         $query->bindValue(':promo', $promotion);
         $query->execute();
-        $idpromoc = $query->fetchColumn(); // Fetch single column directly
+        $idpromoc = $query->fetchColumn(); 
         echo '<script>alert(' . $idpromoc . ');</script>';
 
-        // Selecte the `centre` 
         $query = $db->prepare("SELECT id_centre FROM max.Centre WHERE nom_centre=:centre;");
         $query->bindValue(':centre', $centre);
         $query->execute();
         $idcentre = $query->fetchColumn();
         echo '<script>alert("bientot2");</script>';
 
-        // Update the `pilote` table
         $query = $db->prepare("UPDATE pilote SET id_promo = :idpromo, id_centre = :idcentre WHERE `id_compte` = :id");
         $query->bindValue(':id', $id);
         $query->bindValue(':idpromo', $idpromoc);
@@ -205,7 +200,6 @@ $statut = "pilote";
 
         echo '<script>alert("Modif ajouté avec succès");</script>';
       } catch (PDOException $e) {
-        // Handle PDO exception
         echo "Error: " . $e->getMessage();
       }
     }
@@ -360,7 +354,7 @@ $statut = "pilote";
       $query = $db->prepare("DELETE FROM `max`.`compte` WHERE id_compte = :id;");
       $query->bindValue(':id', $id2);
       $query->execute();
-      echo '<script>alert("Pilote ajouté avec succès");</script>';
+      echo '<script>alert("Pilote supprimé avec succès");</script>';
       header("Location: gerer_pilotes.php");
     } ?>
   </main>

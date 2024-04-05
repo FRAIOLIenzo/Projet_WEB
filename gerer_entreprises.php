@@ -78,7 +78,7 @@ $statut = "entreprise";
     $query->bindValue(':id', $id2);
     $query->execute();
     $row = $query->fetch(PDO::FETCH_ASSOC);
-      // Vérifie si la ville existe déjà
+      // on supprime si il y a un avis
     if ($row) {
         $query = $db->prepare("DELETE FROM `max`.`avis` WHERE id_entreprise = :id;");
         $query->bindValue(':id', $id2);
@@ -323,7 +323,7 @@ $statut = "entreprise";
       $query->execute();
 
 
-      // met à jour s 
+      // update adresse
       $query = $db->prepare("UPDATE `max`.`adresse` SET `numero_rue` = :numero_rue, `nom_rue` = :nom_rue WHERE (`id_adresse` = :id_adresse);");
       $query->bindValue(':numero_rue', $numero_rue);
       $query->bindValue(':nom_rue', $nom_rue);

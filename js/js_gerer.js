@@ -155,15 +155,12 @@ function attachImageEventListeners() {
       console.log(x);
       console.log(y);
 
-
       let popup = document.getElementById("popupautre");
       popup.style.display = "block";
       popup.style.top = y + "px";
       popup.style.left = x + "px";
 
-
       var row = img.closest("tr");
-      // Initialise un tableau pour stocker les informations de la ligne
 
       // Parcourt chaque cellule de la ligne
       row.querySelectorAll("td").forEach(function (cell) {
@@ -172,41 +169,41 @@ function attachImageEventListeners() {
       });
       console.log("Données de la ligne cliquée:", rowData);
       if (page == "gerer_etudiants.php" || page == "gerer_pilotes.php") {
-        var prenom = document.getElementById("prenom");
-        var nom = document.getElementById("nom");
-        var nom = document.getElementById("nom");
-        var mail = document.getElementById("email");
-        var mdp = document.getElementById("motdepasse");
+        var prenom = document.getElementById("prenommodif");
+        var nom = document.getElementById("nommodif");
+        var mail = document.getElementById("emailmodif");
         var id = document.getElementById("idsup");
         var id2 = document.getElementById("idsup2");
         var promoc = document.getElementById("promoc");
         var centrec = document.getElementById("centrec");
 
-        prenom.value = rowData[1];
-        nom.value = rowData[2];
+        prenom.value = rowData[2];
+        nom.value = rowData[1];
         mail.value = rowData[4];
         id.value = rowData[0];
         id2.value = rowData[0];
-        console.log("rowData 5", rowData[5]);
         promoc.value = rowData[5];
-        console.log("promoc.value", promoc.value);
         centrec.value = rowData[3];
       }
       if (page == "gerer_offres.php") {
         var supid = document.getElementById("supid");
         var supid2 = document.getElementById("supid2");
+        var nom = document.getElementById("nom_offre1modif");
 
         supid.value = rowData[0];
         supid2.value = rowData[0];
+        nom.value = rowData[1];
       }
       if (page == "gerer_entreprises.php") {
         var supid = document.getElementById("idsup3");
         var supid2 = document.getElementById("idsup4");
-        var siret = document.getElementById("num_siretmodifc");
+        var siret = document.getElementById("num_siretmodif");
+        var entreprise = document.getElementById("nom_entreprisemodif");
 
         supid.value = rowData[0];
         supid2.value = rowData[0];
         siret.value = rowData[2];
+        entreprise.value = rowData[1];
       }
     });
   });

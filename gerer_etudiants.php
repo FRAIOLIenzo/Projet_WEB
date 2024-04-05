@@ -174,9 +174,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['email'])) {
     $promoc = $_POST['promoc'];
     $centrec = $_POST['centrec'];
 
-    // Assuming $db is your PDO database connection
     try {
-        // Update the account in the `compte` table
         $query = $db->prepare("UPDATE `max`.`compte` SET `adresse_mail` = :email, `nom` = :nom, `prenom` = :prenom, `mot_de_passe` = :motdepasse WHERE (`id_compte` = :id);");
         $query->bindValue(':nom', $nom);
         $query->bindValue(':prenom', $prenom);
@@ -185,22 +183,18 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['email'])) {
         $query->bindValue(':id', $id);
         $query->execute();
 
-        // Get the ID of the current promotion
         $query = $db->prepare("SELECT p.id_promo FROM max.promo p WHERE p.nom_promo=:promo;");
-        // Get the ID of the new promotion
         $query->bindValue(':promo', $promotion);
         $query->execute();
-        $idpromoc = $query->fetchColumn(); // Fetch single column directly
+        $idpromoc = $query->fetchColumn(); 
         echo '<script>alert(' . $idpromoc .');</script>';
 
-        // Selecte the `centre` 
         $query = $db->prepare("SELECT id_centre FROM max.Centre WHERE nom_centre=:centre;");
         $query->bindValue(':centre', $centre);
         $query->execute();
         $idcentre = $query->fetchColumn(); 
         echo '<script>alert("bientot2");</script>';
 
-        // Update the `pilote` table
         $query = $db->prepare("UPDATE etudie_dans SET id_promo = :idpromo, id_centre = :idcentre WHERE `id_compte` = :id");
         $query->bindValue(':id', $id);
         $query->bindValue(':idpromo', $idpromoc);
@@ -211,7 +205,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['email'])) {
 
         echo '<script>alert("Modifications du compte réalisé  avec succès");</script>';
     } catch (PDOException $e) {
-        // Handle PDO exception
         echo "Error: " . $e->getMessage();
     }
 }
